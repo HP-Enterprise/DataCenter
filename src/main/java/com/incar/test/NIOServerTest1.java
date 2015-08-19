@@ -87,6 +87,10 @@ public class NIOServerTest1 {
                 System.out.println("服务器端接受到的数据---"+receiveText);
                 socketChannel.register(selector, SelectionKey.OP_WRITE);
             }
+            else if(count<0){
+                System.out.println("客户端已关闭连接。。。。。");
+                return;
+            }
         }else if (selectionKey.isWritable()) {
             //将缓冲区清空以备下次写入  
             sendBuffer.clear();
@@ -104,10 +108,10 @@ public class NIOServerTest1 {
         }
 
     }
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
         int port = 8888;
         NIOServerTest1 server = new NIOServerTest1(port);
         server.listen();
-    }
+    }*/
 
 }

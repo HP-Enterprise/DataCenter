@@ -3,29 +3,29 @@ package com.incar.convert;
 
 import com.incar.DataType;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 public class DataBee {
-    private Field field;
+    private Method setter;
     private DataType dataType;
     private Integer order;
     private Object value;
-    public DataBee(Field field, DataType dataType) {
-        this.field = field;
+    public DataBee(Method setter, DataType dataType) {
+        this.setter = setter;
         this.dataType = dataType;
     }
-    public DataBee(Field field, DataType dataType, Integer order) {
-        this.field = field;
+    public DataBee(Method setter, DataType dataType, Integer order) {
+        this.setter = setter;
         this.dataType = dataType;
         this.order = order;
     }
 
-    public Field getField() {
-        return field;
+    public Method getSetter() {
+        return setter;
     }
 
-    public void setField(Field field) {
-        this.field = field;
+    public void setSetter(Method setter) {
+        this.setter = setter;
     }
 
     public DataType getDataType() {

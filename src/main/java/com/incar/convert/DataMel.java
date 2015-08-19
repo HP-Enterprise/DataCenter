@@ -14,6 +14,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({ElementType.FIELD,ElementType.METHOD})
 @Retention(RUNTIME)
 public @interface DataMel{
-    DataType type() default DataType.AUTO;
+    DataType value() default DataType.AUTO;
     int order() default -1;
 }

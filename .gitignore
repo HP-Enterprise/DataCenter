@@ -1,2 +1,4 @@
 /.idea/
 /DataCenter.iml
+/.gradle/
+/build/
