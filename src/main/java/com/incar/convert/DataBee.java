@@ -7,17 +7,28 @@ import java.lang.reflect.Method;
 
 public class DataBee {
     private Method setter;
+    private Method getter;
     private DataType dataType;
     private Integer order;
     private Object value;
-    public DataBee(Method setter, DataType dataType) {
+    public DataBee(Method getter,Method setter, DataType dataType) {
+        this.getter=getter;
         this.setter = setter;
         this.dataType = dataType;
     }
-    public DataBee(Method setter, DataType dataType, Integer order) {
+    public DataBee(Method getter,Method setter, DataType dataType, Integer order) {
+        this.getter=getter;
         this.setter = setter;
         this.dataType = dataType;
         this.order = order;
+    }
+
+    public Method getGetter() {
+        return getter;
+    }
+
+    public void setGetter(Method getter) {
+        this.getter = getter;
     }
 
     public Method getSetter() {

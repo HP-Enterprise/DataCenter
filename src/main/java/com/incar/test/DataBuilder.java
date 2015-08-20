@@ -115,7 +115,7 @@ public final class DataBuilder {
      * 写入一个字节
      * @param b 一个byte
      */
-    public void putByte(byte b){
+    public void putByte(Byte b){
         turnWriteMode();
         buffer.put(b);
     }
@@ -124,9 +124,9 @@ public final class DataBuilder {
      * 写入大端单字节整型
      * @param num   整型数
      */
-    public void putInt8BE(int num){
+    public void putInt8BE(Short num){
         turnWriteMode();
-        byte a=(byte)num;
+        byte a=(byte)num.shortValue();
         buffer.put(a);
     }
 
@@ -134,9 +134,9 @@ public final class DataBuilder {
      * 写入大端无符号单字节整型
      * @param num   整型数
      */
-    public void putUInt8BE(int num){
+    public void putUInt8BE(Short num){
         turnWriteMode();
-        byte a=(byte)Integer.toUnsignedLong(num);
+        byte a=(byte)Short.toUnsignedInt(num);
         buffer.put(a);
     }
 
@@ -162,7 +162,7 @@ public final class DataBuilder {
      * 写入大端四字节整型
      * @param num   整型数
      */
-    public void putInt32BE(int num){
+    public void putInt32BE(Integer num){
         turnWriteMode();
         buffer.putInt(num);
     }
