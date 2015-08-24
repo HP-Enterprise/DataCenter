@@ -1,8 +1,6 @@
 package com.incar.convert;
 
 
-import com.incar.DataType;
-
 import java.lang.reflect.Method;
 
 public class DataBee {

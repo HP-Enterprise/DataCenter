@@ -1,11 +1,11 @@
-package com.incar.bean;
+package com.incar.bean.landu;
 
-import com.incar.DataType;
+import com.incar.convert.DataType;
 import com.incar.convert.DataEntity;
 import com.incar.convert.DataMel;
 
 @DataEntity
-public class Req1603 {
+public class Req1602 {
 
     /*-----数据包头信息-----*/
     private Integer head;           //数据包标识

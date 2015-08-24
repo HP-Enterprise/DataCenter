@@ -1,7 +1,6 @@
 package com.incar.convert;
 
-import com.incar.DataType;
-import com.incar.bean.Req1603;
+import com.incar.bean.landu.Req1603;
 import com.incar.test.ConversionException;
 import com.incar.test.DataBuilder;
 import org.apache.log4j.Logger;
@@ -15,13 +14,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DataFlower<T> {
-    private Class<T> melClass;
+public class DataFlower {
     private static Map<Class<?>,List<DataBee>> melMap=new HashMap<Class<?>, List<DataBee>>();
     Logger log=Logger.getLogger(DataFlower.class);
-    public DataFlower(Class<T> melClass){
-        this.melClass=melClass;
-    }
 
     public T bytesToEntity(ByteBuffer buffer){
         if(melClass.getAnnotation(DataEntity.class)!=null){
@@ -35,7 +30,7 @@ public class DataFlower<T> {
         }
     }
 
-    public ByteBuffer entityToBytes(T mel){
+    public ByteBuffer entityToBytes(T...mel){
         if(this.melClass.equals(mel.getClass())&&mel.getClass().getAnnotation(DataEntity.class)!=null){
             //第一步，通过DataMel实体构建DataBee集合
             List<DataBee> beeList=buildBeeList();
@@ -108,6 +103,9 @@ public class DataFlower<T> {
             try {
                 List<DataBee> beeList=new ArrayList<DataBee>(10);
                 List<DataBee> orderList=new ArrayList<DataBee>();
+                for(Method m:melClass.getMethods()){
+                    System.out.println(m.getName());
+                }
                 Field[] fields=melClass.getDeclaredFields();
                 for(Field f:fields){
                     //System.out.println(f.getName());
@@ -173,7 +171,9 @@ public class DataFlower<T> {
 
     public static void main(String[] args){
         ByteBuffer bb=ByteBuffer.allocate(1024);
+
         String[] command="AA 55 00 4B FF B4 00 05 16 03 49 4E 43 41 52 30 30 30 30 30 33 00 00 00 00 3D 37 00 4C 53 56 46 56 36 31 38 33 44 32 32 30 30 39 33 32 00 56 31 2E 35 30 2E 30 30 00 56 30 2E 30 30 2E 30 30 00 56 33 2E 31 33 2E 31 35 00 FF 01 0F 22".split(" ");
+        //String[] command="AA 55 00 C7 FF 38 00 05 16 02 49 4E 43 41 52 30 30 30 31 00 00 00 01 86 34 00 57 30 4C 30 5A 43 46 36 39 33 31 30 38 33 39 31 41 00 32 30 31 34 2D 30 37 2D 30 31 20 31 31 3A 34 36 3A 31 38 00 01 30 00 30 00 57 30 30 30 2E 30 30 30 30 30 30 2C 53 30 30 2E 30 30 30 30 30 30 2C 30 2C 32 30 31 34 2D 30 37 2D 30 31 20 31 31 3A 34 36 3A 31 38 2C 30 00 02 50 30 33 30 34 00 B4 E6 D6 FC B9 CA D5 CF C2 EB 00 B5 DA 34 B8 D7 D4 F8 BE AD CA A7 BB F0 00 50 30 32 32 33 00 B4 E6 D6 FC B9 CA D5 CF C2 EB 00 BD DA C6 F8 C3 C5 2F CC A4 B0 E5 CE BB D6 C3 B4 AB B8 D0 C6 F7 2F BF AA B9 D8 42 B5 E7 C2 B7 B8 DF 00 4A 51".split(" ");
         byte[] abc=new byte[command.length];
         for(int i=0;i<command.length;i++){
             abc[i]=Integer.valueOf(command[i],16).byteValue();
