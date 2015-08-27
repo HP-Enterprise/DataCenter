@@ -1,6 +1,4 @@
-package com.incar.convert;
-
-import com.incar.DataType;
+package com.hp.data.convert;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -11,9 +9,6 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Documented
-@Target({ElementType.FIELD,ElementType.METHOD})
+@Target(ElementType.TYPE)
 @Retention(RUNTIME)
-public @interface DataMel{
-    DataType value() default DataType.AUTO;
-    int order() default -1;
-}
+public @interface DataEntity{}

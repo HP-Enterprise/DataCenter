@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.incardata.com.cn/schema/tags"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://www.incardata.com.cn/schema/tags"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+    <xsd:import namespace="http://www.springframework.org/schema/beans" />
+    <xsd:complexType name="elementType">
+        <xsd:attribute name="type">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="BYTE" />
+                    <xsd:enumeration value="INT_8" />
+                    <xsd:enumeration value="INT_16" />
+                    <xsd:enumeration value="INT_32" />
+                    <xsd:enumeration value="U_INT_8" />
+                    <xsd:enumeration value="U_INT_16" />
+                    <xsd:enumeration value="U_INT_32" />
+                    <xsd:enumeration value="CHAR"/>
+                    <xsd:enumeration value="STRING" />
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+    <xsd:element name="protocol">
+        <xsd:annotation>
+            <xsd:documentation>protocol definition</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:sequence>
+                        <xsd:element name="unit" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="element" type="elementType"/>
+                                </xsd:sequence>
+                                <xsd:attribute name="name" type="xsd:string"/>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                    <xsd:attribute name="name" type="xsd:string"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+
+<!--
+<xsd:attribute name="dbname" type="xsd:string" use="required" />
+                    <xsd:attribute name="datasouceip" type="xsd:string"
+                                   use="optional" default="127.0.0.1" />
+                    <xsd:attribute name="username" type="xsd:string" use="required" />
+                    <xsd:attribute name="password" type="xsd:string" use="required" />
+                    <xsd:attribute name="characterEncoding" type="xsd:string" default="utf8">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:enumeration value="utf8" />
+                                <xsd:enumeration value="gbk" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+-->

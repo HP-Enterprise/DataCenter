@@ -1,9 +1,7 @@
-package com.incar.convert;
+package com.hp.data.convert;
 
-import com.incar.DataType;
-import com.incar.bean.Req1603;
-import com.incar.test.ConversionException;
-import com.incar.test.DataBuilder;
+import com.hp.data.core.DataBuilder;
+import com.hp.data.test.ConversionException;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
@@ -89,7 +87,6 @@ public class DataFlower<T> {
                 bee.getSetter().invoke(bean,value);
             }
             return bean;
-
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -171,7 +168,7 @@ public class DataFlower<T> {
         }
     }
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         ByteBuffer bb=ByteBuffer.allocate(1024);
         String[] command="AA 55 00 4B FF B4 00 05 16 03 49 4E 43 41 52 30 30 30 30 30 33 00 00 00 00 3D 37 00 4C 53 56 46 56 36 31 38 33 44 32 32 30 30 39 33 32 00 56 31 2E 35 30 2E 30 30 00 56 30 2E 30 30 2E 30 30 00 56 33 2E 31 33 2E 31 35 00 FF 01 0F 22".split(" ");
         byte[] abc=new byte[command.length];
@@ -186,7 +183,7 @@ public class DataFlower<T> {
         ByteBuffer bbb=df.entityToBytes(req);
         System.out.println(req);
         printByteBuffer(bbb);
-    }
+    }*/
     private static void printByteBuffer(ByteBuffer bb){
         bb.flip();
         for(int i=0;i<bb.limit();i++){

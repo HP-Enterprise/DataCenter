@@ -1,4 +1,4 @@
-package com.incar.test;
+package com.hp.data.test;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -93,10 +93,10 @@ public class NIOClient {
      * 启动客户端测试
      * @throws IOException
      */
-    public static void main(String[] args) throws IOException {
+   /* public static void main(String[] args) throws IOException {
         NIOClient client = new NIOClient();
         client.initClient("localhost",8000);
         client.listen();
-    }
+    }*/
 
 }

@@ -18,9 +18,10 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
-    compile ("org.springframework.boot:spring-boot-starter-logging:1.2.5.RELEASE")
-    testCompile("junit:junit:4.+")
+    compile("org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE")
+    testCompile("org.springframework.boot:spring-boot-starter-test:1.2+")
 }
 
 defaultTasks "build"

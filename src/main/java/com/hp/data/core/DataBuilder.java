@@ -1,5 +1,7 @@
-package com.incar.test;
+package com.hp.data.core;
 
+
+import com.hp.data.test.ConversionException;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
@@ -30,6 +32,15 @@ public final class DataBuilder {
     }
     public static DataBuilder build(){
         return new DataBuilder(ByteBuffer.allocate(1024));
+    }
+
+    /**
+     * 移动到指定位置
+     * @param position  位置下标
+     */
+    public DataBuilder moveTo(Integer position){
+        this.buffer.position(position);
+        return this;
     }
     /**
      * 开启读模式
@@ -228,10 +239,10 @@ public final class DataBuilder {
         }
         return a;
     }
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         DataBuilder db=DataBuilder.build();
         db.putString("你好0");
         String a=db.getString();
         System.out.println(a);
-    }
+    }*/
 }

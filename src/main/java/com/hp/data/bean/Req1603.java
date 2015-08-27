@@ -1,8 +1,9 @@
-package com.incar.bean;
+package com.hp.data.bean;
 
-import com.incar.DataType;
-import com.incar.convert.DataEntity;
-import com.incar.convert.DataMel;
+import com.hp.data.convert.DataType;
+import com.hp.data.convert.DataMel;
+import com.hp.data.convert.DataEntity;
+
 
 @DataEntity
 public class Req1603 {
