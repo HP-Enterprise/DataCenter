@@ -9,13 +9,27 @@
     <!-- 扫描文件 -->
     <!-- 自动加载构建bean -->
     <context:component-scan base-package="com.hp.data"/>
-
-    <!-- 加载数据库属性配置文件
-    <context:property-placeholder location="classpath:db.properties" />
-    -->
-    <data:protocol id="conversion" name="someName">
-        <data:unit name="1603">
-            <data:element type="STRING"/>
+    <data:protocol id="conversion" name="hpProtocol">
+        <data:unit name="1603" key="43605">
+            <!--数据包包头-->
+            <data:element name="head" type="U_INT_16"/>             <!--数据包标识-->
+            <data:element name="length" type="U_INT_16"/>           <!--数据包长度-->
+            <data:element name="inverseLength" type="U_INT_16"/>    <!--数据包校验长度(长度取反)-->
+            <data:element name="packageId" type="U_INT_8"/>         <!--数据包ID-->
+            <data:element name="packageVersion" type="U_INT_8"/>    <!--数据包协议版本-->
+            <!--数据包包体-->
+            <data:element name="command" type="U_INT_16"/>          <!--命令字-->
+            <data:element name="obdCode" type="STRING"/>            <!--OBD设备号-->
+            <data:element name="tripId" type="U_INT_32"/>           <!--行程编号-->
+            <data:element name="vid" type="STRING"/>                <!--车辆识别码-->
+            <data:element name="vin" type="STRING"/>                <!--发动机识别码-->
+            <data:element name="hardwareVersion" type="STRING"/>    <!--硬件版本号-->
+            <data:element name="firmwareVersion" type="STRING"/>    <!--固件版本号-->
+            <data:element name="softwareVersion" type="STRING"/>    <!--软件版本号-->
+            <data:element name="diagnosisType" type="U_INT_8"/>     <!--诊断类型-->
+            <data:element name="initCode" type="U_INT_8"/>          <!--恢复出厂设置序列号-->
+            <!--数据包包尾-->
+            <data:element name="checkNumber" type="U_INT_16"/>      <!--数据包校验和-->
         </data:unit>
     </data:protocol>
 </beans>

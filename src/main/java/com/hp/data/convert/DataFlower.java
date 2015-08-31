@@ -184,13 +184,5 @@ public class DataFlower<T> {
         System.out.println(req);
         printByteBuffer(bbb);
     }*/
-    private static void printByteBuffer(ByteBuffer bb){
-        bb.flip();
-        for(int i=0;i<bb.limit();i++){
-            String byteStr=Integer.toHexString(bb.get()).toUpperCase();
-            if(byteStr.length()==1)byteStr="0"+byteStr;
-            if(byteStr.length()!=2)byteStr=byteStr.substring(byteStr.length()-2);
-            System.out.print(byteStr+" ");
-        }
-    }
+
 }

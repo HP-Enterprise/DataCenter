@@ -5,22 +5,18 @@ import com.hp.data.convert.DataMel;
 import com.hp.data.convert.DataEntity;
 
 
-@DataEntity
+@DataEntity(key = "43605")
 public class Req1603 {
 
     /*-----数据包头信息-----*/
     private Integer head;           //数据包标识
     private Integer length;         //数据包长度
     private Integer inverseLength;  //数据包校验长度(长度取反)
-    @DataMel(DataType.U_INT_8)
     private Short    packageId;      //数据包ID
-    @DataMel(DataType.U_INT_8)
     private Short    packageVersion; //数据包协议版本
     /*-----数据包体信息-----*/
     //-----命令信息
-    @DataMel(order = 5)
     private Integer command;        //命令字
-    @DataMel(order = 6)
     private String obdCode;         //OBD设备号
     private Long tripId;            //行程编号
     //-----车辆信息

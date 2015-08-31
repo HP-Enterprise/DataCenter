@@ -1,6 +1,6 @@
 package com.hp.data.conf;
 
-import com.hp.data.convert.DataType;
+import com.hp.data.convert.PackageElement;
 import com.hp.data.core.DefaultConversion;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
@@ -19,16 +19,23 @@ public class ProtocolParser extends AbstractSingleBeanDefinitionParser{
     @Override
     protected void doParse(Element element, ParserContext parserContext,
                            BeanDefinitionBuilder builder) {
-        NodeList list=element.getElementsByTagName("data:unit");
-        for(int i=0;i<list.getLength();i++){
-            Element ele= (Element) list.item(i);
-            System.out.println(ele.getAttribute("name"));
+        NodeList unitList=element.getElementsByTagName("data:unit");
+        Map<String,List<PackageElement>> unitMap=new HashMap<String, List<PackageElement>>();
+        for(int i=0;i<unitList.getLength();i++){
+            Element unit= (Element) unitList.item(i);
+            String name=unit.getAttribute("name");
+            String key=unit.getAttribute("key");
+            List<PackageElement> eleList=new ArrayList<PackageElement>();
+            NodeList eleNodeList=unit.getElementsByTagName("data:element");
+            for(int j=0;j<eleNodeList.getLength();j++){
+                Element ele= (Element) eleNodeList.item(j);
+                String eleName=ele.getAttribute("name");
+                String eleType=ele.getAttribute("type");
+                eleList.add(new PackageElement(eleName,eleType));
+            }
+            unitMap.put(key,eleList);
         }
-        List<DataType> list1=new ArrayList<DataType>();
-        list1.add(DataType.BYTE);
-        Map<String,List<DataType>> map=new HashMap<String, List<DataType>>();
-        map.put("43605", list1);
-        builder.addPropertyValue("unitMap",map);
+        builder.addPropertyValue("unitMap",unitMap);
         builder.addPropertyReference("packageDistinguish","packageDistinguish");
     }
 

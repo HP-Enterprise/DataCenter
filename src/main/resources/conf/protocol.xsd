@@ -7,7 +7,8 @@
             attributeFormDefault="unqualified">
     <xsd:import namespace="http://www.springframework.org/schema/beans" />
     <xsd:complexType name="elementType">
-        <xsd:attribute name="type">
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" use="required">
             <xsd:simpleType>
                 <xsd:restriction base="xsd:string">
                     <xsd:enumeration value="BYTE" />
@@ -30,35 +31,20 @@
         <xsd:complexType>
             <xsd:complexContent>
                 <xsd:extension base="beans:identifiedType">
-                    <xsd:sequence>
-                        <xsd:element name="unit" maxOccurs="unbounded">
-                            <xsd:complexType>
-                                <xsd:sequence>
-                                    <xsd:element name="element" type="elementType"/>
-                                </xsd:sequence>
-                                <xsd:attribute name="name" type="xsd:string"/>
-                            </xsd:complexType>
-                        </xsd:element>
-                    </xsd:sequence>
-                    <xsd:attribute name="name" type="xsd:string"/>
+            <xsd:sequence>
+                <xsd:element name="unit" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence maxOccurs="unbounded">
+                            <xsd:element name="element" type="elementType"/>
+                        </xsd:sequence>
+                        <xsd:attribute name="name" type="xsd:string"/>
+                        <xsd:attribute name="key" type="xsd:int"/>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="name" type="xsd:string"/>
                 </xsd:extension>
             </xsd:complexContent>
         </xsd:complexType>
     </xsd:element>
 </xsd:schema>
-
-<!--
-<xsd:attribute name="dbname" type="xsd:string" use="required" />
-                    <xsd:attribute name="datasouceip" type="xsd:string"
-                                   use="optional" default="127.0.0.1" />
-                    <xsd:attribute name="username" type="xsd:string" use="required" />
-                    <xsd:attribute name="password" type="xsd:string" use="required" />
-                    <xsd:attribute name="characterEncoding" type="xsd:string" default="utf8">
-                        <xsd:simpleType>
-                            <xsd:restriction base="xsd:string">
-                                <xsd:enumeration value="utf8" />
-                                <xsd:enumeration value="gbk" />
-                            </xsd:restriction>
-                        </xsd:simpleType>
-                    </xsd:attribute>
--->
