@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 @SpringApplicationConfiguration(locations = "classpath:spring-config.xml")
 public class DemoTest {
     @Autowired
-    private Conversion conversion;
+    private Conversion conversionOBD;
     @Before
     public void setUp() {}
 
@@ -37,14 +37,14 @@ public class DemoTest {
         bb.put(abc);
         bb.flip();
         //读
-        DataPackage dp=conversion.generate(bb);
+        DataPackage dp=conversionOBD.generate(bb);
         Req1603 bean=dp.loadBean(Req1603.class);
         String key = dp.getKey();
         System.out.println(bean.toString());
         //写
         DataPackage dpw=new DataPackage(key);
         dpw.fillBean(bean);
-        ByteBuffer bbw=conversion.generate(dpw);
+        ByteBuffer bbw=conversionOBD.generate(dpw);
         String byteStr=getByteString(bbw);
         System.out.println(byteStr);
         System.out.println(byteString);

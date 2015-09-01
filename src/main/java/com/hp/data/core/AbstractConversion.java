@@ -4,21 +4,17 @@ package com.hp.data.core;
 import com.hp.data.convert.DataType;
 import com.hp.data.convert.PackageElement;
 import com.hp.data.test.ConversionException;
-import org.springframework.stereotype.Component;
 
 import java.nio.ByteBuffer;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Component("conversion")
-public class DefaultConversion implements Conversion{
+public abstract class AbstractConversion implements Conversion{
     private Map<String,List<PackageElement>> unitMap;
-    private PackageDistinguish packageDistinguish;
-
+    public abstract String getPackageKey(ByteBuffer buffer);
     @Override
     public DataPackage generate(ByteBuffer buffer) {
-        String key=this.packageDistinguish.getPackageKey(buffer);
+        String key=this.getPackageKey(buffer);
         DataPackage dp=new DataPackage(key);
         List<PackageElement> list=this.unitMap.get(key);
         DataBuilder builder=DataBuilder.build(buffer);
@@ -74,10 +70,6 @@ public class DefaultConversion implements Conversion{
         return db.buffer();
     }
 
-
-
-
-
     public Map<String, List<PackageElement>> getUnitMap() {
         return unitMap;
     }
@@ -86,11 +78,4 @@ public class DefaultConversion implements Conversion{
         this.unitMap = unitMap;
     }
 
-    public PackageDistinguish getPackageDistinguish() {
-        return packageDistinguish;
-    }
-
-    public void setPackageDistinguish(PackageDistinguish packageDistinguish) {
-        this.packageDistinguish = packageDistinguish;
-    }
 }
