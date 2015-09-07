@@ -24,7 +24,12 @@
             </xsd:simpleType>
         </xsd:attribute>
         <xsd:attribute name="size" default="0"/>
-        <xsd:attribute name="key" type="xsd:string" default=""/>
+    </xsd:complexType>
+    <xsd:complexType name="elementGroupType">
+        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="element" type="elementType"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
     </xsd:complexType>
     <xsd:element name="protocol">
         <xsd:annotation>
@@ -33,39 +38,47 @@
         <xsd:complexType>
             <xsd:complexContent>
                 <xsd:extension base="beans:identifiedType">
-            <xsd:sequence>
-                <xsd:element name="head" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
-                            <xsd:element name="element" type="elementType"/>
-                        </xsd:sequence>
-                        <xsd:attribute name="name" type="xsd:string"/>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="body" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
-                            <xsd:element name="unit" maxOccurs="unbounded">
-                                <xsd:complexType>
-                                    <xsd:sequence maxOccurs="unbounded">
-                                        <xsd:element name="element" type="elementType"/>
-                                    </xsd:sequence>
-                                    <xsd:attribute name="name" type="xsd:string"/>
-                                </xsd:complexType>
-                            </xsd:element>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="tail" minOccurs="0" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
-                            <xsd:element name="element" type="elementType"/>
-                        </xsd:sequence>
-                        <xsd:attribute name="name" type="xsd:string"/>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-            <xsd:attribute name="class" type="xsd:string"/>
+                    <xsd:sequence>
+                        <xsd:element name="head" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+                                    <xsd:element name="element" type="elementType"/>
+                                </xsd:sequence>
+                                <xsd:attribute name="name" type="xsd:string"/>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="body" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="elementGroup" minOccurs="0" maxOccurs="unbounded" type="elementGroupType"/>
+                                    <xsd:element name="unit" maxOccurs="unbounded">
+                                        <xsd:complexType>
+                                            <xsd:sequence>
+                                                <xsd:element name="include" minOccurs="0">
+                                                    <xsd:complexType>
+                                                        <xsd:attribute name="name" type="xsd:string" use="required"/>
+                                                    </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element name="element" type="elementType" maxOccurs="unbounded"/>
+                                            </xsd:sequence>
+                                            <xsd:attribute name="name" type="xsd:string"/>
+                                            <xsd:attribute name="key" type="xsd:string" use="required"/>
+                                        </xsd:complexType>
+                                    </xsd:element>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="tail" minOccurs="0" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+                                    <xsd:element name="element" type="elementType"/>
+                                </xsd:sequence>
+                                <xsd:attribute name="name" type="xsd:string"/>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                    <xsd:attribute name="class" type="xsd:string" use="required"/>
+                    <xsd:attribute name="head" type="xsd:string" use="required"/>
                 </xsd:extension>
             </xsd:complexContent>
         </xsd:complexType>
