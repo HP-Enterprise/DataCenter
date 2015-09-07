@@ -31,12 +31,13 @@ public class ProtocolParser extends AbstractSingleBeanDefinitionParser{
             Element ele= (Element) headNodeList.item(i);
             String eleName=ele.getAttribute("name");
             String eleType=ele.getAttribute("type");
+            Integer eleSize =Integer.valueOf(ele.getAttribute("size"));
             String key=ele.getAttribute("key");
             if(key!=null&&!"".equals(key)){
                 keyList.add(key);
             }
             //生成包元素对象并添加到包头的元素集合中
-            headList.add(new PackageElement(eleName,eleType));
+            headList.add(new PackageElement(eleName,eleType,eleSize));
         }
         /*------------尾部--------------*/
         //获得包尾
@@ -49,12 +50,13 @@ public class ProtocolParser extends AbstractSingleBeanDefinitionParser{
             Element ele= (Element) tailNodeList.item(i);
             String eleName=ele.getAttribute("name");
             String eleType=ele.getAttribute("type");
+            Integer eleSize =Integer.valueOf(ele.getAttribute("size"));
             String key=ele.getAttribute("key");
             if(key!=null&&!"".equals(key)){
                 keyList.add(key);
             }
             //生成包元素对象并添加到包头的元素集合中
-            tailList.add(new PackageElement(eleName,eleType));
+            tailList.add(new PackageElement(eleName,eleType,eleSize));
         }
         /*------------包体--------------*/
         //获得包体
@@ -71,12 +73,13 @@ public class ProtocolParser extends AbstractSingleBeanDefinitionParser{
                 Element ele= (Element) eleNodeList.item(j);
                 String eleName=ele.getAttribute("name");
                 String eleType=ele.getAttribute("type");
+                Integer eleSize =Integer.valueOf(ele.getAttribute("size"));
                 String key=ele.getAttribute("key");
                 if(key!=null&&!"".equals(key)){
                     keyList.add(key);
                 }
                 //生成包元素对象并添加到包头的元素集合中
-                unitList.add(new PackageElement(eleName,eleType));
+                unitList.add(new PackageElement(eleName,eleType,eleSize));
             }
             //针对每个unit创建Map映射
             String key=String.join("_",keyList);

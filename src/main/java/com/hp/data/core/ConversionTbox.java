@@ -11,7 +11,8 @@ public class ConversionTBox extends AbstractConversion{
     public String getPackageKey(ByteBuffer buffer){
         DataBuilder db=DataBuilder.build(buffer);
         String head=String.valueOf(db.moveTo(0).getUInt16BE());
-        String command=String.valueOf(db.moveTo(8).getUInt16BE());
-        return head+"_"+command;
+        String applicationId=String.valueOf(db.moveTo(9).getUInt8());
+        String messageId=String.valueOf(db.moveTo(10).getUInt8());
+        return head+"_"+applicationId+"_"+messageId;
     }
 }

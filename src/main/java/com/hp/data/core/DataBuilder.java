@@ -61,6 +61,9 @@ public final class DataBuilder {
             readMode=false;
         }
     }
+
+
+
     /**
      * 获取一个字节
      * @return 单字节
@@ -68,6 +71,19 @@ public final class DataBuilder {
     public Byte getByte(){
         turnReadMode();
         return buffer.get();
+    }
+
+    /**
+     * 获得一个Byte数组
+     * @param size  所占字节数
+     * @return  byte[]
+     */
+    public byte[] getByte(int size){
+        turnReadMode();
+        if(size<=0) throw new ConversionException("byte[]需要size至少1以上，传入值为"+size);
+        byte[] temp=new byte[size];
+        buffer.get(temp,0, size);
+        return temp;
     }
     /**
      * 获取无符号单字节整型
@@ -131,6 +147,14 @@ public final class DataBuilder {
         buffer.put(b);
     }
 
+    /**
+     * 写入byte数组
+     * @param b byte[]
+     */
+    public void putByte(byte[] b){
+        turnWriteMode();
+        buffer.put(b);
+    }
     /**
      * 写入大端单字节整型
      * @param num   整型数
@@ -213,6 +237,26 @@ public final class DataBuilder {
             throw new ConversionException("字符串"+str+"无法转换成byte数组");
         }
     }
+    /**
+     * 写入字符串，使用0占位
+     * @param str   字符串
+     * @param size  长度
+     */
+    public void putString(String str,int size){
+        try {
+            byte[] strBytes = str.getBytes(DEFAULT_CHARSET);
+            turnWriteMode();
+            buffer.put(strBytes);
+            byte zero=0;
+            for(int i=0;i<size-strBytes.length;i++) {
+                buffer.put(zero);
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            throw new ConversionException("字符串"+str+"无法转换成byte数组");
+        }
+    }
+
 
     /**
      * 获取字符串
@@ -239,10 +283,52 @@ public final class DataBuilder {
         }
         return a;
     }
+    /**
+     * 获取字符串
+     * @return  字符串
+     */
+    public String getString(int size){
+        turnReadMode();
+        byte[] bytes=new byte[size];
+        buffer.get(bytes,0,size);
+        String a;
+        try {
+            a = new String(bytes,DEFAULT_CHARSET);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            throw new ConversionException("byte数组无法转换成字符串");
+        }
+        return a;
+    }
     /*public static void main(String[] args){
         DataBuilder db=DataBuilder.build();
         db.putString("你好0");
         String a=db.getString();
         System.out.println(a);
+    }*/
+    /*public <T> T getValue(Class<T> valueClass,DataType dataType,int size){
+        turnReadMode();
+        if(DataType.BYTE.equals(dataType)){
+            if(size==0)size=1;
+            if(byte.class.equals(valueClass)||Byte.class.equals(valueClass)){
+                if(size>1) throw new ConversionException("值长度("+size+")大于1，无法使用"+valueClass.getSimpleName()+"接收，请使用数组");
+                return valueClass.cast(buffer.get());
+            }
+            if(byte[].class.equals(valueClass)){
+                byte[] tempBytes=new byte[size];
+                for(int i=0;i<size;i++){
+                    tempBytes[i]=buffer.get();
+                }
+                return (T)tempBytes;
+            }
+            if(Byte[].class.equals(valueClass)){
+                Byte[] tempBytes=new Byte[size];
+                for(int i=0;i<size;i++){
+                    tempBytes[i]=buffer.get();
+                }
+                return (T)tempBytes;
+            }
+        }
+        throw new ConversionException("类型"+valueClass+"和数据类型"+dataType+"无法匹配");
     }*/
 }

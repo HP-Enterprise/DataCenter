@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 
 public class DataFlower<T> {
+
+    /*
     private Class<T> melClass;
     private static Map<Class<?>,List<DataBee>> melMap=new HashMap<Class<?>, List<DataBee>>();
     Logger log=Logger.getLogger(DataFlower.class);
@@ -168,7 +170,7 @@ public class DataFlower<T> {
         }
     }
 
-    /*public static void main(String[] args){
+    public static void main(String[] args){
         ByteBuffer bb=ByteBuffer.allocate(1024);
         String[] command="AA 55 00 4B FF B4 00 05 16 03 49 4E 43 41 52 30 30 30 30 30 33 00 00 00 00 3D 37 00 4C 53 56 46 56 36 31 38 33 44 32 32 30 30 39 33 32 00 56 31 2E 35 30 2E 30 30 00 56 30 2E 30 30 2E 30 30 00 56 33 2E 31 33 2E 31 35 00 FF 01 0F 22".split(" ");
         byte[] abc=new byte[command.length];
