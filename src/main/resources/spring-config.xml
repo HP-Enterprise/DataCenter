@@ -48,6 +48,8 @@
             <data:element name="checkSum" type="BYTE"/>                     <!--数据包校验和-->
         </data:tail>
     </data:protocol>
+
+
     <data:protocol id="conversionOBD" class="com.hp.data.core.ConversionOBD" head="43605">
         <!--数据包包头-->
         <data:head name="AA55">
