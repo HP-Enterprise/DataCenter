@@ -9,44 +9,49 @@
     <!-- 扫描文件 -->
     <!-- 自动加载构建bean -->
     <context:component-scan base-package="com.hp.data"/>
-    <data:protocol id="conversionTBox" class="com.hp.data.core.ConversionTBox">
-        <!--数据包包头-->
-        <data:head name="2323">
-            <data:element name="head" type="U_INT_16" key="8995"/>      <!--数据包标识-->
-            <data:element name="length" type="U_INT_16"/>               <!--数据包长度-->
-            <data:element name="testFlag" type="U_INT_8"/>              <!--是否是测试包，0正常1测试-->
+    <data:protocol id="conversionTBox" class="com.hp.data.core.ConversionTBox" head="8995">
+        <data:head>
+            <data:element name="head" type="U_INT_16"/>                     <!--数据包标识-->
+            <data:element name="length" type="U_INT_16"/>                   <!--数据包长度-->
+            <data:element name="testFlag" type="U_INT_8"/>                  <!--是否是测试包，0正常1测试-->
         </data:head>
-        <!--数据包包体-->
         <data:body>
+            <!--调度信息-->
+            <data:elementGroup name="dispatcherUp">
+                <data:element name="sendingTime" type="U_INT_32"/>          <!--从 1970-01-01 00:00:00 到现在的秒数来表示-->
+                <data:element name="applicationID" type="U_INT_8"/>         <!--业务类型编号-->
+                <data:element name="messageID" type="U_INT_8"/>             <!--消息类型编号-->
+                <data:element name="imei" type="STRING" size="15"/>         <!--International Mobile Equipment Identity-->
+                <data:element name="protocolVersionNumber" type="U_INT_8"/> <!--协议版本号-->
+                <data:element name="vehicleID" type="U_INT_16"/>            <!--车场编号-->
+                <data:element name="tripID" type="U_INT_8"/>                <!--记录电动机启动次数，0~255 后清零-->
+                <data:element name="reserved" type="U_INT_16"/>             <!--预留-->
+            </data:elementGroup>
+            <data:elementGroup name="dispatcherDown">
+                <data:element name="sendingTime" type="U_INT_32"/>          <!--从 1970-01-01 00:00:00 到现在的秒数来表示-->
+                <data:element name="applicationID" type="U_INT_8"/>         <!--业务类型编号-->
+                <data:element name="messageID" type="U_INT_8"/>             <!--消息类型编号-->
+            </data:elementGroup>
             <!--注册-->
-            <data:unit name="TBOX_RegisterReq">
-                <!--调度信息-->
-                <data:element name="sendingTime" type="U_INT_32"/>      <!--从 1970-01-01 00:00:00 到现在的秒数来表示-->
-                <data:element name="applicationID" type="U_INT_8" key="19"/><!--业务类型编号-->
-                <data:element name="messageID" type="U_INT_8" key="1"/>     <!--消息类型编号-->
-                <data:element name="imei" type="STRING" size="15"/>     <!--International Mobile Equipment Identity-->
-                <data:element name="protocolVersionNumber" type="U_INT_8"/><!--协议版本号-->
-                <data:element name="vehicleID" type="U_INT_16"/>        <!--车场编号-->
-                <data:element name="tripID" type="U_INT_8"/>            <!--记录电动机启动次数，0~255 后清零-->
-                <data:element name="reserved" type="U_INT_16"/>         <!--预留-->
+            <data:unit name="TBOX_RegisterReq" key="19_1">
+                <data:include name="dispatcherUp" />
                 <!--内容信息-->
-                <data:element name="eventID" type="U_INT_32"/>          <!--事件记录ID一个事件完成周期内使相同的eventID-->
-                <data:element name="serialNumber" type="STRING" size="14"/><!--车载终端编号(为验证 IMEI与 SerialNumber唯一对应-->
-                <data:element name="vin" type="STRING" size="17"/>      <!--车辆唯一识别码-->
-                <data:element name="swVersion" type="STRING" size="5"/> <!--软件版本号-->
-                <data:element name="paramVersion" type="STRING" size="5"/><!--参数版本号-->
-                <data:element name="dbcVersion" type="STRING" size="5"/><!--DBC版本号-->
+                <data:element name="eventID" type="U_INT_32"/>              <!--事件记录ID一个事件完成周期内使相同的eventID-->
+                <data:element name="serialNumber" type="STRING" size="14"/> <!--车载终端编号(为验证 IMEI与 SerialNumber唯一对应-->
+                <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
+                <data:element name="swVersion" type="STRING" size="5"/>     <!--软件版本号-->
+                <data:element name="paramVersion" type="STRING" size="5"/>  <!--参数版本号-->
+                <data:element name="dbcVersion" type="STRING" size="5"/>    <!--DBC版本号-->
             </data:unit>
         </data:body>
-        <!--数据包包尾-->
         <data:tail>
-            <data:element name="checkSum" type="BYTE"/>                 <!--数据包校验和-->
+            <data:element name="checkSum" type="BYTE"/>                     <!--数据包校验和-->
         </data:tail>
     </data:protocol>
-    <data:protocol id="conversionOBD" class="com.hp.data.core.ConversionOBD">
+    <data:protocol id="conversionOBD" class="com.hp.data.core.ConversionOBD" head="43605">
         <!--数据包包头-->
         <data:head name="AA55">
-            <data:element name="head" type="U_INT_16" key="43605"/>             <!--数据包标识-->
+            <data:element name="head" type="U_INT_16"/>                         <!--数据包标识-->
             <data:element name="length" type="U_INT_16"/>                       <!--数据包长度-->
             <data:element name="inverseLength" type="U_INT_16"/>                <!--数据包校验长度(长度取反)-->
             <data:element name="packageId" type="U_INT_8"/>                     <!--数据包ID-->
@@ -54,8 +59,8 @@
         </data:head>
         <!--数据包包体-->
         <data:body>
-            <data:unit name="1603">
-                <data:element name="command" type="U_INT_16" key="5635"/>       <!--命令字-->
+            <data:unit name="1603" key="5635">
+                <data:element name="command" type="U_INT_16"/>                  <!--命令字-->
                 <data:element name="obdCode" type="STRING"/>                    <!--OBD设备号-->
                 <data:element name="tripId" type="U_INT_32"/>                   <!--行程编号-->
                 <data:element name="vid" type="STRING"/>                        <!--车辆识别码-->
