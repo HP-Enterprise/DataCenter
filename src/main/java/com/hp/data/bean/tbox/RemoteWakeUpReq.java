@@ -3,19 +3,19 @@ package com.hp.data.bean.tbox;
 import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
-public class RegisterReq extends TBoxUpBean{
-    private Long eventID;
+public class RemoteWakeUpReq extends TBoxUpBean {
+    private long eventID;
     private String serialNumber;
     private String vin;
     private String swVersion;
-    private String paramVersion;
+    private String pramVersion;
     private String dbcVersion;
 
-    public Long getEventID() {
+    public long getEventID() {
         return eventID;
     }
 
-    public void setEventID(Long eventID) {
+    public void setEventID(long eventID) {
         this.eventID = eventID;
     }
 
@@ -43,12 +43,12 @@ public class RegisterReq extends TBoxUpBean{
         this.swVersion = swVersion;
     }
 
-    public String getParamVersion() {
-        return paramVersion;
+    public String getPramVersion() {
+        return pramVersion;
     }
 
-    public void setParamVersion(String paramVersion) {
-        this.paramVersion = paramVersion;
+    public void setPramVersion(String pramVersion) {
+        this.pramVersion = pramVersion;
     }
 
     public String getDbcVersion() {
