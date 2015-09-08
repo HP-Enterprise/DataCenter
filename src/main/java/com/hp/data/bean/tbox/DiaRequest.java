@@ -3,18 +3,18 @@ package com.hp.data.bean.tbox;
 import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
-public class DiagRequest extends TBoxUpBean{
+public class DiaRequest extends TBoxUpBean{
     private Long eventID;
-    private Short diagReportDataSize;
+    private Short diaReportDataSize;
     private String serialNumber;
     private Long testTime;
     private Short ledTest;
-    private Short framTest;
+    private Short farmTest;
     private Short sdTest;
     private Short gpsTest;
     private Short gprsTest;
     private Short resetBatteryMapArrayTest;
-    private Short canactionTest;
+    private Short canActionTest;
     private Short serverCommTest;
 
     public Long getEventID() {
@@ -25,12 +25,12 @@ public class DiagRequest extends TBoxUpBean{
         this.eventID = eventID;
     }
 
-    public Short getDiagReportDataSize() {
-        return diagReportDataSize;
+    public Short getDiaReportDataSize() {
+        return diaReportDataSize;
     }
 
-    public void setDiagReportDataSize(Short diagReportDataSize) {
-        this.diagReportDataSize = diagReportDataSize;
+    public void setDiaReportDataSize(Short diaReportDataSize) {
+        this.diaReportDataSize = diaReportDataSize;
     }
 
     public String getSerialNumber() {
@@ -57,12 +57,12 @@ public class DiagRequest extends TBoxUpBean{
         this.ledTest = ledTest;
     }
 
-    public Short getFramTest() {
-        return framTest;
+    public Short getFarmTest() {
+        return farmTest;
     }
 
-    public void setFramTest(Short framTest) {
-        this.framTest = framTest;
+    public void setFarmTest(Short farmTest) {
+        this.farmTest = farmTest;
     }
 
     public Short getSdTest() {
@@ -97,12 +97,12 @@ public class DiagRequest extends TBoxUpBean{
         this.resetBatteryMapArrayTest = resetBatteryMapArrayTest;
     }
 
-    public Short getCanactionTest() {
-        return canactionTest;
+    public Short getCanActionTest() {
+        return canActionTest;
     }
 
-    public void setCanactionTest(Short canactionTest) {
-        this.canactionTest = canactionTest;
+    public void setCanActionTest(Short canActionTest) {
+        this.canActionTest = canActionTest;
     }
 
     public Short getServerCommTest() {

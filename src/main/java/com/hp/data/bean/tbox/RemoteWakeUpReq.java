@@ -8,7 +8,7 @@ public class RemoteWakeUpReq extends TBoxUpBean {
     private String serialNumber;
     private String vin;
     private String swVersion;
-    private String parmVersion;
+    private String pramVersion;
     private String dbcVersion;
 
     public long getEventID() {
@@ -43,12 +43,12 @@ public class RemoteWakeUpReq extends TBoxUpBean {
         this.swVersion = swVersion;
     }
 
-    public String getParmVersion() {
-        return parmVersion;
+    public String getPramVersion() {
+        return pramVersion;
     }
 
-    public void setParmVersion(String parmVersion) {
-        this.parmVersion = parmVersion;
+    public void setPramVersion(String pramVersion) {
+        this.pramVersion = pramVersion;
     }
 
     public String getDbcVersion() {
