@@ -4,10 +4,10 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class PramSetupAck extends TBoxUpBean{
-    private long eventID;
-    private short pramSetAck;
-    private short pramSetID;
-    private short pramValue;
+    private Long eventID;
+    private Short pramSetAck;
+    private Short pramSetID;
+    private Short pramValue;
 
     public long getEventID() {
         return eventID;

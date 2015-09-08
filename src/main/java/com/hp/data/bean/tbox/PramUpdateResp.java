@@ -4,7 +4,7 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class PramUpdateResp extends TBoxDownBean{
-    private long eventID;
+    private Long eventID;
     private String PramVersion;
 
     public long getEventID() {

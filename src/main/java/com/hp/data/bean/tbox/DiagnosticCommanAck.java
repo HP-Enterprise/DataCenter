@@ -4,10 +4,10 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class DiagnosticCommanAck extends TBoxUpBean{
-    private long eventID;
-    private short diaDataSizeAck;
-    private short diaNumberAck;
-    private short diaIDAck;
+    private Long eventID;
+    private Short diaDataSizeAck;
+    private Short diaNumberAck;
+    private Short diaIDAck;
 
     public long getEventID() {
         return eventID;

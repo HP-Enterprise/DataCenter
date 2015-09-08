@@ -4,18 +4,18 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class WarningMessage extends TBoxUpBean{
-    private short isLocation;
-    private long latitude;
-    private long longitude;
-    private long speed;
-    private long heading;
-    private short bcm1;
-    private short ems;
-    private short tcu;
-    private short ic;
-    private short abs;
-    private short pdc;
-    private short bcm2;
+    private Short isLocation;
+    private Long latitude;
+    private Long longitude;
+    private Long speed;
+    private Long heading;
+    private Short bcm1;
+    private Short ems;
+    private Short tcu;
+    private Short ic;
+    private Short abs;
+    private Short pdc;
+    private Short bcm2;
 
     public short getBcm1() {
         return bcm1;

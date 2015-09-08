@@ -4,8 +4,8 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class RemoteControlAck extends TBoxUpBean{
-    private long eventID;
-    private short remoteControlAck;
+    private Long eventID;
+    private Short remoteControlAck;
 
     public long getEventID() {
         return eventID;

@@ -4,10 +4,10 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class PramSetCmd extends TBoxDownBean{
-    private long eventID;
-    private short pramSetNumber;
-    private short pramSetID;
-    private short pramValue;
+    private Long eventID;
+    private Short pramSetNumber;
+    private Short pramSetID;
+    private Short pramValue;
 
     public long getEventID() {
         return eventID;

@@ -4,9 +4,9 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class SignalSettingCmd extends TBoxDownBean{
-    private long eventID;
-    private long realTimeDataValid;
-    private long frequencyForRealTimeReport;
+    private Long eventID;
+    private Long realTimeDataValid;
+    private Long frequencyForRealTimeReport;
 
     public long getEventID() {
         return eventID;

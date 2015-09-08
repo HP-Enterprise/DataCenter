@@ -4,7 +4,7 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class ActiveResult extends TBoxUpBean{
-    private long eventID;
+    private Long eventID;
     private Short rtmLifeCycle;
 
     public long getEventID() {

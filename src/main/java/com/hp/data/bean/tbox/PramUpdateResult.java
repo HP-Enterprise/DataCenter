@@ -4,12 +4,12 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class PramUpdateResult extends TBoxUpBean{
-    private long eventID;
-    private short pramUpdateResult;
-    private long packetNumber;
-    private long backPacketNumber;
-    private short responseStatus;
-    private short check;
+    private Long eventID;
+    private Short pramUpdateResult;
+    private Long packetNumber;
+    private Long backPacketNumber;
+    private Short responseStatus;
+    private Short check;
 
     public long getEventID() {
         return eventID;

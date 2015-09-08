@@ -4,18 +4,18 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class PramStatusAck extends TBoxUpBean{
-    private long eventID;
-    private short pramCmdDataSize;
-    private long frequencySaveLocalMedia;
-    private long frequencyForRealTimeReport;
-    private long frequencyForWarningReport;
+    private Long eventID;
+    private Short pramCmdDataSize;
+    private Long frequencySaveLocalMedia;
+    private Long frequencyForRealTimeReport;
+    private Long frequencyForWarningReport;
     private String hardwareVersion;
     private String softwareVersion;
-    private short frequencyHeartbeat;
-    private long timeOutForTerminalSearch;
-    private long timeOutForServerSearch;
-    private short enterpriseBroadcastAddress;
-    private long enterpriseBroadcastPort;
+    private Short frequencyHeartbeat;
+    private Long timeOutForTerminalSearch;
+    private Long timeOutForServerSearch;
+    private Short enterpriseBroadcastAddress;
+    private Long enterpriseBroadcastPort;
 
     public long getEventID() {
         return eventID;

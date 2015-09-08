@@ -4,8 +4,8 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class SignalSettingAck extends TBoxUpBean{
-    private long eventID;
-    private short signalSettingAck;
+    private Long eventID;
+    private Short signalSettingAck;
 
     public long getEventID() {
         return eventID;

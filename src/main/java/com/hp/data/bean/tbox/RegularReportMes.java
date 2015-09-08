@@ -4,19 +4,19 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class RegularReportMes extends TBoxUpBean{
-    private long frequencyForRealTimeReport;
-    private long frequencyForWarningReport;
+    private Long frequencyForRealTimeReport;
+    private Long frequencyForWarningReport;
     private Short frequencyHeartbeat;
-    private long timeOutForTerminalSearch;
-    private long timeOutForServerSearch;
-    private short vehicleType;
-    private long vehicleModels;
-    private short maxSpeed;
+    private Long timeOutForTerminalSearch;
+    private Long timeOutForServerSearch;
+    private Short vehicleType;
+    private Long vehicleModels;
+    private Short maxSpeed;
     private String hardwareVersion;
     private String softwareVersion;
-    private long frequencySaveLocalMedia;
-    private short enterpriseBroadcastAddress;
-    private long enterpriseBroadcastPort;
+    private Long frequencySaveLocalMedia;
+    private Short enterpriseBroadcastAddress;
+    private Long enterpriseBroadcastPort;
 
     public long getFrequencyForRealTimeReport() {
         return frequencyForRealTimeReport;

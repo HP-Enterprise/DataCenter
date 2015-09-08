@@ -4,10 +4,10 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class DiagnosticCommandCmd extends TBoxDownBean{
-    private long eventID;
-    private short diaCmdDataSize;
-    private short diaNumber;
-    private short diaID;
+    private Long eventID;
+    private Short diaCmdDataSize;
+    private Short diaNumber;
+    private Short diaID;
 
     public long getEventID() {
         return eventID;
