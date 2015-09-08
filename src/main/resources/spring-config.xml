@@ -70,6 +70,8 @@
                 <data:include name="dispatcherDown"/>
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
+                <data:element name="tBoxStatus" type="U_INT_8"/>         <!--T-Box 生命周期：  0：激活成功 1：激活失败-->
+                <data:element name="vin" type="STRING" size="17"/>       <!--车辆唯一识别码-->
             </data:unit>
             <!--激活(T-BOX向T平台发送激活请求)-->
             <data:unit name="TBOX_ActiveResult" key="18_3">

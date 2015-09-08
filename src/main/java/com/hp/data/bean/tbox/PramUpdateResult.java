@@ -6,7 +6,7 @@ import com.hp.data.convert.DataEntity;
 public class PramUpdateResult extends TBoxUpBean{
     private Long eventID;
     private Short pramUpdateResult;
-    private Long packetNumber;
+    private Integer packetNumber;
     private Long backPacketNumber;
     private Short responseStatus;
     private Short check;
@@ -27,11 +27,11 @@ public class PramUpdateResult extends TBoxUpBean{
         this.pramUpdateResult = pramUpdateResult;
     }
 
-    public Long getPacketNumber() {
+    public Integer getPacketNumber() {
         return packetNumber;
     }
 
-    public void setPacketNumber(Long packetNumber) {
+    public void setPacketNumber(Integer packetNumber) {
         this.packetNumber = packetNumber;
     }
 

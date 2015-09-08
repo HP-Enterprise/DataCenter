@@ -7,37 +7,37 @@ public class DataResendMes extends TBoxUpBean{
     private Short isLocation;
     private Long latitude;
     private Long longitude;
-    private Long speed;
-    private Long heading;
+    private Integer speed;
+    private Integer heading;
     private Short fuelOil;
-    private Long avgOil;
+    private Integer avgOil;
     private Short oilLife;
-    private Short driveRange;
-    private Long leftFrontTirePressure;
-    private Long leftRearTirePressure;
-    private Long rightFrontTirePressure;
-    private Long rightRearTirePressure;
+    private byte[] driveRange;
+    private Integer leftFrontTirePressure;
+    private Integer leftRearTirePressure;
+    private Integer rightFrontTirePressure;
+    private Integer rightRearTirePressure;
     private Short windowInformation;
     private Short vehicleTemperature;
     private Short vehicleOuterTemperature;
     private Short doorInformation;
-    private Long singleBatteryVoltage;
+    private Integer singleBatteryVoltage;
     private Short maximumVoltagePowerBatteryPack;
-    private Long maximumBatteryVoltage;
-    private Long batteryMonomerMinimumVoltage;
+    private Integer maximumBatteryVoltage;
+    private Integer batteryMonomerMinimumVoltage;
     private Short engineCondition;
-    private Long engineSpeed;
-    private Long rapidAcceleration;
-    private Long rapidDeceleration;
-    private Long speeding;
+    private Integer engineSpeed;
+    private Integer rapidAcceleration;
+    private Integer rapidDeceleration;
+    private Integer speeding;
     private Short signalStrength;
-    private Short bcm1;
-    private Short ems;
-    private Short tcu;
-    private Short ic;
-    private Short abs;
-    private Short pdc;
-    private Short bcm2;
+    private byte[] bcm1;
+    private byte[] ems;
+    private byte[] tcu;
+    private byte[] ic;
+    private byte[] abs;
+    private byte[] pdc;
+    private byte[] bcm2;
 
     public Short getIsLocation() {
         return isLocation;
@@ -63,19 +63,19 @@ public class DataResendMes extends TBoxUpBean{
         this.longitude = longitude;
     }
 
-    public Long getSpeed() {
+    public Integer getSpeed() {
         return speed;
     }
 
-    public void setSpeed(Long speed) {
+    public void setSpeed(Integer speed) {
         this.speed = speed;
     }
 
-    public Long getHeading() {
+    public Integer getHeading() {
         return heading;
     }
 
-    public void setHeading(Long heading) {
+    public void setHeading(Integer heading) {
         this.heading = heading;
     }
 
@@ -87,11 +87,11 @@ public class DataResendMes extends TBoxUpBean{
         this.fuelOil = fuelOil;
     }
 
-    public Long getAvgOil() {
+    public Integer getAvgOil() {
         return avgOil;
     }
 
-    public void setAvgOil(Long avgOil) {
+    public void setAvgOil(Integer avgOil) {
         this.avgOil = avgOil;
     }
 
@@ -103,43 +103,43 @@ public class DataResendMes extends TBoxUpBean{
         this.oilLife = oilLife;
     }
 
-    public Short getDriveRange() {
+    public byte[] getDriveRange() {
         return driveRange;
     }
 
-    public void setDriveRange(Short driveRange) {
+    public void setDriveRange(byte[] driveRange) {
         this.driveRange = driveRange;
     }
 
-    public Long getLeftFrontTirePressure() {
+    public Integer getLeftFrontTirePressure() {
         return leftFrontTirePressure;
     }
 
-    public void setLeftFrontTirePressure(Long leftFrontTirePressure) {
+    public void setLeftFrontTirePressure(Integer leftFrontTirePressure) {
         this.leftFrontTirePressure = leftFrontTirePressure;
     }
 
-    public Long getLeftRearTirePressure() {
+    public Integer getLeftRearTirePressure() {
         return leftRearTirePressure;
     }
 
-    public void setLeftRearTirePressure(Long leftRearTirePressure) {
+    public void setLeftRearTirePressure(Integer leftRearTirePressure) {
         this.leftRearTirePressure = leftRearTirePressure;
     }
 
-    public Long getRightFrontTirePressure() {
+    public Integer getRightFrontTirePressure() {
         return rightFrontTirePressure;
     }
 
-    public void setRightFrontTirePressure(Long rightFrontTirePressure) {
+    public void setRightFrontTirePressure(Integer rightFrontTirePressure) {
         this.rightFrontTirePressure = rightFrontTirePressure;
     }
 
-    public Long getRightRearTirePressure() {
+    public Integer getRightRearTirePressure() {
         return rightRearTirePressure;
     }
 
-    public void setRightRearTirePressure(Long rightRearTirePressure) {
+    public void setRightRearTirePressure(Integer rightRearTirePressure) {
         this.rightRearTirePressure = rightRearTirePressure;
     }
 
@@ -175,11 +175,11 @@ public class DataResendMes extends TBoxUpBean{
         this.doorInformation = doorInformation;
     }
 
-    public Long getSingleBatteryVoltage() {
+    public Integer getSingleBatteryVoltage() {
         return singleBatteryVoltage;
     }
 
-    public void setSingleBatteryVoltage(Long singleBatteryVoltage) {
+    public void setSingleBatteryVoltage(Integer singleBatteryVoltage) {
         this.singleBatteryVoltage = singleBatteryVoltage;
     }
 
@@ -191,19 +191,19 @@ public class DataResendMes extends TBoxUpBean{
         this.maximumVoltagePowerBatteryPack = maximumVoltagePowerBatteryPack;
     }
 
-    public Long getMaximumBatteryVoltage() {
+    public Integer getMaximumBatteryVoltage() {
         return maximumBatteryVoltage;
     }
 
-    public void setMaximumBatteryVoltage(Long maximumBatteryVoltage) {
+    public void setMaximumBatteryVoltage(Integer maximumBatteryVoltage) {
         this.maximumBatteryVoltage = maximumBatteryVoltage;
     }
 
-    public Long getBatteryMonomerMinimumVoltage() {
+    public Integer getBatteryMonomerMinimumVoltage() {
         return batteryMonomerMinimumVoltage;
     }
 
-    public void setBatteryMonomerMinimumVoltage(Long batteryMonomerMinimumVoltage) {
+    public void setBatteryMonomerMinimumVoltage(Integer batteryMonomerMinimumVoltage) {
         this.batteryMonomerMinimumVoltage = batteryMonomerMinimumVoltage;
     }
 
@@ -215,35 +215,35 @@ public class DataResendMes extends TBoxUpBean{
         this.engineCondition = engineCondition;
     }
 
-    public Long getEngineSpeed() {
+    public Integer getEngineSpeed() {
         return engineSpeed;
     }
 
-    public void setEngineSpeed(Long engineSpeed) {
+    public void setEngineSpeed(Integer engineSpeed) {
         this.engineSpeed = engineSpeed;
     }
 
-    public Long getRapidAcceleration() {
+    public Integer getRapidAcceleration() {
         return rapidAcceleration;
     }
 
-    public void setRapidAcceleration(Long rapidAcceleration) {
+    public void setRapidAcceleration(Integer rapidAcceleration) {
         this.rapidAcceleration = rapidAcceleration;
     }
 
-    public Long getRapidDeceleration() {
+    public Integer getRapidDeceleration() {
         return rapidDeceleration;
     }
 
-    public void setRapidDeceleration(Long rapidDeceleration) {
+    public void setRapidDeceleration(Integer rapidDeceleration) {
         this.rapidDeceleration = rapidDeceleration;
     }
 
-    public Long getSpeeding() {
+    public Integer getSpeeding() {
         return speeding;
     }
 
-    public void setSpeeding(Long speeding) {
+    public void setSpeeding(Integer speeding) {
         this.speeding = speeding;
     }
 
@@ -255,59 +255,59 @@ public class DataResendMes extends TBoxUpBean{
         this.signalStrength = signalStrength;
     }
 
-    public Short getBcm1() {
+    public byte[] getBcm1() {
         return bcm1;
     }
 
-    public void setBcm1(Short bcm1) {
+    public void setBcm1(byte[] bcm1) {
         this.bcm1 = bcm1;
     }
 
-    public Short getEms() {
+    public byte[] getEms() {
         return ems;
     }
 
-    public void setEms(Short ems) {
+    public void setEms(byte[] ems) {
         this.ems = ems;
     }
 
-    public Short getTcu() {
+    public byte[] getTcu() {
         return tcu;
     }
 
-    public void setTcu(Short tcu) {
+    public void setTcu(byte[] tcu) {
         this.tcu = tcu;
     }
 
-    public Short getIc() {
+    public byte[] getIc() {
         return ic;
     }
 
-    public void setIc(Short ic) {
+    public void setIc(byte[] ic) {
         this.ic = ic;
     }
 
-    public Short getAbs() {
+    public byte[] getAbs() {
         return abs;
     }
 
-    public void setAbs(Short abs) {
+    public void setAbs(byte[] abs) {
         this.abs = abs;
     }
 
-    public Short getPdc() {
+    public byte[] getPdc() {
         return pdc;
     }
 
-    public void setPdc(Short pdc) {
+    public void setPdc(byte[] pdc) {
         this.pdc = pdc;
     }
 
-    public Short getBcm2() {
+    public byte[] getBcm2() {
         return bcm2;
     }
 
-    public void setBcm2(Short bcm2) {
+    public void setBcm2(byte[] bcm2) {
         this.bcm2 = bcm2;
     }
 }

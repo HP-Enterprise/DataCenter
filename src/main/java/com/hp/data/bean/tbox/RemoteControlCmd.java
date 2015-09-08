@@ -5,7 +5,7 @@ import com.hp.data.convert.DataEntity;
 @DataEntity(key = "8995")
 public class RemoteControlCmd extends TBoxDownBean{
     private Long eventID;
-    private Long remoteControlType;
+    private Integer remoteControlType;
     private Short acTemperature;
 
     public Long getEventID() {
@@ -16,11 +16,11 @@ public class RemoteControlCmd extends TBoxDownBean{
         this.eventID = eventID;
     }
 
-    public Long getRemoteControlType() {
+    public Integer getRemoteControlType() {
         return remoteControlType;
     }
 
-    public void setRemoteControlType(Long remoteControlType) {
+    public void setRemoteControlType(Integer remoteControlType) {
         this.remoteControlType = remoteControlType;
     }
 

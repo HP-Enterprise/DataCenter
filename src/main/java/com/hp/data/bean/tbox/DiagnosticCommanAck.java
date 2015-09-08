@@ -5,8 +5,8 @@ import com.hp.data.convert.DataEntity;
 @DataEntity(key = "8995")
 public class DiagnosticCommanAck extends TBoxUpBean{
     private Long eventID;
-    private Short diaDataSizeAck;
-    private Short diaNumberAck;
+    private byte[] diaDataSizeAck;
+    private byte[] diaNumberAck;
     private Short diaIDAck;
 
     public Long getEventID() {
@@ -17,19 +17,19 @@ public class DiagnosticCommanAck extends TBoxUpBean{
         this.eventID = eventID;
     }
 
-    public Short getDiaDataSizeAck() {
+    public byte[] getDiaDataSizeAck() {
         return diaDataSizeAck;
     }
 
-    public void setDiaDataSizeAck(Short diaDataSizeAck) {
+    public void setDiaDataSizeAck(byte[] diaDataSizeAck) {
         this.diaDataSizeAck = diaDataSizeAck;
     }
 
-    public Short getDiaNumberAck() {
+    public byte[] getDiaNumberAck() {
         return diaNumberAck;
     }
 
-    public void setDiaNumberAck(Short diaNumberAck) {
+    public void setDiaNumberAck(byte[] diaNumberAck) {
         this.diaNumberAck = diaNumberAck;
     }
 
