@@ -42,6 +42,10 @@ public final class DataBuilder {
         this.buffer.position(position);
         return this;
     }
+    public DataBuilder clear(){
+        this.buffer.clear();
+        return this;
+    }
     /**
      * 开启读模式
      */
