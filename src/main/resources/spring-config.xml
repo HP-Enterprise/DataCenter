@@ -32,7 +32,54 @@
                 <data:element name="applicationID" type="U_INT_8"/>         <!--业务类型编号-->
                 <data:element name="messageID" type="U_INT_8"/>             <!--消息类型编号-->
             </data:elementGroup>
-            <!--注册-->
+            <!--电检(T-Box将向T平台发送电检请求)-->
+            <data:unit name="TBOX_DiagRequest" key="17_1">
+                <data:include name="dispatcherUp"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>          <!--事件记录ID一个事件完成周期内使相同的eventID-->
+                <data:element name="diagReportDataSize" type="U_INT_8"/><!--状态数据长度-->
+                <data:element name="serialNumber" type="STRING" size="14"/><!--车载终端编号-->
+                <data:element name="testTime" type="U_INT_32"/>          <!--测试时间： 使用从 1970-01-01 00:00:00 到现在的秒数来表示-->
+                <data:element name="ledTest" type="U_INT_8"/>            <!--LED检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="framTest" type="U_INT_8"/>           <!--FRAM检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="sdTest" type="U_INT_8"/>             <!--SD检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="gpsTest" type="U_INT_8"/>            <!--GPS检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="gprsTest" type="U_INT_8"/>           <!--GPRS Signal Strength检测 结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="resetBatteryMapArrayTest" type="U_INT_8"/><!--Reset Battery Map Array检 测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="canactionTest" type="U_INT_8"/>      <!--CAN Action检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试 -->
+                <data:element name="serverCommTest" type="U_INT_8"/>     <!--Server Communicatio 检测 结果 Bit0：成功 Bit1：失败 Bit2 ：未测试 -->
+            </data:unit>
+            <!--电检(T平台向T-Box反馈T-Box检测结果)-->
+            <data:unit name="TBOX_DiagResp" key="17_2">
+                <data:include name="dispatcherDown"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
+                <data:element name="diagReportResp " type="U_INT_8"/>    <!--0：成功 （TBOX_DiagRequest 中各 检测项均为成功） 1：失败 （TBOX_DiagRequest 中有一项为失败)-->
+            </data:unit>
+
+            <!--激活(T-BOX向T平台发送激活请求)-->
+            <data:unit name="TBOX_ActiveReq" key="18_1">
+                <data:include name="dispatcherUp"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
+                <data:element name="serialNumber" type="STRING" size="14"/><!--车载终端编号-->
+                <data:element name="vin" type="STRING" size="17"/>       <!--车辆唯一识别码-->
+            </data:unit>
+            <!--激活(T平台向T-BOX发送激活返回信息)-->
+            <data:unit name="TBOX_ActiveResp" key="18_2">
+                <data:include name="dispatcherDown"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
+            </data:unit>
+            <!--激活(T-BOX向T平台发送激活请求)-->
+            <data:unit name="TBOX_ActiveResult" key="18_3">
+                <data:include name="dispatcherUp"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
+                <data:element name="rtmLifeCycle" type="U_INT_8"/>      <!--T-Box生命周期 0：激活成功 1：激活失败-->
+            </data:unit>
+
+            <!--注册(T-BOX向T平台发送注册请求)-->
             <data:unit name="TBOX_RegisterReq" key="19_1">
                 <data:include name="dispatcherUp" />
                 <!--内容信息-->
@@ -42,6 +89,68 @@
                 <data:element name="swVersion" type="STRING" size="5"/>     <!--软件版本号-->
                 <data:element name="paramVersion" type="STRING" size="5"/>  <!--参数版本号-->
                 <data:element name="dbcVersion" type="STRING" size="5"/>    <!--DBC版本号-->
+            </data:unit>
+            <!--注册(T平台向T-BOX发送注册返回信息)-->
+            <data:unit name="TBOX_RegisterResp" key="19_2">
+                <data:include name="dispatcherDown"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>          <!--事件记录ID一个事件完成周期内使相同的eventID-->
+                <data:element name="registerResult" type="U_INT_8"/><!--0注册成功 1注册失败-->
+            </data:unit>
+
+            <!--远程唤醒(T-BOX向T平台发送唤醒请求)-->
+            <data:unit name="TBOX_RemoteWakeUpReq" key="20_1">
+                <data:include name="dispatcherUp"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>          <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
+                <data:element name="serialNumber" type="STRING" size="14"/><!--车载终端编号[为验证 IMEI 与 SerialNumber 唯一对应]-->
+                <data:element name="vin" type="STRING" size="17"/>      <!--车辆唯一识别码-->
+                <data:element name="swVersion" type="STRING" size="5"/> <!--软件版本号-->
+                <data:element name="parmVersion" type="STRING" size="5"/><!--参数版本号-->
+                <data:element name="dbcVersion" type="STRING" size="5"/> <!--DBC 版本号-->
+            </data:unit>
+            <!--远程唤醒(T平台向T-BOX发送唤醒返回信息)-->
+            <data:unit name="TBOX_RemoteWakeUpResp" key="20_2">
+                <data:include name="dispatcherDown"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
+                <data:element name="registerResult" type="U_INT_8"/>     <!--0：远程唤醒成功 1：远程唤醒失败-->
+            </data:unit>
+
+            <!--固定数据上报-->
+            <data:unit name="TBOX_RegularReportMes" key="33_1">
+                <data:include name="dispatcherUp"/>
+                <data:element name="regularData" type=""/>        <!--额定车辆数据-->
+            </data:unit>
+            <data:unit key="">
+                <data:element name="frequenceForRealtimereport" type="U_INT_32"/> <!--1~600（1~600s）最小计量 单元1s Fix 10S -->
+                <data:element name="frequenceForWarningReport " type="U_INT_32"/> <!--0～60000（表示0ms～ 60000ms），最小计量单元 ：1ms Fix 1S -->
+                <data:element name="frequenceHeartbeat" type="U_INT_16"/>         <!--1～240（表示1s～240s）， 最小计量单元：1s Fix 60S-->
+                <data:element name="timeOutForTerminalSearch" type="U_INT_32"/>   <!--1～600（表示1s～600s）， 最小计量单元：1s  Fix 60S[3次retry累计180S] -->
+                <data:element name="timeOutForServerSearch" type="U_INT_32"/>     <!--1～600（表示1s～600s）， 最小计量单元：1s  Fix 60S[3次retry累计180S] -->
+                <data:element name="vehicleType" type="U_INT_8"/>                 <!--车辆类型-->
+                <data:element name="vehicleModels" type="U_INT_32"/>              <!--如：e50 等 -->
+                <data:element name="maxSpeed" type="U_INT_8"/>                    <!--有效值范围：1～254 [表示 0km/h～254km/h] 最小计量单元：1km/h -->
+                <data:element name="hardwareVersion" type="STRING" size="5"/>     <!--硬件版本，终端自行定义-->
+                <data:element name="softwareVersion" type="STRING" size="5"/>     <!--软件版本，终端自行定义-->
+                <data:element name="frequencySaveLocalMedia " type="U_INT_32"/>   <!--终端本地存储时间周期 0~60000（0~60000ms）最 小计量单元：1ms. Fix 1S-->
+                <data:element name="enterpriseBroadcastAddress" type="U_INT_32"/> <!--企业平台 IP，IPV4 的前 两个字节为 0 -->
+                <data:element name="enterpriseBroadcastPort" type="U_INT_32"/>    <!--企业平台端口 -->
+            </data:unit>
+
+            <!--实时数据上报-->
+            <data:unit name="TBOX_RealTimeReportMes" key="34_1">
+                <data:include name="dispatcherUp"/>
+                <data:element name="gpsPosition" type=""/>        <!--GPS数据-->
+                <data:element name="realTimeData" type=""/>       <!--实时数据-->
+            </data:unit>
+
+            <!--补发数据上报-->
+            <data:unit name="TBOX_DataResendMes" key="35_1">
+                <data:include name="dispatcherUp"/>
+                <data:element name="gpsPosition" type=""/>        <!--GPS数据-->
+                <data:element name="realTimeData" type=""/>       <!--补发数据-->
+                <data:element name="warningData " type=""/>       <!--报警数据-->
             </data:unit>
         </data:body>
         <data:tail>

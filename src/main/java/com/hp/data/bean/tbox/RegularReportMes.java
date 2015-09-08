@@ -4,31 +4,13 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class RegularReportMes extends TBoxUpBean{
-    private long eventID;
-    private String serialNumber;
-    private String vin;
+    private Short regularData;
 
-    public long getEventID() {
-        return eventID;
+    public Short getRegularData() {
+        return regularData;
     }
 
-    public void setEventID(long eventID) {
-        this.eventID = eventID;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
-    public String getVin() {
-        return vin;
-    }
-
-    public void setVin(String vin) {
-        this.vin = vin;
+    public void setRegularData(Short regularData) {
+        this.regularData = regularData;
     }
 }
