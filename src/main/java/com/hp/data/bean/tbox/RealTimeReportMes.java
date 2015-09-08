@@ -4,247 +4,247 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class RealTimeReportMes extends TBoxUpBean{
-    private short isLocation;
-    private long latitude;
-    private long longitude;
-    private long speed;
-    private long heading;
-    private short fuelOil;
-    private long avgOil;
-    private short oilLife;
-    private short driveRange;
-    private long leftFrontTirePressure;
-    private long leftRearTirePressure;
-    private long rightFrontTirePressure;
-    private long rightRearTirePressure;
-    private short windowInformation;
-    private short vehicleTemperature;
-    private short vehicleOuterTemperature;
-    private short doorInformation;
-    private long singleBatteryVoltage;
-    private short maximumVoltagePowerBatteryPack;
-    private long maximumBatteryVoltage;
-    private long batteryMonomerMinimumVoltage;
-    private short engineCondition;
-    private long engineSpeed;
-    private long rapidAcceleration;
-    private long rapidDeceleration;
-    private long speeding;
-    private short signalStrength;
+    private Short isLocation;
+    private Long latitude;
+    private Long longitude;
+    private Long speed;
+    private Long heading;
+    private Short fuelOil;
+    private Long avgOil;
+    private Short oilLife;
+    private Short driveRange;
+    private Long leftFrontTirePressure;
+    private Long leftRearTirePressure;
+    private Long rightFrontTirePressure;
+    private Long rightRearTirePressure;
+    private Short windowInformation;
+    private Short vehicleTemperature;
+    private Short vehicleOuterTemperature;
+    private Short doorInformation;
+    private Long singleBatteryVoltage;
+    private Short maximumVoltagePowerBatteryPack;
+    private Long maximumBatteryVoltage;
+    private Long batteryMonomerMinimumVoltage;
+    private Short engineCondition;
+    private Long engineSpeed;
+    private Long rapidAcceleration;
+    private Long rapidDeceleration;
+    private Long speeding;
+    private Short signalStrength;
 
-    public short getIsLocation() {
+    public Short getIsLocation() {
         return isLocation;
     }
 
-    public void setIsLocation(short isLocation) {
+    public void setIsLocation(Short isLocation) {
         this.isLocation = isLocation;
     }
 
-    public long getLatitude() {
+    public Long getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(Long latitude) {
         this.latitude = latitude;
     }
 
-    public long getLongitude() {
+    public Long getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(Long longitude) {
         this.longitude = longitude;
     }
 
-    public long getSpeed() {
+    public Long getSpeed() {
         return speed;
     }
 
-    public void setSpeed(long speed) {
+    public void setSpeed(Long speed) {
         this.speed = speed;
     }
 
-    public long getHeading() {
+    public Long getHeading() {
         return heading;
     }
 
-    public void setHeading(long heading) {
+    public void setHeading(Long heading) {
         this.heading = heading;
     }
 
-    public short getFuelOil() {
+    public Short getFuelOil() {
         return fuelOil;
     }
 
-    public void setFuelOil(short fuelOil) {
+    public void setFuelOil(Short fuelOil) {
         this.fuelOil = fuelOil;
     }
 
-    public long getAvgOil() {
+    public Long getAvgOil() {
         return avgOil;
     }
 
-    public void setAvgOil(long avgOil) {
+    public void setAvgOil(Long avgOil) {
         this.avgOil = avgOil;
     }
 
-    public short getOilLife() {
+    public Short getOilLife() {
         return oilLife;
     }
 
-    public void setOilLife(short oilLife) {
+    public void setOilLife(Short oilLife) {
         this.oilLife = oilLife;
     }
 
-    public short getDriveRange() {
+    public Short getDriveRange() {
         return driveRange;
     }
 
-    public void setDriveRange(short driveRange) {
+    public void setDriveRange(Short driveRange) {
         this.driveRange = driveRange;
     }
 
-    public long getLeftFrontTirePressure() {
+    public Long getLeftFrontTirePressure() {
         return leftFrontTirePressure;
     }
 
-    public void setLeftFrontTirePressure(long leftFrontTirePressure) {
+    public void setLeftFrontTirePressure(Long leftFrontTirePressure) {
         this.leftFrontTirePressure = leftFrontTirePressure;
     }
 
-    public long getLeftRearTirePressure() {
+    public Long getLeftRearTirePressure() {
         return leftRearTirePressure;
     }
 
-    public void setLeftRearTirePressure(long leftRearTirePressure) {
+    public void setLeftRearTirePressure(Long leftRearTirePressure) {
         this.leftRearTirePressure = leftRearTirePressure;
     }
 
-    public long getRightFrontTirePressure() {
+    public Long getRightFrontTirePressure() {
         return rightFrontTirePressure;
     }
 
-    public void setRightFrontTirePressure(long rightFrontTirePressure) {
+    public void setRightFrontTirePressure(Long rightFrontTirePressure) {
         this.rightFrontTirePressure = rightFrontTirePressure;
     }
 
-    public long getRightRearTirePressure() {
+    public Long getRightRearTirePressure() {
         return rightRearTirePressure;
     }
 
-    public void setRightRearTirePressure(long rightRearTirePressure) {
+    public void setRightRearTirePressure(Long rightRearTirePressure) {
         this.rightRearTirePressure = rightRearTirePressure;
     }
 
-    public short getWindowInformation() {
+    public Short getWindowInformation() {
         return windowInformation;
     }
 
-    public void setWindowInformation(short windowInformation) {
+    public void setWindowInformation(Short windowInformation) {
         this.windowInformation = windowInformation;
     }
 
-    public short getVehicleTemperature() {
+    public Short getVehicleTemperature() {
         return vehicleTemperature;
     }
 
-    public void setVehicleTemperature(short vehicleTemperature) {
+    public void setVehicleTemperature(Short vehicleTemperature) {
         this.vehicleTemperature = vehicleTemperature;
     }
 
-    public short getVehicleOuterTemperature() {
+    public Short getVehicleOuterTemperature() {
         return vehicleOuterTemperature;
     }
 
-    public void setVehicleOuterTemperature(short vehicleOuterTemperature) {
+    public void setVehicleOuterTemperature(Short vehicleOuterTemperature) {
         this.vehicleOuterTemperature = vehicleOuterTemperature;
     }
 
-    public short getDoorInformation() {
+    public Short getDoorInformation() {
         return doorInformation;
     }
 
-    public void setDoorInformation(short doorInformation) {
+    public void setDoorInformation(Short doorInformation) {
         this.doorInformation = doorInformation;
     }
 
-    public long getSingleBatteryVoltage() {
+    public Long getSingleBatteryVoltage() {
         return singleBatteryVoltage;
     }
 
-    public void setSingleBatteryVoltage(long singleBatteryVoltage) {
+    public void setSingleBatteryVoltage(Long singleBatteryVoltage) {
         this.singleBatteryVoltage = singleBatteryVoltage;
     }
 
-    public short getMaximumVoltagePowerBatteryPack() {
+    public Short getMaximumVoltagePowerBatteryPack() {
         return maximumVoltagePowerBatteryPack;
     }
 
-    public void setMaximumVoltagePowerBatteryPack(short maximumVoltagePowerBatteryPack) {
+    public void setMaximumVoltagePowerBatteryPack(Short maximumVoltagePowerBatteryPack) {
         this.maximumVoltagePowerBatteryPack = maximumVoltagePowerBatteryPack;
     }
 
-    public long getMaximumBatteryVoltage() {
+    public Long getMaximumBatteryVoltage() {
         return maximumBatteryVoltage;
     }
 
-    public void setMaximumBatteryVoltage(long maximumBatteryVoltage) {
+    public void setMaximumBatteryVoltage(Long maximumBatteryVoltage) {
         this.maximumBatteryVoltage = maximumBatteryVoltage;
     }
 
-    public long getBatteryMonomerMinimumVoltage() {
+    public Long getBatteryMonomerMinimumVoltage() {
         return batteryMonomerMinimumVoltage;
     }
 
-    public void setBatteryMonomerMinimumVoltage(long batteryMonomerMinimumVoltage) {
+    public void setBatteryMonomerMinimumVoltage(Long batteryMonomerMinimumVoltage) {
         this.batteryMonomerMinimumVoltage = batteryMonomerMinimumVoltage;
     }
 
-    public short getEngineCondition() {
+    public Short getEngineCondition() {
         return engineCondition;
     }
 
-    public void setEngineCondition(short engineCondition) {
+    public void setEngineCondition(Short engineCondition) {
         this.engineCondition = engineCondition;
     }
 
-    public long getEngineSpeed() {
+    public Long getEngineSpeed() {
         return engineSpeed;
     }
 
-    public void setEngineSpeed(long engineSpeed) {
+    public void setEngineSpeed(Long engineSpeed) {
         this.engineSpeed = engineSpeed;
     }
 
-    public long getRapidAcceleration() {
+    public Long getRapidAcceleration() {
         return rapidAcceleration;
     }
 
-    public void setRapidAcceleration(long rapidAcceleration) {
+    public void setRapidAcceleration(Long rapidAcceleration) {
         this.rapidAcceleration = rapidAcceleration;
     }
 
-    public long getRapidDeceleration() {
+    public Long getRapidDeceleration() {
         return rapidDeceleration;
     }
 
-    public void setRapidDeceleration(long rapidDeceleration) {
+    public void setRapidDeceleration(Long rapidDeceleration) {
         this.rapidDeceleration = rapidDeceleration;
     }
 
-    public long getSpeeding() {
+    public Long getSpeeding() {
         return speeding;
     }
 
-    public void setSpeeding(long speeding) {
+    public void setSpeeding(Long speeding) {
         this.speeding = speeding;
     }
 
-    public short getSignalStrength() {
+    public Short getSignalStrength() {
         return signalStrength;
     }
 
-    public void setSignalStrength(short signalStrength) {
+    public void setSignalStrength(Short signalStrength) {
         this.signalStrength = signalStrength;
     }
 }

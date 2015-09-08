@@ -4,13 +4,13 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class HeartbeatReq extends TBoxUpBean{
-    private long eventID;
+    private Long eventID;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 }

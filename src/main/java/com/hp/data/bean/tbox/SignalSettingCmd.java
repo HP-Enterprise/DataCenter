@@ -4,31 +4,31 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class SignalSettingCmd extends TBoxDownBean{
-    private long eventID;
-    private long realTimeDataValid;
-    private long frequencyForRealTimeReport;
+    private Long eventID;
+    private Long realTimeDataValid;
+    private Long frequencyForRealTimeReport;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 
-    public long getRealTimeDataValid() {
+    public Long getRealTimeDataValid() {
         return realTimeDataValid;
     }
 
-    public void setRealTimeDataValid(long realTimeDataValid) {
+    public void setRealTimeDataValid(Long realTimeDataValid) {
         this.realTimeDataValid = realTimeDataValid;
     }
 
-    public long getFrequencyForRealTimeReport() {
+    public Long getFrequencyForRealTimeReport() {
         return frequencyForRealTimeReport;
     }
 
-    public void setFrequencyForRealTimeReport(long frequencyForRealTimeReport) {
+    public void setFrequencyForRealTimeReport(Long frequencyForRealTimeReport) {
         this.frequencyForRealTimeReport = frequencyForRealTimeReport;
     }
 }

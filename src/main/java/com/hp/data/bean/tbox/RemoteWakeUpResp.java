@@ -4,7 +4,7 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class RemoteWakeUpResp extends TBoxDownBean{
-    private long eventID;
+    private Long eventID;
     private Short registerResult;
 
     public Short getRegisterResult() {
@@ -13,10 +13,10 @@ public class RemoteWakeUpResp extends TBoxDownBean{
     public void setRegisterResult(Short registerResult) {
         this.registerResult = registerResult;
     }
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 }

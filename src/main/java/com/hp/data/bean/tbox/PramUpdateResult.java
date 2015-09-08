@@ -4,58 +4,58 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class PramUpdateResult extends TBoxUpBean{
-    private long eventID;
-    private short pramUpdateResult;
-    private long packetNumber;
-    private long backPacketNumber;
-    private short responseStatus;
-    private short check;
+    private Long eventID;
+    private Short pramUpdateResult;
+    private Long packetNumber;
+    private Long backPacketNumber;
+    private Short responseStatus;
+    private Short check;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 
-    public short getPramUpdateResult() {
+    public Short getPramUpdateResult() {
         return pramUpdateResult;
     }
 
-    public void setPramUpdateResult(short pramUpdateResult) {
+    public void setPramUpdateResult(Short pramUpdateResult) {
         this.pramUpdateResult = pramUpdateResult;
     }
 
-    public long getPacketNumber() {
+    public Long getPacketNumber() {
         return packetNumber;
     }
 
-    public void setPacketNumber(long packetNumber) {
+    public void setPacketNumber(Long packetNumber) {
         this.packetNumber = packetNumber;
     }
 
-    public long getBackPacketNumber() {
+    public Long getBackPacketNumber() {
         return backPacketNumber;
     }
 
-    public void setBackPacketNumber(long backPacketNumber) {
+    public void setBackPacketNumber(Long backPacketNumber) {
         this.backPacketNumber = backPacketNumber;
     }
 
-    public short getResponseStatus() {
+    public Short getResponseStatus() {
         return responseStatus;
     }
 
-    public void setResponseStatus(short responseStatus) {
+    public void setResponseStatus(Short responseStatus) {
         this.responseStatus = responseStatus;
     }
 
-    public short getCheck() {
+    public Short getCheck() {
         return check;
     }
 
-    public void setCheck(short check) {
+    public void setCheck(Short check) {
         this.check = check;
     }
 }

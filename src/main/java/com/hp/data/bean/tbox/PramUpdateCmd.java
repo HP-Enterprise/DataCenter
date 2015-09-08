@@ -4,7 +4,7 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class PramUpdateCmd extends TBoxDownBean{
-    private long eventID;
+    private Long eventID;
     private String pramUpdateReady;
 
     public String getPramUpdateReady() {
@@ -15,11 +15,11 @@ public class PramUpdateCmd extends TBoxDownBean{
         this.pramUpdateReady = pramUpdateReady;
     }
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 }

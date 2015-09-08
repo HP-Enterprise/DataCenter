@@ -4,22 +4,22 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class DiaResp extends TBoxDownBean{
-    private long eventID;
+    private Long eventID;
     private Short diaReportResp;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 
-    public Short getDiagReportResp() {
+    public Short getDiaReportResp() {
         return diaReportResp;
     }
 
-    public void setDiagReportResp(Short diagReportResp) {
-        this.diaReportResp = diagReportResp;
+    public void setDiaReportResp(Short diaReportResp) {
+        this.diaReportResp = diaReportResp;
     }
 }

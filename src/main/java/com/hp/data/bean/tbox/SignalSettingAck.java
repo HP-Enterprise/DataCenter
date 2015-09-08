@@ -4,22 +4,22 @@ import com.hp.data.convert.DataEntity;
 
 @DataEntity(key = "8995")
 public class SignalSettingAck extends TBoxUpBean{
-    private long eventID;
-    private short signalSettingAck;
+    private Long eventID;
+    private Short signalSettingAck;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 
-    public short getSignalSettingAck() {
+    public Short getSignalSettingAck() {
         return signalSettingAck;
     }
 
-    public void setSignalSettingAck(short signalSettingAck) {
+    public void setSignalSettingAck(Short signalSettingAck) {
         this.signalSettingAck = signalSettingAck;
     }
 }
