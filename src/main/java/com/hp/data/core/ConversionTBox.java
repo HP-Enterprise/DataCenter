@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.nio.ByteBuffer;
 
 @Component
-public class ConversionTBox1 extends AbstractConversion{
+public class ConversionTBox extends AbstractConversion{
     @Override
     public String getPackageKey(ByteBuffer buffer){
         DataBuilder db=DataBuilder.build(buffer);
