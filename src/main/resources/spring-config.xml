@@ -32,6 +32,61 @@
                 <data:element name="applicationID" type="U_INT_8"/>         <!--业务类型编号-->
                 <data:element name="messageID" type="U_INT_8"/>             <!--消息类型编号-->
             </data:elementGroup>
+            <data:elementGroup name="gpsPosition">
+                <data:element name="isLocation" type="U_INT_8"/>        <!--定位状态：Bit0: 0:有效定位；1:无效 定位（当数据通信正常，而不能获取 定位信息时，发送最后一次有效定位 信息，并将定位状态置为无效。） Bit1: 0:北纬；1:南纬 Bit2: 0:东经；1:西经 Bit3~7:预留固定 0 -->
+                <data:element name="latitude" type="U_INT_32"/>         <!--经度：以度为单位的经度值乘以 10 的 6 次方，精确到百万分之一度-->
+                <data:element name="longitude" type="U_INT_32"/>        <!--纬度：以度为单位的纬度值乘以 10 的 6 次方，精确到百万分之一度 -->
+                <data:element name="speed" type="U_INT_16"/>            <!--速度 0~2200[0km/h~220km/m],最小 计算单位 0.1km/h -->
+                <data:element name="heading" type="U_INT_16"/>          <!--方向 0~359 正北为 0，顺时针 -->
+            </data:elementGroup>
+            <data:elementGroup name="ratedVehicle">
+                <data:element name="frequencyForRealTimeReport" type="U_INT_16"/> <!--1~600（1~600s）最小计量 单元1s Fix 10S -->
+                <data:element name="frequencyForWarningReport " type="U_INT_16"/> <!--0～60000（表示0ms～ 60000ms），最小计量单元 ：1ms Fix 1S -->
+                <data:element name="frequencyHeartbeat" type="U_INT_8"/>         <!--1～240（表示1s～240s）， 最小计量单元：1s Fix 60S-->
+                <data:element name="timeOutForTerminalSearch" type="U_INT_16"/>   <!--1～600（表示1s～600s）， 最小计量单元：1s  Fix 60S[3次retry累计180S] -->
+                <data:element name="timeOutForServerSearch" type="U_INT_16"/>     <!--1～600（表示1s～600s）， 最小计量单元：1s  Fix 60S[3次retry累计180S] -->
+                <data:element name="vehicleType" type="U_INT_8"/>                 <!--车辆类型-->
+                <data:element name="vehicleModels" type="U_INT_16"/>              <!--如：e50 等 -->
+                <data:element name="maxSpeed" type="U_INT_8"/>                    <!--有效值范围：1～254 [表示 0km/h～254km/h] 最小计量单元：1km/h -->
+                <data:element name="hardwareVersion" type="STRING" size="5"/>     <!--硬件版本，终端自行定义-->
+                <data:element name="softwareVersion" type="STRING" size="5"/>     <!--软件版本，终端自行定义-->
+                <data:element name="frequencySaveLocalMedia " type="U_INT_16"/>   <!--终端本地存储时间周期 0~60000（0~60000ms）最 小计量单元：1ms. Fix 1S-->
+                <data:element name="enterpriseBroadcastAddress" type="BYTE" size="6"/> <!--企业平台 IP，IPV4 的前 两个字节为 0 -->
+                <data:element name="enterpriseBroadcastPort" type="U_INT_16"/>    <!--企业平台端口 -->
+            </data:elementGroup>
+            <data:elementGroup name="realTimeReplacement">
+                <data:element name="fuelOil" type="U_INT_8"/>           <!--分辨率1L，偏移量0， 显示范围：0L-55L 上报数据范围： 0-55 缺省值：0x00 无效值：0x37 -->
+                <data:element name="avgOil" type="U_INT_16"/>           <!--分辨率0.1L/KM，偏移量0， 显 示 范 围 ： 0L/100KM-99.9L/100KM 上报数据范围： 0-999 缺省值：0 x0000 无效值：0x03E7 -->
+                <data:element name="oilLife" type="U_INT_8"/>           <!--分辨率1%，偏移量0 显示范围：0~100% 上报数据范围： 0-100 缺省值：0x00 无效值：0x64-->
+                <data:element name="driveRange" type="BYTE" size="3"/>       <!--分辨率1KM，偏移量0 显示范围：0KM~999999KM 上报数据范围：0~999999 缺省值：0x00000 无效值：0xF423F-->
+                <data:element name="leftFrontTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4 -->
+                <data:element name="leftRearTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4-->
+                <data:element name="rightFrontTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4 -->
+                <data:element name="rightRearTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4-->
+                <data:element name="windowInformation" type="U_INT_8"/>   <!--Bit 0左前：1：开，0：关 Bit 1右前：1：开，0：关 Bit 2左后：1：开，0：关 Bit 3右后：1：开，0：关-->
+                <data:element name="vehicleTemperature" type="U_INT_8"/>  <!--分辨率1 ℃，偏移量40 显示范围：-40℃ ~ 85℃ 上报数据范围：0~125 缺省值：0x28 无效值：0x7D-->
+                <data:element name="vehicleOuterTemperature" type="U_INT_8"/><!--分辨率1 ℃，偏移量40 显示范围：-40℃ ~ 85℃ 上报数据范围：0~125 缺省值：0x28 无效值：0x7D -->
+                <data:element name="doorInformation" type="U_INT_8"/>     <!--Bit 0左前：1：开，0：关 Bit 1左后：1：开，0：关 Bit 2右前：1：开，0：关 Bit 3右后：1：开，0：关 Bit 4后备箱门：1：开，0：关 Bit 5前舱盖门：1：开，0：关-->
+                <data:element name="singleBatteryVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF-->
+                <data:element name="maximumVoltagePowerBatteryPack" type="U_INT_8"/><!--分辨率1，偏移量0 显示范围：1-254 上报数据范围：1~ 254 缺省值：0x00 无效值：0x00 -->
+                <data:element name="maximumBatteryVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF -->
+                <data:element name="batteryMonomerMinimumVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF-->
+                <data:element name="engineCondition" type="U_INT_8"/>      <!--0x00:engine stop    0x01:engine start 0x02:idle speed  0x03:part load 0x04:trailling throttle  0x05:full load 0x06:Fuel Cut Off 0x07:undefined CANoe数据超出范围时按 0x07(undefined)处理 -->
+                <data:element name="engineSpeed" type="U_INT_16"/>         <!--分辨率0.001V，偏移量0显示范围：0V-8191.875V 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF -->
+                <data:element name="rapidAcceleration" type="U_INT_16"/>   <!--分辨率1次，偏移量0 显示范围：0-65535次 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF-->
+                <data:element name="rapidDeceleration" type="U_INT_16"/>   <!--分辨率1次，偏移量0 显示范围：0-65535次 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF-->
+                <data:element name="speeding" type="U_INT_16"/>            <!--分辨率1次，偏移量0 显示范围：0-65535次 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF -->
+                <data:element name="signalStrength" type="U_INT_8"/>       <!--分辨率1，偏移量0 显示范围：0-31 上报数据范围：0~31 缺省值：0x00 无效值：0xFF -->
+            </data:elementGroup>
+            <data:elementGroup name="alarmDataStructure">
+                <data:element name="bcm1" type="BYTE"/>                  <!--BIT0：车辆电瓶过压  0:故障发生 1:故障消除 BIT1：车辆电瓶欠压  0:故障发生 1:故障消除 BIT2：多媒体异常  0:故障发生 1:故障消除 BIT3：冷冻液不足  0:故障发生 1:故障消除 BIT4：车灯系统故障  0:故障发生 1:故障消除 BIT5~BIT7：预留 -->
+                <data:element name="ems" type="BYTE"/>                  <!--BIT0：发动机异常  0:故障发生 1:故障消除 BIT1：水温过高0:故障发生 1:故障消除 BIT2~BIT7：预留-->
+                <data:element name="tcu" type="BYTE"/>                  <!--BIT0：危险传动系统故障 0:故障发生 1:故障消除 BIT1：警告传动系统故障 0:故障发生 1:故障消除 BIT2：传动系统过热 0:故障发生 1:故障消除 BIT3~BIT7：预留 -->
+                <data:element name="ic" type="BYTE"/>                   <!--BIT0：安全气囊异常 0:故障发生 1:故障消除 BIT1：ABS故障 0:故障发生 1:故障消除 BIT2：油压低 0:故障发生 1:故障消除 BIT3~BIT7：预留 -->
+                <data:element name="abs" type="BYTE"/>                  <!--BIT0：刹车液位低。 0:故障发生 1:故障消除 BIT1~BIT7：预留-->
+                <data:element name="pdc" type="BYTE"/>                  <!--BIT0：PDC系统故障。 0:故障发生 1:故障消除 BIT1~BIT7：预留 -->
+                <data:element name="bcm2" type="BYTE"/>                  <!--BIT0：安全气囊触发。 0: 触发 1:未触发 BIT1~BIT7：预留-->
+            </data:elementGroup>
             <!--电检(T-Box将向T平台发送电检请求)-->
             <data:unit name="TBOX_DiaRequest" key="17_1">
                 <data:include name="dispatcherUp"/>
@@ -122,107 +177,29 @@
             <!--固定数据上报-->
             <data:unit name="TBOX_RegularReportMes" key="33_1">
                 <data:include name="dispatcherUp"/>
-                <data:element name="frequencyForRealTimeReport" type="U_INT_32"/> <!--1~600（1~600s）最小计量 单元1s Fix 10S -->
-                <data:element name="frequencyForWarningReport " type="U_INT_32"/> <!--0～60000（表示0ms～ 60000ms），最小计量单元 ：1ms Fix 1S -->
-                <data:element name="frequencyHeartbeat" type="U_INT_16"/>         <!--1～240（表示1s～240s）， 最小计量单元：1s Fix 60S-->
-                <data:element name="timeOutForTerminalSearch" type="U_INT_32"/>   <!--1～600（表示1s～600s）， 最小计量单元：1s  Fix 60S[3次retry累计180S] -->
-                <data:element name="timeOutForServerSearch" type="U_INT_32"/>     <!--1～600（表示1s～600s）， 最小计量单元：1s  Fix 60S[3次retry累计180S] -->
-                <data:element name="vehicleType" type="U_INT_8"/>                 <!--车辆类型-->
-                <data:element name="vehicleModels" type="U_INT_32"/>              <!--如：e50 等 -->
-                <data:element name="maxSpeed" type="U_INT_8"/>                    <!--有效值范围：1～254 [表示 0km/h～254km/h] 最小计量单元：1km/h -->
-                <data:element name="hardwareVersion" type="STRING" size="5"/>     <!--硬件版本，终端自行定义-->
-                <data:element name="softwareVersion" type="STRING" size="5"/>     <!--软件版本，终端自行定义-->
-                <data:element name="frequencySaveLocalMedia " type="U_INT_32"/>   <!--终端本地存储时间周期 0~60000（0~60000ms）最 小计量单元：1ms. Fix 1S-->
-                <data:element name="enterpriseBroadcastAddress" type="U_INT_32"/> <!--企业平台 IP，IPV4 的前 两个字节为 0 -->
-                <data:element name="enterpriseBroadcastPort" type="U_INT_32"/>    <!--企业平台端口 -->
+                <data:include name="ratedVehicle"/>
             </data:unit>
 
             <!--实时数据上报-->
             <data:unit name="TBOX_RealTimeReportMes" key="34_1">
                 <data:include name="dispatcherUp"/>
-                <data:element name="isLocation" type="U_INT_8"/>        <!--定位状态：Bit0: 0:有效定位；1:无效 定位（当数据通信正常，而不能获取 定位信息时，发送最后一次有效定位 信息，并将定位状态置为无效。） Bit1: 0:北纬；1:南纬 Bit2: 0:东经；1:西经 Bit3~7:预留固定 0 -->
-                <data:element name="latitude" type="U_INT_32"/>         <!--经度：以度为单位的经度值乘以 10 的 6 次方，精确到百万分之一度-->
-                <data:element name="longitude" type="U_INT_32"/>        <!--纬度：以度为单位的纬度值乘以 10 的 6 次方，精确到百万分之一度 -->
-                <data:element name="speed" type="U_INT_16"/>            <!--速度 0~2200[0km/h~220km/m],最小 计算单位 0.1km/h -->
-                <data:element name="heading" type="U_INT_16"/>          <!--方向 0~359 正北为 0，顺时针 -->
-                <data:element name="fuelOil" type="U_INT_8"/>           <!--分辨率1L，偏移量0， 显示范围：0L-55L 上报数据范围： 0-55 缺省值：0x00 无效值：0x37 -->
-                <data:element name="avgOil" type="U_INT_16"/>           <!--分辨率0.1L/KM，偏移量0， 显 示 范 围 ： 0L/100KM-99.9L/100KM 上报数据范围： 0-999 缺省值：0 x0000 无效值：0x03E7 -->
-                <data:element name="oilLife" type="U_INT_8"/>           <!--分辨率1%，偏移量0 显示范围：0~100% 上报数据范围： 0-100 缺省值：0x00 无效值：0x64-->
-                <data:element name="driveRange" type="BYTE" size="3"/>       <!--分辨率1KM，偏移量0 显示范围：0KM~999999KM 上报数据范围：0~999999 缺省值：0x00000 无效值：0xF423F-->
-                <data:element name="leftFrontTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4 -->
-                <data:element name="leftRearTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4-->
-                <data:element name="rightFrontTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4 -->
-                <data:element name="rightRearTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4-->
-                <data:element name="windowInformation" type="U_INT_8"/>   <!--Bit 0左前：1：开，0：关 Bit 1右前：1：开，0：关 Bit 2左后：1：开，0：关 Bit 3右后：1：开，0：关-->
-                <data:element name="vehicleTemperature" type="U_INT_8"/>  <!--分辨率1 ℃，偏移量40 显示范围：-40℃ ~ 85℃ 上报数据范围：0~125 缺省值：0x28 无效值：0x7D-->
-                <data:element name="vehicleOuterTemperature" type="U_INT_8"/><!--分辨率1 ℃，偏移量40 显示范围：-40℃ ~ 85℃ 上报数据范围：0~125 缺省值：0x28 无效值：0x7D -->
-                <data:element name="doorInformation" type="U_INT_8"/>     <!--Bit 0左前：1：开，0：关 Bit 1左后：1：开，0：关 Bit 2右前：1：开，0：关 Bit 3右后：1：开，0：关 Bit 4后备箱门：1：开，0：关 Bit 5前舱盖门：1：开，0：关-->
-                <data:element name="singleBatteryVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF-->
-                <data:element name="maximumVoltagePowerBatteryPack" type="U_INT_8"/><!--分辨率1，偏移量0 显示范围：1-254 上报数据范围：1~ 254 缺省值：0x00 无效值：0x00 -->
-                <data:element name="maximumBatteryVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF -->
-                <data:element name="batteryMonomerMinimumVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF-->
-                <data:element name="engineCondition" type="U_INT_8"/>      <!--0x00:engine stop    0x01:engine start 0x02:idle speed  0x03:part load 0x04:trailling throttle  0x05:full load 0x06:Fuel Cut Off 0x07:undefined CANoe数据超出范围时按 0x07(undefined)处理 -->
-                <data:element name="engineSpeed" type="U_INT_16"/>         <!--分辨率0.001V，偏移量0显示范围：0V-8191.875V 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF -->
-                <data:element name="rapidAcceleration" type="U_INT_16"/>   <!--分辨率1次，偏移量0 显示范围：0-65535次 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF-->
-                <data:element name="rapidDeceleration" type="U_INT_16"/>   <!--分辨率1次，偏移量0 显示范围：0-65535次 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF-->
-                <data:element name="speeding" type="U_INT_16"/>            <!--分辨率1次，偏移量0 显示范围：0-65535次 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF -->
-                <data:element name="signalStrength" type="U_INT_8"/>       <!--分辨率1，偏移量0 显示范围：0-31 上报数据范围：0~31 缺省值：0x00 无效值：0xFF -->
-            </data:unit>
+                <data:include name="gpsPosition"/>
+                <data:include name="realTimeReplacement"/>
+                </data:unit>
 
             <!--补发数据上报-->
             <data:unit name="TBOX_DataResendMes" key="35_1">
                 <data:include name="dispatcherUp"/>
-                <data:element name="isLocation" type="U_INT_8"/>        <!--定位状态：Bit0: 0:有效定位；1:无效 定位（当数据通信正常，而不能获取 定位信息时，发送最后一次有效定位 信息，并将定位状态置为无效。） Bit1: 0:北纬；1:南纬 Bit2: 0:东经；1:西经 Bit3~7:预留固定 0 -->
-                <data:element name="latitude" type="U_INT_32"/>         <!--经度：以度为单位的经度值乘以 10 的 6 次方，精确到百万分之一度-->
-                <data:element name="longitude" type="U_INT_32"/>        <!--纬度：以度为单位的纬度值乘以 10 的 6 次方，精确到百万分之一度 -->
-                <data:element name="speed" type="U_INT_16"/>            <!--速度 0~2200[0km/h~220km/m],最小 计算单位 0.1km/h -->
-                <data:element name="heading" type="U_INT_16"/>          <!--方向 0~359 正北为 0，顺时针 -->
-                <data:element name="fuelOil" type="U_INT_8"/>           <!--分辨率1L，偏移量0， 显示范围：0L-55L 上报数据范围： 0-55 缺省值：0x00 无效值：0x37 -->
-                <data:element name="avgOil" type="U_INT_16"/>           <!--分辨率0.1L/KM，偏移量0， 显 示 范 围 ： 0L/100KM-99.9L/100KM 上报数据范围： 0-999 缺省值：0 x0000 无效值：0x03E7 -->
-                <data:element name="oilLife" type="U_INT_8"/>           <!--分辨率1%，偏移量0 显示范围：0~100% 上报数据范围： 0-100 缺省值：0x00 无效值：0x64-->
-                <data:element name="driveRange" type="U_INT_16"/>       <!--分辨率1KM，偏移量0 显示范围：0KM~999999KM 上报数据范围：0~999999 缺省值：0x00000 无效值：0xF423F-->
-                <data:element name="leftFrontTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4 -->
-                <data:element name="leftRearTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4-->
-                <data:element name="rightFrontTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4 -->
-                <data:element name="rightRearTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4-->
-                <data:element name="windowInformation" type="U_INT_8"/>   <!--Bit 0左前：1：开，0：关 Bit 1右前：1：开，0：关 Bit 2左后：1：开，0：关 Bit 3右后：1：开，0：关-->
-                <data:element name="vehicleTemperature" type="U_INT_8"/>  <!--分辨率1 ℃，偏移量40 显示范围：-40℃ ~ 85℃ 上报数据范围：0~125 缺省值：0x28 无效值：0x7D-->
-                <data:element name="vehicleOuterTemperature" type="U_INT_8"/><!--分辨率1 ℃，偏移量40 显示范围：-40℃ ~ 85℃ 上报数据范围：0~125 缺省值：0x28 无效值：0x7D -->
-                <data:element name="doorInformation" type="U_INT_8"/>     <!--Bit 0左前：1：开，0：关 Bit 1左后：1：开，0：关 Bit 2右前：1：开，0：关 Bit 3右后：1：开，0：关 Bit 4后备箱门：1：开，0：关 Bit 5前舱盖门：1：开，0：关-->
-                <data:element name="singleBatteryVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF-->
-                <data:element name="maximumVoltagePowerBatteryPack" type="U_INT_8"/><!--分辨率1，偏移量0 显示范围：1-254 上报数据范围：1~ 254 缺省值：0x00 无效值：0x00 -->
-                <data:element name="maximumBatteryVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF -->
-                <data:element name="batteryMonomerMinimumVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF-->
-                <data:element name="engineCondition" type="U_INT_8"/>      <!--0x00:engine stop    0x01:engine start 0x02:idle speed  0x03:part load 0x04:trailling throttle  0x05:full load 0x06:Fuel Cut Off 0x07:undefined CANoe数据超出范围时按 0x07(undefined)处理 -->
-                <data:element name="engineSpeed" type="U_INT_16"/>         <!--分辨率0.001V，偏移量0显示范围：0V-8191.875V 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF -->
-                <data:element name="rapidAcceleration" type="U_INT_16"/>   <!--分辨率1次，偏移量0 显示范围：0-65535次 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF-->
-                <data:element name="rapidDeceleration" type="U_INT_16"/>   <!--分辨率1次，偏移量0 显示范围：0-65535次 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF-->
-                <data:element name="speeding" type="U_INT_16"/>            <!--分辨率1次，偏移量0 显示范围：0-65535次 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF -->
-                <data:element name="signalStrength" type="U_INT_8"/>       <!--分辨率1，偏移量0 显示范围：0-31 上报数据范围：0~31 缺省值：0x00 无效值：0xFF -->
-                <data:element name="bcm1" type="U_INT_8"/>                  <!--BIT0：车辆电瓶过压  0:故障发生 1:故障消除 BIT1：车辆电瓶欠压  0:故障发生 1:故障消除 BIT2：多媒体异常  0:故障发生 1:故障消除 BIT3：冷冻液不足  0:故障发生 1:故障消除 BIT4：车灯系统故障  0:故障发生 1:故障消除 BIT5~BIT7：预留 -->
-                <data:element name="ems" type="U_INT_8"/>                  <!--BIT0：发动机异常  0:故障发生 1:故障消除 BIT1：水温过高0:故障发生 1:故障消除 BIT2~BIT7：预留-->
-                <data:element name="tcu" type="U_INT_8"/>                  <!--BIT0：危险传动系统故障 0:故障发生 1:故障消除 BIT1：警告传动系统故障 0:故障发生 1:故障消除 BIT2：传动系统过热 0:故障发生 1:故障消除 BIT3~BIT7：预留 -->
-                <data:element name="ic" type="U_INT_8"/>                   <!--BIT0：安全气囊异常 0:故障发生 1:故障消除 BIT1：ABS故障 0:故障发生 1:故障消除 BIT2：油压低 0:故障发生 1:故障消除 BIT3~BIT7：预留 -->
-                <data:element name="abs" type="U_INT_8"/>                  <!--BIT0：刹车液位低。 0:故障发生 1:故障消除 BIT1~BIT7：预留-->
-                <data:element name="pdc" type="U_INT_8"/>                  <!--BIT0：PDC系统故障。 0:故障发生 1:故障消除 BIT1~BIT7：预留 -->
-                <data:element name="bcm2" type="U_INT_8"/>                  <!--BIT0：安全气囊触发。 0: 触发 1:未触发 BIT1~BIT7：预留-->
+                <data:include name="gpsPosition"/>
+                <data:include name="realTimeReplacement"/>
+                <data:include name="alarmDataStructure"/>
             </data:unit>
 
             <!--报警数据上报-->
             <data:unit name="TBOX_WarningMessage" key="36_1">
                 <data:include name="dispatcherUp"/>
-                <data:element name="isLocation" type="U_INT_8"/>        <!--定位状态：Bit0: 0:有效定位；1:无效 定位（当数据通信正常，而不能获取 定位信息时，发送最后一次有效定位 信息，并将定位状态置为无效。） Bit1: 0:北纬；1:南纬 Bit2: 0:东经；1:西经 Bit3~7:预留固定 0 -->
-                <data:element name="latitude" type="U_INT_32"/>         <!--经度：以度为单位的经度值乘以 10 的 6 次方，精确到百万分之一度-->
-                <data:element name="longitude" type="U_INT_32"/>        <!--纬度：以度为单位的纬度值乘以 10 的 6 次方，精确到百万分之一度 -->
-                <data:element name="speed" type="U_INT_16"/>            <!--速度 0~2200[0km/h~220km/m],最小 计算单位 0.1km/h -->
-                <data:element name="heading" type="U_INT_16"/>          <!--方向 0~359 正北为 0，顺时针 -->
-                <data:element name="bcm1" type="U_INT_8"/>                  <!--BIT0：车辆电瓶过压  0:故障发生 1:故障消除 BIT1：车辆电瓶欠压  0:故障发生 1:故障消除 BIT2：多媒体异常  0:故障发生 1:故障消除 BIT3：冷冻液不足  0:故障发生 1:故障消除 BIT4：车灯系统故障  0:故障发生 1:故障消除 BIT5~BIT7：预留 -->
-                <data:element name="ems" type="U_INT_8"/>                  <!--BIT0：发动机异常  0:故障发生 1:故障消除 BIT1：水温过高0:故障发生 1:故障消除 BIT2~BIT7：预留-->
-                <data:element name="tcu" type="U_INT_8"/>                  <!--BIT0：危险传动系统故障 0:故障发生 1:故障消除 BIT1：警告传动系统故障 0:故障发生 1:故障消除 BIT2：传动系统过热 0:故障发生 1:故障消除 BIT3~BIT7：预留 -->
-                <data:element name="ic" type="U_INT_8"/>                   <!--BIT0：安全气囊异常 0:故障发生 1:故障消除 BIT1：ABS故障 0:故障发生 1:故障消除 BIT2：油压低 0:故障发生 1:故障消除 BIT3~BIT7：预留 -->
-                <data:element name="abs" type="U_INT_8"/>                  <!--BIT0：刹车液位低。 0:故障发生 1:故障消除 BIT1~BIT7：预留-->
-                <data:element name="pdc" type="U_INT_8"/>                  <!--BIT0：PDC系统故障。 0:故障发生 1:故障消除 BIT1~BIT7：预留 -->
-                <data:element name="bcm2" type="U_INT_8"/>                  <!--BIT0：安全气囊触发。 0: 触发 1:未触发 BIT1~BIT7：预留-->
+                <data:include name="gpsPosition"/>
+                <data:include name="alarmDataStructure"/>
             </data:unit>
 
             <!--心跳数据上报(T-Box向T平台发送心跳请求)-->
@@ -268,7 +245,7 @@
                 <data:element name="frequencyHeartbeat" type="U_INT_8"/>  <!--车载终端心跳发送周期，有 效值范围：1～240（表示 1s ～240s），最小计量单元：1s Fix 60S-->
                 <data:element name="timeOutForTerminalSearch" type="U_INT_16"/><!--终端应答超时时间，有效值 范围： 1～600（表示 1s～600s ），最小计量单元：1s，Fix 60S 三次共 180S-->
                 <data:element name="timeOutForServerSearch" type="U_INT_16"/> <!--平台应答超时时间，有效值 范围： 1～600（表示 1s～600s ），最小计量单元：1s，Fix 60S 三次共 180S-->
-                <data:element name="enterpriseBroadcastAddress" type="U_INT_32"/> <!--企业平台 IP，IPV4 的前两个 字节为 0 -->
+                <data:element name="enterpriseBroadcastAddress" type="BYTE" size="6"/> <!--企业平台 IP，IPV4 的前两个 字节为 0 -->
                 <data:element name="enterpriseBroadcastPort" type="U_INT_16"/> <!--企业平台端口 -->
             </data:unit>
 
