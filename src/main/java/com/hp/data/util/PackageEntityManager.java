@@ -64,8 +64,7 @@ public final class PackageEntityManager {
 
     private static String getByteArrayString(Object byteArray) {
         byte[] bytes= (byte[]) byteArray;
-        String aaa =getByteString(ByteBuffer.wrap(bytes));
-        return aaa;
+        return getByteString(ByteBuffer.wrap(bytes));
     }
 
     public static String getHexString(String value,Class<?> valueClass,DataBuilder dataBuilder){
