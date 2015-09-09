@@ -17,7 +17,7 @@ public class PramStatusAck extends TBoxUpBean{
     private Short enterpriseBroadcastAddress;
     private Long enterpriseBroadcastPort;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
@@ -25,7 +25,7 @@ public class PramStatusAck extends TBoxUpBean{
         this.eventID = eventID;
     }
 
-    public short getPramCmdDataSize() {
+    public Short getPramCmdDataSize() {
         return pramCmdDataSize;
     }
 
@@ -33,7 +33,7 @@ public class PramStatusAck extends TBoxUpBean{
         this.pramCmdDataSize = pramCmdDataSize;
     }
 
-    public long getFrequencySaveLocalMedia() {
+    public Long getFrequencySaveLocalMedia() {
         return frequencySaveLocalMedia;
     }
 
@@ -41,7 +41,7 @@ public class PramStatusAck extends TBoxUpBean{
         this.frequencySaveLocalMedia = frequencySaveLocalMedia;
     }
 
-    public long getFrequencyForRealTimeReport() {
+    public Long getFrequencyForRealTimeReport() {
         return frequencyForRealTimeReport;
     }
 
@@ -49,7 +49,7 @@ public class PramStatusAck extends TBoxUpBean{
         this.frequencyForRealTimeReport = frequencyForRealTimeReport;
     }
 
-    public long getFrequencyForWarningReport() {
+    public Long getFrequencyForWarningReport() {
         return frequencyForWarningReport;
     }
 
@@ -73,7 +73,7 @@ public class PramStatusAck extends TBoxUpBean{
         this.softwareVersion = softwareVersion;
     }
 
-    public short getFrequencyHeartbeat() {
+    public Short getFrequencyHeartbeat() {
         return frequencyHeartbeat;
     }
 
@@ -81,7 +81,7 @@ public class PramStatusAck extends TBoxUpBean{
         this.frequencyHeartbeat = frequencyHeartbeat;
     }
 
-    public long getTimeOutForTerminalSearch() {
+    public Long getTimeOutForTerminalSearch() {
         return timeOutForTerminalSearch;
     }
 
@@ -89,7 +89,7 @@ public class PramStatusAck extends TBoxUpBean{
         this.timeOutForTerminalSearch = timeOutForTerminalSearch;
     }
 
-    public long getTimeOutForServerSearch() {
+    public Long getTimeOutForServerSearch() {
         return timeOutForServerSearch;
     }
 
@@ -97,7 +97,7 @@ public class PramStatusAck extends TBoxUpBean{
         this.timeOutForServerSearch = timeOutForServerSearch;
     }
 
-    public short getEnterpriseBroadcastAddress() {
+    public Short getEnterpriseBroadcastAddress() {
         return enterpriseBroadcastAddress;
     }
 
@@ -105,7 +105,7 @@ public class PramStatusAck extends TBoxUpBean{
         this.enterpriseBroadcastAddress = enterpriseBroadcastAddress;
     }
 
-    public long getEnterpriseBroadcastPort() {
+    public Long getEnterpriseBroadcastPort() {
         return enterpriseBroadcastPort;
     }
 

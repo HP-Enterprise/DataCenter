@@ -13,7 +13,7 @@ public class RemoteWakeUpResp extends TBoxDownBean{
     public void setRegisterResult(Short registerResult) {
         this.registerResult = registerResult;
     }
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
     public void setEventID(long eventID) {

@@ -18,7 +18,7 @@ public class RegularReportMes extends TBoxUpBean{
     private Short enterpriseBroadcastAddress;
     private Long enterpriseBroadcastPort;
 
-    public long getFrequencyForRealTimeReport() {
+    public Long getFrequencyForRealTimeReport() {
         return frequencyForRealTimeReport;
     }
 
@@ -26,7 +26,7 @@ public class RegularReportMes extends TBoxUpBean{
         this.frequencyForRealTimeReport = frequencyForRealTimeReport;
     }
 
-    public long getFrequencyForWarningReport() {
+    public Long getFrequencyForWarningReport() {
         return frequencyForWarningReport;
     }
 
@@ -42,7 +42,7 @@ public class RegularReportMes extends TBoxUpBean{
         this.frequencyHeartbeat = frequencyHeartbeat;
     }
 
-    public long getTimeOutForTerminalSearch() {
+    public Long getTimeOutForTerminalSearch() {
         return timeOutForTerminalSearch;
     }
 
@@ -50,7 +50,7 @@ public class RegularReportMes extends TBoxUpBean{
         this.timeOutForTerminalSearch = timeOutForTerminalSearch;
     }
 
-    public long getTimeOutForServerSearch() {
+    public Long getTimeOutForServerSearch() {
         return timeOutForServerSearch;
     }
 
@@ -58,7 +58,7 @@ public class RegularReportMes extends TBoxUpBean{
         this.timeOutForServerSearch = timeOutForServerSearch;
     }
 
-    public short getVehicleType() {
+    public Short getVehicleType() {
         return vehicleType;
     }
 
@@ -66,7 +66,7 @@ public class RegularReportMes extends TBoxUpBean{
         this.vehicleType = vehicleType;
     }
 
-    public long getVehicleModels() {
+    public Long getVehicleModels() {
         return vehicleModels;
     }
 
@@ -74,7 +74,7 @@ public class RegularReportMes extends TBoxUpBean{
         this.vehicleModels = vehicleModels;
     }
 
-    public short getMaxSpeed() {
+    public Short getMaxSpeed() {
         return maxSpeed;
     }
 
@@ -98,7 +98,7 @@ public class RegularReportMes extends TBoxUpBean{
         this.softwareVersion = softwareVersion;
     }
 
-    public long getFrequencySaveLocalMedia() {
+    public Long getFrequencySaveLocalMedia() {
         return frequencySaveLocalMedia;
     }
 
@@ -106,7 +106,7 @@ public class RegularReportMes extends TBoxUpBean{
         this.frequencySaveLocalMedia = frequencySaveLocalMedia;
     }
 
-    public short getEnterpriseBroadcastAddress() {
+    public Short getEnterpriseBroadcastAddress() {
         return enterpriseBroadcastAddress;
     }
 
@@ -114,7 +114,7 @@ public class RegularReportMes extends TBoxUpBean{
         this.enterpriseBroadcastAddress = enterpriseBroadcastAddress;
     }
 
-    public long getEnterpriseBroadcastPort() {
+    public Long getEnterpriseBroadcastPort() {
         return enterpriseBroadcastPort;
     }
 

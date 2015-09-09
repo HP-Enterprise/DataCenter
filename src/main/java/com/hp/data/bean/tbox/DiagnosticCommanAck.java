@@ -9,7 +9,7 @@ public class DiagnosticCommanAck extends TBoxUpBean{
     private Short diaNumberAck;
     private Short diaIDAck;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
@@ -17,7 +17,7 @@ public class DiagnosticCommanAck extends TBoxUpBean{
         this.eventID = eventID;
     }
 
-    public short getDiaDataSizeAck() {
+    public Short getDiaDataSizeAck() {
         return diaDataSizeAck;
     }
 
@@ -25,7 +25,7 @@ public class DiagnosticCommanAck extends TBoxUpBean{
         this.diaDataSizeAck = diaDataSizeAck;
     }
 
-    public short getDiaNumberAck() {
+    public Short getDiaNumberAck() {
         return diaNumberAck;
     }
 
@@ -33,7 +33,7 @@ public class DiagnosticCommanAck extends TBoxUpBean{
         this.diaNumberAck = diaNumberAck;
     }
 
-    public short getDiaIDAck() {
+    public Short getDiaIDAck() {
         return diaIDAck;
     }
 

@@ -8,7 +8,7 @@ public class ActiveReq extends TBoxUpBean{
     private String serialNumber;
     private String vin;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 

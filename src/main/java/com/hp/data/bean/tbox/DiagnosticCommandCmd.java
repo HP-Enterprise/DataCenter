@@ -9,7 +9,7 @@ public class DiagnosticCommandCmd extends TBoxDownBean{
     private Short diaNumber;
     private Short diaID;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
@@ -17,7 +17,7 @@ public class DiagnosticCommandCmd extends TBoxDownBean{
         this.eventID = eventID;
     }
 
-    public short getDiaCmdDataSize() {
+    public Short getDiaCmdDataSize() {
         return diaCmdDataSize;
     }
 
@@ -25,7 +25,7 @@ public class DiagnosticCommandCmd extends TBoxDownBean{
         this.diaCmdDataSize = diaCmdDataSize;
     }
 
-    public short getDiaNumber() {
+    public Short getDiaNumber() {
         return diaNumber;
     }
 
@@ -33,7 +33,7 @@ public class DiagnosticCommandCmd extends TBoxDownBean{
         this.diaNumber = diaNumber;
     }
 
-    public short getDiaID() {
+    public Short getDiaID() {
         return diaID;
     }
 

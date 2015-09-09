@@ -17,7 +17,7 @@ public class WarningMessage extends TBoxUpBean{
     private Short pdc;
     private Short bcm2;
 
-    public short getBcm1() {
+    public Short getBcm1() {
         return bcm1;
     }
 
@@ -25,7 +25,7 @@ public class WarningMessage extends TBoxUpBean{
         this.bcm1 = bcm1;
     }
 
-    public short getEms() {
+    public Short getEms() {
         return ems;
     }
 
@@ -33,7 +33,7 @@ public class WarningMessage extends TBoxUpBean{
         this.ems = ems;
     }
 
-    public short getTcu() {
+    public Short getTcu() {
         return tcu;
     }
 
@@ -41,7 +41,7 @@ public class WarningMessage extends TBoxUpBean{
         this.tcu = tcu;
     }
 
-    public short getIc() {
+    public Short getIc() {
         return ic;
     }
 
@@ -49,7 +49,7 @@ public class WarningMessage extends TBoxUpBean{
         this.ic = ic;
     }
 
-    public short getAbs() {
+    public Short getAbs() {
         return abs;
     }
 
@@ -57,7 +57,7 @@ public class WarningMessage extends TBoxUpBean{
         this.abs = abs;
     }
 
-    public short getPdc() {
+    public Short getPdc() {
         return pdc;
     }
 
@@ -65,7 +65,7 @@ public class WarningMessage extends TBoxUpBean{
         this.pdc = pdc;
     }
 
-    public short getBcm2() {
+    public Short getBcm2() {
         return bcm2;
     }
 
@@ -73,7 +73,7 @@ public class WarningMessage extends TBoxUpBean{
         this.bcm2 = bcm2;
     }
 
-    public short getIsLocation() {
+    public Short getIsLocation() {
         return isLocation;
     }
 
@@ -81,7 +81,7 @@ public class WarningMessage extends TBoxUpBean{
         this.isLocation = isLocation;
     }
 
-    public long getLatitude() {
+    public Long getLatitude() {
         return latitude;
     }
 
@@ -89,7 +89,7 @@ public class WarningMessage extends TBoxUpBean{
         this.latitude = latitude;
     }
 
-    public long getLongitude() {
+    public Long getLongitude() {
         return longitude;
     }
 
@@ -97,7 +97,7 @@ public class WarningMessage extends TBoxUpBean{
         this.longitude = longitude;
     }
 
-    public long getSpeed() {
+    public Long getSpeed() {
         return speed;
     }
 
@@ -105,7 +105,7 @@ public class WarningMessage extends TBoxUpBean{
         this.speed = speed;
     }
 
-    public long getHeading() {
+    public Long getHeading() {
         return heading;
     }
 

@@ -8,7 +8,7 @@ public class RemoteControlCmd extends TBoxDownBean{
     private Long remoteControlType;
     private Short acTemperature;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
@@ -16,7 +16,7 @@ public class RemoteControlCmd extends TBoxDownBean{
         this.eventID = eventID;
     }
 
-    public long getRemoteControlType() {
+    public Long getRemoteControlType() {
         return remoteControlType;
     }
 
@@ -24,7 +24,7 @@ public class RemoteControlCmd extends TBoxDownBean{
         this.remoteControlType = remoteControlType;
     }
 
-    public short getAcTemperature() {
+    public Short getAcTemperature() {
         return acTemperature;
     }
 

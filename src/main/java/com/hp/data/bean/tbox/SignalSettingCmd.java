@@ -8,7 +8,7 @@ public class SignalSettingCmd extends TBoxDownBean{
     private Long realTimeDataValid;
     private Long frequencyForRealTimeReport;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
@@ -16,7 +16,7 @@ public class SignalSettingCmd extends TBoxDownBean{
         this.eventID = eventID;
     }
 
-    public long getRealTimeDataValid() {
+    public Long getRealTimeDataValid() {
         return realTimeDataValid;
     }
 
@@ -24,7 +24,7 @@ public class SignalSettingCmd extends TBoxDownBean{
         this.realTimeDataValid = realTimeDataValid;
     }
 
-    public long getFrequencyForRealTimeReport() {
+    public Long getFrequencyForRealTimeReport() {
         return frequencyForRealTimeReport;
     }
 

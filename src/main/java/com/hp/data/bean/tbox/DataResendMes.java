@@ -39,7 +39,7 @@ public class DataResendMes extends TBoxUpBean{
     private Short pdc;
     private Short bcm2;
 
-    public short getIsLocation() {
+    public Short getIsLocation() {
         return isLocation;
     }
 
@@ -47,7 +47,7 @@ public class DataResendMes extends TBoxUpBean{
         this.isLocation = isLocation;
     }
 
-    public long getLatitude() {
+    public Long getLatitude() {
         return latitude;
     }
 
@@ -55,7 +55,7 @@ public class DataResendMes extends TBoxUpBean{
         this.latitude = latitude;
     }
 
-    public long getLongitude() {
+    public Long getLongitude() {
         return longitude;
     }
 
@@ -63,7 +63,7 @@ public class DataResendMes extends TBoxUpBean{
         this.longitude = longitude;
     }
 
-    public long getSpeed() {
+    public Long getSpeed() {
         return speed;
     }
 
@@ -71,7 +71,7 @@ public class DataResendMes extends TBoxUpBean{
         this.speed = speed;
     }
 
-    public long getHeading() {
+    public Long getHeading() {
         return heading;
     }
 
@@ -79,7 +79,7 @@ public class DataResendMes extends TBoxUpBean{
         this.heading = heading;
     }
 
-    public short getFuelOil() {
+    public Short getFuelOil() {
         return fuelOil;
     }
 
@@ -87,7 +87,7 @@ public class DataResendMes extends TBoxUpBean{
         this.fuelOil = fuelOil;
     }
 
-    public long getAvgOil() {
+    public Long getAvgOil() {
         return avgOil;
     }
 
@@ -95,7 +95,7 @@ public class DataResendMes extends TBoxUpBean{
         this.avgOil = avgOil;
     }
 
-    public short getOilLife() {
+    public Short getOilLife() {
         return oilLife;
     }
 
@@ -103,7 +103,7 @@ public class DataResendMes extends TBoxUpBean{
         this.oilLife = oilLife;
     }
 
-    public short getDriveRange() {
+    public Short getDriveRange() {
         return driveRange;
     }
 
@@ -111,7 +111,7 @@ public class DataResendMes extends TBoxUpBean{
         this.driveRange = driveRange;
     }
 
-    public long getLeftFrontTirePressure() {
+    public Long getLeftFrontTirePressure() {
         return leftFrontTirePressure;
     }
 
@@ -119,7 +119,7 @@ public class DataResendMes extends TBoxUpBean{
         this.leftFrontTirePressure = leftFrontTirePressure;
     }
 
-    public long getLeftRearTirePressure() {
+    public Long getLeftRearTirePressure() {
         return leftRearTirePressure;
     }
 
@@ -127,7 +127,7 @@ public class DataResendMes extends TBoxUpBean{
         this.leftRearTirePressure = leftRearTirePressure;
     }
 
-    public long getRightFrontTirePressure() {
+    public Long getRightFrontTirePressure() {
         return rightFrontTirePressure;
     }
 
@@ -135,7 +135,7 @@ public class DataResendMes extends TBoxUpBean{
         this.rightFrontTirePressure = rightFrontTirePressure;
     }
 
-    public long getRightRearTirePressure() {
+    public Long getRightRearTirePressure() {
         return rightRearTirePressure;
     }
 
@@ -143,7 +143,7 @@ public class DataResendMes extends TBoxUpBean{
         this.rightRearTirePressure = rightRearTirePressure;
     }
 
-    public short getWindowInformation() {
+    public Short getWindowInformation() {
         return windowInformation;
     }
 
@@ -151,7 +151,7 @@ public class DataResendMes extends TBoxUpBean{
         this.windowInformation = windowInformation;
     }
 
-    public short getVehicleTemperature() {
+    public Short getVehicleTemperature() {
         return vehicleTemperature;
     }
 
@@ -159,7 +159,7 @@ public class DataResendMes extends TBoxUpBean{
         this.vehicleTemperature = vehicleTemperature;
     }
 
-    public short getVehicleOuterTemperature() {
+    public Short getVehicleOuterTemperature() {
         return vehicleOuterTemperature;
     }
 
@@ -167,7 +167,7 @@ public class DataResendMes extends TBoxUpBean{
         this.vehicleOuterTemperature = vehicleOuterTemperature;
     }
 
-    public short getDoorInformation() {
+    public Short getDoorInformation() {
         return doorInformation;
     }
 
@@ -175,7 +175,7 @@ public class DataResendMes extends TBoxUpBean{
         this.doorInformation = doorInformation;
     }
 
-    public long getSingleBatteryVoltage() {
+    public Long getSingleBatteryVoltage() {
         return singleBatteryVoltage;
     }
 
@@ -183,7 +183,7 @@ public class DataResendMes extends TBoxUpBean{
         this.singleBatteryVoltage = singleBatteryVoltage;
     }
 
-    public short getMaximumVoltagePowerBatteryPack() {
+    public Short getMaximumVoltagePowerBatteryPack() {
         return maximumVoltagePowerBatteryPack;
     }
 
@@ -191,7 +191,7 @@ public class DataResendMes extends TBoxUpBean{
         this.maximumVoltagePowerBatteryPack = maximumVoltagePowerBatteryPack;
     }
 
-    public long getMaximumBatteryVoltage() {
+    public Long getMaximumBatteryVoltage() {
         return maximumBatteryVoltage;
     }
 
@@ -199,7 +199,7 @@ public class DataResendMes extends TBoxUpBean{
         this.maximumBatteryVoltage = maximumBatteryVoltage;
     }
 
-    public long getBatteryMonomerMinimumVoltage() {
+    public Long getBatteryMonomerMinimumVoltage() {
         return batteryMonomerMinimumVoltage;
     }
 
@@ -207,7 +207,7 @@ public class DataResendMes extends TBoxUpBean{
         this.batteryMonomerMinimumVoltage = batteryMonomerMinimumVoltage;
     }
 
-    public short getEngineCondition() {
+    public Short getEngineCondition() {
         return engineCondition;
     }
 
@@ -215,7 +215,7 @@ public class DataResendMes extends TBoxUpBean{
         this.engineCondition = engineCondition;
     }
 
-    public long getEngineSpeed() {
+    public Long getEngineSpeed() {
         return engineSpeed;
     }
 
@@ -223,7 +223,7 @@ public class DataResendMes extends TBoxUpBean{
         this.engineSpeed = engineSpeed;
     }
 
-    public long getRapidAcceleration() {
+    public Long getRapidAcceleration() {
         return rapidAcceleration;
     }
 
@@ -231,7 +231,7 @@ public class DataResendMes extends TBoxUpBean{
         this.rapidAcceleration = rapidAcceleration;
     }
 
-    public long getRapidDeceleration() {
+    public Long getRapidDeceleration() {
         return rapidDeceleration;
     }
 
@@ -239,7 +239,7 @@ public class DataResendMes extends TBoxUpBean{
         this.rapidDeceleration = rapidDeceleration;
     }
 
-    public long getSpeeding() {
+    public Long getSpeeding() {
         return speeding;
     }
 
@@ -247,7 +247,7 @@ public class DataResendMes extends TBoxUpBean{
         this.speeding = speeding;
     }
 
-    public short getSignalStrength() {
+    public Short getSignalStrength() {
         return signalStrength;
     }
 
@@ -255,7 +255,7 @@ public class DataResendMes extends TBoxUpBean{
         this.signalStrength = signalStrength;
     }
 
-    public short getBcm1() {
+    public Short getBcm1() {
         return bcm1;
     }
 
@@ -263,7 +263,7 @@ public class DataResendMes extends TBoxUpBean{
         this.bcm1 = bcm1;
     }
 
-    public short getEms() {
+    public Short getEms() {
         return ems;
     }
 
@@ -271,7 +271,7 @@ public class DataResendMes extends TBoxUpBean{
         this.ems = ems;
     }
 
-    public short getTcu() {
+    public Short getTcu() {
         return tcu;
     }
 
@@ -279,7 +279,7 @@ public class DataResendMes extends TBoxUpBean{
         this.tcu = tcu;
     }
 
-    public short getIc() {
+    public Short getIc() {
         return ic;
     }
 
@@ -287,7 +287,7 @@ public class DataResendMes extends TBoxUpBean{
         this.ic = ic;
     }
 
-    public short getAbs() {
+    public Short getAbs() {
         return abs;
     }
 
@@ -295,7 +295,7 @@ public class DataResendMes extends TBoxUpBean{
         this.abs = abs;
     }
 
-    public short getPdc() {
+    public Short getPdc() {
         return pdc;
     }
 
@@ -303,7 +303,7 @@ public class DataResendMes extends TBoxUpBean{
         this.pdc = pdc;
     }
 
-    public short getBcm2() {
+    public Short getBcm2() {
         return bcm2;
     }
 

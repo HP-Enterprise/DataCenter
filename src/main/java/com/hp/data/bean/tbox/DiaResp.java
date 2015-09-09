@@ -7,7 +7,7 @@ public class DiaResp extends TBoxDownBean{
     private Long eventID;
     private Short diaReportResp;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 

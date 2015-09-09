@@ -9,7 +9,7 @@ public class PramSetCmd extends TBoxDownBean{
     private Short pramSetID;
     private Short pramValue;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
@@ -17,7 +17,7 @@ public class PramSetCmd extends TBoxDownBean{
         this.eventID = eventID;
     }
 
-    public short getPramSetNumber() {
+    public Short getPramSetNumber() {
         return pramSetNumber;
     }
 
@@ -25,7 +25,7 @@ public class PramSetCmd extends TBoxDownBean{
         this.pramSetNumber = pramSetNumber;
     }
 
-    public short getPramSetID() {
+    public Short getPramSetID() {
         return pramSetID;
     }
 
@@ -33,7 +33,7 @@ public class PramSetCmd extends TBoxDownBean{
         this.pramSetID = pramSetID;
     }
 
-    public short getPramValue() {
+    public Short getPramValue() {
         return pramValue;
     }
 

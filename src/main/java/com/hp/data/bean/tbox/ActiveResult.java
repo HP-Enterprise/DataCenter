@@ -7,7 +7,7 @@ public class ActiveResult extends TBoxUpBean{
     private Long eventID;
     private Short rtmLifeCycle;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 

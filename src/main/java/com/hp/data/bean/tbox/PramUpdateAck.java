@@ -6,7 +6,7 @@ import com.hp.data.convert.DataEntity;
 public class PramUpdateAck extends TBoxUpBean{
     private Long eventID;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 

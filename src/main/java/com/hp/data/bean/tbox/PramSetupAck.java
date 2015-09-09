@@ -9,7 +9,7 @@ public class PramSetupAck extends TBoxUpBean{
     private Short pramSetID;
     private Short pramValue;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
@@ -17,7 +17,7 @@ public class PramSetupAck extends TBoxUpBean{
         this.eventID = eventID;
     }
 
-    public short getPramSetAck() {
+    public Short getPramSetAck() {
         return pramSetAck;
     }
 
@@ -25,7 +25,7 @@ public class PramSetupAck extends TBoxUpBean{
         this.pramSetAck = pramSetAck;
     }
 
-    public short getPramSetID() {
+    public Short getPramSetID() {
         return pramSetID;
     }
 
@@ -33,7 +33,7 @@ public class PramSetupAck extends TBoxUpBean{
         this.pramSetID = pramSetID;
     }
 
-    public short getPramValue() {
+    public Short getPramValue() {
         return pramValue;
     }
 

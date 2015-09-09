@@ -7,7 +7,7 @@ public class PramUpdateResp extends TBoxDownBean{
     private Long eventID;
     private String PramVersion;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 

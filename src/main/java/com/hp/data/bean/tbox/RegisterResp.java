@@ -7,7 +7,7 @@ public class RegisterResp extends TBoxDownBean{
     private Long eventID;
     private Short registerResult;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 

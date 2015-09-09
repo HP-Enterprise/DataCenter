@@ -11,7 +11,7 @@ public class RemoteWakeUpReq extends TBoxUpBean {
     private String pramVersion;
     private String dbcVersion;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 

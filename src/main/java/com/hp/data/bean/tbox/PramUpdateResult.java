@@ -11,7 +11,7 @@ public class PramUpdateResult extends TBoxUpBean{
     private Short responseStatus;
     private Short check;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
@@ -19,7 +19,7 @@ public class PramUpdateResult extends TBoxUpBean{
         this.eventID = eventID;
     }
 
-    public short getPramUpdateResult() {
+    public Short getPramUpdateResult() {
         return pramUpdateResult;
     }
 
@@ -27,7 +27,7 @@ public class PramUpdateResult extends TBoxUpBean{
         this.pramUpdateResult = pramUpdateResult;
     }
 
-    public long getPacketNumber() {
+    public Long getPacketNumber() {
         return packetNumber;
     }
 
@@ -35,7 +35,7 @@ public class PramUpdateResult extends TBoxUpBean{
         this.packetNumber = packetNumber;
     }
 
-    public long getBackPacketNumber() {
+    public Long getBackPacketNumber() {
         return backPacketNumber;
     }
 
@@ -43,7 +43,7 @@ public class PramUpdateResult extends TBoxUpBean{
         this.backPacketNumber = backPacketNumber;
     }
 
-    public short getResponseStatus() {
+    public Short getResponseStatus() {
         return responseStatus;
     }
 
@@ -51,7 +51,7 @@ public class PramUpdateResult extends TBoxUpBean{
         this.responseStatus = responseStatus;
     }
 
-    public short getCheck() {
+    public Short getCheck() {
         return check;
     }
 

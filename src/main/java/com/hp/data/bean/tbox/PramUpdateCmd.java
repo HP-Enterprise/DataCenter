@@ -15,7 +15,7 @@ public class PramUpdateCmd extends TBoxDownBean{
         this.pramUpdateReady = pramUpdateReady;
     }
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 

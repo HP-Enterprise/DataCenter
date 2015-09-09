@@ -7,7 +7,7 @@ public class RemoteControlAck extends TBoxUpBean{
     private Long eventID;
     private Short remoteControlAck;
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 
@@ -15,7 +15,7 @@ public class RemoteControlAck extends TBoxUpBean{
         this.eventID = eventID;
     }
 
-    public short getRemoteControlAck() {
+    public Short getRemoteControlAck() {
         return remoteControlAck;
     }
 

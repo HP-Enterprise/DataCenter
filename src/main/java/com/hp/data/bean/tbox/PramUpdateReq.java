@@ -15,7 +15,7 @@ public class PramUpdateReq extends TBoxUpBean{
         PramVersion = pramVersion;
     }
 
-    public long getEventID() {
+    public Long getEventID() {
         return eventID;
     }
 

@@ -32,7 +32,7 @@ public class RealTimeReportMes extends TBoxUpBean{
     private Long speeding;
     private Short signalStrength;
 
-    public short getIsLocation() {
+    public Short getIsLocation() {
         return isLocation;
     }
 
@@ -40,7 +40,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.isLocation = isLocation;
     }
 
-    public long getLatitude() {
+    public Long getLatitude() {
         return latitude;
     }
 
@@ -48,7 +48,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.latitude = latitude;
     }
 
-    public long getLongitude() {
+    public Long getLongitude() {
         return longitude;
     }
 
@@ -56,7 +56,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.longitude = longitude;
     }
 
-    public long getSpeed() {
+    public Long getSpeed() {
         return speed;
     }
 
@@ -64,7 +64,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.speed = speed;
     }
 
-    public long getHeading() {
+    public Long getHeading() {
         return heading;
     }
 
@@ -72,7 +72,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.heading = heading;
     }
 
-    public short getFuelOil() {
+    public Short getFuelOil() {
         return fuelOil;
     }
 
@@ -80,7 +80,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.fuelOil = fuelOil;
     }
 
-    public long getAvgOil() {
+    public Long getAvgOil() {
         return avgOil;
     }
 
@@ -88,7 +88,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.avgOil = avgOil;
     }
 
-    public short getOilLife() {
+    public Short getOilLife() {
         return oilLife;
     }
 
@@ -96,7 +96,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.oilLife = oilLife;
     }
 
-    public short getDriveRange() {
+    public Short getDriveRange() {
         return driveRange;
     }
 
@@ -104,7 +104,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.driveRange = driveRange;
     }
 
-    public long getLeftFrontTirePressure() {
+    public Long getLeftFrontTirePressure() {
         return leftFrontTirePressure;
     }
 
@@ -112,7 +112,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.leftFrontTirePressure = leftFrontTirePressure;
     }
 
-    public long getLeftRearTirePressure() {
+    public Long getLeftRearTirePressure() {
         return leftRearTirePressure;
     }
 
@@ -120,7 +120,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.leftRearTirePressure = leftRearTirePressure;
     }
 
-    public long getRightFrontTirePressure() {
+    public Long getRightFrontTirePressure() {
         return rightFrontTirePressure;
     }
 
@@ -128,7 +128,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.rightFrontTirePressure = rightFrontTirePressure;
     }
 
-    public long getRightRearTirePressure() {
+    public Long getRightRearTirePressure() {
         return rightRearTirePressure;
     }
 
@@ -136,7 +136,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.rightRearTirePressure = rightRearTirePressure;
     }
 
-    public short getWindowInformation() {
+    public Short getWindowInformation() {
         return windowInformation;
     }
 
@@ -144,7 +144,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.windowInformation = windowInformation;
     }
 
-    public short getVehicleTemperature() {
+    public Short getVehicleTemperature() {
         return vehicleTemperature;
     }
 
@@ -152,7 +152,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.vehicleTemperature = vehicleTemperature;
     }
 
-    public short getVehicleOuterTemperature() {
+    public Short getVehicleOuterTemperature() {
         return vehicleOuterTemperature;
     }
 
@@ -160,7 +160,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.vehicleOuterTemperature = vehicleOuterTemperature;
     }
 
-    public short getDoorInformation() {
+    public Short getDoorInformation() {
         return doorInformation;
     }
 
@@ -168,7 +168,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.doorInformation = doorInformation;
     }
 
-    public long getSingleBatteryVoltage() {
+    public Long getSingleBatteryVoltage() {
         return singleBatteryVoltage;
     }
 
@@ -176,7 +176,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.singleBatteryVoltage = singleBatteryVoltage;
     }
 
-    public short getMaximumVoltagePowerBatteryPack() {
+    public Short getMaximumVoltagePowerBatteryPack() {
         return maximumVoltagePowerBatteryPack;
     }
 
@@ -184,7 +184,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.maximumVoltagePowerBatteryPack = maximumVoltagePowerBatteryPack;
     }
 
-    public long getMaximumBatteryVoltage() {
+    public Long getMaximumBatteryVoltage() {
         return maximumBatteryVoltage;
     }
 
@@ -192,7 +192,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.maximumBatteryVoltage = maximumBatteryVoltage;
     }
 
-    public long getBatteryMonomerMinimumVoltage() {
+    public Long getBatteryMonomerMinimumVoltage() {
         return batteryMonomerMinimumVoltage;
     }
 
@@ -200,7 +200,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.batteryMonomerMinimumVoltage = batteryMonomerMinimumVoltage;
     }
 
-    public short getEngineCondition() {
+    public Short getEngineCondition() {
         return engineCondition;
     }
 
@@ -208,7 +208,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.engineCondition = engineCondition;
     }
 
-    public long getEngineSpeed() {
+    public Long getEngineSpeed() {
         return engineSpeed;
     }
 
@@ -216,7 +216,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.engineSpeed = engineSpeed;
     }
 
-    public long getRapidAcceleration() {
+    public Long getRapidAcceleration() {
         return rapidAcceleration;
     }
 
@@ -224,7 +224,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.rapidAcceleration = rapidAcceleration;
     }
 
-    public long getRapidDeceleration() {
+    public Long getRapidDeceleration() {
         return rapidDeceleration;
     }
 
@@ -232,7 +232,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.rapidDeceleration = rapidDeceleration;
     }
 
-    public long getSpeeding() {
+    public Long getSpeeding() {
         return speeding;
     }
 
@@ -240,7 +240,7 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.speeding = speeding;
     }
 
-    public short getSignalStrength() {
+    public Short getSignalStrength() {
         return signalStrength;
     }
 
