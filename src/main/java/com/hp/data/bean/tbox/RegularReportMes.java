@@ -4,33 +4,33 @@ import com.hp.data.core.DataEntity;
 
 @DataEntity(key = "8995")
 public class RegularReportMes extends TBoxUpBean{
-    private Long frequencyForRealTimeReport;
-    private Long frequencyForWarningReport;
+    private Integer frequencyForRealTimeReport;
+    private Integer frequencyForWarningReport;
     private Short frequencyHeartbeat;
-    private Long timeOutForTerminalSearch;
-    private Long timeOutForServerSearch;
+    private Integer timeOutForTerminalSearch;
+    private Integer timeOutForServerSearch;
     private Short vehicleType;
-    private Long vehicleModels;
+    private Integer vehicleModels;
     private Short maxSpeed;
     private String hardwareVersion;
     private String softwareVersion;
-    private Long frequencySaveLocalMedia;
-    private Short enterpriseBroadcastAddress;
-    private Long enterpriseBroadcastPort;
+    private Integer frequencySaveLocalMedia;
+    private byte[] enterpriseBroadcastAddress;
+    private Integer enterpriseBroadcastPort;
 
-    public Long getFrequencyForRealTimeReport() {
+    public Integer getFrequencyForRealTimeReport() {
         return frequencyForRealTimeReport;
     }
 
-    public void setFrequencyForRealTimeReport(long frequencyForRealTimeReport) {
+    public void setFrequencyForRealTimeReport(Integer frequencyForRealTimeReport) {
         this.frequencyForRealTimeReport = frequencyForRealTimeReport;
     }
 
-    public Long getFrequencyForWarningReport() {
+    public Integer getFrequencyForWarningReport() {
         return frequencyForWarningReport;
     }
 
-    public void setFrequencyForWarningReport(long frequencyForWarningReport) {
+    public void setFrequencyForWarningReport(Integer frequencyForWarningReport) {
         this.frequencyForWarningReport = frequencyForWarningReport;
     }
 
@@ -42,19 +42,19 @@ public class RegularReportMes extends TBoxUpBean{
         this.frequencyHeartbeat = frequencyHeartbeat;
     }
 
-    public Long getTimeOutForTerminalSearch() {
+    public Integer getTimeOutForTerminalSearch() {
         return timeOutForTerminalSearch;
     }
 
-    public void setTimeOutForTerminalSearch(long timeOutForTerminalSearch) {
+    public void setTimeOutForTerminalSearch(Integer timeOutForTerminalSearch) {
         this.timeOutForTerminalSearch = timeOutForTerminalSearch;
     }
 
-    public Long getTimeOutForServerSearch() {
+    public Integer getTimeOutForServerSearch() {
         return timeOutForServerSearch;
     }
 
-    public void setTimeOutForServerSearch(long timeOutForServerSearch) {
+    public void setTimeOutForServerSearch(Integer timeOutForServerSearch) {
         this.timeOutForServerSearch = timeOutForServerSearch;
     }
 
@@ -62,15 +62,15 @@ public class RegularReportMes extends TBoxUpBean{
         return vehicleType;
     }
 
-    public void setVehicleType(short vehicleType) {
+    public void setVehicleType(Short vehicleType) {
         this.vehicleType = vehicleType;
     }
 
-    public Long getVehicleModels() {
+    public Integer getVehicleModels() {
         return vehicleModels;
     }
 
-    public void setVehicleModels(long vehicleModels) {
+    public void setVehicleModels(Integer vehicleModels) {
         this.vehicleModels = vehicleModels;
     }
 
@@ -78,7 +78,7 @@ public class RegularReportMes extends TBoxUpBean{
         return maxSpeed;
     }
 
-    public void setMaxSpeed(short maxSpeed) {
+    public void setMaxSpeed(Short maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
 
@@ -98,27 +98,27 @@ public class RegularReportMes extends TBoxUpBean{
         this.softwareVersion = softwareVersion;
     }
 
-    public Long getFrequencySaveLocalMedia() {
+    public Integer getFrequencySaveLocalMedia() {
         return frequencySaveLocalMedia;
     }
 
-    public void setFrequencySaveLocalMedia(long frequencySaveLocalMedia) {
+    public void setFrequencySaveLocalMedia(Integer frequencySaveLocalMedia) {
         this.frequencySaveLocalMedia = frequencySaveLocalMedia;
     }
 
-    public Short getEnterpriseBroadcastAddress() {
+    public byte[] getEnterpriseBroadcastAddress() {
         return enterpriseBroadcastAddress;
     }
 
-    public void setEnterpriseBroadcastAddress(short enterpriseBroadcastAddress) {
+    public void setEnterpriseBroadcastAddress(byte[] enterpriseBroadcastAddress) {
         this.enterpriseBroadcastAddress = enterpriseBroadcastAddress;
     }
 
-    public Long getEnterpriseBroadcastPort() {
+    public Integer getEnterpriseBroadcastPort() {
         return enterpriseBroadcastPort;
     }
 
-    public void setEnterpriseBroadcastPort(long enterpriseBroadcastPort) {
+    public void setEnterpriseBroadcastPort(Integer enterpriseBroadcastPort) {
         this.enterpriseBroadcastPort = enterpriseBroadcastPort;
     }
 }

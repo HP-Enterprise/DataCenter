@@ -5,55 +5,55 @@ import com.hp.data.core.DataEntity;
 @DataEntity(key = "8995")
 public class PramStatusAck extends TBoxUpBean{
     private Long eventID;
-    private Short pramCmdDataSize;
-    private Long frequencySaveLocalMedia;
-    private Long frequencyForRealTimeReport;
-    private Long frequencyForWarningReport;
+    private byte[] pramCmdDataSize;
+    private Integer frequencySaveLocalMedia;
+    private Integer frequencyForRealTimeReport;
+    private Integer frequencyForWarningReport;
     private String hardwareVersion;
     private String softwareVersion;
     private Short frequencyHeartbeat;
-    private Long timeOutForTerminalSearch;
-    private Long timeOutForServerSearch;
-    private Short enterpriseBroadcastAddress;
-    private Long enterpriseBroadcastPort;
+    private Integer timeOutForTerminalSearch;
+    private Integer timeOutForServerSearch;
+    private byte[] enterpriseBroadcastAddress;
+    private Integer enterpriseBroadcastPort;
 
     public Long getEventID() {
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 
-    public Short getPramCmdDataSize() {
+    public byte[] getPramCmdDataSize() {
         return pramCmdDataSize;
     }
 
-    public void setPramCmdDataSize(short pramCmdDataSize) {
+    public void setPramCmdDataSize(byte[] pramCmdDataSize) {
         this.pramCmdDataSize = pramCmdDataSize;
     }
 
-    public Long getFrequencySaveLocalMedia() {
+    public Integer getFrequencySaveLocalMedia() {
         return frequencySaveLocalMedia;
     }
 
-    public void setFrequencySaveLocalMedia(long frequencySaveLocalMedia) {
+    public void setFrequencySaveLocalMedia(Integer frequencySaveLocalMedia) {
         this.frequencySaveLocalMedia = frequencySaveLocalMedia;
     }
 
-    public Long getFrequencyForRealTimeReport() {
+    public Integer getFrequencyForRealTimeReport() {
         return frequencyForRealTimeReport;
     }
 
-    public void setFrequencyForRealTimeReport(long frequencyForRealTimeReport) {
+    public void setFrequencyForRealTimeReport(Integer frequencyForRealTimeReport) {
         this.frequencyForRealTimeReport = frequencyForRealTimeReport;
     }
 
-    public Long getFrequencyForWarningReport() {
+    public Integer getFrequencyForWarningReport() {
         return frequencyForWarningReport;
     }
 
-    public void setFrequencyForWarningReport(long frequencyForWarningReport) {
+    public void setFrequencyForWarningReport(Integer frequencyForWarningReport) {
         this.frequencyForWarningReport = frequencyForWarningReport;
     }
 
@@ -77,39 +77,39 @@ public class PramStatusAck extends TBoxUpBean{
         return frequencyHeartbeat;
     }
 
-    public void setFrequencyHeartbeat(short frequencyHeartbeat) {
+    public void setFrequencyHeartbeat(Short frequencyHeartbeat) {
         this.frequencyHeartbeat = frequencyHeartbeat;
     }
 
-    public Long getTimeOutForTerminalSearch() {
+    public Integer getTimeOutForTerminalSearch() {
         return timeOutForTerminalSearch;
     }
 
-    public void setTimeOutForTerminalSearch(long timeOutForTerminalSearch) {
+    public void setTimeOutForTerminalSearch(Integer timeOutForTerminalSearch) {
         this.timeOutForTerminalSearch = timeOutForTerminalSearch;
     }
 
-    public Long getTimeOutForServerSearch() {
+    public Integer getTimeOutForServerSearch() {
         return timeOutForServerSearch;
     }
 
-    public void setTimeOutForServerSearch(long timeOutForServerSearch) {
+    public void setTimeOutForServerSearch(Integer timeOutForServerSearch) {
         this.timeOutForServerSearch = timeOutForServerSearch;
     }
 
-    public Short getEnterpriseBroadcastAddress() {
+    public byte[] getEnterpriseBroadcastAddress() {
         return enterpriseBroadcastAddress;
     }
 
-    public void setEnterpriseBroadcastAddress(short enterpriseBroadcastAddress) {
+    public void setEnterpriseBroadcastAddress(byte[] enterpriseBroadcastAddress) {
         this.enterpriseBroadcastAddress = enterpriseBroadcastAddress;
     }
 
-    public Long getEnterpriseBroadcastPort() {
+    public Integer getEnterpriseBroadcastPort() {
         return enterpriseBroadcastPort;
     }
 
-    public void setEnterpriseBroadcastPort(long enterpriseBroadcastPort) {
+    public void setEnterpriseBroadcastPort(Integer enterpriseBroadcastPort) {
         this.enterpriseBroadcastPort = enterpriseBroadcastPort;
     }
 }

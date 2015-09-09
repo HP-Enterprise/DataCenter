@@ -35,7 +35,26 @@ public class TBoxTest {
         String byteString="23 23 00 0B 01 55 D2 0F E7 13 02 55 BE E2 58 00 25 ";
         standardTest(byteString,RegisterResp.class);
     }
-
+    @Test
+     public void testTBOX_WarningMessage() {
+        String byteString="23 23 00 2F 01 55 D2 10 59 24 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1E 1E 07 06 01 00 01 C4 ";
+        standardTest(byteString,WarningMessage.class);
+    }
+    @Test
+    public void testTBOX_RemoteControlCmd() {
+        String byteString="23 23 00 0D 01 81 92 EA 54 31 01 00 00 0B 10 00 06 00 8C ";
+        standardTest(byteString,RemoteControlCmd.class);
+    }
+    @Test
+    public void testTBOX_RemoteControlAck() {
+        String byteString="23 23 00 20 01 55 D2 10 6C 31 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 10 00 F2 ";
+        standardTest(byteString,RemoteControlAck.class);
+    }
+    @Test
+    public void testTBOX_RealTimeReportMes() {
+        String byteString="23 23 00 4C 01 55 D2 10 6D 22 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 FE 00 00 00 01 00 03 5A 84 00 00 00 03 00 00 00 00 00 00 00 00 3C 00 32 00 46 00 5A 00 28 28 06 00 00 00 00 00 00 00 00 FE FF 00 00 00 00 00 00 0A AA ";
+        standardTest(byteString,RealTimeReportMes.class);
+    }
     /**
      * 标准测试方法
      * 首先将传入字符串解析成传入的数据包实体类，然后打印该实体类，然后再将这个实体类解析成ByteBuffer，最后判断该ByteBuffer是否和传入的byte字符串一致

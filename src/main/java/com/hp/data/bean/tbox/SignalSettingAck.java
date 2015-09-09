@@ -11,7 +11,7 @@ public class SignalSettingAck extends TBoxUpBean{
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 
@@ -19,7 +19,7 @@ public class SignalSettingAck extends TBoxUpBean{
         return signalSettingAck;
     }
 
-    public void setSignalSettingAck(short signalSettingAck) {
+    public void setSignalSettingAck(Short signalSettingAck) {
         this.signalSettingAck = signalSettingAck;
     }
 }

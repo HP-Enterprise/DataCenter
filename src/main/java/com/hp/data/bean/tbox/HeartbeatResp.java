@@ -10,7 +10,7 @@ public class HeartbeatResp extends TBoxDownBean{
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 }

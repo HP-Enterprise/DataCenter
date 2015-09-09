@@ -6,7 +6,7 @@ import com.hp.data.core.DataEntity;
 public class PramUpdateResult extends TBoxUpBean{
     private Long eventID;
     private Short pramUpdateResult;
-    private Long packetNumber;
+    private Integer packetNumber;
     private Long backPacketNumber;
     private Short responseStatus;
     private Short check;
@@ -15,7 +15,7 @@ public class PramUpdateResult extends TBoxUpBean{
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 
@@ -23,15 +23,15 @@ public class PramUpdateResult extends TBoxUpBean{
         return pramUpdateResult;
     }
 
-    public void setPramUpdateResult(short pramUpdateResult) {
+    public void setPramUpdateResult(Short pramUpdateResult) {
         this.pramUpdateResult = pramUpdateResult;
     }
 
-    public Long getPacketNumber() {
+    public Integer getPacketNumber() {
         return packetNumber;
     }
 
-    public void setPacketNumber(long packetNumber) {
+    public void setPacketNumber(Integer packetNumber) {
         this.packetNumber = packetNumber;
     }
 
@@ -39,7 +39,7 @@ public class PramUpdateResult extends TBoxUpBean{
         return backPacketNumber;
     }
 
-    public void setBackPacketNumber(long backPacketNumber) {
+    public void setBackPacketNumber(Long backPacketNumber) {
         this.backPacketNumber = backPacketNumber;
     }
 
@@ -47,7 +47,7 @@ public class PramUpdateResult extends TBoxUpBean{
         return responseStatus;
     }
 
-    public void setResponseStatus(short responseStatus) {
+    public void setResponseStatus(Short responseStatus) {
         this.responseStatus = responseStatus;
     }
 
@@ -55,7 +55,7 @@ public class PramUpdateResult extends TBoxUpBean{
         return check;
     }
 
-    public void setCheck(short check) {
+    public void setCheck(Short check) {
         this.check = check;
     }
 }

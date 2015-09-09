@@ -16,7 +16,7 @@ public class RemoteWakeUpResp extends TBoxDownBean{
     public Long getEventID() {
         return eventID;
     }
-    public void setEventID(long eventID) {
+    public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
 }
