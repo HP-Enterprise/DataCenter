@@ -83,7 +83,7 @@
 
             <!--注册(T-BOX向T平台发送注册请求)-->
             <data:unit name="TBOX_RegisterReq" key="19_1">
-                <data:include name="dispatcherUp" />
+                <data:include name="dispatcherDown"/>
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>              <!--事件记录ID一个事件完成周期内使相同的eventID-->
                 <data:element name="serialNumber" type="STRING" size="14"/> <!--车载终端编号(为验证 IMEI与 SerialNumber唯一对应-->
@@ -148,7 +148,7 @@
                 <data:element name="fuelOil" type="U_INT_8"/>           <!--分辨率1L，偏移量0， 显示范围：0L-55L 上报数据范围： 0-55 缺省值：0x00 无效值：0x37 -->
                 <data:element name="avgOil" type="U_INT_16"/>           <!--分辨率0.1L/KM，偏移量0， 显 示 范 围 ： 0L/100KM-99.9L/100KM 上报数据范围： 0-999 缺省值：0 x0000 无效值：0x03E7 -->
                 <data:element name="oilLife" type="U_INT_8"/>           <!--分辨率1%，偏移量0 显示范围：0~100% 上报数据范围： 0-100 缺省值：0x00 无效值：0x64-->
-                <data:element name="driveRange" type="U_INT_16"/>       <!--分辨率1KM，偏移量0 显示范围：0KM~999999KM 上报数据范围：0~999999 缺省值：0x00000 无效值：0xF423F-->
+                <data:element name="driveRange" type="BYTE" size="3"/>       <!--分辨率1KM，偏移量0 显示范围：0KM~999999KM 上报数据范围：0~999999 缺省值：0x00000 无效值：0xF423F-->
                 <data:element name="leftFrontTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4 -->
                 <data:element name="leftRearTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4-->
                 <data:element name="rightFrontTirePressure" type="U_INT_16"/><!--分辨率1 kPa，偏移量0 显示范围：0kPa ~500 kPa 上报数据范围：0~500 缺省值：0x000 无效值：0x1F4 -->

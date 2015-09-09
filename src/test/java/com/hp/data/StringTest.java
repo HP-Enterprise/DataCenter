@@ -10,6 +10,11 @@ public class StringTest {
         String b=getByteString(a);
         System.out.println(b);
     }
+    @Test
+    public void testOthers(){
+        byte[] abc=new byte[12];
+        System.out.println(abc.getClass().getName());
+    }
     private static String getByteString(String str){
         StringBuffer stringBuffer=new StringBuffer();
         String[] strArray=str.split(" ");

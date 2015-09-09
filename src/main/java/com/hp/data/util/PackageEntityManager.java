@@ -42,10 +42,11 @@ public final class PackageEntityManager {
                     String nameStep1=m.getName().substring(3);
                     String nameStep2=nameStep1.substring(0,1).toLowerCase()+nameStep1.substring(1);
                     String propertyName=rightPad(nameStep2,20,' ');
-                    String typeStep1=m.getReturnType().getName();
-                    String type=rightPad(typeStep1,20,' ');
+                    Class<?> typeStep1=m.getReturnType();
+                    String typeStep2=byte[].class.equals(typeStep1)?"byte[]":typeStep1.getName();
+                    String type=rightPad(typeStep2,20,' ');
                     Object valueStep1=m.invoke(bean);
-                    String valueStep2=valueStep1!=null?valueStep1.toString():"";
+                    String valueStep2=valueStep1!=null?"[B".equals(valueStep1.getClass().getName())?getByteArrayString(valueStep1):valueStep1.toString():"";
                     String value=rightPad(valueStep2,20,' ');
                     String hexValue=getHexString(valueStep2,m.getReturnType(),dataBuilder);
                     System.out.println(propertyName+" "+value+" "+type+" "+hexValue);
@@ -60,14 +61,26 @@ public final class PackageEntityManager {
             throw new ConversionException("打印对象"+entityClass.getName()+"失败，要打印的对象必须在指定包下并由@DataEntity注释");
         }
     }
+
+    private static String getByteArrayString(Object byteArray) {
+        byte[] bytes= (byte[]) byteArray;
+        String aaa =getByteString(ByteBuffer.wrap(bytes));
+        return aaa;
+    }
+
     public static String getHexString(String value,Class<?> valueClass,DataBuilder dataBuilder){
-        dataBuilder.clear();
-        if(String.class.equals(valueClass))dataBuilder.putString(value, value.length());
-        if(Short.class.equals(valueClass))dataBuilder.putUInt8BE(Short.valueOf(value));
-        if(Integer.class.equals(valueClass))dataBuilder.putUInt16BE(Integer.valueOf(value));
-        if(Long.class.equals(valueClass))dataBuilder.putUInt32BE(Long.valueOf(value));
-        if(Byte.class.equals(valueClass))dataBuilder.putByte(Byte.valueOf(value));
-        return getByteString(dataBuilder.buffer());
+        if(byte[].class.equals(valueClass)) {
+            return value;
+        }
+        else {
+            dataBuilder.clear();
+            if (String.class.equals(valueClass)) dataBuilder.putString(value, value.length());
+            if (Short.class.equals(valueClass)) dataBuilder.putUInt8BE(Short.valueOf(value));
+            if (Integer.class.equals(valueClass)) dataBuilder.putUInt16BE(Integer.valueOf(value));
+            if (Long.class.equals(valueClass)) dataBuilder.putUInt32BE(Long.valueOf(value));
+            if (Byte.class.equals(valueClass)) dataBuilder.putByte(Byte.valueOf(value));
+            return getByteString(dataBuilder.buffer());
+        }
     }
     public static String rightPad(String text, int length, char c) {
         if(text.length()>length)text=text.substring(0,length-2)+"..";
@@ -79,7 +92,7 @@ public final class PackageEntityManager {
 
 
     public static String getByteString(ByteBuffer bb){
-        bb.flip();
+        if(bb.position()>0)bb.flip();
         StringBuilder stringBuffer=new StringBuilder();
         for(int i=0;i<bb.limit();i++){
             String byteStr=Integer.toHexString(bb.get()).toUpperCase();

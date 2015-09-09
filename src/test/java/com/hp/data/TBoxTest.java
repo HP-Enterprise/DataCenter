@@ -1,7 +1,6 @@
 package com.hp.data;
 
-import com.hp.data.bean.tbox.RegisterReq;
-import com.hp.data.bean.tbox.RegisterResp;
+import com.hp.data.bean.tbox.*;
 import com.hp.data.util.PackageEntityManager;
 import com.hp.data.core.Conversion;
 import com.hp.data.core.DataPackage;

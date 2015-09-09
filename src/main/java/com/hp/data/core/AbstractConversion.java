@@ -1,10 +1,6 @@
 package com.hp.data.core;
 
 
-import com.hp.data.core.DataType;
-import com.hp.data.core.PackageElement;
-import com.hp.data.core.Conversion;
-import com.hp.data.core.DataPackage;
 import com.hp.data.exception.ConversionException;
 import com.hp.data.util.DataBuilder;
 
