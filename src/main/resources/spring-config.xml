@@ -83,7 +83,7 @@
 
             <!--注册(T-BOX向T平台发送注册请求)-->
             <data:unit name="TBOX_RegisterReq" key="19_1">
-                <data:include name="dispatcherDown"/>
+                <data:include name="dispatcherUp"/>
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>              <!--事件记录ID一个事件完成周期内使相同的eventID-->
                 <data:element name="serialNumber" type="STRING" size="14"/> <!--车载终端编号(为验证 IMEI与 SerialNumber唯一对应-->
