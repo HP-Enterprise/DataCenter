@@ -72,13 +72,20 @@ public final class PackageEntityManager {
         if(byte[].class.equals(valueClass)) {
             return value;
         }
-        else {
-            dataBuilder.clear();
+        else if(Byte.class.equals(valueClass)) {
+            Byte b=Byte.valueOf(value);
+            String hexStr=Integer.toHexString(b).toUpperCase();
+            if(hexStr.length()==1)hexStr="0"+hexStr;
+            if(hexStr.length()!=2)hexStr=hexStr.substring(hexStr.length()-2);
+            String binaryStr=Integer.toBinaryString(b);
+            String binaryString=binaryStr.length()>8?binaryStr.substring(binaryStr.length()-8):leftPad(binaryStr, 8, '0');
+            return hexStr+"["+binaryString+"]";
+        }
+        else{   dataBuilder.clear();
             if (String.class.equals(valueClass)) dataBuilder.putString(value, value.length());
             if (Short.class.equals(valueClass)) dataBuilder.putUInt8BE(Short.valueOf(value));
             if (Integer.class.equals(valueClass)) dataBuilder.putUInt16BE(Integer.valueOf(value));
             if (Long.class.equals(valueClass)) dataBuilder.putUInt32BE(Long.valueOf(value));
-            if (Byte.class.equals(valueClass)) dataBuilder.putByte(Byte.valueOf(value));
             return getByteString(dataBuilder.buffer());
         }
     }
@@ -87,6 +94,13 @@ public final class PackageEntityManager {
         char[] array = new char[length];
         Arrays.fill(array, c);
         System.arraycopy(text.toCharArray(), 0, array, 0, text.length());
+        return new String(array);
+    }
+    public static String leftPad(String text, int length, char c) {
+        if(text.length()>length)text=text.substring(0,length-2)+"..";
+        char[] array = new char[length];
+        Arrays.fill(array, c);
+        System.arraycopy(text.toCharArray(), 0, array,length-text.length(), text.length());
         return new String(array);
     }
 
