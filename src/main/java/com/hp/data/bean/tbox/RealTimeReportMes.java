@@ -1,6 +1,6 @@
 package com.hp.data.bean.tbox;
 
-import com.hp.data.convert.DataEntity;
+import com.hp.data.core.DataEntity;
 
 @DataEntity(key = "8995")
 public class RealTimeReportMes extends TBoxUpBean{

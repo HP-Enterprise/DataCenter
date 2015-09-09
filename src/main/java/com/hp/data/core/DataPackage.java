@@ -1,8 +1,7 @@
 package com.hp.data.core;
 
 
-import com.hp.data.convert.DataEntity;
-import com.hp.data.convert.PackageEntityManager;
+import com.hp.data.util.PackageEntityManager;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

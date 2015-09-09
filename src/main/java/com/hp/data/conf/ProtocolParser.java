@@ -1,6 +1,6 @@
 package com.hp.data.conf;
 
-import com.hp.data.convert.PackageElement;
+import com.hp.data.core.PackageElement;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
 import org.springframework.beans.factory.xml.ParserContext;

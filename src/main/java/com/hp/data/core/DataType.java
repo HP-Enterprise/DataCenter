@@ -1,4 +1,4 @@
-package com.hp.data.convert;
+package com.hp.data.core;
 
 
 public enum DataType {

@@ -1,4 +1,4 @@
-package com.hp.data.convert;
+package com.hp.data.core;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

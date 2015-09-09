@@ -1,4 +1,4 @@
-package com.hp.data.test;
+package com.hp.data.exception;
 
 
 public class ConversionException extends RuntimeException{

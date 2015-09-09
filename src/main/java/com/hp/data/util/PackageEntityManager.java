@@ -1,7 +1,7 @@
-package com.hp.data.convert;
+package com.hp.data.util;
 
-import com.hp.data.core.DataBuilder;
-import com.hp.data.test.ConversionException;
+import com.hp.data.core.DataEntity;
+import com.hp.data.exception.ConversionException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

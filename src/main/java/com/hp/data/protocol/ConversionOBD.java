@@ -1,11 +1,13 @@
-package com.hp.data.core;
+package com.hp.data.protocol;
 
 
+import com.hp.data.core.AbstractConversion;
+import com.hp.data.util.DataBuilder;
 import org.springframework.stereotype.Component;
 
 import java.nio.ByteBuffer;
 @Component
-public class ConversionOBD extends AbstractConversion{
+public class ConversionOBD extends AbstractConversion {
     @Override
     public String getPackageKey(ByteBuffer buffer){
         DataBuilder db=DataBuilder.build(buffer);

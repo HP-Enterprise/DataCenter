@@ -1,7 +1,7 @@
-package com.hp.data.core;
+package com.hp.data.util;
 
 
-import com.hp.data.test.ConversionException;
+import com.hp.data.exception.ConversionException;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;

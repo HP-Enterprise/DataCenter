@@ -1,6 +1,6 @@
 package com.hp.data.bean.obd;
 
-import com.hp.data.convert.DataEntity;
+import com.hp.data.core.DataEntity;
 
 
 @DataEntity(key = "43605")

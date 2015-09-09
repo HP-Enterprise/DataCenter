@@ -9,7 +9,7 @@
     <!-- 扫描文件 -->
     <!-- 自动加载构建bean -->
     <context:component-scan base-package="com.hp.data"/>
-    <data:protocol id="conversionTBox" class="com.hp.data.core.ConversionTBox" head="8995">
+    <data:protocol id="conversionTBox" class="com.hp.data.protocol.ConversionTBox" head="8995">
         <data:head>
             <data:element name="head" type="U_INT_16"/>                     <!--数据包标识-->
             <data:element name="length" type="U_INT_16"/>                   <!--数据包长度-->
@@ -358,7 +358,7 @@
     </data:protocol>
 
 
-    <data:protocol id="conversionOBD" class="com.hp.data.core.ConversionOBD" head="43605">
+    <data:protocol id="conversionOBD" class="com.hp.data.protocol.ConversionOBD" head="43605">
         <!--数据包包头-->
         <data:head name="AA55">
             <data:element name="head" type="U_INT_16"/>                         <!--数据包标识-->
