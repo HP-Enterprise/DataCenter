@@ -6,6 +6,9 @@ public abstract class TBoxBean {
     private Integer length;
     private Short testFlag;
     private Byte checkSum;
+    public TBoxBean(){
+
+    }
     public Integer getHead() {
         return head;
     }

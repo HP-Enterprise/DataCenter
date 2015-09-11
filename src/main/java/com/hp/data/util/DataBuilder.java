@@ -8,6 +8,9 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 字节缓存控制类，用于进行数据缓存的读写操作
+ */
 public final class DataBuilder {
     private static final long UNSIGNED_INTEGER_MAX_VALUE=(long)Integer.MAX_VALUE+Integer.MAX_VALUE+1;
     private static final long REVERSE_UNSIGNED_INTEGER=(long)Integer.MIN_VALUE+Integer.MIN_VALUE;

@@ -1,16 +1,26 @@
 package com.hp.data.core;
 
 
+import com.hp.data.exception.ConversionException;
+
+/**
+ * 包定义类，存放包中一个元素的定义信息
+ */
 public class PackageElement {
     private String name;
     private DataType dataType;
     private int size;
 
-
     public PackageElement(String eleName, String eleType,int size) {
         this.name=eleName;
         this.dataType=DataType.valueOf(eleType);
-        this.size=size;
+        if(size>0) {
+            this.size = size;
+        }
+        else{
+            this.size=this.dataType.getSize();
+            if(this.size==0)throw new ConversionException("不合法的元素长度0[name:"+name+",dataType:"+this.dataType+"]");
+        }
     }
     public String getName() {
         return name;

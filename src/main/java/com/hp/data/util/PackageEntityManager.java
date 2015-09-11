@@ -1,6 +1,7 @@
 package com.hp.data.util;
 
 import com.hp.data.core.DataEntity;
+import com.hp.data.core.DataType;
 import com.hp.data.exception.ConversionException;
 
 import java.lang.reflect.InvocationTargetException;
@@ -8,9 +9,16 @@ import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.util.*;
 
+/**
+ * 数据解析工具类
+ */
 public final class PackageEntityManager {
     private static Map<Class<?>,List<Method>> setters=new HashMap<Class<?>,List<Method>>();
     private static Map<Class<?>,List<Method>> getters=new HashMap<Class<?>,List<Method>>();
+
+    /**
+     * 静态初始化方法，用于解析对应包下面所有数据实体类的类信息
+     */
     static{
         Set<Class<?>> set= ClassScanner.scan("com.hp.data.bean", DataEntity.class);
         for(Class<?> entityClass:set){
@@ -31,12 +39,16 @@ public final class PackageEntityManager {
             getters.put(entityClass,getList);
         }
     }
+
+    /**
+     * 用标准格式打印一个数据实体类对象中数据信息
+     * @param bean  数据实体类对象
+     */
     public static void printEntity(Object bean){
         Class<?> entityClass=bean.getClass();
         if(getters.containsKey(entityClass)){
             System.out.println("\n对象"+entityClass.getName()+":");
             List<Method> getters=getGetters(entityClass);
-            DataBuilder dataBuilder=DataBuilder.build();
             for(Method m:getters){
                 try {
                     String nameStep1=m.getName().substring(3);
@@ -48,7 +60,7 @@ public final class PackageEntityManager {
                     Object valueStep1=m.invoke(bean);
                     String valueStep2=valueStep1!=null?"[B".equals(valueStep1.getClass().getName())?getByteArrayString(valueStep1):valueStep1.toString():"";
                     String value=rightPad(valueStep2,20,' ');
-                    String hexValue=getHexString(valueStep2,m.getReturnType(),dataBuilder);
+                    String hexValue=getHexString(valueStep2,m.getReturnType());
                     System.out.println(propertyName+" "+value+" "+type+" "+hexValue);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
@@ -62,12 +74,39 @@ public final class PackageEntityManager {
         }
     }
 
+    /**
+     * 计算一个值中所有字节的异或总值
+     * @param value 要计算的值
+     * @param size  所占字节数
+     * @return  异或总值
+     */
+    public static short objectXor(Object value,int size){
+        if(byte[].class.equals(value.getClass())){
+            byte[] valueBytes=(byte[])value;
+            byte result =valueBytes[0];
+            for(int i=1;i<valueBytes.length;i++){
+                result^=valueBytes[i];
+            }
+            return Byte.valueOf(result).shortValue();
+        }
+        else{
+            String hex=getHexString(value.toString(),value.getClass());
+            String[] command=hex.split(" ");
+            byte result=Integer.valueOf(command[0],16).byteValue();
+            for(int i=1;i<command.length;i++){
+                result^=Integer.valueOf(command[i],16).byteValue();
+            }
+            return Byte.valueOf(result).shortValue();
+        }
+    }
+
     private static String getByteArrayString(Object byteArray) {
         byte[] bytes= (byte[]) byteArray;
         return getByteString(ByteBuffer.wrap(bytes));
     }
 
-    public static String getHexString(String value,Class<?> valueClass,DataBuilder dataBuilder){
+    public static String getHexString(String value,Class<?> valueClass){
+        DataBuilder dataBuilder=DataBuilder.build();
         if(byte[].class.equals(valueClass)) {
             return value;
         }
@@ -80,7 +119,8 @@ public final class PackageEntityManager {
             String binaryString=binaryStr.length()>8?binaryStr.substring(binaryStr.length()-8):leftPad(binaryStr, 8, '0');
             return hexStr+"["+binaryString+"]";
         }
-        else{   dataBuilder.clear();
+        else{
+            dataBuilder.clear();
             if (String.class.equals(valueClass)) dataBuilder.putString(value, value.length());
             if (Short.class.equals(valueClass)) dataBuilder.putUInt8BE(Short.valueOf(value));
             if (Integer.class.equals(valueClass)) dataBuilder.putUInt16BE(Integer.valueOf(value));

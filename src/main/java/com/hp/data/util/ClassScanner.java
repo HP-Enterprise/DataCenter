@@ -21,6 +21,9 @@ import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.core.type.filter.TypeFilter;
 import org.springframework.util.SystemPropertyUtils;
 
+/**
+ * classPath解析类
+ */
 public class ClassScanner implements ResourceLoaderAware {
 
     private ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();

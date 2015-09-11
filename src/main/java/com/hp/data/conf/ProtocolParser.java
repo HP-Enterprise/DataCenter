@@ -13,7 +13,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * protocol标签对应的自定义标签解析类
+ */
 public class ProtocolParser extends AbstractSingleBeanDefinitionParser{
 
     @Override

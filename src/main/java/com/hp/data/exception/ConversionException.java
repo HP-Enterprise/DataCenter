@@ -1,6 +1,8 @@
 package com.hp.data.exception;
 
-
+/**
+ * 数据解析全局异常类
+ */
 public class ConversionException extends RuntimeException{
     /**
      * Constructs a new runtime exception with the specified detail message.

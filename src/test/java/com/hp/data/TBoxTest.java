@@ -32,8 +32,22 @@ public class TBoxTest {
     @Test
     public void testTBOX_RegisterResp() {
         String byteString="23 23 00 0B 01 55 D2 0F E7 13 02 55 BE E2 58 00 25 ";
-        standardTest(byteString,RegisterResp.class);
+        //standardTest(byteString,RegisterResp.class);
+        RegisterResp resp=new RegisterResp();
+        resp.setSendingTime(1234567l);
+        resp.setApplicationID((short)19);
+        resp.setMessageID((short)2);
+        resp.setEventID(123456l);
+        resp.setRegisterResult((short)(1));
+        DataPackage dp=new DataPackage("8995_19_2");
+        dp.fillBean(resp);
+        ByteBuffer bb=conversionTBox.generate(dp);
+        String str=PackageEntityManager.getByteString(bb);
+        System.out.println(str);
+        RegisterResp rr=this.conversionTBox.generate(bb).loadBean(RegisterResp.class);
+        PackageEntityManager.printEntity(rr);
     }
+
     @Test
      public void testTBOX_WarningMessage() {
         String byteString="23 23 00 2F 01 55 D2 10 59 24 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1E 1E 07 06 01 00 01 C4 ";
