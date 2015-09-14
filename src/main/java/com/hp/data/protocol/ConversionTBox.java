@@ -42,12 +42,17 @@ public class ConversionTBox extends AbstractConversion {
         Integer length=0;
         for(PackageElement pe:eleList){
             String name=pe.getName();
+            Object value=pkgMap.get(name);
             if("head".equals(name)){
-                pkgMap.put(name,8995);
+                value=8995;
+                pkgMap.put(name,value);
             }
             else if("testFlag".equals(name)){
-                Short temp=0;
-                pkgMap.put(name,temp);
+                if(value==null){
+                    Short temp=0;
+                    value=temp;
+                }
+                pkgMap.put(name,value);
             }
             else if("length".equals(name)||"checkSum".equals(name)){
                 continue;
@@ -55,7 +60,7 @@ public class ConversionTBox extends AbstractConversion {
             else{
                 length+=pe.getSize();
             }
-            Object value=pkgMap.get(name);
+
             if(value==null) throw new ConversionException("属性"+name+"值为空，无法完成解析工作");
             checkSum^=PackageEntityManager.objectXor(value,pe.getSize());
         }

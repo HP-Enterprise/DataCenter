@@ -1,7 +1,6 @@
 package com.hp.data.util;
 
 import com.hp.data.core.DataEntity;
-import com.hp.data.core.DataType;
 import com.hp.data.exception.ConversionException;
 
 import java.lang.reflect.InvocationTargetException;
@@ -60,7 +59,7 @@ public final class PackageEntityManager {
                     Object valueStep1=m.invoke(bean);
                     String valueStep2=valueStep1!=null?"[B".equals(valueStep1.getClass().getName())?getByteArrayString(valueStep1):valueStep1.toString():"";
                     String value=rightPad(valueStep2,20,' ');
-                    String hexValue=getHexString(valueStep2,m.getReturnType());
+                    String hexValue=getHexString(valueStep2,m.getReturnType(),true);
                     System.out.println(propertyName+" "+value+" "+type+" "+hexValue);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
@@ -90,7 +89,7 @@ public final class PackageEntityManager {
             return Byte.valueOf(result).shortValue();
         }
         else{
-            String hex=getHexString(value.toString(),value.getClass());
+            String hex=getHexString(value.toString(),value.getClass(),false);
             String[] command=hex.split(" ");
             byte result=Integer.valueOf(command[0],16).byteValue();
             for(int i=1;i<command.length;i++){
@@ -105,7 +104,7 @@ public final class PackageEntityManager {
         return getByteString(ByteBuffer.wrap(bytes));
     }
 
-    public static String getHexString(String value,Class<?> valueClass){
+    public static String getHexString(String value,Class<?> valueClass,boolean byteDetail){
         DataBuilder dataBuilder=DataBuilder.build();
         if(byte[].class.equals(valueClass)) {
             return value;
@@ -115,6 +114,7 @@ public final class PackageEntityManager {
             String hexStr=Integer.toHexString(b).toUpperCase();
             if(hexStr.length()==1)hexStr="0"+hexStr;
             if(hexStr.length()!=2)hexStr=hexStr.substring(hexStr.length()-2);
+            if(!byteDetail)return hexStr;
             String binaryStr=Integer.toBinaryString(b);
             String binaryString=binaryStr.length()>8?binaryStr.substring(binaryStr.length()-8):leftPad(binaryStr, 8, '0');
             return hexStr+"["+binaryString+"]";
