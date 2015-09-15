@@ -49,8 +49,7 @@ public class ConversionTBox extends AbstractConversion {
             }
             else if("testFlag".equals(name)){
                 if(value==null){
-                    Short temp=0;
-                    value=temp;
+                    value=(short)0;
                 }
                 pkgMap.put(name,value);
             }
