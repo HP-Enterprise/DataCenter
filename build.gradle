@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.+")
     }
 }
 apply plugin: 'java'
@@ -20,7 +20,7 @@ repositories {
 
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web:1.2.+")
     testCompile("org.springframework.boot:spring-boot-starter-test:1.2+")
 }
 
