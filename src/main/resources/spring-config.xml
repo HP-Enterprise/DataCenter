@@ -41,7 +41,7 @@
             </data:elementGroup>
             <data:elementGroup name="ratedVehicle">
                 <data:element name="frequencyForRealTimeReport" type="U_INT_16"/> <!--1~600（1~600s）最小计量 单元1s Fix 10S -->
-                <data:element name="frequencyForWarningReport " type="U_INT_16"/> <!--0～60000（表示0ms～ 60000ms），最小计量单元 ：1ms Fix 1S -->
+                <data:element name="frequencyForWarningReport" type="U_INT_16"/> <!--0～60000（表示0ms～ 60000ms），最小计量单元 ：1ms Fix 1S -->
                 <data:element name="frequencyHeartbeat" type="U_INT_8"/>         <!--1～240（表示1s～240s）， 最小计量单元：1s Fix 60S-->
                 <data:element name="timeOutForTerminalSearch" type="U_INT_16"/>   <!--1～600（表示1s～600s）， 最小计量单元：1s  Fix 60S[3次retry累计180S] -->
                 <data:element name="timeOutForServerSearch" type="U_INT_16"/>     <!--1～600（表示1s～600s）， 最小计量单元：1s  Fix 60S[3次retry累计180S] -->
@@ -50,7 +50,7 @@
                 <data:element name="maxSpeed" type="U_INT_8"/>                    <!--有效值范围：1～254 [表示 0km/h～254km/h] 最小计量单元：1km/h -->
                 <data:element name="hardwareVersion" type="STRING" size="5"/>     <!--硬件版本，终端自行定义-->
                 <data:element name="softwareVersion" type="STRING" size="5"/>     <!--软件版本，终端自行定义-->
-                <data:element name="frequencySaveLocalMedia " type="U_INT_16"/>   <!--终端本地存储时间周期 0~60000（0~60000ms）最 小计量单元：1ms. Fix 1S-->
+                <data:element name="frequencySaveLocalMedia" type="U_INT_16"/>   <!--终端本地存储时间周期 0~60000（0~60000ms）最 小计量单元：1ms. Fix 1S-->
                 <data:element name="enterpriseBroadcastAddress" type="BYTE" size="6"/> <!--企业平台 IP，IPV4 的前 两个字节为 0 -->
                 <data:element name="enterpriseBroadcastPort" type="U_INT_16"/>    <!--企业平台端口 -->
             </data:elementGroup>

@@ -41,7 +41,7 @@ public class ConversionTBox extends AbstractConversion {
         short checkSum=0;
         Integer length=0;
         for(PackageElement pe:eleList){
-            String name=pe.getName();
+            String name=pe.getName().trim();
             Object value=pkgMap.get(name);
             if("head".equals(name)){
                 value=8995;
