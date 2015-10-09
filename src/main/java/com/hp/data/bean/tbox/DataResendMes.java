@@ -31,13 +31,13 @@ public class DataResendMes extends TBoxUpBean{
     private Integer rapidDeceleration;
     private Integer speeding;
     private Short signalStrength;
-    private byte[] bcm1;
-    private byte[] ems;
-    private byte[] tcu;
-    private byte[] ic;
-    private byte[] abs;
-    private byte[] pdc;
-    private byte[] bcm2;
+    private Byte bcm1;
+    private Byte ems;
+    private Byte tcu;
+    private Byte ic;
+    private Byte abs;
+    private Byte pdc;
+    private Byte bcm2;
 
     public Short getIsLocation() {
         return isLocation;
@@ -255,59 +255,59 @@ public class DataResendMes extends TBoxUpBean{
         this.signalStrength = signalStrength;
     }
 
-    public byte[] getBcm1() {
+    public Byte getBcm1() {
         return bcm1;
     }
 
-    public void setBcm1(byte[] bcm1) {
+    public void setBcm1(Byte bcm1) {
         this.bcm1 = bcm1;
     }
 
-    public byte[] getEms() {
+    public Byte getEms() {
         return ems;
     }
 
-    public void setEms(byte[] ems) {
+    public void setEms(Byte ems) {
         this.ems = ems;
     }
 
-    public byte[] getTcu() {
+    public Byte getTcu() {
         return tcu;
     }
 
-    public void setTcu(byte[] tcu) {
+    public void setTcu(Byte tcu) {
         this.tcu = tcu;
     }
 
-    public byte[] getIc() {
+    public Byte getIc() {
         return ic;
     }
 
-    public void setIc(byte[] ic) {
+    public void setIc(Byte ic) {
         this.ic = ic;
     }
 
-    public byte[] getAbs() {
+    public Byte getAbs() {
         return abs;
     }
 
-    public void setAbs(byte[] abs) {
+    public void setAbs(Byte abs) {
         this.abs = abs;
     }
 
-    public byte[] getPdc() {
+    public Byte getPdc() {
         return pdc;
     }
 
-    public void setPdc(byte[] pdc) {
+    public void setPdc(Byte pdc) {
         this.pdc = pdc;
     }
 
-    public byte[] getBcm2() {
+    public Byte getBcm2() {
         return bcm2;
     }
 
-    public void setBcm2(byte[] bcm2) {
+    public void setBcm2(Byte bcm2) {
         this.bcm2 = bcm2;
     }
 }
