@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 @Configuration("com.hp.dataCenter.simpleConfig")
-@ImportResource("spring-config.xml")
+@ImportResource("classpath:spring-config.xml")
 public class SimpleConfig {
 
 }

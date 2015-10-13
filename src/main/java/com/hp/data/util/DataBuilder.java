@@ -40,6 +40,7 @@ public final class DataBuilder {
     /**
      * 移动到指定位置
      * @param position  位置下标
+     * @return 调用对象
      */
     public DataBuilder moveTo(Integer position){
         this.buffer.position(position);
@@ -292,6 +293,7 @@ public final class DataBuilder {
     }
     /**
      * 获取字符串
+     * @param size 字符串大小
      * @return  字符串
      */
     public String getString(int size){

@@ -18,6 +18,12 @@ repositories {
     mavenCentral()
 }
 
+javadoc {
+    options.encoding = "utf-8"
+    options.charSet = "utf-8"
+    options.locale = "en"
+    options.showFromPublic()
+}
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:1.2.+")
