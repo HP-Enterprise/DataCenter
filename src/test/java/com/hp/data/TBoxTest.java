@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.nio.ByteBuffer;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(locations = "classpath:spring-config.xml")
+@SpringApplicationConfiguration(classes = Application.class)
 public class TBoxTest {
     @Autowired
     private Conversion conversionTBox;

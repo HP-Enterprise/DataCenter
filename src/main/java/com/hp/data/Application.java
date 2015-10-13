@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
     public static void main(String[] args) {
-        SpringApplication.run("classpath:spring-config.xml", args);
+        SpringApplication.run(Application.class, args);
     }
 
     public void run(String... args) throws Exception{
