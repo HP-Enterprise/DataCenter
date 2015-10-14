@@ -285,16 +285,28 @@
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>      <!--事件记录 ID 一个事件完成周 期内使用相同的 eventID-->
                 <data:element name="pramSetNumber" type="U_INT_8"/> <!--参数个数 -->
-                <data:element name="pramSetID" type="U_INT_8"/>     <!--参数ID列-->
-                <data:element name="pramValue" type="U_INT_8"/>     <!--参数ID -->
+                <data:element name="pramSetID" type="BYTE" size="13"/>     <!--参数ID列-->
+                <data:element name="frequencySaveLocalMedia" type="U_INT_16"/><!--参数ID列-->
+                <data:element name="frequencyForReport" type="U_INT_16"/><!--0~600s-->
+                <data:element name="frequencyForWarningReport" type="U_INT_16"/><!--0~60000ms-->
+                <data:element name="frequencyHeartbeat" type="U_INT_8"/><!--心跳周期1~240s-->
+                <data:element name="timeOutForTerminalSearch" type="U_INT_16"/><!--终端应答超时1~600s-->
+                <data:element name="timeOutForServerSearch" type="U_INT_16"/><!--平台应答超时 1~600s-->
+                <data:element name="uploadType" type="U_INT_8"/><!--上传类型 0：平台1 1：平台2 2：域名-->
+                <data:element name="enterpriseBroadcastAddress1" type="BYTE" size="6"/><!--平台ip1-->
+                <data:element name="enterpriseBroadcastPort1" type="U_INT_16"/><!--平台端口1-->
+                <data:element name="enterpriseBroadcastAddress2" type="BYTE" size="6"/><!--平台ip2-->
+                <data:element name="enterpriseBroadcastPort2" type="U_INT_16"/><!--平台端口2-->
+                <data:element name="enterpriseDomainNameSize" type="U_INT_8"/><!--域名长度-->
+                <data:element name="enterpriseDomainName" type="STRING"  size="13"/><!--域名实际长度-->
             </data:unit>
             <!--参数设置(T-Box向T平台反馈参数设置结果)-->
             <data:unit name="TBOX_PramSetupAck" key="82_2">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>      <!--事件记录 ID 一个事件完成周 期内使用相同的 eventID-->
                 <data:element name="pramSetAck" type="U_INT_8"/>    <!--参数个数-->
-                <data:element name="pramSetID" type="U_INT_8"/>     <!--参数ID列-->
-                <data:element name="pramValue" type="U_INT_8"/>     <!--0：成功 1：失败-->
+                <data:element name="pramSetID" type="BYTE" size="13"/>     <!--参数ID列-->
+                <data:element name="pramValue" type="BYTE" size="13"/>     <!--0：成功 1：失败-->
             </data:unit>
 
             <!--参数升级(T平台向T-Box发送参数升级指令)-->

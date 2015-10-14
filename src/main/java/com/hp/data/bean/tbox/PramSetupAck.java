@@ -5,9 +5,9 @@ import com.hp.data.core.DataEntity;
 @DataEntity(key = "8995")
 public class PramSetupAck extends TBoxUpBean{
     private Long eventID;
-    private byte[] pramSetAck;
-    private Short pramSetID;
-    private Short pramValue;
+    private Short pramSetAck;
+    private byte[] pramSetID;
+    private byte[] pramValue;
 
     public Long getEventID() {
         return eventID;
@@ -17,27 +17,27 @@ public class PramSetupAck extends TBoxUpBean{
         this.eventID = eventID;
     }
 
-    public byte[] getPramSetAck() {
+    public Short getPramSetAck() {
         return pramSetAck;
     }
 
-    public void setPramSetAck(byte[] pramSetAck) {
+    public void setPramSetAck(Short pramSetAck) {
         this.pramSetAck = pramSetAck;
     }
 
-    public Short getPramSetID() {
+    public byte[] getPramSetID() {
         return pramSetID;
     }
 
-    public void setPramSetID(Short pramSetID) {
+    public void setPramSetID(byte[] pramSetID) {
         this.pramSetID = pramSetID;
     }
 
-    public Short getPramValue() {
+    public byte[] getPramValue() {
         return pramValue;
     }
 
-    public void setPramValue(Short pramValue) {
+    public void setPramValue(byte[] pramValue) {
         this.pramValue = pramValue;
     }
 }
