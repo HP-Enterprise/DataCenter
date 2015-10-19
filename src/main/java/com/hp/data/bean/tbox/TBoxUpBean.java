@@ -7,8 +7,8 @@ public abstract class TBoxUpBean extends TBoxBean{
     private Short messageID;
     private String imei;
     private Short protocolVersionNumber;
-    private Integer vehicleID;
-    private Short tripID;
+    private byte[] vehicleID;
+    private Integer tripID;
     private Integer reserved;
 
     public Long getSendingTime() {
@@ -51,19 +51,19 @@ public abstract class TBoxUpBean extends TBoxBean{
         this.protocolVersionNumber = protocolVersionNumber;
     }
 
-    public Integer getVehicleID() {
+    public byte[] getVehicleID() {
         return vehicleID;
     }
 
-    public void setVehicleID(Integer vehicleID) {
+    public void setVehicleID(byte[] vehicleID) {
         this.vehicleID = vehicleID;
     }
 
-    public Short getTripID() {
+    public Integer getTripID() {
         return tripID;
     }
 
-    public void setTripID(Short tripID) {
+    public void setTripID(Integer tripID) {
         this.tripID = tripID;
     }
 
