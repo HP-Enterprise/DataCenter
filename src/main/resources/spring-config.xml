@@ -23,8 +23,8 @@
                 <data:element name="messageID" type="U_INT_8"/>             <!--消息类型编号-->
                 <data:element name="imei" type="STRING" size="15"/>         <!--International Mobile Equipment Identity-->
                 <data:element name="protocolVersionNumber" type="U_INT_8"/> <!--协议版本号-->
-                <data:element name="vehicleID" type="U_INT_16"/>            <!--车场编号-->
-                <data:element name="tripID" type="U_INT_8"/>                <!--记录电动机启动次数，0~255 后清零-->
+                <data:element name="vehicleID" type="BYTE" size="2"/>            <!--车场编号-->
+                <data:element name="tripID" type="U_INT_16"/>                <!--记录电动机启动次数，0~255 后清零-->
                 <data:element name="reserved" type="U_INT_16"/>             <!--预留-->
             </data:elementGroup>
             <data:elementGroup name="dispatcherDown">
@@ -93,7 +93,7 @@
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>          <!--事件记录ID一个事件完成周期内使相同的eventID-->
                 <data:element name="diaReportDataSize" type="U_INT_8"/><!--状态数据长度-->
-                <data:element name="serialNumber" type="STRING" size="14"/><!--车载终端编号-->
+                <data:element name="serialNumber" type="STRING" size="12"/><!--车载终端编号-->
                 <data:element name="testTime" type="U_INT_32"/>          <!--测试时间： 使用从 1970-01-01 00:00:00 到现在的秒数来表示-->
                 <data:element name="ledTest" type="U_INT_8"/>            <!--LED检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
                 <data:element name="farmTest" type="U_INT_8"/>           <!--FARM检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
@@ -117,7 +117,7 @@
                 <data:include name="dispatcherUp"/>
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
-                <data:element name="serialNumber" type="STRING" size="14"/><!--车载终端编号-->
+                <data:element name="serialNumber" type="STRING" size="12"/><!--车载终端编号-->
                 <data:element name="vin" type="STRING" size="17"/>       <!--车辆唯一识别码-->
             </data:unit>
             <!--激活(T平台向T-BOX发送激活返回信息)-->
@@ -141,7 +141,7 @@
                 <data:include name="dispatcherUp"/>
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>              <!--事件记录ID一个事件完成周期内使相同的eventID-->
-                <data:element name="serialNumber" type="STRING" size="14"/> <!--车载终端编号(为验证 IMEI与 SerialNumber唯一对应-->
+                <data:element name="serialNumber" type="STRING" size="12"/> <!--车载终端编号(为验证 IMEI与 SerialNumber唯一对应-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
                 <data:element name="swVersion" type="STRING" size="5"/>     <!--软件版本号-->
                 <data:element name="paramVersion" type="STRING" size="5"/>  <!--参数版本号-->
@@ -160,7 +160,7 @@
                 <data:include name="dispatcherUp"/>
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>          <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
-                <data:element name="serialNumber" type="STRING" size="14"/><!--车载终端编号[为验证 IMEI 与 SerialNumber 唯一对应]-->
+                <data:element name="serialNumber" type="STRING" size="12"/><!--车载终端编号[为验证 IMEI 与 SerialNumber 唯一对应]-->
                 <data:element name="vin" type="STRING" size="17"/>      <!--车辆唯一识别码-->
                 <data:element name="swVersion" type="STRING" size="5"/> <!--软件版本号-->
                 <data:element name="pramVersion" type="STRING" size="5"/><!--参数版本号-->
