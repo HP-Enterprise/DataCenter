@@ -1,9 +1,11 @@
 package com.hp.data.bean.tbox;
-
 import com.hp.data.core.DataEntity;
 
+/**
+ * Created by luj on 2015/10/20.
+ */
 @DataEntity(key = "8995")
-public class WarningMessage extends TBoxUpBean{
+public class DataResendWarningMes extends TBoxUpBean{
     private Short isLocation;
     private Long latitude;
     private Long longitude;
@@ -17,7 +19,6 @@ public class WarningMessage extends TBoxUpBean{
     private Byte info6;
     private Byte info7;
     private Byte info8;
-
 
     public Short getIsLocation() {
         return isLocation;
@@ -122,6 +123,5 @@ public class WarningMessage extends TBoxUpBean{
     public void setInfo8(Byte info8) {
         this.info8 = info8;
     }
-
-
 }
+
