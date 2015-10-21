@@ -233,11 +233,11 @@ public class TBoxTest {
         hr.setTripID(1);
         hr.setReserved(0);
 
-        hr.setIsLocation((short) 1);
-        hr.setLatitude(114256398l);
-        hr.setLongitude(111l);
-        hr.setSpeed(123);
-        hr.setHeading(230);
+        hr.setIsLocation((short) 0);//00000000表示有效北纬东经
+        hr.setLatitude(30256398l);
+        hr.setLongitude(114123456l);
+        hr.setSpeed(1567);
+        hr.setHeading(234);
         hr.setFuelOil((short) 10);
         hr.setAvgOil(11);
         hr.setOilLife((short) 15);
@@ -325,11 +325,11 @@ public class TBoxTest {
         hr.setTripID(1);
         hr.setReserved(0);
 
-        hr.setIsLocation((short) 1);
-        hr.setLatitude(114256398l);
-        hr.setLongitude(111l);
-        hr.setSpeed(123);
-        hr.setHeading(230);
+        hr.setIsLocation((short) 0);//00000000表示有效北纬东经
+        hr.setLatitude(30256398l);
+        hr.setLongitude(114123456l);
+        hr.setSpeed(1567);
+        hr.setHeading(234);
 
         hr.setInfo1((byte) 170);
         hr.setInfo2((byte) 170);
@@ -366,11 +366,11 @@ public class TBoxTest {
         hr.setTripID(1);
         hr.setReserved(0);
 
-        hr.setIsLocation((short) 1);
-        hr.setLatitude(114256398l);
-        hr.setLongitude(111l);
-        hr.setSpeed(123);
-        hr.setHeading(230);
+        hr.setIsLocation((short) 0);//00000000表示有效北纬东经
+        hr.setLatitude(30256398l);
+        hr.setLongitude(114123456l);
+        hr.setSpeed(1567);
+        hr.setHeading(234);
         hr.setFuelOil((short) 10);
         hr.setAvgOil(11);
         hr.setOilLife((short) 15);
@@ -420,11 +420,11 @@ public class TBoxTest {
         hr.setTripID(1);
         hr.setReserved(0);
 
-        hr.setIsLocation((short) 1);
-        hr.setLatitude(114256398l);
-        hr.setLongitude(111l);
-        hr.setSpeed(123);
-        hr.setHeading(230);
+        hr.setIsLocation((short) 0);//00000000表示有效北纬东经
+        hr.setLatitude(30256398l);
+        hr.setLongitude(114123456l);
+        hr.setSpeed(1567);
+        hr.setHeading(234);
 
         hr.setInfo1((byte) 170);
         hr.setInfo2((byte) 170);
