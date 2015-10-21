@@ -81,11 +81,6 @@ public class TBoxTest {
         String byteString="23 23 00 21 01 55 D2 10 6C 31 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 10 00 F3 ";
         standardTest(byteString,RemoteControlAck.class);
     }
-    @Test
-    public void testTBOX_RealTimeReportMes() {
-        String byteString="23 23 00 4D 01 55 D2 10 6D 22 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 FE 00 00 00 01 00 03 5A 84 00 00 00 03 00 00 00 00 00 00 00 00 3C 00 32 00 46 00 5A 00 28 28 06 00 00 00 00 00 00 00 00 FE FF 00 00 00 00 00 00 0A AB ";
-        standardTest(byteString,RealTimeReportMes.class);
-    }
 
     ////////////////////////
     @Test
@@ -250,10 +245,6 @@ public class TBoxTest {
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
         hr.setDoorInformation((short) 170);
-        hr.setSingleBatteryVoltage(14000);
-        hr.setMaximumVoltagePowerBatteryPack((short) 200);
-        hr.setMaximumBatteryVoltage(15000);
-        hr.setBatteryMonomerMinimumVoltage(14000);
         hr.setEngineCondition((short) 170);
         hr.setEngineSpeed(4000);
         hr.setRapidAcceleration(200);
@@ -383,10 +374,6 @@ public class TBoxTest {
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
         hr.setDoorInformation((short) 170);
-        hr.setSingleBatteryVoltage(14000);
-        hr.setMaximumVoltagePowerBatteryPack((short) 200);
-        hr.setMaximumBatteryVoltage(15000);
-        hr.setBatteryMonomerMinimumVoltage(14000);
         hr.setEngineCondition((short) 170);
         hr.setEngineSpeed(4000);
         hr.setRapidAcceleration(200);

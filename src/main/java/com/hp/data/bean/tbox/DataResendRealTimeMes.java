@@ -21,10 +21,6 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Short vehicleTemperature;
     private Short vehicleOuterTemperature;
     private Short doorInformation;
-    private Integer singleBatteryVoltage;
-    private Short maximumVoltagePowerBatteryPack;
-    private Integer maximumBatteryVoltage;
-    private Integer batteryMonomerMinimumVoltage;
     private Short engineCondition;
     private Integer engineSpeed;
     private Integer rapidAcceleration;
@@ -167,38 +163,6 @@ public class DataResendRealTimeMes extends TBoxUpBean{
 
     public void setDoorInformation(Short doorInformation) {
         this.doorInformation = doorInformation;
-    }
-
-    public Integer getSingleBatteryVoltage() {
-        return singleBatteryVoltage;
-    }
-
-    public void setSingleBatteryVoltage(Integer singleBatteryVoltage) {
-        this.singleBatteryVoltage = singleBatteryVoltage;
-    }
-
-    public Short getMaximumVoltagePowerBatteryPack() {
-        return maximumVoltagePowerBatteryPack;
-    }
-
-    public void setMaximumVoltagePowerBatteryPack(Short maximumVoltagePowerBatteryPack) {
-        this.maximumVoltagePowerBatteryPack = maximumVoltagePowerBatteryPack;
-    }
-
-    public Integer getMaximumBatteryVoltage() {
-        return maximumBatteryVoltage;
-    }
-
-    public void setMaximumBatteryVoltage(Integer maximumBatteryVoltage) {
-        this.maximumBatteryVoltage = maximumBatteryVoltage;
-    }
-
-    public Integer getBatteryMonomerMinimumVoltage() {
-        return batteryMonomerMinimumVoltage;
-    }
-
-    public void setBatteryMonomerMinimumVoltage(Integer batteryMonomerMinimumVoltage) {
-        this.batteryMonomerMinimumVoltage = batteryMonomerMinimumVoltage;
     }
 
     public Short getEngineCondition() {
