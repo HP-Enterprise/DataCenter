@@ -24,7 +24,7 @@
                 <data:element name="imei" type="STRING" size="15"/>         <!--International Mobile Equipment Identity-->
                 <data:element name="protocolVersionNumber" type="U_INT_8"/> <!--协议版本号-->
                 <data:element name="vehicleID" type="BYTE" size="2"/>            <!--车场编号-->
-                <data:element name="tripID" type="U_INT_16"/>                <!--记录电动机启动次数，0~255 后清零-->
+                <data:element name="tripID" type="U_INT_16"/>                <!--记录电动机启动次数，0~65535 后清零-->
                 <data:element name="reserved" type="U_INT_16"/>             <!--预留-->
             </data:elementGroup>
             <data:elementGroup name="dispatcherDown">
@@ -67,10 +67,6 @@
                 <data:element name="vehicleTemperature" type="U_INT_8"/>  <!--分辨率1 ℃，偏移量40 显示范围：-40℃ ~ 85℃ 上报数据范围：0~125 缺省值：0x28 无效值：0x7D-->
                 <data:element name="vehicleOuterTemperature" type="U_INT_8"/><!--分辨率1 ℃，偏移量40 显示范围：-40℃ ~ 85℃ 上报数据范围：0~125 缺省值：0x28 无效值：0x7D -->
                 <data:element name="doorInformation" type="U_INT_8"/>     <!--Bit 0左前：1：开，0：关 Bit 1左后：1：开，0：关 Bit 2右前：1：开，0：关 Bit 3右后：1：开，0：关 Bit 4后备箱门：1：开，0：关 Bit 5前舱盖门：1：开，0：关-->
-                <data:element name="singleBatteryVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF-->
-                <data:element name="maximumVoltagePowerBatteryPack" type="U_INT_8"/><!--分辨率1，偏移量0 显示范围：1-254 上报数据范围：1~ 254 缺省值：0x00 无效值：0x00 -->
-                <data:element name="maximumBatteryVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF -->
-                <data:element name="batteryMonomerMinimumVoltage" type="U_INT_16"/><!--分辨率0.001V，偏移量0 显示范围：0V-15V 上报数据范围：0~ 15000 缺省值：0x0000 无效值：0xFFFF-->
                 <data:element name="engineCondition" type="U_INT_8"/>      <!--0x00:engine stop    0x01:engine start 0x02:idle speed  0x03:part load 0x04:trailling throttle  0x05:full load 0x06:Fuel Cut Off 0x07:undefined CANoe数据超出范围时按 0x07(undefined)处理 -->
                 <data:element name="engineSpeed" type="U_INT_16"/>         <!--分辨率0.001V，偏移量0显示范围：0V-8191.875V 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF -->
                 <data:element name="rapidAcceleration" type="U_INT_16"/>   <!--分辨率1次，偏移量0 显示范围：0-65535次 上报数据范围：0~ 65535 缺省值：0x0000 无效值：0xFFFF-->
@@ -79,13 +75,14 @@
                 <data:element name="signalStrength" type="U_INT_8"/>       <!--分辨率1，偏移量0 显示范围：0-31 上报数据范围：0~31 缺省值：0x00 无效值：0xFF -->
             </data:elementGroup>
             <data:elementGroup name="alarmDataStructure">
-                <data:element name="bcm1" type="BYTE"/>                  <!--BIT0：车辆电瓶过压  0:故障发生 1:故障消除 BIT1：车辆电瓶欠压  0:故障发生 1:故障消除 BIT2：多媒体异常  0:故障发生 1:故障消除 BIT3：冷冻液不足  0:故障发生 1:故障消除 BIT4：车灯系统故障  0:故障发生 1:故障消除 BIT5~BIT7：预留 -->
-                <data:element name="ems" type="BYTE"/>                  <!--BIT0：发动机异常  0:故障发生 1:故障消除 BIT1：水温过高0:故障发生 1:故障消除 BIT2~BIT7：预留-->
-                <data:element name="tcu" type="BYTE"/>                  <!--BIT0：危险传动系统故障 0:故障发生 1:故障消除 BIT1：警告传动系统故障 0:故障发生 1:故障消除 BIT2：传动系统过热 0:故障发生 1:故障消除 BIT3~BIT7：预留 -->
-                <data:element name="ic" type="BYTE"/>                   <!--BIT0：安全气囊异常 0:故障发生 1:故障消除 BIT1：ABS故障 0:故障发生 1:故障消除 BIT2：油压低 0:故障发生 1:故障消除 BIT3~BIT7：预留 -->
-                <data:element name="abs" type="BYTE"/>                  <!--BIT0：刹车液位低。 0:故障发生 1:故障消除 BIT1~BIT7：预留-->
-                <data:element name="pdc" type="BYTE"/>                  <!--BIT0：PDC系统故障。 0:故障发生 1:故障消除 BIT1~BIT7：预留 -->
-                <data:element name="bcm2" type="BYTE"/>                  <!--BIT0：安全气囊触发。 0: 触发 1:未触发 BIT1~BIT7：预留-->
+                <data:element name="info1" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info2" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info3" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info4" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info5" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info6" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info7" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info8" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
             </data:elementGroup>
             <!--电检(T-Box将向T平台发送电检请求)-->
             <data:unit name="TBOX_DiaRequest" key="17_1">
@@ -187,16 +184,22 @@
                 <data:include name="realTimeReplacement"/>
                 </data:unit>
 
-            <!--补发数据上报-->
-            <data:unit name="TBOX_DataResendMes" key="35_1">
+            <!--补发实时数据上报-->
+            <data:unit name="TBOX_DataResendRealtimeData" key="35_1">
                 <data:include name="dispatcherUp"/>
                 <data:include name="gpsPosition"/>
                 <data:include name="realTimeReplacement"/>
-                <data:include name="alarmDataStructure"/>
             </data:unit>
 
             <!--报警数据上报-->
             <data:unit name="TBOX_WarningMessage" key="36_1">
+                <data:include name="dispatcherUp"/>
+                <data:include name="gpsPosition"/>
+                <data:include name="alarmDataStructure"/>
+            </data:unit>
+
+            <!--补发报警数据上报-->
+            <data:unit name="TBOX_DataResendWarningData" key="37_1">
                 <data:include name="dispatcherUp"/>
                 <data:include name="gpsPosition"/>
                 <data:include name="alarmDataStructure"/>
@@ -211,6 +214,17 @@
             <data:unit name="TBOX_HeartbeatResp" key="38_2">
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>     <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
+            </data:unit>
+
+            <!--休眠请求-->
+            <data:unit name="TBOX_SleepReq" key="39_1">
+                <data:include name="dispatcherUp"/>
+                <data:element name="eventID" type="U_INT_32"/>
+            </data:unit>
+            <!--休眠响应-->
+            <data:unit name="TBOX_SleepResp" key="39_2">
+                <data:include name="dispatcherDown"/>
+                <data:element name="eventID" type="U_INT_32"/>
             </data:unit>
 
             <!--远程控制命令(T平台向T-Box发送远程控制请求)-->
