@@ -143,7 +143,7 @@ public abstract class AbstractConversion implements Conversion {
      */
     private <T> T castTo(Class<T> castClass,Object target){
         try{
-            return (T)target;
+            return castClass.cast(target);
         }
         catch (ClassCastException e){
             e.printStackTrace();

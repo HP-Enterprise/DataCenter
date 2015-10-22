@@ -62,18 +62,21 @@ public class ClassScanner implements ResourceLoaderAware {
 
 
     public static Set<Class<?>> scan(String basePackage,
-                                     Class<? extends Annotation>... annotations) {
+                                     Class<?>... annotations) {
         ClassScanner cs = new ClassScanner();
-        for (Class<? extends Annotation> annotation : annotations)
-            cs.addIncludeFilter(new AnnotationTypeFilter(annotation));
+
+        for (Class<?> annotation : annotations) {
+            cs.addIncludeFilter(new AnnotationTypeFilter(annotation.asSubclass(Annotation.class)));
+        }
         return cs.doScan(basePackage);
     }
 
     public static Set<Class> scan(String[] basePackages,
-                                  Class<? extends Annotation>... annotations) {
+                                  Class<?>... annotations) {
         ClassScanner cs = new ClassScanner();
-        for (Class<? extends Annotation> annotation : annotations)
-            cs.addIncludeFilter(new AnnotationTypeFilter(annotation));
+        for (Class<?> annotation : annotations) {
+            cs.addIncludeFilter(new AnnotationTypeFilter(annotation.asSubclass(Annotation.class)));
+        }
         Set<Class> classes = new HashSet<Class>();
         for (String s : basePackages)
             classes.addAll(cs.doScan(s));
