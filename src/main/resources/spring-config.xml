@@ -233,7 +233,7 @@
                 <data:element name="eventID" type="U_INT_32"/>    <!--事件记录 ID 一个事件完成周期 内使用相同的 eventID-->
             </data:unit>
             <!--远程控制命令(T-Box向T平台反馈远程控制预请求响应)-->
-            <data:unit name="TBOX_RemoteControlPreconditionReq" key="49_2">
+            <data:unit name="TBOX_RemoteControlPreconditionResp" key="49_2">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>    <!--事件记录 ID 一个事件完成周期 内使用相同的 eventID-->
                 <data:element name="time" type="U_INT_32"/>
