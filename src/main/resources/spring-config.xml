@@ -227,19 +227,59 @@
                 <data:element name="eventID" type="U_INT_32"/>
             </data:unit>
 
+            <!--远程控制命令(T平台向T-Box发送远程控制预请求)-->
+            <data:unit name="TBOX_RemoteControlPreconditionReq" key="49_1">
+                <data:include name="dispatcherDown"/>
+                <data:element name="eventID" type="U_INT_32"/>    <!--事件记录 ID 一个事件完成周期 内使用相同的 eventID-->
+            </data:unit>
+            <!--远程控制命令(T-Box向T平台反馈远程控制预请求响应)-->
+            <data:unit name="TBOX_RemoteControlPreconditionResp" key="49_2">
+                <data:include name="dispatcherUp"/>
+                <data:element name="eventID" type="U_INT_32"/>    <!--事件记录 ID 一个事件完成周期 内使用相同的 eventID-->
+                <data:element name="time" type="U_INT_32"/>
+                <data:element name="ambientAirTemperature" type="U_INT_8"/>
+                <data:element name="fuelLevel" type="U_INT_16"/>
+                <data:element name="tempIntern" type="U_INT_8"/>
+                <data:element name="averageConsumptionTripA" type="U_INT_16"/>
+                <data:element name="averageConsumptionTripB" type="U_INT_16"/>
+                <data:element name="averageSpeedTripA" type="U_INT_8"/>
+                <data:element name="averageSpeedTripB" type="U_INT_8"/>
+                <data:element name="sesam_clamp_stat" type="BYTE"/>
+                <data:element name="stat_remote_start" type="BYTE"/>
+                <data:element name="gearLevelPositon" type="BYTE"/>
+                <data:element name="vehicleSpeed" type="U_INT_16"/>
+                <data:element name="stateOfChargeACM_Crash_Status" type="BYTE"/>
+                <data:element name="bcm_Stat_Door_Flap" type="BYTE" size="2"/>
+                <data:element name="bcm_Stat_Central_Lock" type="BYTE"/>
+                <data:element name="stat_lin_2" type="BYTE"/>
+                <data:element name="epb_status" type="BYTE"/>
+                <data:element name="stat_lin_1" type="BYTE"/>
+                <data:element name="scm_button_status" type="BYTE" size="3"/>
+                <data:element name="scm_cruise_control" type="BYTE"/>
+                <data:element name="scm_wiper" type="BYTE" size="2"/>
+                <data:element name="preconditionRespTime" type="U_INT_8"/>
+            </data:unit>
             <!--远程控制命令(T平台向T-Box发送远程控制请求)-->
-            <data:unit name="TBOX_RemoteControlCmd" key="49_1">
+            <data:unit name="TBOX_RemoteControlCmd" key="49_3">
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>    <!--事件记录 ID 一个事件完成周期 内使用相同的 eventID-->
                 <data:element name="remoteControlType" type="U_INT_16"/><!--0：远程启动发动机 1：远程关闭发动机 2：车门上锁 3：车门解锁 4：空调开启 5：空调关闭 6：座椅加热 7：座椅停止加热 8：远程鸣笛 9：远程鸣笛关闭 10：远程开灯 11：远程关闭 12：远程发动机限 制 13：远程发动机限 制关闭 14：远程寻车 15：设置空调温度-->
                 <data:element name="acTemperature" type="U_INT_8"/><!--设置空调温度 0~200[0~200] 最小计量单元：1℃-->
             </data:unit>
             <!--远程控制命令(T-Box向T平台反馈远程控制结果)-->
-            <data:unit name="TBOX_RemoteControlAck" key="49_2">
+            <data:unit name="TBOX_RemoteControlAck" key="49_4">
+                <data:include name="dispatcherUp"/>
+                <data:element name="eventID" type="U_INT_32"/>   <!--事件记录 ID 一个事件完成周期 内使用相同的 eventID-->
+                <data:element name="remoteControlAck" type="U_INT_8"/><!--0：无效 1：远程命令已接收 -->
+            </data:unit>
+            <!--远程控制命令(T-Box向T平台反馈远程控制结果)-->
+            <data:unit name="TBOX_RemoteControlRst" key="49_5">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>   <!--事件记录 ID 一个事件完成周期 内使用相同的 eventID-->
                 <data:element name="remoteControlAck" type="U_INT_8"/><!--0：成功 1：失败 -->
+                <data:element name="remoteControlTime" type="U_INT_8"/><!--执行次数 -->
             </data:unit>
+
 
             <!--参数查询(T平台向T-Box发送参数查询请求)-->
             <data:unit name="TBOX_PramStatusCmd" key="65_1">

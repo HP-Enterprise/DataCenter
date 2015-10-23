@@ -72,14 +72,150 @@ public class TBoxTest {
 
 
     @Test
-    public void testTBOX_RemoteControlCmd() {
-        String byteString="23 23 00 0D 01 81 92 EA 54 31 01 00 00 0B 10 00 06 00 8C ";
-        standardTest(byteString,RemoteControlCmd.class);
+    public void testTBOX_BuildRemoteControlPreconditionReq() {
+        RemoteControlPreconditionReq hr=new RemoteControlPreconditionReq();
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 49);//>>>
+        hr.setMessageID((short) 1);//>>>
+        hr.setEventID((long) 1444812349);
+
+        DataPackage dpw=new DataPackage("8995_49_1");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        RemoteControlPreconditionReq bean=dp.loadBean(RemoteControlPreconditionReq.class);
+        PackageEntityManager.printEntity(bean);
     }
     @Test
-    public void testTBOX_RemoteControlAck() {
-        String byteString="23 23 00 21 01 55 D2 10 6C 31 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0B 10 00 F3 ";
-        standardTest(byteString,RemoteControlAck.class);
+    public void testTBOX_RemoteControlPreconditionResp() {
+        RemoteControlPreconditionResp hr=new RemoteControlPreconditionResp();
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 49);//>>>
+        hr.setMessageID((short) 2);//>>>
+        hr.setImei("123456789012345");
+        hr.setProtocolVersionNumber((short) 1);
+        hr.setVehicleID(new byte[]{(byte) 0, (byte) 0});
+        hr.setTripID(1);
+        hr.setReserved(0);
+        hr.setEventID((long) 1444812349);
+
+        hr.setTime(1443151834l);
+        hr.setAmbientAirTemperature((short) 60);
+        hr.setFuelLevel(1000);
+        hr.setTempIntern((short) 65);
+        hr.setAverageConsumptionTripA(300);
+        hr.setAverageConsumptionTripB(350);
+        hr.setAverageSpeedTripA((short) 80);
+        hr.setAverageSpeedTripB((short) 80);
+        hr.setSesam_clamp_stat((byte) 170);
+        hr.setStat_remote_start((byte) 170);
+        hr.setGearLevelPositon((byte) 170);
+        hr.setVehicleSpeed(9000);
+        hr.setStateOfChargeACM_Crash_Status((byte) 170);
+        hr.setBcm_Stat_Door_Flap(new byte[]{(byte) 170, (byte) 170});
+        hr.setBcm_Stat_Central_Lock((byte) 170);
+        hr.setStat_lin_2((byte) 170);
+        hr.setEpb_status((byte) 170);
+        hr.setStat_lin_1((byte) 170);
+        hr.setScm_button_status(new byte[]{(byte) 170, (byte) 170, (byte) 170});
+        hr.setScm_cruise_control((byte)170);
+        hr.setScm_wiper(new byte[]{(byte) 170, (byte) 170});
+        hr.setPreconditionRespTime((short)5);
+
+
+        DataPackage dpw=new DataPackage("8995_49_2");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        RemoteControlPreconditionResp bean=dp.loadBean(RemoteControlPreconditionResp.class);
+        PackageEntityManager.printEntity(bean);
+    }
+    @Test
+    public void testTBOX_BuildRemoteControlCmd() {
+        RemoteControlCmd hr=new RemoteControlCmd();
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 49);//>>>
+        hr.setMessageID((short) 3);//>>>
+        hr.setEventID((long) 1444812349);
+        hr.setRemoteControlType(15);
+        hr.setAcTemperature((short)22);
+
+        DataPackage dpw=new DataPackage("8995_49_3");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        RemoteControlCmd bean=dp.loadBean(RemoteControlCmd.class);
+        PackageEntityManager.printEntity(bean);
+    }
+    @Test
+    public void testTBOX_BuildRemoteControlAck() {
+        RemoteControlAck hr=new RemoteControlAck();
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 49);//>>>
+        hr.setMessageID((short) 4);//>>>
+        hr.setImei("123456789012345");
+        hr.setProtocolVersionNumber((short) 1);
+        hr.setVehicleID(new byte[]{(byte) 0, (byte) 0});
+        hr.setTripID(1);
+        hr.setReserved(0);
+        hr.setEventID((long) 1444812349);
+
+        hr.setRemoteControlAck((short) 1);
+
+        DataPackage dpw=new DataPackage("8995_49_4");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        RemoteControlAck bean=dp.loadBean(RemoteControlAck.class);
+        PackageEntityManager.printEntity(bean);
+    }
+    @Test
+    public void testTBOX_BuildRemoteControlRst() {
+        RemoteControlRst hr=new RemoteControlRst();
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 49);//>>>
+        hr.setMessageID((short) 5);//>>>
+        hr.setImei("123456789012345");
+        hr.setProtocolVersionNumber((short) 1);
+        hr.setVehicleID(new byte[]{(byte) 0, (byte) 0});
+        hr.setTripID(1);
+        hr.setReserved(0);
+        hr.setEventID((long) 1444812349);
+
+        hr.setRemoteControlAck((short)0);
+        hr.setRemoteControlTime((short)2);
+
+        DataPackage dpw=new DataPackage("8995_49_5");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        RemoteControlAck bean=dp.loadBean(RemoteControlAck.class);
+        PackageEntityManager.printEntity(bean);
     }
 
     ////////////////////////
@@ -103,8 +239,7 @@ public class TBoxTest {
         //电检测试
 
         DiaRequest hr=new DiaRequest();
-        hr.setTestFlag((short) 1);
-        hr.setTestFlag((short) 1);
+        hr.setTestFlag((short) 0);
         hr.setSendingTime(1443151834l);
         hr.setApplicationID((short) 17);//>>>
         hr.setMessageID((short) 1);//>>>
@@ -144,7 +279,7 @@ public class TBoxTest {
     @Test
     public void test_BuildSleepReq() {
         SleepReq hr=new SleepReq();
-        hr.setTestFlag((short) 1);
+        hr.setTestFlag((short) 0);
         hr.setSendingTime(1443151834l);
         hr.setApplicationID((short) 39);//>>>
         hr.setMessageID((short) 1);//>>>
@@ -170,7 +305,7 @@ public class TBoxTest {
     @Test
     public void test_BuildSleepResp() {
         SleepResp hr=new SleepResp();
-        hr.setTestFlag((short) 1);
+        hr.setTestFlag((short) 0);
         hr.setSendingTime(1443151834l);
         hr.setApplicationID((short) 39);//>>>
         hr.setMessageID((short) 2);//>>>
@@ -196,12 +331,7 @@ public class TBoxTest {
         standardTest(byteString, HeartbeatReq.class);
         }
 
-    @Test
-    public void test_getRemoteControlAck() {
-        //测试
-        String byteString="23 23 00 21 01 56 05 13 02 31 02 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 01 00 01 01 00 00 00 55 BE E2 58 00 31 ";
-        standardTest(byteString, RemoteControlAck.class);
-    }
+
 
     @Test
     public void test_handleParmSetAck(){
@@ -218,7 +348,7 @@ public class TBoxTest {
     @Test
     public void test_BuildRealTimeReportMes(){
         RealTimeReportMes hr=new RealTimeReportMes();
-        hr.setTestFlag((short) 1);
+        hr.setTestFlag((short) 0);
         hr.setSendingTime(1443151834l);
         hr.setApplicationID((short) 34);//>>>
         hr.setMessageID((short) 1);//>>>
@@ -267,7 +397,7 @@ public class TBoxTest {
     @Test
     public void test_BuildRegularReportMes(){
         RegularReportMes hr=new RegularReportMes();
-        hr.setTestFlag((short) 1);
+        hr.setTestFlag((short) 0);
         hr.setSendingTime(1443151834l);
         hr.setApplicationID((short) 33);//>>>
         hr.setMessageID((short) 1);//>>>
@@ -306,7 +436,7 @@ public class TBoxTest {
     @Test
     public void test_BuildWarningMes(){
         WarningMessage hr=new WarningMessage();
-        hr.setTestFlag((short) 1);
+        hr.setTestFlag((short) 0);
         hr.setSendingTime(1443151834l);
         hr.setApplicationID((short) 36);//>>>
         hr.setMessageID((short) 1);//>>>
@@ -347,7 +477,7 @@ public class TBoxTest {
     @Test
     public void test_BuildResendRealTimeMes(){
         DataResendRealTimeMes hr=new DataResendRealTimeMes();
-        hr.setTestFlag((short) 1);
+        hr.setTestFlag((short) 0);
         hr.setSendingTime(1443151834l);
         hr.setApplicationID((short) 35);//>>>
         hr.setMessageID((short) 1);//>>>
@@ -397,7 +527,7 @@ public class TBoxTest {
     @Test
     public void test_BuildResendWarningMes(){
         DataResendWarningMes hr=new DataResendWarningMes();
-        hr.setTestFlag((short) 1);
+        hr.setTestFlag((short) 0);
         hr.setSendingTime(1443151834l);
         hr.setApplicationID((short) 37);//>>>
         hr.setMessageID((short) 1);//>>>
