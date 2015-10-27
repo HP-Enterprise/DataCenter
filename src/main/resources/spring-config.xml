@@ -309,7 +309,7 @@
                 <data:element name="eventID" type="U_INT_32"/>      <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
                 <data:element name="diaCmdDataSize" type="U_INT_8"/><!--诊断数据长度 -->
                 <data:element name="diaNumber" type="U_INT_8"/>     <!--诊断数据个数 -->
-                <data:element name="diaID" type="U_INT_8"/>         <!--诊断数据ID-->
+                <data:element name="diaID" type="BYTE" />         <!--诊断数据ID-->
             </data:unit>
             <!--远程车辆诊断(T-Box向T平台反馈远程诊断结果)-->
             <data:unit name="TBOX_DiagnosticCommandAck" key="66_2">
