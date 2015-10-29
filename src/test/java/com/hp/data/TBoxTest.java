@@ -203,8 +203,8 @@ public class TBoxTest {
         hr.setReserved(0);
         hr.setEventID((long) 1444812349);
 
-        hr.setRemoteControlAck((short)0);
-        hr.setRemoteControlTime((short)2);
+        hr.setRemoteControlAck((short) 0);
+        hr.setRemoteControlTime((short) 2);
 
         DataPackage dpw=new DataPackage("8995_49_5");//>>>
         dpw.fillBean(hr);
@@ -564,6 +564,32 @@ public class TBoxTest {
         PackageEntityManager.printEntity(bean);
     }
 
+    @Test
+    public void test_BuildDiagnosticCommandCmd(){
+        DiagnosticCommandCmd hr=new DiagnosticCommandCmd();
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 66);//>>>
+        hr.setMessageID((short) 1);//>>>
+        hr.setEventID((long) 1444812349);
+
+        hr.setDiaCmdDataSize((short)17);
+        hr.setDiaNumber((short)17);
+        hr.setDiaID((byte)0);
+
+
+        DataPackage dpw=new DataPackage("8995_66_1");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        DiagnosticCommandCmd bean=dp.loadBean(DiagnosticCommandCmd.class);
+        PackageEntityManager.printEntity(bean);
+
+    }
 
 
     /**

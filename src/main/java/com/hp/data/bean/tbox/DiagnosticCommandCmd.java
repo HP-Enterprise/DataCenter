@@ -5,9 +5,9 @@ import com.hp.data.core.DataEntity;
 @DataEntity(key = "8995")
 public class DiagnosticCommandCmd extends TBoxDownBean{
     private Long eventID;
-    private byte[] diaCmdDataSize;
-    private byte[] diaNumber;
-    private Short diaID;
+    private Short diaCmdDataSize;
+    private Short diaNumber;
+    private Byte diaID;
 
     public Long getEventID() {
         return eventID;
@@ -17,27 +17,27 @@ public class DiagnosticCommandCmd extends TBoxDownBean{
         this.eventID = eventID;
     }
 
-    public byte[] getDiaCmdDataSize() {
+    public Short getDiaCmdDataSize() {
         return diaCmdDataSize;
     }
 
-    public void setDiaCmdDataSize(byte[] diaCmdDataSize) {
+    public void setDiaCmdDataSize(Short diaCmdDataSize) {
         this.diaCmdDataSize = diaCmdDataSize;
     }
 
-    public byte[] getDiaNumber() {
+    public Short getDiaNumber() {
         return diaNumber;
     }
 
-    public void setDiaNumber(byte[] diaNumber) {
+    public void setDiaNumber(Short diaNumber) {
         this.diaNumber = diaNumber;
     }
 
-    public Short getDiaID() {
+    public Byte getDiaID() {
         return diaID;
     }
 
-    public void setDiaID(Short diaID) {
+    public void setDiaID(Byte diaID) {
         this.diaID = diaID;
     }
 }
