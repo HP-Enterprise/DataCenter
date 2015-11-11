@@ -389,6 +389,8 @@ public class TBoxTest {
         PackageEntityManager.printEntity(bean);
     }
 
+
+
     @Test
     public void test_BuildRegularReportMes(){
         RegularReportMes hr=new RegularReportMes();
@@ -491,10 +493,10 @@ public class TBoxTest {
         hr.setAvgOilA(123);
         hr.setAvgOilB(134);
         hr.setServiceIntervall(1234);
-        hr.setLeftFrontTirePressure((short)100);
-        hr.setLeftRearTirePressure((short)101);
-        hr.setRightFrontTirePressure((short)102);
-        hr.setRightRearTirePressure((short)103);
+        hr.setLeftFrontTirePressure((short) 100);
+        hr.setLeftRearTirePressure((short) 101);
+        hr.setRightFrontTirePressure((short) 102);
+        hr.setRightRearTirePressure((short) 103);
         hr.setWindowInformation((short) 15);//00001111开开关关
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);

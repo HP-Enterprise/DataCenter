@@ -19,18 +19,20 @@ public class PramSetCmd extends TBoxDownBean{
     private Byte pramSetID6;
     private int timeOutForServerSearch;
     private Byte pramSetID7;
-    private Short uploadType;
+    private String licensePlate;
     private Byte pramSetID8;
-    private byte[] enterpriseBroadcastAddress1;
+    private Short uploadType;
     private Byte pramSetID9;
-    private int enterpriseBroadcastPort1;
+    private byte[] enterpriseBroadcastAddress1;
     private Byte pramSetID10;
-    private byte[] enterpriseBroadcastAddress2;
+    private int enterpriseBroadcastPort1;
     private Byte pramSetID11;
-    private int enterpriseBroadcastPort2;
+    private byte[] enterpriseBroadcastAddress2;
     private Byte pramSetID12;
-    private Short enterpriseDomainNameSize;
+    private int enterpriseBroadcastPort2;
     private Byte pramSetID13;
+    private Short enterpriseDomainNameSize;
+    private Byte pramSetID14;
     private String enterpriseDomainName;
 
     public Long getEventID() {
@@ -153,12 +155,12 @@ public class PramSetCmd extends TBoxDownBean{
         this.pramSetID7 = pramSetID7;
     }
 
-    public Short getUploadType() {
-        return uploadType;
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
-    public void setUploadType(Short uploadType) {
-        this.uploadType = uploadType;
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
     }
 
     public Byte getPramSetID8() {
@@ -169,12 +171,12 @@ public class PramSetCmd extends TBoxDownBean{
         this.pramSetID8 = pramSetID8;
     }
 
-    public byte[] getEnterpriseBroadcastAddress1() {
-        return enterpriseBroadcastAddress1;
+    public Short getUploadType() {
+        return uploadType;
     }
 
-    public void setEnterpriseBroadcastAddress1(byte[] enterpriseBroadcastAddress1) {
-        this.enterpriseBroadcastAddress1 = enterpriseBroadcastAddress1;
+    public void setUploadType(Short uploadType) {
+        this.uploadType = uploadType;
     }
 
     public Byte getPramSetID9() {
@@ -185,12 +187,12 @@ public class PramSetCmd extends TBoxDownBean{
         this.pramSetID9 = pramSetID9;
     }
 
-    public int getEnterpriseBroadcastPort1() {
-        return enterpriseBroadcastPort1;
+    public byte[] getEnterpriseBroadcastAddress1() {
+        return enterpriseBroadcastAddress1;
     }
 
-    public void setEnterpriseBroadcastPort1(int enterpriseBroadcastPort1) {
-        this.enterpriseBroadcastPort1 = enterpriseBroadcastPort1;
+    public void setEnterpriseBroadcastAddress1(byte[] enterpriseBroadcastAddress1) {
+        this.enterpriseBroadcastAddress1 = enterpriseBroadcastAddress1;
     }
 
     public Byte getPramSetID10() {
@@ -201,12 +203,12 @@ public class PramSetCmd extends TBoxDownBean{
         this.pramSetID10 = pramSetID10;
     }
 
-    public byte[] getEnterpriseBroadcastAddress2() {
-        return enterpriseBroadcastAddress2;
+    public int getEnterpriseBroadcastPort1() {
+        return enterpriseBroadcastPort1;
     }
 
-    public void setEnterpriseBroadcastAddress2(byte[] enterpriseBroadcastAddress2) {
-        this.enterpriseBroadcastAddress2 = enterpriseBroadcastAddress2;
+    public void setEnterpriseBroadcastPort1(int enterpriseBroadcastPort1) {
+        this.enterpriseBroadcastPort1 = enterpriseBroadcastPort1;
     }
 
     public Byte getPramSetID11() {
@@ -217,12 +219,12 @@ public class PramSetCmd extends TBoxDownBean{
         this.pramSetID11 = pramSetID11;
     }
 
-    public int getEnterpriseBroadcastPort2() {
-        return enterpriseBroadcastPort2;
+    public byte[] getEnterpriseBroadcastAddress2() {
+        return enterpriseBroadcastAddress2;
     }
 
-    public void setEnterpriseBroadcastPort2(int enterpriseBroadcastPort2) {
-        this.enterpriseBroadcastPort2 = enterpriseBroadcastPort2;
+    public void setEnterpriseBroadcastAddress2(byte[] enterpriseBroadcastAddress2) {
+        this.enterpriseBroadcastAddress2 = enterpriseBroadcastAddress2;
     }
 
     public Byte getPramSetID12() {
@@ -233,12 +235,12 @@ public class PramSetCmd extends TBoxDownBean{
         this.pramSetID12 = pramSetID12;
     }
 
-    public Short getEnterpriseDomainNameSize() {
-        return enterpriseDomainNameSize;
+    public int getEnterpriseBroadcastPort2() {
+        return enterpriseBroadcastPort2;
     }
 
-    public void setEnterpriseDomainNameSize(Short enterpriseDomainNameSize) {
-        this.enterpriseDomainNameSize = enterpriseDomainNameSize;
+    public void setEnterpriseBroadcastPort2(int enterpriseBroadcastPort2) {
+        this.enterpriseBroadcastPort2 = enterpriseBroadcastPort2;
     }
 
     public Byte getPramSetID13() {
@@ -247,6 +249,22 @@ public class PramSetCmd extends TBoxDownBean{
 
     public void setPramSetID13(Byte pramSetID13) {
         this.pramSetID13 = pramSetID13;
+    }
+
+    public Short getEnterpriseDomainNameSize() {
+        return enterpriseDomainNameSize;
+    }
+
+    public void setEnterpriseDomainNameSize(Short enterpriseDomainNameSize) {
+        this.enterpriseDomainNameSize = enterpriseDomainNameSize;
+    }
+
+    public Byte getPramSetID14() {
+        return pramSetID14;
+    }
+
+    public void setPramSetID14(Byte pramSetID14) {
+        this.pramSetID14 = pramSetID14;
     }
 
     public String getEnterpriseDomainName() {

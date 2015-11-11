@@ -346,18 +346,20 @@
                 <data:element name="pramSetID6" type="BYTE" size="1"/>     <!--参数ID-->
                 <data:element name="timeOutForServerSearch" type="U_INT_16"/>     <!--平台应答超时 1~600s -->
                 <data:element name="pramSetID7" type="BYTE" size="1"/>     <!--参数ID-->
-                <data:element name="uploadType" type="U_INT_8"/>     <!--上报方式 0:IP1  1:IP2  2:域名 -->
+                <data:element name="licensePlate" type="STRING" size="9"/><!--车牌号-->
                 <data:element name="pramSetID8" type="BYTE" size="1"/>     <!--参数ID-->
-                <data:element name="enterpriseBroadcastAddress1" type="BYTE" size="6"/>     <!--IP1 -->
+                <data:element name="uploadType" type="U_INT_8"/>     <!--上报方式 0:IP1  1:IP2  2:域名 -->
                 <data:element name="pramSetID9" type="BYTE" size="1"/>     <!--参数ID-->
-                <data:element name="enterpriseBroadcastPort1" type="U_INT_16"/>     <!--端口1 -->
+                <data:element name="enterpriseBroadcastAddress1" type="BYTE" size="6"/>     <!--IP1 -->
                 <data:element name="pramSetID10" type="BYTE" size="1"/>     <!--参数ID-->
-                <data:element name="enterpriseBroadcastAddress2" type="BYTE" size="6"/>     <!--平台2 -->
+                <data:element name="enterpriseBroadcastPort1" type="U_INT_16"/>     <!--端口1 -->
                 <data:element name="pramSetID11" type="BYTE" size="1"/>     <!--参数ID-->
-                <data:element name="enterpriseBroadcastPort2" type="U_INT_16"/>     <!--端口2 -->
+                <data:element name="enterpriseBroadcastAddress2" type="BYTE" size="6"/>     <!--平台2 -->
                 <data:element name="pramSetID12" type="BYTE" size="1"/>     <!--参数ID-->
-                <data:element name="enterpriseDomainNameSize" type="U_INT_8"/>     <!--域名长度 -->
+                <data:element name="enterpriseBroadcastPort2" type="U_INT_16"/>     <!--端口2 -->
                 <data:element name="pramSetID13" type="BYTE" size="1"/>     <!--参数ID-->
+                <data:element name="enterpriseDomainNameSize" type="U_INT_8"/>     <!--域名长度 -->
+                <data:element name="pramSetID14" type="BYTE" size="1"/>     <!--参数ID-->
                 <data:element name="enterpriseDomainName" type="STRING" size="13"/>     <!--域名 -->
             </data:unit>
             <!--参数设置(T-Box向T平台反馈参数设置结果)-->
