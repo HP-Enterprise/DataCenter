@@ -9,25 +9,18 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Long longitude;
     private Integer speed;
     private Integer heading;
-    private Short fuelOil;
-    private Integer avgOil;
-    private Short oilLife;
-    private byte[] driveRange;
-    private Integer leftFrontTirePressure;
-    private Integer leftRearTirePressure;
-    private Integer rightFrontTirePressure;
-    private Integer rightRearTirePressure;
+    private Integer fuelOil;
+    private Integer avgOilA;
+    private Integer avgOilB;
+    private Integer serviceIntervall;
+    private Short leftFrontTirePressure;
+    private Short leftRearTirePressure;
+    private Short rightFrontTirePressure;
+    private Short rightRearTirePressure;
     private Short windowInformation;
     private Short vehicleTemperature;
     private Short vehicleOuterTemperature;
     private Short doorInformation;
-    private Short engineCondition;
-    private Integer engineSpeed;
-    private Integer rapidAcceleration;
-    private Integer rapidDeceleration;
-    private Integer speeding;
-    private Short signalStrength;
-
 
     public Short getIsLocation() {
         return isLocation;
@@ -69,67 +62,67 @@ public class DataResendRealTimeMes extends TBoxUpBean{
         this.heading = heading;
     }
 
-    public Short getFuelOil() {
+    public Integer getFuelOil() {
         return fuelOil;
     }
 
-    public void setFuelOil(Short fuelOil) {
+    public void setFuelOil(Integer fuelOil) {
         this.fuelOil = fuelOil;
     }
 
-    public Integer getAvgOil() {
-        return avgOil;
+    public Integer getAvgOilA() {
+        return avgOilA;
     }
 
-    public void setAvgOil(Integer avgOil) {
-        this.avgOil = avgOil;
+    public void setAvgOilA(Integer avgOilA) {
+        this.avgOilA = avgOilA;
     }
 
-    public Short getOilLife() {
-        return oilLife;
+    public Integer getAvgOilB() {
+        return avgOilB;
     }
 
-    public void setOilLife(Short oilLife) {
-        this.oilLife = oilLife;
+    public void setAvgOilB(Integer avgOilB) {
+        this.avgOilB = avgOilB;
     }
 
-    public byte[] getDriveRange() {
-        return driveRange;
+    public Integer getServiceIntervall() {
+        return serviceIntervall;
     }
 
-    public void setDriveRange(byte[] driveRange) {
-        this.driveRange = driveRange;
+    public void setServiceIntervall(Integer serviceIntervall) {
+        this.serviceIntervall = serviceIntervall;
     }
 
-    public Integer getLeftFrontTirePressure() {
+    public Short getLeftFrontTirePressure() {
         return leftFrontTirePressure;
     }
 
-    public void setLeftFrontTirePressure(Integer leftFrontTirePressure) {
+    public void setLeftFrontTirePressure(Short leftFrontTirePressure) {
         this.leftFrontTirePressure = leftFrontTirePressure;
     }
 
-    public Integer getLeftRearTirePressure() {
+    public Short getLeftRearTirePressure() {
         return leftRearTirePressure;
     }
 
-    public void setLeftRearTirePressure(Integer leftRearTirePressure) {
+    public void setLeftRearTirePressure(Short leftRearTirePressure) {
         this.leftRearTirePressure = leftRearTirePressure;
     }
 
-    public Integer getRightFrontTirePressure() {
+    public Short getRightFrontTirePressure() {
         return rightFrontTirePressure;
     }
 
-    public void setRightFrontTirePressure(Integer rightFrontTirePressure) {
+    public void setRightFrontTirePressure(Short rightFrontTirePressure) {
         this.rightFrontTirePressure = rightFrontTirePressure;
     }
 
-    public Integer getRightRearTirePressure() {
+    public Short getRightRearTirePressure() {
         return rightRearTirePressure;
     }
 
-    public void setRightRearTirePressure(Integer rightRearTirePressure) {
+    public void setRightRearTirePressure(Short rightRearTirePressure) {
         this.rightRearTirePressure = rightRearTirePressure;
     }
 
@@ -164,54 +157,4 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     public void setDoorInformation(Short doorInformation) {
         this.doorInformation = doorInformation;
     }
-
-    public Short getEngineCondition() {
-        return engineCondition;
-    }
-
-    public void setEngineCondition(Short engineCondition) {
-        this.engineCondition = engineCondition;
-    }
-
-    public Integer getEngineSpeed() {
-        return engineSpeed;
-    }
-
-    public void setEngineSpeed(Integer engineSpeed) {
-        this.engineSpeed = engineSpeed;
-    }
-
-    public Integer getRapidAcceleration() {
-        return rapidAcceleration;
-    }
-
-    public void setRapidAcceleration(Integer rapidAcceleration) {
-        this.rapidAcceleration = rapidAcceleration;
-    }
-
-    public Integer getRapidDeceleration() {
-        return rapidDeceleration;
-    }
-
-    public void setRapidDeceleration(Integer rapidDeceleration) {
-        this.rapidDeceleration = rapidDeceleration;
-    }
-
-    public Integer getSpeeding() {
-        return speeding;
-    }
-
-    public void setSpeeding(Integer speeding) {
-        this.speeding = speeding;
-    }
-
-    public Short getSignalStrength() {
-        return signalStrength;
-    }
-
-    public void setSignalStrength(Short signalStrength) {
-        this.signalStrength = signalStrength;
-    }
-
-
 }

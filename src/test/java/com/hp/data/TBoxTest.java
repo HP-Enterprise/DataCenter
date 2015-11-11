@@ -363,24 +363,19 @@ public class TBoxTest {
         hr.setLongitude(114123456l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-        hr.setFuelOil((short) 10);
-        hr.setAvgOil(11);
-        hr.setOilLife((short) 15);
-        hr.setDriveRange(new byte[]{(byte) 99, (byte) 99, (byte) 90});
-        hr.setLeftFrontTirePressure(251);
-        hr.setLeftRearTirePressure(252);
-        hr.setRightFrontTirePressure(253);
-        hr.setRightRearTirePressure(254);
-        hr.setWindowInformation((short) 170);
+        hr.setFuelOil(99);
+        hr.setAvgOilA(123);
+        hr.setAvgOilB(134);
+        hr.setServiceIntervall(1234);
+        hr.setLeftFrontTirePressure((short) 100);
+        hr.setLeftRearTirePressure((short) 101);
+        hr.setRightFrontTirePressure((short) 102);
+        hr.setRightRearTirePressure((short) 103);
+        hr.setWindowInformation((short) 15);//00001111开开关关
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
-        hr.setDoorInformation((short) 170);
-        hr.setEngineCondition((short) 170);
-        hr.setEngineSpeed(4000);
-        hr.setRapidAcceleration(200);
-        hr.setRapidDeceleration(300);
-        hr.setSpeeding(30);
-        hr.setSignalStrength((short) 10);
+        hr.setDoorInformation((short) 15);
+
 
         DataPackage dpw=new DataPackage("8995_34_1");//>>>
         dpw.fillBean(hr);
@@ -492,24 +487,18 @@ public class TBoxTest {
         hr.setLongitude(114123456l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-        hr.setFuelOil((short) 10);
-        hr.setAvgOil(11);
-        hr.setOilLife((short) 15);
-        hr.setDriveRange(new byte[]{(byte) 99, (byte) 99, (byte) 90});
-        hr.setLeftFrontTirePressure(251);
-        hr.setLeftRearTirePressure(252);
-        hr.setRightFrontTirePressure(253);
-        hr.setRightRearTirePressure(254);
-        hr.setWindowInformation((short) 170);
+        hr.setFuelOil(99);
+        hr.setAvgOilA(123);
+        hr.setAvgOilB(134);
+        hr.setServiceIntervall(1234);
+        hr.setLeftFrontTirePressure((short)100);
+        hr.setLeftRearTirePressure((short)101);
+        hr.setRightFrontTirePressure((short)102);
+        hr.setRightRearTirePressure((short)103);
+        hr.setWindowInformation((short) 15);//00001111开开关关
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
-        hr.setDoorInformation((short) 170);
-        hr.setEngineCondition((short) 170);
-        hr.setEngineSpeed(4000);
-        hr.setRapidAcceleration(200);
-        hr.setRapidDeceleration(300);
-        hr.setSpeeding(30);
-        hr.setSignalStrength((short) 10);
+        hr.setDoorInformation((short) 15);
 
 
         DataPackage dpw=new DataPackage("8995_35_1");//>>>
