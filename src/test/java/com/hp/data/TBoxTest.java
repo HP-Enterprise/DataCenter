@@ -148,7 +148,7 @@ public class TBoxTest {
         hr.setApplicationID((short) 49);//>>>
         hr.setMessageID((short) 3);//>>>
         hr.setEventID((long) 1444812349);
-        hr.setRemoteControlType(15);
+        hr.setRemoteControlType(4);
         hr.setAcTemperature((short)22);
 
         DataPackage dpw=new DataPackage("8995_49_3");//>>>
