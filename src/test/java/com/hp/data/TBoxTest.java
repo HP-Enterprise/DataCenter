@@ -148,7 +148,7 @@ public class TBoxTest {
         hr.setApplicationID((short) 49);//>>>
         hr.setMessageID((short) 3);//>>>
         hr.setEventID((long) 1444812349);
-        hr.setRemoteControlType(15);
+        hr.setRemoteControlType(4);
         hr.setAcTemperature((short)22);
 
         DataPackage dpw=new DataPackage("8995_49_3");//>>>
@@ -359,28 +359,23 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
-        hr.setLatitude(30256398l);
-        hr.setLongitude(114123456l);
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-        hr.setFuelOil((short) 10);
-        hr.setAvgOil(11);
-        hr.setOilLife((short) 15);
-        hr.setDriveRange(new byte[]{(byte) 99, (byte) 99, (byte) 90});
-        hr.setLeftFrontTirePressure(251);
-        hr.setLeftRearTirePressure(252);
-        hr.setRightFrontTirePressure(253);
-        hr.setRightRearTirePressure(254);
-        hr.setWindowInformation((short) 170);
+        hr.setFuelOil(99);
+        hr.setAvgOilA(123);
+        hr.setAvgOilB(134);
+        hr.setServiceIntervall(1234);
+        hr.setLeftFrontTirePressure((short) 100);
+        hr.setLeftRearTirePressure((short) 101);
+        hr.setRightFrontTirePressure((short) 102);
+        hr.setRightRearTirePressure((short) 103);
+        hr.setWindowInformation((short) 15);//00001111开开关关
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
-        hr.setDoorInformation((short) 170);
-        hr.setEngineCondition((short) 170);
-        hr.setEngineSpeed(4000);
-        hr.setRapidAcceleration(200);
-        hr.setRapidDeceleration(300);
-        hr.setSpeeding(30);
-        hr.setSignalStrength((short) 10);
+        hr.setDoorInformation((short) 15);
+
 
         DataPackage dpw=new DataPackage("8995_34_1");//>>>
         dpw.fillBean(hr);
@@ -393,6 +388,8 @@ public class TBoxTest {
         RealTimeReportMes bean=dp.loadBean(RealTimeReportMes.class);
         PackageEntityManager.printEntity(bean);
     }
+
+
 
     @Test
     public void test_BuildRegularReportMes(){
@@ -447,19 +444,14 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
-        hr.setLatitude(30256398l);
-        hr.setLongitude(114123456l);
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
 
-        hr.setInfo1((byte) 170);
-        hr.setInfo2((byte) 170);
-        hr.setInfo3((byte) 170);
-        hr.setInfo4((byte) 170);
-        hr.setInfo5((byte) 170);
-        hr.setInfo6((byte) 170);
-        hr.setInfo7((byte) 170);
-        hr.setInfo8((byte) 170);
+        hr.setSrsWarning((byte) 64);//01000000 触发
+        hr.setAtaWarning((byte) 64);//01000000 触发
+
 
 
         DataPackage dpw=new DataPackage("8995_36_1");//>>>
@@ -471,6 +463,45 @@ public class TBoxTest {
         ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
         DataPackage dp=conversionTBox.generate(bb);
         WarningMessage bean=dp.loadBean(WarningMessage.class);
+        PackageEntityManager.printEntity(bean);
+    }
+
+    @Test
+    public void test_BuildFailureMes(){
+        FailureMessage hr=new FailureMessage();
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 40);//>>>
+        hr.setMessageID((short) 1);//>>>
+        hr.setImei("123456789012345");
+        hr.setProtocolVersionNumber((short) 1);
+        hr.setVehicleID(new byte[]{(byte) 0, (byte) 0});
+        hr.setTripID(1);
+        hr.setReserved(0);
+
+        hr.setIsLocation((short) 0);//00000000表示有效北纬东经
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
+        hr.setSpeed(1567);
+        hr.setHeading(234);
+        hr.setInfo1((byte) 52);
+        hr.setInfo2((byte) 53);
+        hr.setInfo3((byte) 54);
+        hr.setInfo4((byte) 57);
+        hr.setInfo5((byte) 170);
+        hr.setInfo6((byte) 170);
+        hr.setInfo7((byte) 170);
+        hr.setInfo8((byte) 170);
+
+        DataPackage dpw=new DataPackage("8995_40_1");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        FailureMessage bean=dp.loadBean(FailureMessage.class);
         PackageEntityManager.printEntity(bean);
     }
 
@@ -488,28 +519,22 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
-        hr.setLatitude(30256398l);
-        hr.setLongitude(114123456l);
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-        hr.setFuelOil((short) 10);
-        hr.setAvgOil(11);
-        hr.setOilLife((short) 15);
-        hr.setDriveRange(new byte[]{(byte) 99, (byte) 99, (byte) 90});
-        hr.setLeftFrontTirePressure(251);
-        hr.setLeftRearTirePressure(252);
-        hr.setRightFrontTirePressure(253);
-        hr.setRightRearTirePressure(254);
-        hr.setWindowInformation((short) 170);
+        hr.setFuelOil(99);
+        hr.setAvgOilA(123);
+        hr.setAvgOilB(134);
+        hr.setServiceIntervall(1234);
+        hr.setLeftFrontTirePressure((short) 100);
+        hr.setLeftRearTirePressure((short) 101);
+        hr.setRightFrontTirePressure((short) 102);
+        hr.setRightRearTirePressure((short) 103);
+        hr.setWindowInformation((short) 15);//00001111开开关关
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
-        hr.setDoorInformation((short) 170);
-        hr.setEngineCondition((short) 170);
-        hr.setEngineSpeed(4000);
-        hr.setRapidAcceleration(200);
-        hr.setRapidDeceleration(300);
-        hr.setSpeeding(30);
-        hr.setSignalStrength((short) 10);
+        hr.setDoorInformation((short) 15);
 
 
         DataPackage dpw=new DataPackage("8995_35_1");//>>>
@@ -538,19 +563,14 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
-        hr.setLatitude(30256398l);
-        hr.setLongitude(114123456l);
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
 
-        hr.setInfo1((byte) 170);
-        hr.setInfo2((byte) 170);
-        hr.setInfo3((byte) 170);
-        hr.setInfo4((byte) 170);
-        hr.setInfo5((byte) 170);
-        hr.setInfo6((byte) 170);
-        hr.setInfo7((byte) 170);
-        hr.setInfo8((byte) 170);
+        hr.setSrsWarning((byte) 0);//00000000 未触发
+        hr.setAtaWarning((byte) 0);//00000000 未触发
+
 
         DataPackage dpw=new DataPackage("8995_37_1");//>>>
         dpw.fillBean(hr);
@@ -561,6 +581,46 @@ public class TBoxTest {
         ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
         DataPackage dp=conversionTBox.generate(bb);
         DataResendWarningMes bean=dp.loadBean(DataResendWarningMes.class);
+        PackageEntityManager.printEntity(bean);
+    }
+
+    @Test
+    public void test_BuildResendFailureMes(){
+        DataResendFailureData hr=new DataResendFailureData();
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 41);//>>>
+        hr.setMessageID((short) 1);//>>>
+        hr.setImei("123456789012345");
+        hr.setProtocolVersionNumber((short) 1);
+        hr.setVehicleID(new byte[]{(byte) 0, (byte) 0});
+        hr.setTripID(1);
+        hr.setReserved(0);
+
+        hr.setIsLocation((short) 0);//00000000表示有效北纬东经
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
+        hr.setSpeed(1567);
+        hr.setHeading(234);
+
+        hr.setInfo1((byte) 170);
+        hr.setInfo2((byte) 170);
+        hr.setInfo3((byte) 170);
+        hr.setInfo4((byte) 170);
+        hr.setInfo5((byte) 81);
+        hr.setInfo6((byte) 82);
+        hr.setInfo7((byte) 83);
+        hr.setInfo8((byte) 84);
+
+        DataPackage dpw=new DataPackage("8995_41_1");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        DataResendFailureData bean=dp.loadBean(DataResendFailureData.class);
         PackageEntityManager.printEntity(bean);
     }
 
