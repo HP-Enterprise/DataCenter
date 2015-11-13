@@ -449,14 +449,9 @@ public class TBoxTest {
         hr.setSpeed(1567);
         hr.setHeading(234);
 
-        hr.setInfo1((byte) 170);
-        hr.setInfo2((byte) 170);
-        hr.setInfo3((byte) 170);
-        hr.setInfo4((byte) 170);
-        hr.setInfo5((byte) 170);
-        hr.setInfo6((byte) 170);
-        hr.setInfo7((byte) 170);
-        hr.setInfo8((byte) 170);
+        hr.setSrsWarning((byte) 64);//01000000 触发
+        hr.setAtaWarning((byte) 64);//01000000 触发
+
 
 
         DataPackage dpw=new DataPackage("8995_36_1");//>>>
@@ -534,14 +529,9 @@ public class TBoxTest {
         hr.setSpeed(1567);
         hr.setHeading(234);
 
-        hr.setInfo1((byte) 170);
-        hr.setInfo2((byte) 170);
-        hr.setInfo3((byte) 170);
-        hr.setInfo4((byte) 170);
-        hr.setInfo5((byte) 170);
-        hr.setInfo6((byte) 170);
-        hr.setInfo7((byte) 170);
-        hr.setInfo8((byte) 170);
+        hr.setSrsWarning((byte) 0);//00000000 未触发
+        hr.setAtaWarning((byte) 0);//00000000 未触发
+
 
         DataPackage dpw=new DataPackage("8995_37_1");//>>>
         dpw.fillBean(hr);

@@ -69,14 +69,8 @@
                 <data:element name="doorInformation" type="U_INT_8"/>     <!--Bit0~1： STAT_DoorAjarFL Bit2~3：STAT_DoorAjarFR Bit4~5：STAT_DoorAjarRL Bit6~7：STAT_DoorAjarRR 0x0： Close0x1： Open0x2： Reserved0x3： Signal invalid-->
             </data:elementGroup>
             <data:elementGroup name="alarmDataStructure">
-                <data:element name="info1" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info2" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info3" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info4" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info5" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info6" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info7" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info8" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="srsWarning" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="ataWarning" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
             </data:elementGroup>
             <!--电检(T-Box将向T平台发送电检请求)-->
             <data:unit name="TBOX_DiaRequest" key="17_1">
