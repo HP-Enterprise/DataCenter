@@ -467,6 +467,45 @@ public class TBoxTest {
     }
 
     @Test
+    public void test_BuildFailureMes(){
+        FailureMessage hr=new FailureMessage();
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 40);//>>>
+        hr.setMessageID((short) 1);//>>>
+        hr.setImei("123456789012345");
+        hr.setProtocolVersionNumber((short) 1);
+        hr.setVehicleID(new byte[]{(byte) 0, (byte) 0});
+        hr.setTripID(1);
+        hr.setReserved(0);
+
+        hr.setIsLocation((short) 0);//00000000表示有效北纬东经
+        hr.setLatitude(30256398l);
+        hr.setLongitude(114123456l);
+        hr.setSpeed(1567);
+        hr.setHeading(234);
+        hr.setInfo1((byte) 52);
+        hr.setInfo2((byte) 53);
+        hr.setInfo3((byte) 54);
+        hr.setInfo4((byte) 57);
+        hr.setInfo5((byte) 170);
+        hr.setInfo6((byte) 170);
+        hr.setInfo7((byte) 170);
+        hr.setInfo8((byte) 170);
+
+        DataPackage dpw=new DataPackage("8995_40_1");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        FailureMessage bean=dp.loadBean(FailureMessage.class);
+        PackageEntityManager.printEntity(bean);
+    }
+
+    @Test
     public void test_BuildResendRealTimeMes(){
         DataResendRealTimeMes hr=new DataResendRealTimeMes();
         hr.setTestFlag((short) 0);
@@ -542,6 +581,46 @@ public class TBoxTest {
         ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
         DataPackage dp=conversionTBox.generate(bb);
         DataResendWarningMes bean=dp.loadBean(DataResendWarningMes.class);
+        PackageEntityManager.printEntity(bean);
+    }
+
+    @Test
+    public void test_BuildResendFailureMes(){
+        DataResendFailureData hr=new DataResendFailureData();
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 41);//>>>
+        hr.setMessageID((short) 1);//>>>
+        hr.setImei("123456789012345");
+        hr.setProtocolVersionNumber((short) 1);
+        hr.setVehicleID(new byte[]{(byte) 0, (byte) 0});
+        hr.setTripID(1);
+        hr.setReserved(0);
+
+        hr.setIsLocation((short) 0);//00000000表示有效北纬东经
+        hr.setLatitude(30256398l);
+        hr.setLongitude(114123456l);
+        hr.setSpeed(1567);
+        hr.setHeading(234);
+
+        hr.setInfo1((byte) 170);
+        hr.setInfo2((byte) 170);
+        hr.setInfo3((byte) 170);
+        hr.setInfo4((byte) 170);
+        hr.setInfo5((byte) 81);
+        hr.setInfo6((byte) 82);
+        hr.setInfo7((byte) 83);
+        hr.setInfo8((byte) 84);
+
+        DataPackage dpw=new DataPackage("8995_41_1");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        DataResendFailureData bean=dp.loadBean(DataResendFailureData.class);
         PackageEntityManager.printEntity(bean);
     }
 

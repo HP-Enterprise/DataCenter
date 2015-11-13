@@ -69,8 +69,18 @@
                 <data:element name="doorInformation" type="U_INT_8"/>     <!--Bit0~1： STAT_DoorAjarFL Bit2~3：STAT_DoorAjarFR Bit4~5：STAT_DoorAjarRL Bit6~7：STAT_DoorAjarRR 0x0： Close0x1： Open0x2： Reserved0x3： Signal invalid-->
             </data:elementGroup>
             <data:elementGroup name="alarmDataStructure">
-                <data:element name="srsWarning" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="ataWarning" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="srsWarning" type="BYTE"/>                 <!-- 安全气囊报警 bit0-1 0x0 未触发 0x1触发-->
+                <data:element name="ataWarning" type="BYTE"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
+            </data:elementGroup>
+            <data:elementGroup name="failureDataStructure">
+                <data:element name="info1" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info2" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info3" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info4" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info5" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info6" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info7" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
+                <data:element name="info8" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
             </data:elementGroup>
             <!--电检(T-Box将向T平台发送电检请求)-->
             <data:unit name="TBOX_DiaRequest" key="17_1">
@@ -213,6 +223,20 @@
             <data:unit name="TBOX_SleepResp" key="39_2">
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>
+            </data:unit>
+
+            <!--故障数据上报-->
+            <data:unit name=" TBOX_FailureMessage" key="40_1">
+                <data:include name="dispatcherUp"/>
+                <data:include name="gpsPosition"/>
+                <data:include name="failureDataStructure"/>
+            </data:unit>
+
+            <!--补发故障数据上报-->
+            <data:unit name="TBOX_DataResendFailureData" key="41_1">
+                <data:include name="dispatcherUp"/>
+                <data:include name="gpsPosition"/>
+                <data:include name="failureDataStructure"/>
             </data:unit>
 
             <!--远程控制命令(T平台向T-Box发送远程控制预请求)-->
