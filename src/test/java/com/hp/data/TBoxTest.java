@@ -359,8 +359,8 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
-        hr.setLatitude(30256398l);
-        hr.setLongitude(114123456l);
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
         hr.setFuelOil(99);
@@ -444,8 +444,8 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
-        hr.setLatitude(30256398l);
-        hr.setLongitude(114123456l);
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
 
@@ -480,8 +480,8 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
-        hr.setLatitude(30256398l);
-        hr.setLongitude(114123456l);
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
         hr.setInfo1((byte) 52);
@@ -519,8 +519,8 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
-        hr.setLatitude(30256398l);
-        hr.setLongitude(114123456l);
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
         hr.setFuelOil(99);
@@ -563,8 +563,8 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
-        hr.setLatitude(30256398l);
-        hr.setLongitude(114123456l);
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
 
@@ -598,8 +598,8 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
-        hr.setLatitude(30256398l);
-        hr.setLongitude(114123456l);
+        hr.setLatitude(7745l);
+        hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
 
