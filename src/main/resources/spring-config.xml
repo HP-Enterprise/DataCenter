@@ -72,7 +72,7 @@
                 <data:element name="srsWarning" type="BYTE"/>                 <!-- 安全气囊报警 bit0-1 0x0 未触发 0x1触发-->
                 <data:element name="ataWarning" type="BYTE"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
                 <data:element name="safetyBeltCount" type="U_INT_8"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
-                <data:element name="vehicleSpeedLast" type="U_INT_16" size="10"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
+                <data:element name="vehicleSpeedLast" type="U_INT_16" size="300"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
             </data:elementGroup>
             <data:elementGroup name="failureDataStructure">
                 <data:element name="info1" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
