@@ -222,9 +222,9 @@ public class TBoxTest {
     @Test
     public void testTBOX_ActiveHandle() {
         String byteString="23 23 00 3D 01 56 04 B7 1E 12 01 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 00 00 00 00 00 00 00 55 BE E2 58 31 32 33 34 35 36 37 38 39 31 39 39 31 32 33 34 35 36 37 38 39 31 39 39 39 31 32 33 34 88 ";
-        standardTest(byteString,ActiveReq.class);
+        standardTest(byteString, ActiveReq.class);
         String byteStr="23 23 00 21 01 56 04 BF DA 12 03 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 00 00 00 00 00 00 00 55 BE E2 58 00 67 ";
-        standardTest(byteStr,ActiveResult.class);
+        standardTest(byteStr, ActiveResult.class);
 
     }
     @Test
@@ -452,7 +452,12 @@ public class TBoxTest {
         hr.setSrsWarning((byte) 1);//01000000 触发
         hr.setAtaWarning((byte) 1);//01000000 触发
         hr.setSafetyBeltCount((short) 2);
-        hr.setVehicleSpeedLast(new Integer[]{1,2,3,4,5});
+        Integer[] speeds=new Integer[150];
+        for(int i=0;i<150;i++){
+            speeds[i] = 100;
+        }
+        System.out.println(">>>>>>>>"+speeds);
+        hr.setVehicleSpeedLast(speeds);
 
 
 
@@ -570,8 +575,15 @@ public class TBoxTest {
         hr.setSpeed(1567);
         hr.setHeading(234);
 
-        hr.setSrsWarning((byte) 0);//00000000 未触发
-        hr.setAtaWarning((byte) 0);//00000000 未触发
+        hr.setSrsWarning((byte) 1);//01000000 触发
+        hr.setAtaWarning((byte) 1);//01000000 触发
+        hr.setSafetyBeltCount((short) 2);
+        Integer[] speeds=new Integer[150];
+        for(int i=0;i<150;i++){
+            speeds[i] = 100;
+        }
+        System.out.println(">>>>>>>>" + speeds);
+        hr.setVehicleSpeedLast(speeds);
 
 
         DataPackage dpw=new DataPackage("8995_37_1");//>>>
