@@ -200,6 +200,16 @@ public final class DataBuilder {
         turnWriteMode();
         buffer.putShort(Long.valueOf(Integer.toUnsignedLong(num)).shortValue());
     }
+    /**
+     * 写入大端无符号双字节整型数组
+     * @param num   整型数数组
+     */
+    public void putUInt16BE(Integer[] num){
+        turnWriteMode();
+        for(int i=0;i<num.length;i++) {
+            buffer.putShort(Long.valueOf(Integer.toUnsignedLong(num[i])).shortValue());
+        }
+    }
 
     /**
      * 写入大端四字节整型

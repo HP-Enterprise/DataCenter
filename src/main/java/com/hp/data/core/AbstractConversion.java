@@ -43,8 +43,8 @@ public abstract class AbstractConversion implements Conversion {
             DataType dataType=pe.getDataType();
             String property=pe.getName();
             int size=pe.getSize();
-            Object value=getValue(dataType,builder,size);
-            dp.put(property,value);
+            Object value=getValue(dataType, builder, size);
+            dp.put(property, value);
         }
         return dp;
     }
@@ -85,7 +85,17 @@ public abstract class AbstractConversion implements Conversion {
             }
         }
         if(dataType.equals(DataType.U_INT_8)) return builder.getUInt8();
-        if(dataType.equals(DataType.U_INT_16)) return builder.getUInt16BE();
+        if(dataType.equals(DataType.U_INT_16))
+            if(size>2){
+                int num=size/2;//共有多少个u_int_16
+                Integer[] numbers = new Integer[num];
+                for (int i = 0; i < num; i++) {
+                    numbers[i] =  builder.getUInt16BE();
+                }
+                return numbers;
+            }else{
+                return builder.getUInt16BE();
+            }
         if(dataType.equals(DataType.U_INT_32)) return builder.getUInt32BE();
         if(dataType.equals(DataType.INT_8)) return builder.getInt8();
         if(dataType.equals(DataType.INT_16)) return builder.getInt16BE();
@@ -119,7 +129,13 @@ public abstract class AbstractConversion implements Conversion {
             }
         }
         if(dataType.equals(DataType.U_INT_8)) builder.putUInt8BE(castTo(Short.class,value));
-        if(dataType.equals(DataType.U_INT_16)) builder.putUInt16BE(castTo(Integer.class,value));
+        if(dataType.equals(DataType.U_INT_16))
+            if(size>2){
+                builder.putUInt16BE(castTo(Integer[].class,value));
+            }else{
+                builder.putUInt16BE(castTo(Integer.class,value));
+            }
+
         if(dataType.equals(DataType.U_INT_32)) builder.putUInt32BE(castTo(Long.class, value));
         if(dataType.equals(DataType.INT_8)) builder.putInt8BE(castTo(Short.class, value));
         if(dataType.equals(DataType.INT_16)) builder.putInt16BE(castTo(Integer.class, value));
