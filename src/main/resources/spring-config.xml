@@ -324,7 +324,7 @@
             <data:unit name="TBOX_DiagnosticCommandAck" key="66_2">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>      <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
-                <data:element name="diagData" type="U_INT_16"/><!--诊断数据 -->
+                <data:element name="diagData" type="BYTE" size="2"/><!--诊断数据 -->
             </data:unit>
 
             <!--上报数据设置(T平台向T-Box发送设置上报数据命令)-->

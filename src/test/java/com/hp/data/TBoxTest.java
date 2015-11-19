@@ -661,7 +661,7 @@ public class TBoxTest {
         hr.setReserved(0);
 
         hr.setEventID((long) 1444812349);
-        hr.setDiagData(43690);
+        hr.setDiagData(new byte[]{(byte) 170, (byte) 170});
 
         DataPackage dpw=new DataPackage("8995_66_2");//>>>
         dpw.fillBean(hr);

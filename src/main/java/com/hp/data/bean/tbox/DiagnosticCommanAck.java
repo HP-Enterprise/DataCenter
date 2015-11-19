@@ -5,7 +5,7 @@ import com.hp.data.core.DataEntity;
 @DataEntity(key = "8995")
 public class DiagnosticCommanAck extends TBoxUpBean{
     private Long eventID;
-    private int diagData;
+    private byte[] diagData;
 
     public Long getEventID() {
         return eventID;
@@ -15,11 +15,11 @@ public class DiagnosticCommanAck extends TBoxUpBean{
         this.eventID = eventID;
     }
 
-    public int getDiagData() {
+    public byte[] getDiagData() {
         return diagData;
     }
 
-    public void setDiagData(int diagData) {
+    public void setDiagData(byte[] diagData) {
         this.diagData = diagData;
     }
 }
