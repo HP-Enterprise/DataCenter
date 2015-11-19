@@ -449,8 +449,10 @@ public class TBoxTest {
         hr.setSpeed(1567);
         hr.setHeading(234);
 
-        hr.setSrsWarning((byte) 64);//01000000 触发
-        hr.setAtaWarning((byte) 64);//01000000 触发
+        hr.setSrsWarning((byte) 1);//01000000 触发
+        hr.setAtaWarning((byte) 1);//01000000 触发
+        hr.setSafetyBeltCount((short) 2);
+        hr.setVehicleSpeedLast(new Integer[]{1,2,3,4,5});
 
 
 
