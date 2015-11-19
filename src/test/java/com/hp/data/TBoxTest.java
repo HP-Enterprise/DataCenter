@@ -633,11 +633,6 @@ public class TBoxTest {
         hr.setMessageID((short) 1);//>>>
         hr.setEventID((long) 1444812349);
 
-        hr.setDiaCmdDataSize((short)17);
-        hr.setDiaNumber((short)17);
-        hr.setDiaID((byte)0);
-
-
         DataPackage dpw=new DataPackage("8995_66_1");//>>>
         dpw.fillBean(hr);
         ByteBuffer bbw=conversionTBox.generate(dpw);
@@ -651,6 +646,35 @@ public class TBoxTest {
 
     }
 
+    @Test
+    public void test_BuildDiagnosticCommanAck(){
+        DiagnosticCommanAck hr=new DiagnosticCommanAck();
+
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 66);//>>>
+        hr.setMessageID((short) 2);//>>>
+        hr.setImei("123456789012345");
+        hr.setProtocolVersionNumber((short) 1);
+        hr.setVehicleID(new byte[]{(byte) 0, (byte) 0});
+        hr.setTripID(1);
+        hr.setReserved(0);
+
+        hr.setEventID((long) 1444812349);
+        hr.setDiagData(43690);
+
+        DataPackage dpw=new DataPackage("8995_66_2");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        DiagnosticCommanAck bean=dp.loadBean(DiagnosticCommanAck.class);
+        PackageEntityManager.printEntity(bean);
+
+    }
 
     /**
      * 标准测试方法
