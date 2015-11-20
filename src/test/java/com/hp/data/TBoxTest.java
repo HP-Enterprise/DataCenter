@@ -222,9 +222,9 @@ public class TBoxTest {
     @Test
     public void testTBOX_ActiveHandle() {
         String byteString="23 23 00 3D 01 56 04 B7 1E 12 01 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 00 00 00 00 00 00 00 55 BE E2 58 31 32 33 34 35 36 37 38 39 31 39 39 31 32 33 34 35 36 37 38 39 31 39 39 39 31 32 33 34 88 ";
-        standardTest(byteString,ActiveReq.class);
+        standardTest(byteString, ActiveReq.class);
         String byteStr="23 23 00 21 01 56 04 BF DA 12 03 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 00 00 00 00 00 00 00 55 BE E2 58 00 67 ";
-        standardTest(byteStr,ActiveResult.class);
+        standardTest(byteStr, ActiveResult.class);
 
     }
     @Test
@@ -449,8 +449,15 @@ public class TBoxTest {
         hr.setSpeed(1567);
         hr.setHeading(234);
 
-        hr.setSrsWarning((byte) 64);//01000000 触发
-        hr.setAtaWarning((byte) 64);//01000000 触发
+        hr.setSrsWarning((byte) 1);//01000000 触发
+        hr.setAtaWarning((byte) 1);//01000000 触发
+        hr.setSafetyBeltCount((short) 2);
+        Integer[] speeds=new Integer[150];
+        for(int i=0;i<150;i++){
+            speeds[i] = 100;
+        }
+        System.out.println(">>>>>>>>"+speeds);
+        hr.setVehicleSpeedLast(speeds);
 
 
 
@@ -568,8 +575,15 @@ public class TBoxTest {
         hr.setSpeed(1567);
         hr.setHeading(234);
 
-        hr.setSrsWarning((byte) 0);//00000000 未触发
-        hr.setAtaWarning((byte) 0);//00000000 未触发
+        hr.setSrsWarning((byte) 1);//01000000 触发
+        hr.setAtaWarning((byte) 1);//01000000 触发
+        hr.setSafetyBeltCount((short) 2);
+        Integer[] speeds=new Integer[150];
+        for(int i=0;i<150;i++){
+            speeds[i] = 100;
+        }
+        System.out.println(">>>>>>>>" + speeds);
+        hr.setVehicleSpeedLast(speeds);
 
 
         DataPackage dpw=new DataPackage("8995_37_1");//>>>
@@ -633,11 +647,6 @@ public class TBoxTest {
         hr.setMessageID((short) 1);//>>>
         hr.setEventID((long) 1444812349);
 
-        hr.setDiaCmdDataSize((short)17);
-        hr.setDiaNumber((short)17);
-        hr.setDiaID((byte)0);
-
-
         DataPackage dpw=new DataPackage("8995_66_1");//>>>
         dpw.fillBean(hr);
         ByteBuffer bbw=conversionTBox.generate(dpw);
@@ -651,6 +660,35 @@ public class TBoxTest {
 
     }
 
+    @Test
+    public void test_BuildDiagnosticCommanAck(){
+        DiagnosticCommanAck hr=new DiagnosticCommanAck();
+
+        hr.setTestFlag((short) 0);
+        hr.setSendingTime(1443151834l);
+        hr.setApplicationID((short) 66);//>>>
+        hr.setMessageID((short) 2);//>>>
+        hr.setImei("123456789012345");
+        hr.setProtocolVersionNumber((short) 1);
+        hr.setVehicleID(new byte[]{(byte) 0, (byte) 0});
+        hr.setTripID(1);
+        hr.setReserved(0);
+
+        hr.setEventID((long) 1444812349);
+        hr.setDiagData(new byte[]{(byte) 170, (byte) 170});
+
+        DataPackage dpw=new DataPackage("8995_66_2");//>>>
+        dpw.fillBean(hr);
+        ByteBuffer bbw=conversionTBox.generate(dpw);
+        String byteStr=PackageEntityManager.getByteString(bbw);
+        System.out.println(byteStr);
+
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        DataPackage dp=conversionTBox.generate(bb);
+        DiagnosticCommanAck bean=dp.loadBean(DiagnosticCommanAck.class);
+        PackageEntityManager.printEntity(bean);
+
+    }
 
     /**
      * 标准测试方法

@@ -13,6 +13,8 @@ public class DataResendWarningMes extends TBoxUpBean{
     private Integer heading;
     private Byte srsWarning;
     private Byte ataWarning;
+    private Short safetyBeltCount;
+    private Integer[]  vehicleSpeedLast;
 
     public Short getIsLocation() {
         return isLocation;
@@ -68,6 +70,22 @@ public class DataResendWarningMes extends TBoxUpBean{
 
     public void setAtaWarning(Byte ataWarning) {
         this.ataWarning = ataWarning;
+    }
+
+    public Integer[] getVehicleSpeedLast() {
+        return vehicleSpeedLast;
+    }
+
+    public void setVehicleSpeedLast(Integer[] vehicleSpeedLast) {
+        this.vehicleSpeedLast = vehicleSpeedLast;
+    }
+
+    public Short getSafetyBeltCount() {
+        return safetyBeltCount;
+    }
+
+    public void setSafetyBeltCount(Short safetyBeltCount) {
+        this.safetyBeltCount = safetyBeltCount;
     }
 }
 

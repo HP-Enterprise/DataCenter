@@ -71,6 +71,8 @@
             <data:elementGroup name="alarmDataStructure">
                 <data:element name="srsWarning" type="BYTE"/>                 <!-- 安全气囊报警 bit0-1 0x0 未触发 0x1触发-->
                 <data:element name="ataWarning" type="BYTE"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
+                <data:element name="safetyBeltCount" type="U_INT_8"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
+                <data:element name="vehicleSpeedLast" type="U_INT_16" size="300"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
             </data:elementGroup>
             <data:elementGroup name="failureDataStructure">
                 <data:element name="info1" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
@@ -319,17 +321,12 @@
             <data:unit name="TBOX_DiagnosticCommandCmd" key="66_1">
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>      <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
-                <data:element name="diaCmdDataSize" type="U_INT_8"/><!--诊断数据长度 -->
-                <data:element name="diaNumber" type="U_INT_8"/>     <!--诊断数据个数 -->
-                <data:element name="diaID" type="BYTE" />         <!--诊断数据ID-->
             </data:unit>
             <!--远程车辆诊断(T-Box向T平台反馈远程诊断结果)-->
             <data:unit name="TBOX_DiagnosticCommandAck" key="66_2">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>      <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
-                <data:element name="diaDataSizeAck" type="U_INT_8"/><!--诊断数据长度 -->
-                <data:element name="diaNumberAck" type="U_INT_8"/>  <!--诊断数据个数 -->
-                <data:element name="diaIDAck" type="U_INT_8"/>      <!--诊断数据ID-->
+                <data:element name="diagData" type="BYTE" size="2"/><!--诊断数据 -->
             </data:unit>
 
             <!--上报数据设置(T平台向T-Box发送设置上报数据命令)-->
