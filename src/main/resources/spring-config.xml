@@ -425,4 +425,61 @@
         </data:tail>
     </data:protocol>
 
+    <data:protocol id="ConversionLanDu" class="com.hp.data.protocol.ConversionLanDu" head="43605">
+        <data:head>
+            <data:element name="head" type="U_INT_16"/>                     <!--数据包标识-->
+            <data:element name="length" type="U_INT_16"/>                   <!--数据包长度-->
+            <data:element name="testFlag" type="U_INT_8"/>                  <!--是否是测试包，0正常1测试-->
+        </data:head>
+        <data:body>
+            <!--调度信息-->
+            <data:elementGroup name="dispatcherUp">
+                <data:element name="sendingTime" type="U_INT_32"/>          <!--从 1970-01-01 00:00:00 到现在的秒数来表示-->
+                <data:element name="applicationID" type="U_INT_8"/>         <!--业务类型编号-->
+                <data:element name="messageID" type="U_INT_8"/>             <!--消息类型编号-->
+                <data:element name="imei" type="STRING" size="15"/>         <!--International Mobile Equipment Identity-->
+                <data:element name="protocolVersionNumber" type="U_INT_8"/> <!--协议版本号-->
+                <data:element name="vehicleID" type="BYTE" size="2"/>            <!--车场编号-->
+                <data:element name="tripID" type="U_INT_16"/>                <!--记录电动机启动次数，0~65535 后清零-->
+                <data:element name="reserved" type="U_INT_16"/>             <!--预留-->
+            </data:elementGroup>
+            <data:elementGroup name="dispatcherDown">
+                <data:element name="sendingTime" type="U_INT_32"/>          <!--从 1970-01-01 00:00:00 到现在的秒数来表示-->
+                <data:element name="applicationID" type="U_INT_8"/>         <!--业务类型编号-->
+                <data:element name="messageID" type="U_INT_8"/>             <!--消息类型编号-->
+            </data:elementGroup>
+
+
+
+            <!--电检(T-Box将向T平台发送电检请求)-->
+            <data:unit name="TBOX_DiaRequest" key="17_1">
+                <data:include name="dispatcherUp"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>          <!--事件记录ID一个事件完成周期内使相同的eventID-->
+                <data:element name="diaReportDataSize" type="U_INT_8"/><!--状态数据长度-->
+                <data:element name="serialNumber" type="STRING" size="12"/><!--车载终端编号-->
+                <data:element name="testTime" type="U_INT_32"/>          <!--测试时间： 使用从 1970-01-01 00:00:00 到现在的秒数来表示-->
+                <data:element name="ledTest" type="U_INT_8"/>            <!--LED检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="farmTest" type="U_INT_8"/>           <!--FARM检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="sdTest" type="U_INT_8"/>             <!--SD检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="gpsTest" type="U_INT_8"/>            <!--GPS检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="gprsTest" type="U_INT_8"/>           <!--GPRS Signal Strength检测 结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="resetBatteryMapArrayTest" type="U_INT_8"/><!--Reset Battery Map Array检 测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
+                <data:element name="canActionTest" type="U_INT_8"/>      <!--CAN Action检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试 -->
+                <data:element name="serverCommTest" type="U_INT_8"/>     <!--serverCommTest 检测 结果 Bit0：成功 Bit1：失败 Bit2 ：未测试 -->
+            </data:unit>
+            <!--电检(T平台向T-Box反馈T-Box检测结果)-->
+            <data:unit name="TBOX_DiaResp" key="17_2">
+                <data:include name="dispatcherDown"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
+                <data:element name="diaReportResp" type="U_INT_8"/>    <!--0：成功 （TBOX_DiagRequest 中各 检测项均为成功） 1：失败 （TBOX_DiagRequest 中有一项为失败)-->
+            </data:unit>
+
+
+        </data:body>
+        <data:tail>
+            <data:element name="checkSum" type="BYTE"/>                     <!--数据包校验和-->
+        </data:tail>
+    </data:protocol>
 </beans>
