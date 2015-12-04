@@ -21,6 +21,17 @@ public class DataToolTest {
         String result = dataTool.readStringZero(dis);
         System.out.println(result);
     }
+    @Test
+    public void testWriteStringZero(){
+        ByteBuffer bb = ByteBuffer.allocate(20);
+        System.out.println(bb);
+        String str="123456";
+        dataTool.writeStringZero(bb,str,true);
+        System.out.println(bb);
+        for(int i=0;i<bb.position();i++){
+            System.out.print(bb.array()[i]+" ");
+        }
+    }
 
     @Test
     public void testCheckSum(){

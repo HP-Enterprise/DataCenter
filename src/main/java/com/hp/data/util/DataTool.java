@@ -49,6 +49,26 @@ public class DataTool {
     }
 
     /**
+     *截取ByteBuffer有效的字节数组
+     * @param bb ByteBuffer posion,limit指示有效的数组字段
+     * @return 截取bb中有效的字节数组
+     */
+    public byte[] getValidBytesFromByteBuffer(ByteBuffer bb){
+        int position = bb.position();
+        int limit = bb.limit();
+        if(limit<= position){
+            _logger.info("无法确定有效字节数组，请检查参数是否正确!");
+            return null;
+        }else {
+            byte[] bytes = new byte[limit-position];
+            for(int i=0; i<limit-position;i++){
+                bytes[i] = bb.get();
+            }
+            return bytes;
+        }
+    }
+
+    /**
      * 读出字符串，去掉末尾的0
      * @param dis
      * @return
@@ -89,6 +109,19 @@ public class DataTool {
             throw new ConversionException("字符串"+str+"0无法转换成byte数组");
         }
     }
+    public void writeStringZero(ByteBuffer bb, String str, boolean addZero){
+        try {
+            byte[] strBytes = str.getBytes(DEFAULT_CHARSET);
+            bb.put(strBytes);
+            if(addZero){
+                bb.put((byte) 0x00);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new ConversionException("字符串"+str+"0无法转换成byte数组");
+        }
+    }
+
     /**
      * 构建定位信息字符串
      * @param object 包含定位信息属性的对象

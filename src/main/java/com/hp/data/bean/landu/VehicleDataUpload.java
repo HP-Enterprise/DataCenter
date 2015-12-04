@@ -3,12 +3,15 @@ package com.hp.data.bean.landu;
 import com.hp.data.util.DataTool;
 
 import java.io.*;
+import java.nio.ByteBuffer;
 
 /**
  * 车辆检测数据主动上传
  * Created by zxZhang on 2015/12/1.
  */
 public class VehicleDataUpload extends LanDuMsgHead{
+    public static final int BUFFER_SIZE = 1024;
+
     private int orderWord;//命令字，short 0x1601=5633
     private String remoteMachineID;//远程诊断仪串号（设备号）
     private long tripID;// DWORD
@@ -153,83 +156,95 @@ public class VehicleDataUpload extends LanDuMsgHead{
      * @return 16进制字符数组
      */
     public byte[] encoded(){
-        int countByte = 0;
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        DataOutputStream dos = new DataOutputStream(bos);
-        try{
-            dos.writeShort(0xAA55);
-            dos.writeShort(this.getPackageLength());
-            dos.writeShort(this.getCheckPackageLength());
-            dos.writeByte(this.getPackageID());
-            dos.writeByte(0x05);
-
-            dos.writeShort(0x1601);//命令字
-            dataTool.writeStringZero(dos, this.getRemoteMachineID(), true);//末尾补了一个字节0
-            dos.writeInt((int) this.getTripID());
-            dataTool.writeStringZero(dos, this.getVID(), true);
-            dataTool.writeStringZero(dos, this.getVIN(), true);
-            dataTool.writeStringZero(dos, this.getGainDataTime(), true);
-            dos.writeByte(this.getDataAttrubute());
-            countByte = countByte+2+2+2+1+1+2+this.remoteMachineID.length()+1 +4+this.VID.length()+1 +this.VIN.length()+1 +this.gainDataTime.length()+1 +1;
-            switch (this.dataAttrubute){
-                case 0x01 ://发动机点火时
-                    dataTool.writeStringZero(dos, this.getFireVoltage(),true);
-                    //定位信息
-                    String locationMsg = dataTool.buildLocationString(this);
-                    dataTool.writeStringZero(dos,locationMsg,false);
-                    countByte = countByte+this.fireVoltage.length()+1 +locationMsg.length();
-                    break;
-                case 0x02 ://发动机运行中
-                    dos.writeShort(this.getParameterNumber());
-                    countByte = countByte+2;
-                    for(int i=0;i<this.getParameterNumber();i++){
-                        dos.writeShort(this.getDataID()[i]);
-                        dataTool.writeStringZero(dos, this.getDataIDContent()[i], true);
-                        countByte = countByte+2+this.getDataIDContent()[i].length()+1;
-                    }
-                    break;
-                case 0x03 ://发动机熄火时
-                    dos.writeShort(this.getEngineRunTime());
-                    dos.writeInt(this.getDriveGap());
-                    dos.writeShort(this.getAverageOil());
-                    dos.writeInt(this.getTotalDriveGap());
-                    dos.writeShort(this.getTotalAverageOil());
-                    //车速分组统计
-                    dos.writeByte(this.getDataGroupNumber());
-                    countByte = countByte+2+4+2+4+1;
-                    for(int i=0;i<this.getDataGroupNumber();i++){
-                        dos.writeByte(this.getInstallSpeed()[i]);
-                        dos.writeShort(this.getTotalTime()[i]);
-                        dos.writeInt(this.getTotalGap()[i]);
-                        countByte = countByte+1+2+4;
-                    }
-                    dos.writeShort(this.getQuickUpSpeed());
-                    dos.writeShort(this.getQuickDownSpeed());
-                    dos.writeShort(this.getQuickTurnNumber());
-                    dos.writeInt(this.getOverSpeedTime());
-                    dos.writeByte(this.getMaxSpeed());
-                    //定位信息
-                    String locationMessage = dataTool.buildLocationString(this);
-                    dataTool.writeStringZero(dos,locationMessage,false);
-                    countByte = countByte+2+2+2+4+1+locationMessage.length();
-                    break;
-                case 0x04 ://发动机熄火后
-                    dataTool.writeStringZero(dos,this.getBatteryVoltage(),true);
-                    countByte += this.batteryVoltage.length()+1;
-                    break;
-                case 0x05 ://车辆不能检测
-                    System.out.println("-------->>>车辆不能检测");
-                    break;
-            }
-//            dos.writeShort(this.getCheckSum());
-            countByte+= 2;
-            dos.writeShort(countByte);
-            System.out.println("------>>>统计字节个数:" + countByte);
-            dos.close();
-        } catch (IOException e){
-            e.printStackTrace();
+        ByteBuffer bb = ByteBuffer.allocate(BUFFER_SIZE);
+        int countByte = 0;//消息长度
+        int addByte = 0;//增加的字节
+        //消息头
+        bb.putShort((short) 0xAA55);
+//        bb.putShort((short) this.getPackageLength());
+//        bb.putShort((short) this.getCheckPackageLength());
+        bb.putShort((short) 0x3030);
+        bb.putShort((short) 0x3030);
+        bb.put(this.getPackageID());
+        bb.put((byte) 0x05);
+        countByte = 2+2+2+1+1;
+        //消息内容
+        bb.putShort((short) 0x1601);//命令字
+        dataTool.writeStringZero(bb, this.getRemoteMachineID(), true);//末尾补了一个字节0
+        bb.putInt((int) this.getTripID());
+        dataTool.writeStringZero(bb, this.getVID(), true);
+        dataTool.writeStringZero(bb, this.getVIN(), true);
+        dataTool.writeStringZero(bb, this.getGainDataTime(), true);
+        bb.put(this.getDataAttrubute());
+        countByte += 2+this.remoteMachineID.length()+4+this.VID.length()+this.VIN.length()+this.gainDataTime.length()+1;
+        addByte +=1+1+1+1;
+        switch (this.dataAttrubute) {
+            case 0x01://发动机点火时
+                dataTool.writeStringZero(bb, this.getFireVoltage(), true);
+                //定位信息
+                String locationMsg = dataTool.buildLocationString(this);
+                dataTool.writeStringZero(bb, locationMsg, false);
+                countByte += this.fireVoltage.length() + locationMsg.length();
+                addByte +=1;
+                break;
+            case 0x02://发动机运行中
+                bb.putShort((short) this.getParameterNumber());
+                countByte += 2;
+                for (int i = 0; i < this.getParameterNumber(); i++) {
+                    bb.putShort((short) this.getDataID()[i]);
+                    dataTool.writeStringZero(bb, this.getDataIDContent()[i], true);
+                    countByte +=  2 + this.getDataIDContent()[i].length();
+                    addByte +=1;
+                }
+                break;
+            case 0x03://发动机熄火时
+                bb.putShort((short) this.getEngineRunTime());
+                bb.putInt(this.getDriveGap());
+                bb.putShort((short) this.getAverageOil());
+                bb.putInt(this.getTotalDriveGap());
+                bb.putShort((short) this.getTotalAverageOil());
+                //车速分组统计
+                bb.put(this.getDataGroupNumber());
+                countByte +=2 + 4 + 2 + 4 +2+ 1;
+                for (int i = 0; i < this.getDataGroupNumber(); i++) {
+                    bb.put(this.getInstallSpeed()[i]);
+                    bb.putShort((short) this.getTotalTime()[i]);
+                    bb.putInt(this.getTotalGap()[i]);
+                    countByte += 1 + 2 + 4;
+                }
+                bb.putShort((short) this.getQuickUpSpeed());
+                bb.putShort((short) this.getQuickDownSpeed());
+                bb.putShort((short) this.getQuickTurnNumber());
+                bb.putInt(this.getOverSpeedTime());
+                bb.put(this.getMaxSpeed());
+                //定位信息
+                String locationMessage = dataTool.buildLocationString(this);
+                dataTool.writeStringZero(bb, locationMessage, false);
+                countByte +=  2 + 2 + 2 + 4 + 1 + locationMessage.length();
+                break;
+            case 0x04://发动机熄火后
+                dataTool.writeStringZero(bb, this.getBatteryVoltage(), true);
+                countByte += this.batteryVoltage.length();
+                addByte +=1;
+                break;
+            case 0x05://车辆不能检测
+                System.out.println("-------->>>车辆不能检测");
+                break;
         }
-        return bos.toByteArray();
+        countByte+= 2;
+        bb.putShort((short) (countByte + addByte));//checkSum  [pos=118 lim=1024 cap=1024]
+
+        bb.putShort((short) 0xAA55);
+        bb.putShort((short) countByte);
+        bb.putShort((short) (~countByte));
+        bb.flip();//设置compact()的 limit=position:118+6;
+        bb.position(countByte + addByte);//设置compact()的 position:118;
+        bb.compact();//翻转position至limit长度(:6) 的字节 到 ByteBuffer从0开始的地方（0至5）;
+        bb.rewind();//设置有效字节的下线position，为0
+        bb.limit(countByte + addByte);//设置有效字节的上限limit，countByte + addByte为有效字节总数
+        System.out.println("rewind:" + bb);//[pos=0 lim=118 cap=1024]
+        System.out.println("------>>>统计字节个数:" + (countByte+addByte));
+        return dataTool.getValidBytesFromByteBuffer(bb);
     }
 
     public int getOrderWord() {
