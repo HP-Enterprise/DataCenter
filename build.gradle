@@ -28,6 +28,7 @@ javadoc {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:1.2.+")
     testCompile("org.springframework.boot:spring-boot-starter-test:1.2+")
+    compile("io.netty:netty-all:4.0.+")
 }
 
 gradle.projectsEvaluated {

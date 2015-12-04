@@ -2,6 +2,7 @@ package com.hp.data.util;
 
 import com.hp.data.bean.landu.VehicleDataUpload;
 import com.hp.data.exception.ConversionException;
+import io.netty.buffer.ByteBuf;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,13 +11,15 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
+import static io.netty.buffer.Unpooled.buffer;
+
 /**
  * Created by zxZhang on 2015/12/1.
  */
 public class DataTool {
     private static final String DEFAULT_CHARSET="GBK";
     private boolean readMode = false;
-    private ByteBuffer buffer;
+    private ByteBuffer buf;
 
     private Logger _logger = LoggerFactory.getLogger(DataTool.class);
     public  boolean checkSum(byte[] bytes){
@@ -29,6 +32,18 @@ public class DataTool {
         return hexStr == Integer.toHexString(sum);
     }
 
+    public  ByteBuf getByteBuf(String str){
+        //根据16进制字符串得到ByteBuf对象(netty)
+        ByteBuf bb= buffer(1024);
+
+        String[] command=str.split(" ");
+        byte[] abc=new byte[command.length];
+        for(int i=0;i<command.length;i++){
+            abc[i]=Integer.valueOf(command[i],16).byteValue();
+        }
+        bb.writeBytes(abc);
+        return bb;
+    }
     public  ByteBuffer getByteBuffer(String str){
         ByteBuffer bb= ByteBuffer.allocate(1024);
         String[] command=str.split(" ");
@@ -39,6 +54,13 @@ public class DataTool {
         bb.put(abc);
         bb.flip();
         return bb;
+    }
+    public  static byte[] getBytesFromByteBuf(ByteBuf buf){
+        //基于netty
+        byte[] result = new byte[buf.readableBytes()];
+        buf.readBytes(result, 0, buf.readableBytes());
+        buf.resetReaderIndex();
+        return result;
     }
     public  byte[] getBytesFromByteBuffer(ByteBuffer buff){
         byte[] result = new byte[buff.remaining()];
@@ -92,6 +114,25 @@ public class DataTool {
         }
         return sb;
     }
+    public String readStringZero(ByteBuf bb) {
+        String sb = "";
+        try {
+            while(bb!= null){
+                byte b= bb.readByte();
+                if(b!='\000' && b!=','){//','=0x2C  '\000'=0x00
+                    char c = (char) (b&0xFF);
+                    String temp = String.valueOf(c);
+                    sb = sb+temp;
+                } else{
+                    break;
+                }
+            }
+        } catch (Exception e ){
+            e.printStackTrace();
+            throw new ConversionException("无法读出以0结尾的字符串");
+        }
+        return sb;
+    }
 
     /**
      * 写入字符串，末尾补0
@@ -121,7 +162,18 @@ public class DataTool {
             throw new ConversionException("字符串"+str+"0无法转换成byte数组");
         }
     }
-
+    public void writeStringZero(ByteBuf bb, String str, boolean addZero) {
+        try {
+            byte[] strBytes = str.getBytes(DEFAULT_CHARSET);
+            bb.writeBytes(strBytes);
+            if(addZero){
+                bb.writeByte((byte) 0x00);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new ConversionException("字符串"+str+"0无法转换成byte数组");
+        }
+    }
     /**
      * 构建定位信息字符串
      * @param object 包含定位信息属性的对象
@@ -172,4 +224,7 @@ public class DataTool {
         re = str.replaceAll (regex, "$1 ");
         return re;
     }
+
+
+
 }

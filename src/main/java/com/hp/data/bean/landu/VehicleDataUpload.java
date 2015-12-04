@@ -1,9 +1,12 @@
 package com.hp.data.bean.landu;
 
 import com.hp.data.util.DataTool;
+import io.netty.buffer.ByteBuf;
 
 import java.io.*;
 import java.nio.ByteBuffer;
+
+import static io.netty.buffer.Unpooled.buffer;
 
 /**
  * 车辆检测数据主动上传
@@ -64,88 +67,90 @@ public class VehicleDataUpload extends LanDuMsgHead{
      */
     public VehicleDataUpload decoded(byte[] data){
         VehicleDataUpload vehicleDataUpload = new VehicleDataUpload();
-        ByteArrayInputStream bis = new ByteArrayInputStream(data);
-        DataInputStream dis = new DataInputStream(bis);
+        ByteBuf bb = buffer(BUFFER_SIZE);
+        bb.writeBytes(data);
+//        ByteArrayInputStream bis = new ByteArrayInputStream(data);
+//        DataInputStream dis = new DataInputStream(bis);
         try{
-            vehicleDataUpload.setPackageMark(dis.readUnsignedShort());
-            vehicleDataUpload.setPackageLength(dis.readUnsignedShort());
-            vehicleDataUpload.setCheckPackageLength(dis.readUnsignedShort());
-            vehicleDataUpload.setPackageID(dis.readByte());
-            vehicleDataUpload.setVersion(dis.readByte());
+            vehicleDataUpload.setPackageMark(bb.readUnsignedShort());
+            vehicleDataUpload.setPackageLength(bb.readUnsignedShort());
+            vehicleDataUpload.setCheckPackageLength(bb.readUnsignedShort());
+            vehicleDataUpload.setPackageID(bb.readByte());
+            vehicleDataUpload.setVersion(bb.readByte());
 
-            vehicleDataUpload.setOrderWord(dis.readUnsignedShort());
-            vehicleDataUpload.setRemoteMachineID(dataTool.readStringZero(dis));
-            vehicleDataUpload.setTripID(dis.readInt());
-            vehicleDataUpload.setVID(dataTool.readStringZero(dis));
-            vehicleDataUpload.setVIN(dataTool.readStringZero(dis));
-            vehicleDataUpload.setGainDataTime(dataTool.readStringZero(dis));
-            vehicleDataUpload.setDataAttrubute(dis.readByte());
+            vehicleDataUpload.setOrderWord(bb.readUnsignedShort());
+            vehicleDataUpload.setRemoteMachineID(dataTool.readStringZero(bb));
+            vehicleDataUpload.setTripID(bb.readInt());
+            vehicleDataUpload.setVID(dataTool.readStringZero(bb));
+            vehicleDataUpload.setVIN(dataTool.readStringZero(bb));
+            vehicleDataUpload.setGainDataTime(dataTool.readStringZero(bb));
+            vehicleDataUpload.setDataAttrubute(bb.readByte());
             switch(vehicleDataUpload.getDataAttrubute()){
                 case 0x01 ://发动机点火时
-                    vehicleDataUpload.setFireVoltage(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setSpeed(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setCurrentDriveDistance(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setLongitude(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setLatitude(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setDirect(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setPositionTime(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setPositionMethod(dataTool.readStringZero(dis));
+                    vehicleDataUpload.setFireVoltage(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setSpeed(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setCurrentDriveDistance(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setLongitude(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setLatitude(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setDirect(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setPositionTime(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setPositionMethod(dataTool.readStringZero(bb));
                     break;
                 case 0x02 ://发动机运行中
-                    vehicleDataUpload.setParameterNumber(dis.readUnsignedShort());
+                    vehicleDataUpload.setParameterNumber(bb.readUnsignedShort());
                     int[] ids =new int[vehicleDataUpload.getParameterNumber()];
                     String[] conts =new String[vehicleDataUpload.getParameterNumber()];
                     for(int i=0; i<vehicleDataUpload.getParameterNumber(); i++){
-                        ids[i] = dis.readUnsignedShort();
-                        conts[i] = dataTool.readStringZero(dis);
+                        ids[i] = bb.readUnsignedShort();
+                        conts[i] = dataTool.readStringZero(bb);
                     }
                     vehicleDataUpload.setDataID(ids);
                     vehicleDataUpload.setDataIDContent(conts);
                     break;
                 case 0x03 ://发动机熄火时
                     //本行程数据小计
-                    vehicleDataUpload.setEngineRunTime(dis.readUnsignedShort());
-                    vehicleDataUpload.setDriveGap(dis.readInt());
-                    vehicleDataUpload.setAverageOil(dis.readUnsignedShort());
-                    vehicleDataUpload.setTotalDriveGap(dis.readInt());
-                    vehicleDataUpload.setTotalAverageOil(dis.readUnsignedShort());
+                    vehicleDataUpload.setEngineRunTime(bb.readUnsignedShort());
+                    vehicleDataUpload.setDriveGap(bb.readInt());
+                    vehicleDataUpload.setAverageOil(bb.readUnsignedShort());
+                    vehicleDataUpload.setTotalDriveGap(bb.readInt());
+                    vehicleDataUpload.setTotalAverageOil(bb.readUnsignedShort());
                     //车速分组统计
-                    vehicleDataUpload.setDataGroupNumber(dis.readByte());
+                    vehicleDataUpload.setDataGroupNumber(bb.readByte());
                     byte[] speeds = new byte[vehicleDataUpload.getDataGroupNumber()];
                     int[] times = new int[vehicleDataUpload.getDataGroupNumber()];
                     int[] gaps = new int[vehicleDataUpload.getDataGroupNumber()];
                     for(int i=0;i<vehicleDataUpload.getDataGroupNumber();i++){
-                        speeds[i] = dis.readByte();
-                        times[i]= dis.readUnsignedShort();
-                        gaps[i] = dis.readInt();
+                        speeds[i] = bb.readByte();
+                        times[i]= bb.readUnsignedShort();
+                        gaps[i] = bb.readInt();
                     }
                     vehicleDataUpload.setInstallSpeed(speeds);
                     vehicleDataUpload.setTotalTime(times);
                     vehicleDataUpload.setTotalGap(gaps);
                     //驾驶习惯统计
-                    vehicleDataUpload.setQuickUpSpeed(dis.readUnsignedShort());
-                    vehicleDataUpload.setQuickDownSpeed(dis.readUnsignedShort());
-                    vehicleDataUpload.setQuickTurnNumber(dis.readUnsignedShort());
-                    vehicleDataUpload.setOverSpeedTime(dis.readInt());
-                    vehicleDataUpload.setMaxSpeed(dis.readByte());
+                    vehicleDataUpload.setQuickUpSpeed(bb.readUnsignedShort());
+                    vehicleDataUpload.setQuickDownSpeed(bb.readUnsignedShort());
+                    vehicleDataUpload.setQuickTurnNumber(bb.readUnsignedShort());
+                    vehicleDataUpload.setOverSpeedTime(bb.readInt());
+                    vehicleDataUpload.setMaxSpeed(bb.readByte());
                     //定位信息
-                    vehicleDataUpload.setSpeed(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setCurrentDriveDistance(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setLongitude(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setLatitude(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setDirect(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setPositionTime(dataTool.readStringZero(dis));
-                    vehicleDataUpload.setPositionMethod(dataTool.readStringZero(dis));
+                    vehicleDataUpload.setSpeed(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setCurrentDriveDistance(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setLongitude(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setLatitude(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setDirect(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setPositionTime(dataTool.readStringZero(bb));
+                    vehicleDataUpload.setPositionMethod(dataTool.readStringZero(bb));
                     break;
                 case 0x04 ://发动机熄火后
-                    vehicleDataUpload.setBatteryVoltage(dataTool.readStringZero(dis));
+                    vehicleDataUpload.setBatteryVoltage(dataTool.readStringZero(bb));
                     break;
                 case 0x05 ://车辆不能检测
                     System.out.println("-------->>>车辆不能检测");
                     break;
             }
-            vehicleDataUpload.setCheckSum(dis.readUnsignedShort());
-        }catch (IOException e){
+            vehicleDataUpload.setCheckSum(bb.readUnsignedShort());
+        }catch (Exception e){
             e.printStackTrace();
         }
         return vehicleDataUpload;
@@ -156,26 +161,25 @@ public class VehicleDataUpload extends LanDuMsgHead{
      * @return 16进制字符数组
      */
     public byte[] encoded(){
-        ByteBuffer bb = ByteBuffer.allocate(BUFFER_SIZE);
+        ByteBuf bb = buffer(BUFFER_SIZE);
         int countByte = 0;//消息长度
         int addByte = 0;//增加的字节
         //消息头
-        bb.putShort((short) 0xAA55);
-//        bb.putShort((short) this.getPackageLength());
-//        bb.putShort((short) this.getCheckPackageLength());
-        bb.putShort((short) 0x3030);
-        bb.putShort((short) 0x3030);
-        bb.put(this.getPackageID());
-        bb.put((byte) 0x05);
+        bb.writeShort(0xAA55);//Short((short) 0xAA55);
+        bb.markWriterIndex();
+        bb.writeShort(0x3030);//填充00，预留packageLength空间
+        bb.writeShort(0x3030);//填充00，预留checkPackageLength空间
+        bb.writeByte(this.getPackageID());
+        bb.writeByte(0x05);
         countByte = 2+2+2+1+1;
         //消息内容
-        bb.putShort((short) 0x1601);//命令字
+        bb.writeShort(0x1601);//命令字
         dataTool.writeStringZero(bb, this.getRemoteMachineID(), true);//末尾补了一个字节0
-        bb.putInt((int) this.getTripID());
+        bb.writeInt((int) this.getTripID());
         dataTool.writeStringZero(bb, this.getVID(), true);
         dataTool.writeStringZero(bb, this.getVIN(), true);
         dataTool.writeStringZero(bb, this.getGainDataTime(), true);
-        bb.put(this.getDataAttrubute());
+        bb.writeByte(this.getDataAttrubute());
         countByte += 2+this.remoteMachineID.length()+4+this.VID.length()+this.VIN.length()+this.gainDataTime.length()+1;
         addByte +=1+1+1+1;
         switch (this.dataAttrubute) {
@@ -188,35 +192,35 @@ public class VehicleDataUpload extends LanDuMsgHead{
                 addByte +=1;
                 break;
             case 0x02://发动机运行中
-                bb.putShort((short) this.getParameterNumber());
+                bb.writeShort(this.getParameterNumber());
                 countByte += 2;
                 for (int i = 0; i < this.getParameterNumber(); i++) {
-                    bb.putShort((short) this.getDataID()[i]);
+                    bb.writeShort(this.getDataID()[i]);
                     dataTool.writeStringZero(bb, this.getDataIDContent()[i], true);
                     countByte +=  2 + this.getDataIDContent()[i].length();
                     addByte +=1;
                 }
                 break;
             case 0x03://发动机熄火时
-                bb.putShort((short) this.getEngineRunTime());
-                bb.putInt(this.getDriveGap());
-                bb.putShort((short) this.getAverageOil());
-                bb.putInt(this.getTotalDriveGap());
-                bb.putShort((short) this.getTotalAverageOil());
+                bb.writeShort(this.getEngineRunTime());
+                bb.writeInt(this.getDriveGap());
+                bb.writeShort(this.getAverageOil());
+                bb.writeInt(this.getTotalDriveGap());
+                bb.writeShort(this.getTotalAverageOil());
                 //车速分组统计
-                bb.put(this.getDataGroupNumber());
+                bb.writeByte(this.getDataGroupNumber());
                 countByte +=2 + 4 + 2 + 4 +2+ 1;
                 for (int i = 0; i < this.getDataGroupNumber(); i++) {
-                    bb.put(this.getInstallSpeed()[i]);
-                    bb.putShort((short) this.getTotalTime()[i]);
-                    bb.putInt(this.getTotalGap()[i]);
+                    bb.writeByte(this.getInstallSpeed()[i]);
+                    bb.writeShort(this.getTotalTime()[i]);
+                    bb.writeInt(this.getTotalGap()[i]);
                     countByte += 1 + 2 + 4;
                 }
-                bb.putShort((short) this.getQuickUpSpeed());
-                bb.putShort((short) this.getQuickDownSpeed());
-                bb.putShort((short) this.getQuickTurnNumber());
-                bb.putInt(this.getOverSpeedTime());
-                bb.put(this.getMaxSpeed());
+                bb.writeShort(this.getQuickUpSpeed());
+                bb.writeShort(this.getQuickDownSpeed());
+                bb.writeShort(this.getQuickTurnNumber());
+                bb.writeInt(this.getOverSpeedTime());
+                bb.writeByte(this.getMaxSpeed());
                 //定位信息
                 String locationMessage = dataTool.buildLocationString(this);
                 dataTool.writeStringZero(bb, locationMessage, false);
@@ -231,20 +235,15 @@ public class VehicleDataUpload extends LanDuMsgHead{
                 System.out.println("-------->>>车辆不能检测");
                 break;
         }
-        countByte+= 2;
-        bb.putShort((short) (countByte + addByte));//checkSum  [pos=118 lim=1024 cap=1024]
-
-        bb.putShort((short) 0xAA55);
-        bb.putShort((short) countByte);
-        bb.putShort((short) (~countByte));
-        bb.flip();//设置compact()的 limit=position:118+6;
-        bb.position(countByte + addByte);//设置compact()的 position:118;
-        bb.compact();//翻转position至limit长度(:6) 的字节 到 ByteBuffer从0开始的地方（0至5）;
-        bb.rewind();//设置有效字节的下线position，为0
-        bb.limit(countByte + addByte);//设置有效字节的上限limit，countByte + addByte为有效字节总数
-        System.out.println("rewind:" + bb);//[pos=0 lim=118 cap=1024]
+        countByte += 2;
+        bb.writeShort(countByte + addByte);//checkSum  [pos=118 lim=1024 cap=1024]
+        int index=bb.writerIndex();
+        bb.resetWriterIndex();
+        bb.writeShort(countByte);
+        bb.writeShort(~countByte);
+        bb.writerIndex(index);
         System.out.println("------>>>统计字节个数:" + (countByte+addByte));
-        return dataTool.getValidBytesFromByteBuffer(bb);
+        return dataTool.getBytesFromByteBuf(bb);
     }
 
     public int getOrderWord() {

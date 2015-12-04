@@ -30,7 +30,7 @@ public class VehicleDataUploadTest {
         vehicleDataUpload.setVIN("123456");
         vehicleDataUpload.setGainDataTime("2015-12-03 16:06:30");
         //测试1061不同的数据内容
-        vehicleDataUpload.setDataAttrubute((byte) 0x05);
+        vehicleDataUpload.setDataAttrubute((byte) 0x01);
         switch (vehicleDataUpload.getDataAttrubute()){
             case 0x01://118:AA 55 00 71 FF 8E 01 05 16 01 4E 42 31 00 00 00 00 64 31 32 33 34 35 36 00 31 32 33 34 35 36 00 32 30 31 35 2D 31 32 2D 30 33 20 31 36 3A 30 36 3A 33 30 00 01 33 30 2E 30 35 56 00 38 30 00 31 32 30 33 00 45 31 32 33 2E 30 30 38 31 32 32 2C 4E 31 31 2E 33 32 31 32 33 34 2C 33 30 2C 32 30 31 35 2D 31 32 2D 30 33 20 31 36 3A 31 32 3A 33 30 2C 32 00 00 76
                 vehicleDataUpload.setFireVoltage("30.05V");
