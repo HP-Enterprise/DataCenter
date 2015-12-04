@@ -1,14 +1,19 @@
 package com.hp.data.bean.landu;
 
+import com.hp.data.util.DataTool;
+import io.netty.buffer.ByteBuf;
 import org.apache.log4j.Logger;
 
 import java.io.*;
+
+import static io.netty.buffer.Unpooled.buffer;
 
 /**
  * Created by zxZhang on 2015/12/2.
  */
 public class LanDuMsgHead {
     private static Logger logger=Logger.getLogger(LanDuMsgHead.class);
+    private static final int BUFFER_SIZE =1024;
 
     private int packageMark;//数据包标志 0xAA55
     private int packageLength;//数据包长度
@@ -17,20 +22,20 @@ public class LanDuMsgHead {
     private byte version;//协议格式版本 0x05
     private int checkSum;//校验和
 
+    private DataTool dataTool = new DataTool();
+
     public LanDuMsgHead decoded(byte[] data){
         LanDuMsgHead lanDuMsgHead = new LanDuMsgHead();
-        ByteArrayInputStream bis = new ByteArrayInputStream(data);
-        DataInputStream dis = new DataInputStream(bis);
+        ByteBuf bb = buffer(BUFFER_SIZE);
+        bb.writeBytes(data);
         try{
-            lanDuMsgHead.setPackageMark(dis.readShort());
-            lanDuMsgHead.setPackageLength(dis.readShort());
-            lanDuMsgHead.setCheckPackageLength(dis.readShort());
-            lanDuMsgHead.setPackageID(dis.readByte());
-            lanDuMsgHead.setVersion(dis.readByte());
-            lanDuMsgHead.setCheckSum(dis.readShort());
-            dis.close();
-            bis.close();
-        }catch (IOException e){
+            lanDuMsgHead.setPackageMark(bb.readShort());
+            lanDuMsgHead.setPackageLength(bb.readShort());
+            lanDuMsgHead.setCheckPackageLength(bb.readShort());
+            lanDuMsgHead.setPackageID(bb.readByte());
+            lanDuMsgHead.setVersion(bb.readByte());
+            lanDuMsgHead.setCheckSum(bb.readShort());
+        }catch (Exception e){
             logger.error("封装LanDuMsgHead" + "");
             e.printStackTrace();
         }
@@ -38,21 +43,19 @@ public class LanDuMsgHead {
     }
 
     public byte[] encoded(){
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        DataOutputStream dos = new DataOutputStream(bos);
+        ByteBuf bb = buffer(BUFFER_SIZE);
         try{
-            dos.writeShort(0xAA55);
-            dos.writeShort(this.getPackageLength());
-            dos.writeShort(this.getCheckPackageLength());
-            dos.writeByte(this.getPackageID());
-            dos.writeByte(0x05);
-            dos.writeShort(this.getCheckSum());
-            dos.close();
-        } catch (IOException e){
+            bb.writeShort(0xAA55);
+            bb.writeShort(8);
+            bb.writeShort(-8);
+            bb.writeByte(this.getPackageID());
+            bb.writeByte(0x05);
+            bb.writeShort(6);
+        } catch (Exception e){
             logger.error("封装LanDdMsgHead消息头二进制数组失败。");
             e.printStackTrace();
         }
-        return bos.toByteArray();
+        return dataTool.getBytesFromByteBuf(bb);
     }
 
     public LanDuMsgHead(){

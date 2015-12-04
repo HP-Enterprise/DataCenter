@@ -69,8 +69,6 @@ public class VehicleDataUpload extends LanDuMsgHead{
         VehicleDataUpload vehicleDataUpload = new VehicleDataUpload();
         ByteBuf bb = buffer(BUFFER_SIZE);
         bb.writeBytes(data);
-//        ByteArrayInputStream bis = new ByteArrayInputStream(data);
-//        DataInputStream dis = new DataInputStream(bis);
         try{
             vehicleDataUpload.setPackageMark(bb.readUnsignedShort());
             vehicleDataUpload.setPackageLength(bb.readUnsignedShort());
@@ -235,12 +233,12 @@ public class VehicleDataUpload extends LanDuMsgHead{
                 System.out.println("-------->>>车辆不能检测");
                 break;
         }
+        bb.writeShort(countByte + addByte -2);//checkSum 去掉数据包标志2个字节
         countByte += 2;
-        bb.writeShort(countByte + addByte);//checkSum  [pos=118 lim=1024 cap=1024]
         int index=bb.writerIndex();
         bb.resetWriterIndex();
-        bb.writeShort(countByte);
-        bb.writeShort(~countByte);
+        bb.writeShort(countByte +addByte -2);
+        bb.writeShort(~(countByte +addByte -2));
         bb.writerIndex(index);
         System.out.println("------>>>统计字节个数:" + (countByte+addByte));
         return dataTool.getBytesFromByteBuf(bb);
