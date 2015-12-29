@@ -22,6 +22,12 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Short vehicleOuterTemperature;
     private Short doorInformation;
 
+    private byte[] drivingRange;
+    private Short bonnetAndTrunk;
+    private Short skylightState;
+    private Short avgSpeedA;
+    private Short avgSpeedB;
+
     public Short getIsLocation() {
         return isLocation;
     }
@@ -156,5 +162,45 @@ public class DataResendRealTimeMes extends TBoxUpBean{
 
     public void setDoorInformation(Short doorInformation) {
         this.doorInformation = doorInformation;
+    }
+
+    public byte[] getDrivingRange() {
+        return drivingRange;
+    }
+
+    public void setDrivingRange(byte[] drivingRange) {
+        this.drivingRange = drivingRange;
+    }
+
+    public Short getBonnetAndTrunk() {
+        return bonnetAndTrunk;
+    }
+
+    public void setBonnetAndTrunk(Short bonnetAndTrunk) {
+        this.bonnetAndTrunk = bonnetAndTrunk;
+    }
+
+    public Short getSkylightState() {
+        return skylightState;
+    }
+
+    public void setSkylightState(Short skylightState) {
+        this.skylightState = skylightState;
+    }
+
+    public Short getAvgSpeedA() {
+        return avgSpeedA;
+    }
+
+    public void setAvgSpeedA(Short avgSpeedA) {
+        this.avgSpeedA = avgSpeedA;
+    }
+
+    public Short getAvgSpeedB() {
+        return avgSpeedB;
+    }
+
+    public void setAvgSpeedB(Short avgSpeedB) {
+        this.avgSpeedB = avgSpeedB;
     }
 }
