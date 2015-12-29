@@ -20,7 +20,9 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
     private Byte stat_remote_start;
     private Byte gearLevelPositon;
     private Integer vehicleSpeed;
-    private Byte stateOfChargeACM_Crash_Status;
+   // private Byte stateOfChargeACM_Crash_Status;
+    private Byte ACM_Crash_Status;
+    private Byte stateOfCharge;
     private byte[] bcm_Stat_Door_Flap;
     private Byte bcm_Stat_Central_Lock;
     private Byte stat_lin_2;
@@ -30,6 +32,8 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
     private Byte scm_cruise_control;
     private byte[] scm_wiper;
     private Short preconditionRespTime;
+    private Byte BCM_STAT_WINDOW;
+    private Byte SESAM_HW_STATUS;
 
     public Long getEventID() {
         return eventID;
@@ -135,12 +139,20 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
         this.vehicleSpeed = vehicleSpeed;
     }
 
-    public Byte getStateOfChargeACM_Crash_Status() {
-        return stateOfChargeACM_Crash_Status;
+    public Byte getACM_Crash_Status() {
+        return ACM_Crash_Status;
     }
 
-    public void setStateOfChargeACM_Crash_Status(Byte stateOfChargeACM_Crash_Status) {
-        this.stateOfChargeACM_Crash_Status = stateOfChargeACM_Crash_Status;
+    public void setACM_Crash_Status(Byte ACM_Crash_Status) {
+        this.ACM_Crash_Status = ACM_Crash_Status;
+    }
+
+    public Byte getStateOfCharge() {
+        return stateOfCharge;
+    }
+
+    public void setStateOfCharge(Byte stateOfCharge) {
+        this.stateOfCharge = stateOfCharge;
     }
 
     public byte[] getBcm_Stat_Door_Flap() {

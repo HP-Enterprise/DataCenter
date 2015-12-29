@@ -267,16 +267,20 @@
                 <data:element name="stat_remote_start" type="BYTE"/>
                 <data:element name="gearLevelPositon" type="BYTE"/>
                 <data:element name="vehicleSpeed" type="U_INT_16"/>
-                <data:element name="stateOfChargeACM_Crash_Status" type="BYTE"/>
+                <!--<data:element name="stateOfChargeACM_Crash_Status" type="BYTE"/>-->
+                <data:element name="stateOfCharge" type="BYTE"/>
+                <data:element name="ACM_Crash_Status" type="BYTE"/>
                 <data:element name="bcm_Stat_Door_Flap" type="BYTE" size="2"/>
                 <data:element name="bcm_Stat_Central_Lock" type="BYTE"/>
-                <data:element name="stat_lin_2" type="BYTE"/>
+                <!--<data:element name="stat_lin_2" type="BYTE"/>-->
                 <data:element name="epb_status" type="BYTE"/>
-                <data:element name="stat_lin_1" type="BYTE"/>
+                <!--<data:element name="stat_lin_1" type="BYTE"/>-->
+                <data:element name="BCM_STAT_WINDOW" type="BYTE"/>
                 <data:element name="scm_button_status" type="BYTE" size="3"/>
                 <data:element name="scm_cruise_control" type="BYTE"/>
                 <data:element name="scm_wiper" type="BYTE" size="2"/>
                 <data:element name="preconditionRespTime" type="U_INT_8"/>
+                <data:element name="SESAM_HW_STATUS" type="BYTE"/>
             </data:unit>
             <!--远程控制命令(T平台向T-Box发送远程控制请求)-->
             <data:unit name="TBOX_RemoteControlCmd" key="49_3">
