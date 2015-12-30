@@ -93,6 +93,8 @@ public class TBoxTest {
     }
     @Test
     public void testTBOX_RemoteControlPreconditionResp() {
+
+
         RemoteControlPreconditionResp hr=new RemoteControlPreconditionResp();
         hr.setTestFlag((short) 0);
         hr.setSendingTime(1443151834l);
@@ -104,29 +106,26 @@ public class TBoxTest {
         hr.setTripID(1);
         hr.setReserved(0);
         hr.setEventID((long) 1444812349);
-
         hr.setTime(1443151834l);
         hr.setAmbientAirTemperature((short) 60);
-        hr.setFuelLevel(1000);
+        hr.setFuelLevel((short) 100);
         hr.setTempIntern((short) 65);
-        hr.setAverageConsumptionTripA(300);
-        hr.setAverageConsumptionTripB(350);
-        hr.setAverageSpeedTripA((short) 80);
-        hr.setAverageSpeedTripB((short) 80);
         hr.setSesam_clamp_stat((byte) 170);
         hr.setStat_remote_start((byte) 170);
         hr.setGearLevelPositon((byte) 170);
         hr.setVehicleSpeed(9000);
-        hr.setStateOfChargeACM_Crash_Status((byte) 170);
         hr.setBcm_Stat_Door_Flap(new byte[]{(byte) 170, (byte) 170});
         hr.setBcm_Stat_Central_Lock((byte) 170);
-        hr.setStat_lin_2((byte) 170);
         hr.setEpb_status((byte) 170);
-        hr.setStat_lin_1((byte) 170);
-        hr.setScm_button_status(new byte[]{(byte) 170, (byte) 170, (byte) 170});
-        hr.setScm_cruise_control((byte)170);
-        hr.setScm_wiper(new byte[]{(byte) 170, (byte) 170});
-        hr.setPreconditionRespTime((short)5);
+
+        hr.setAcm_crash_status((byte)10);
+        hr.setStateOfCharge((byte)12);
+        hr.setBcm_stat_window((byte)15);
+        hr.setSesam_hw_status((byte)16);
+        hr.setTcu_ecu_stat((byte)17);
+        hr.setBcm_stat_window_((byte)18);
+        hr.setSesam_clamp_stat_((byte)19);
+        hr.setBcm_stat_central_lock_((byte)20);
 
 
         DataPackage dpw=new DataPackage("8995_49_2");//>>>

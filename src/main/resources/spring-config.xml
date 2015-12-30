@@ -268,7 +268,7 @@
                 <data:element name="bcm_Stat_Central_Lock" type="BYTE"/>
                 <data:element name="bcm_stat_window" type="BYTE"/>
                 <data:element name="epb_status" type="BYTE"/>
-                <data:element name="stateOfCharge" type="U_INT_8"/>
+                <data:element name="stateOfCharge" type="BYTE"/>
                 <data:element name="sesam_hw_status" type="BYTE"/>
                 <data:element name="tcu_ecu_stat" type="BYTE"/>
                 <data:element name="bcm_stat_window_" type="BYTE"/>
