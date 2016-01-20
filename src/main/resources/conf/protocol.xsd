@@ -26,7 +26,7 @@
         <xsd:attribute name="size" default="0"/>
     </xsd:complexType>
     <xsd:complexType name="elementGroupType">
-        <xsd:sequence minOccurs="1" maxOccurs="50000">
+        <xsd:sequence minOccurs="1" maxOccurs="5000">
             <xsd:element name="element" type="elementType"/>
         </xsd:sequence>
         <xsd:attribute name="name" type="xsd:string"/>
@@ -45,7 +45,7 @@
                     <xsd:sequence>
                         <xsd:element name="head" maxOccurs="1">
                             <xsd:complexType>
-                                <xsd:sequence minOccurs="1" maxOccurs="50000">
+                                <xsd:sequence minOccurs="1" maxOccurs="5000">
                                     <xsd:element name="element" type="elementType"/>
                                 </xsd:sequence>
                                 <xsd:attribute name="name" type="xsd:string"/>
@@ -54,10 +54,10 @@
                         <xsd:element name="body" maxOccurs="1">
                             <xsd:complexType>
                                 <xsd:sequence>
-                                    <xsd:element name="elementGroup" minOccurs="0" maxOccurs="50000" type="elementGroupType"/>
-                                    <xsd:element name="unit" maxOccurs="50000">
+                                    <xsd:element name="elementGroup" minOccurs="0" maxOccurs="5000" type="elementGroupType"/>
+                                    <xsd:element name="unit" maxOccurs="5000">
                                         <xsd:complexType>
-                                            <xsd:choice minOccurs="0" maxOccurs="50000">
+                                            <xsd:choice minOccurs="0" maxOccurs="5000">
                                                 <xsd:element name="include" type="includeType"/>
                                                 <xsd:element name="element" type="elementType" minOccurs="1"/>
                                             </xsd:choice>
@@ -70,7 +70,7 @@
                         </xsd:element>
                         <xsd:element name="tail" minOccurs="0" maxOccurs="1">
                             <xsd:complexType>
-                                <xsd:sequence minOccurs="1" maxOccurs="50000">
+                                <xsd:sequence minOccurs="1" maxOccurs="5000">
                                     <xsd:element name="element" type="elementType"/>
                                 </xsd:sequence>
                                 <xsd:attribute name="name" type="xsd:string"/>
