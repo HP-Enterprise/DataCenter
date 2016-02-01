@@ -4,10 +4,7 @@ import com.hp.data.bean.tbox.*;
 import com.hp.data.util.PackageEntityManager;
 import com.hp.data.core.Conversion;
 import com.hp.data.core.DataPackage;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -17,6 +14,7 @@ import java.nio.ByteBuffer;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
+@Ignore
 public class TBoxTest {
     @Autowired
     private Conversion conversionTBox;
