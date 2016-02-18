@@ -14,7 +14,6 @@ import java.nio.ByteBuffer;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
-@Ignore
 public class TBoxTest {
     @Autowired
     private Conversion conversionTBox;
@@ -102,38 +101,34 @@ public class TBoxTest {
         hr.setTripID(1);
         hr.setReserved(0);
         hr.setEventID((long) 1444812349);
-
         hr.setTime(1443151834l);
         hr.setAmbientAirTemperature((short) 60);
-        hr.setFuelLevel(1000);
+        hr.setFuelLevel((short) 100);
         hr.setTempIntern((short) 65);
-        hr.setAverageConsumptionTripA(300);
-        hr.setAverageConsumptionTripB(350);
-        hr.setAverageSpeedTripA((short) 80);
-        hr.setAverageSpeedTripB((short) 80);
         hr.setSesam_clamp_stat((byte) 170);
-        hr.setStat_remote_start((byte) 170);
-        hr.setGearLevelPositon((byte) 170);
-        hr.setVehicleSpeed(9000);
-        hr.setStateOfChargeACM_Crash_Status((byte) 170);
+        hr.setStat_remote_start(((byte) 170));
+        hr.setGearLevelPositon(((byte) 170));
+        hr.setVehicleSpeed(3200);
+        hr.setAcm_crash_status(((byte) 170));
         hr.setBcm_Stat_Door_Flap(new byte[]{(byte) 170, (byte) 170});
         hr.setBcm_Stat_Central_Lock((byte) 170);
-        hr.setStat_lin_2((byte) 170);
+        hr.setBcm_Stat_window((byte) 170);
         hr.setEpb_status((byte) 170);
-        hr.setStat_lin_1((byte) 170);
-        hr.setScm_button_status(new byte[]{(byte) 170, (byte) 170, (byte) 170});
-        hr.setScm_cruise_control((byte)170);
-        hr.setScm_wiper(new byte[]{(byte) 170, (byte) 170});
-        hr.setPreconditionRespTime((short)5);
-
+        hr.setStateOfCharge((byte) 170);
+        hr.setSesam_hw_status((byte) 170);
+        hr.setTcu_ecu_stat((byte) 170);
+        hr.setBcm_Stat_window2((byte) 170);
+        hr.setSesam_clamp_stat2((byte) 170);
+        hr.setBcm_Stat_Central_Lock2((byte) 170);
 
         DataPackage dpw=new DataPackage("8995_49_2");//>>>
         dpw.fillBean(hr);
         ByteBuffer bbw=conversionTBox.generate(dpw);
         String byteStr=PackageEntityManager.getByteString(bbw);
         System.out.println(byteStr);
-
-        ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
+        String errorStr="23 23 00 38 00 56 C3 EF F7 31 02 33 35 32 32 35 35 30 36 30 31 34 36 33 38 32 01 01 02 00 01 00 01 56 C3 EF F4 56 C3 EF F7 00 00 00 10 00 00 00 00 01 11 05 00 88 00 00 00 00 02 00 03 31 ";
+        System.out.println(errorStr);
+        ByteBuffer bb=PackageEntityManager.getByteBuffer(errorStr);
         DataPackage dp=conversionTBox.generate(bb);
         RemoteControlPreconditionResp bean=dp.loadBean(RemoteControlPreconditionResp.class);
         PackageEntityManager.printEntity(bean);
