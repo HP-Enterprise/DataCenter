@@ -484,14 +484,19 @@ public class TBoxTest {
         hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-        hr.setInfo1((byte) 52);
-        hr.setInfo2((byte) 53);
-        hr.setInfo3((byte) 54);
-        hr.setInfo4((byte) 57);
-        hr.setInfo5((byte) 170);
-        hr.setInfo6((byte) 170);
-        hr.setInfo7((byte) 170);
-        hr.setInfo8((byte) 170);
+
+        hr.setWarnMsg_acm((byte) 52);
+        hr.setWarnMsg_ic(53);
+        hr.setWarnMsg_escl((byte) 54);
+        hr.setWarnMsg_bcm(55l);
+        hr.setWarnMsg_esc(56);
+        hr.setWarnMsg_tpms((byte) 57);
+        hr.setWarnMsg_dme(58);
+        hr.setWarnMsg_tcu((byte) 59);
+        hr.setWarnMsg_pdc_bsw((byte) 60);
+        hr.setWarnMsg_sesam(61);
+        hr.setWarnMsg_scu((byte) 62);
+        hr.setWarnMsg_tbox((byte) 63);
 
         DataPackage dpw=new DataPackage("8995_40_1");//>>>
         dpw.fillBean(hr);
@@ -610,14 +615,18 @@ public class TBoxTest {
         hr.setSpeed(1567);
         hr.setHeading(234);
 
-        hr.setInfo1((byte) 170);
-        hr.setInfo2((byte) 170);
-        hr.setInfo3((byte) 170);
-        hr.setInfo4((byte) 170);
-        hr.setInfo5((byte) 81);
-        hr.setInfo6((byte) 82);
-        hr.setInfo7((byte) 83);
-        hr.setInfo8((byte) 84);
+        hr.setWarnMsg_acm((byte) 52);
+        hr.setWarnMsg_ic(53);
+        hr.setWarnMsg_escl((byte) 54);
+        hr.setWarnMsg_bcm(55l);
+        hr.setWarnMsg_esc(56);
+        hr.setWarnMsg_tpms((byte) 57);
+        hr.setWarnMsg_dme(58);
+        hr.setWarnMsg_tcu((byte) 59);
+        hr.setWarnMsg_pdc_bsw((byte) 60);
+        hr.setWarnMsg_sesam(61);
+        hr.setWarnMsg_scu((byte) 62);
+        hr.setWarnMsg_tbox((byte) 63);
 
         DataPackage dpw=new DataPackage("8995_41_1");//>>>
         dpw.fillBean(hr);

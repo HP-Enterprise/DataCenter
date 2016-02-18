@@ -75,15 +75,19 @@
                 <data:element name="vehicleSpeedLast" type="U_INT_16" size="300"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
             </data:elementGroup>
             <data:elementGroup name="failureDataStructure">
-                <data:element name="info1" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info2" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info3" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info4" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info5" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info6" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info7" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-                <data:element name="info8" type="BYTE"/>                  <!--显示范围：根据附件[M8x_WM_catalog_150707]中WARNING MESSAGE ID列判定 -->
-            </data:elementGroup>
+                    <data:element name="warnMsg_acm" type="BYTE"/>
+                    <data:element name="warnMsg_ic" type="U_INT_16"/>
+                    <data:element name="warnMsg_escl" type="BYTE"/>
+                    <data:element name="warnMsg_bcm" type="U_INT_32"/>
+                    <data:element name="warnMsg_esc" type="U_INT_16"/>
+                    <data:element name="warnMsg_tpms" type="BYTE"/>
+                    <data:element name="warnMsg_dme" type="U_INT_16"/>
+                    <data:element name="warnMsg_tcu" type="BYTE"/>
+                    <data:element name="warnMsg_pdc_bsw" type="BYTE"/>
+                    <data:element name="warnMsg_sesam" type="U_INT_16"/>
+                    <data:element name="warnMsg_scu" type="BYTE"/>
+                    <data:element name="warnMsg_tbox" type="BYTE"/>
+                 </data:elementGroup>
             <!--电检(T-Box将向T平台发送电检请求)-->
             <data:unit name="TBOX_DiaRequest" key="17_1">
                 <data:include name="dispatcherUp"/>
