@@ -9,14 +9,20 @@ public class FailureMessage extends TBoxUpBean{
     private Long longitude;
     private Integer speed;
     private Integer heading;
-    private Byte info1;
-    private Byte info2;
-    private Byte info3;
-    private Byte info4;
-    private Byte info5;
-    private Byte info6;
-    private Byte info7;
-    private Byte info8;
+
+    private Byte warnMsg_acm;
+    private Integer warnMsg_ic;
+    private Byte warnMsg_escl;
+    private Long warnMsg_bcm;
+    private Integer warnMsg_esc;
+    private Byte warnMsg_tpms;
+    private Integer warnMsg_dme;
+    private Byte warnMsg_tcu;
+    private Byte warnMsg_pdc_bsw;
+    private Integer warnMsg_sesam;
+    private Byte warnMsg_scu;
+    private Byte warnMsg_tbox;
+
 
     public Short getIsLocation() {
         return isLocation;
@@ -58,69 +64,99 @@ public class FailureMessage extends TBoxUpBean{
         this.heading = heading;
     }
 
-    public Byte getInfo1() {
-        return info1;
+    public Byte getWarnMsg_acm() {
+        return warnMsg_acm;
     }
 
-    public void setInfo1(Byte info1) {
-        this.info1 = info1;
+    public void setWarnMsg_acm(Byte warnMsg_acm) {
+        this.warnMsg_acm = warnMsg_acm;
     }
 
-    public Byte getInfo2() {
-        return info2;
+    public Integer getWarnMsg_ic() {
+        return warnMsg_ic;
     }
 
-    public void setInfo2(Byte info2) {
-        this.info2 = info2;
+    public void setWarnMsg_ic(Integer warnMsg_ic) {
+        this.warnMsg_ic = warnMsg_ic;
     }
 
-    public Byte getInfo3() {
-        return info3;
+    public Byte getWarnMsg_escl() {
+        return warnMsg_escl;
     }
 
-    public void setInfo3(Byte info3) {
-        this.info3 = info3;
+    public void setWarnMsg_escl(Byte warnMsg_escl) {
+        this.warnMsg_escl = warnMsg_escl;
     }
 
-    public Byte getInfo4() {
-        return info4;
+    public Long getWarnMsg_bcm() {
+        return warnMsg_bcm;
     }
 
-    public void setInfo4(Byte info4) {
-        this.info4 = info4;
+    public void setWarnMsg_bcm(Long warnMsg_bcm) {
+        this.warnMsg_bcm = warnMsg_bcm;
     }
 
-    public Byte getInfo5() {
-        return info5;
+    public Integer getWarnMsg_esc() {
+        return warnMsg_esc;
     }
 
-    public void setInfo5(Byte info5) {
-        this.info5 = info5;
+    public void setWarnMsg_esc(Integer warnMsg_esc) {
+        this.warnMsg_esc = warnMsg_esc;
     }
 
-    public Byte getInfo6() {
-        return info6;
+    public Byte getWarnMsg_tpms() {
+        return warnMsg_tpms;
     }
 
-    public void setInfo6(Byte info6) {
-        this.info6 = info6;
+    public void setWarnMsg_tpms(Byte warnMsg_tpms) {
+        this.warnMsg_tpms = warnMsg_tpms;
     }
 
-    public Byte getInfo7() {
-        return info7;
+    public Integer getWarnMsg_dme() {
+        return warnMsg_dme;
     }
 
-    public void setInfo7(Byte info7) {
-        this.info7 = info7;
+    public void setWarnMsg_dme(Integer warnMsg_dme) {
+        this.warnMsg_dme = warnMsg_dme;
     }
 
-    public Byte getInfo8() {
-        return info8;
+    public Byte getWarnMsg_tcu() {
+        return warnMsg_tcu;
     }
 
-    public void setInfo8(Byte info8) {
-        this.info8 = info8;
+    public void setWarnMsg_tcu(Byte warnMsg_tcu) {
+        this.warnMsg_tcu = warnMsg_tcu;
     }
 
+    public Byte getWarnMsg_pdc_bsw() {
+        return warnMsg_pdc_bsw;
+    }
 
+    public void setWarnMsg_pdc_bsw(Byte warnMsg_pdc_bsw) {
+        this.warnMsg_pdc_bsw = warnMsg_pdc_bsw;
+    }
+
+    public Integer getWarnMsg_sesam() {
+        return warnMsg_sesam;
+    }
+
+    public void setWarnMsg_sesam(Integer warnMsg_sesam) {
+        this.warnMsg_sesam = warnMsg_sesam;
+    }
+
+    public Byte getWarnMsg_scu() {
+        return warnMsg_scu;
+    }
+
+    public void setWarnMsg_scu(Byte warnMsg_scu) {
+        this.warnMsg_scu = warnMsg_scu;
+    }
+
+    public Byte getWarnMsg_tbox() {
+        return warnMsg_tbox;
+    }
+
+    public void setWarnMsg_tbox(Byte warnMsg_tbox) {
+        this.warnMsg_tbox = warnMsg_tbox;
+    }
 }

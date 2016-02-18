@@ -10,26 +10,23 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
     private Long eventID;
     private Long time;
     private Short ambientAirTemperature;
-    private Integer fuelLevel;
+    private Short fuelLevel;
     private Short tempIntern;
-    private Integer averageConsumptionTripA;
-    private Integer averageConsumptionTripB;
-    private Short averageSpeedTripA;
-    private Short averageSpeedTripB;
     private Byte sesam_clamp_stat;
     private Byte stat_remote_start;
     private Byte gearLevelPositon;
     private Integer vehicleSpeed;
-    private Byte stateOfChargeACM_Crash_Status;
+    private Byte acm_crash_status;
     private byte[] bcm_Stat_Door_Flap;
     private Byte bcm_Stat_Central_Lock;
-    private Byte stat_lin_2;
+    private Byte bcm_Stat_window;
     private Byte epb_status;
-    private Byte stat_lin_1;
-    private byte[] scm_button_status;
-    private Byte scm_cruise_control;
-    private byte[] scm_wiper;
-    private Short preconditionRespTime;
+    private Byte stateOfCharge;
+    private Byte sesam_hw_status;
+    private Byte tcu_ecu_stat;
+    private Byte bcm_Stat_window2;
+    private Byte sesam_clamp_stat2;
+    private Byte bcm_Stat_Central_Lock2;
 
     public Long getEventID() {
         return eventID;
@@ -55,11 +52,11 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
         this.ambientAirTemperature = ambientAirTemperature;
     }
 
-    public Integer getFuelLevel() {
+    public Short getFuelLevel() {
         return fuelLevel;
     }
 
-    public void setFuelLevel(Integer fuelLevel) {
+    public void setFuelLevel(Short fuelLevel) {
         this.fuelLevel = fuelLevel;
     }
 
@@ -69,38 +66,6 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
 
     public void setTempIntern(Short tempIntern) {
         this.tempIntern = tempIntern;
-    }
-
-    public Integer getAverageConsumptionTripA() {
-        return averageConsumptionTripA;
-    }
-
-    public void setAverageConsumptionTripA(Integer averageConsumptionTripA) {
-        this.averageConsumptionTripA = averageConsumptionTripA;
-    }
-
-    public Integer getAverageConsumptionTripB() {
-        return averageConsumptionTripB;
-    }
-
-    public void setAverageConsumptionTripB(Integer averageConsumptionTripB) {
-        this.averageConsumptionTripB = averageConsumptionTripB;
-    }
-
-    public Short getAverageSpeedTripA() {
-        return averageSpeedTripA;
-    }
-
-    public void setAverageSpeedTripA(Short averageSpeedTripA) {
-        this.averageSpeedTripA = averageSpeedTripA;
-    }
-
-    public Short getAverageSpeedTripB() {
-        return averageSpeedTripB;
-    }
-
-    public void setAverageSpeedTripB(Short averageSpeedTripB) {
-        this.averageSpeedTripB = averageSpeedTripB;
     }
 
     public Byte getSesam_clamp_stat() {
@@ -135,12 +100,12 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
         this.vehicleSpeed = vehicleSpeed;
     }
 
-    public Byte getStateOfChargeACM_Crash_Status() {
-        return stateOfChargeACM_Crash_Status;
+    public Byte getAcm_crash_status() {
+        return acm_crash_status;
     }
 
-    public void setStateOfChargeACM_Crash_Status(Byte stateOfChargeACM_Crash_Status) {
-        this.stateOfChargeACM_Crash_Status = stateOfChargeACM_Crash_Status;
+    public void setAcm_crash_status(Byte acm_crash_status) {
+        this.acm_crash_status = acm_crash_status;
     }
 
     public byte[] getBcm_Stat_Door_Flap() {
@@ -159,12 +124,12 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
         this.bcm_Stat_Central_Lock = bcm_Stat_Central_Lock;
     }
 
-    public Byte getStat_lin_2() {
-        return stat_lin_2;
+    public Byte getBcm_Stat_window() {
+        return bcm_Stat_window;
     }
 
-    public void setStat_lin_2(Byte stat_lin_2) {
-        this.stat_lin_2 = stat_lin_2;
+    public void setBcm_Stat_window(Byte bcm_Stat_window) {
+        this.bcm_Stat_window = bcm_Stat_window;
     }
 
     public Byte getEpb_status() {
@@ -175,43 +140,51 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
         this.epb_status = epb_status;
     }
 
-    public Byte getStat_lin_1() {
-        return stat_lin_1;
+    public Byte getStateOfCharge() {
+        return stateOfCharge;
     }
 
-    public void setStat_lin_1(Byte stat_lin_1) {
-        this.stat_lin_1 = stat_lin_1;
+    public void setStateOfCharge(Byte stateOfCharge) {
+        this.stateOfCharge = stateOfCharge;
     }
 
-    public byte[] getScm_button_status() {
-        return scm_button_status;
+    public Byte getSesam_hw_status() {
+        return sesam_hw_status;
     }
 
-    public void setScm_button_status(byte[] scm_button_status) {
-        this.scm_button_status = scm_button_status;
+    public void setSesam_hw_status(Byte sesam_hw_status) {
+        this.sesam_hw_status = sesam_hw_status;
     }
 
-    public Byte getScm_cruise_control() {
-        return scm_cruise_control;
+    public Byte getTcu_ecu_stat() {
+        return tcu_ecu_stat;
     }
 
-    public void setScm_cruise_control(Byte scm_cruise_control) {
-        this.scm_cruise_control = scm_cruise_control;
+    public void setTcu_ecu_stat(Byte tcu_ecu_stat) {
+        this.tcu_ecu_stat = tcu_ecu_stat;
     }
 
-    public byte[] getScm_wiper() {
-        return scm_wiper;
+    public Byte getBcm_Stat_window2() {
+        return bcm_Stat_window2;
     }
 
-    public void setScm_wiper(byte[] scm_wiper) {
-        this.scm_wiper = scm_wiper;
+    public void setBcm_Stat_window2(Byte bcm_Stat_window2) {
+        this.bcm_Stat_window2 = bcm_Stat_window2;
     }
 
-    public Short getPreconditionRespTime() {
-        return preconditionRespTime;
+    public Byte getSesam_clamp_stat2() {
+        return sesam_clamp_stat2;
     }
 
-    public void setPreconditionRespTime(Short preconditionRespTime) {
-        this.preconditionRespTime = preconditionRespTime;
+    public void setSesam_clamp_stat2(Byte sesam_clamp_stat2) {
+        this.sesam_clamp_stat2 = sesam_clamp_stat2;
+    }
+
+    public Byte getBcm_Stat_Central_Lock2() {
+        return bcm_Stat_Central_Lock2;
+    }
+
+    public void setBcm_Stat_Central_Lock2(Byte bcm_Stat_Central_Lock2) {
+        this.bcm_Stat_Central_Lock2 = bcm_Stat_Central_Lock2;
     }
 }
