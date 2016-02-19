@@ -68,6 +68,10 @@
                 <data:element name="vehicleOuterTemperature" type="U_INT_8"/><!--分辨率1 ℃，偏移量40，显示范围：-40℃ ~ 85℃上报数据范围： 0~125 缺省值： 0x32 无效值： 0xFF-->
                 <data:element name="doorInformation" type="U_INT_8"/>     <!--Bit0~1： STAT_DoorAjarFL Bit2~3：STAT_DoorAjarFR Bit4~5：STAT_DoorAjarRL Bit6~7：STAT_DoorAjarRR 0x0： Close0x1： Open0x2： Reserved0x3： Signal invalid-->
                 <data:element name="kilometerMileage" type="BYTE" size="3"/><!-- 行驶里程  分辨率 1KM，偏移量0，显示范围： 0KM ~16777214KM 上报数据范围： 0~16777214KM-->
+                <data:element name="bonnetAndTrunk" type="BYTE"/>
+                <data:element name="statWindow" type="BYTE"/>
+                <data:element name="averageSpeedA" type="BYTE"/>
+                <data:element name="averageSpeedB" type="BYTE"/>
             </data:elementGroup>
             <data:elementGroup name="alarmDataStructure">
                 <data:element name="srsWarning" type="BYTE"/>                 <!-- 安全气囊报警 bit0-1 0x0 未触发 0x1触发-->

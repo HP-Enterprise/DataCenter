@@ -22,6 +22,10 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Short vehicleOuterTemperature;
     private Short doorInformation;
     private byte[] kilometerMileage;
+    private Byte bonnetAndTrunk;
+    private Byte statWindow;
+    private Byte averageSpeedA;
+    private Byte averageSpeedB;
 
     public Short getIsLocation() {
         return isLocation;
@@ -165,5 +169,37 @@ public class DataResendRealTimeMes extends TBoxUpBean{
 
     public void setDoorInformation(Short doorInformation) {
         this.doorInformation = doorInformation;
+    }
+
+    public Byte getBonnetAndTrunk() {
+        return bonnetAndTrunk;
+    }
+
+    public void setBonnetAndTrunk(Byte bonnetAndTrunk) {
+        this.bonnetAndTrunk = bonnetAndTrunk;
+    }
+
+    public Byte getStatWindow() {
+        return statWindow;
+    }
+
+    public void setStatWindow(Byte statWindow) {
+        this.statWindow = statWindow;
+    }
+
+    public Byte getAverageSpeedA() {
+        return averageSpeedA;
+    }
+
+    public void setAverageSpeedA(Byte averageSpeedA) {
+        this.averageSpeedA = averageSpeedA;
+    }
+
+    public Byte getAverageSpeedB() {
+        return averageSpeedB;
+    }
+
+    public void setAverageSpeedB(Byte averageSpeedB) {
+        this.averageSpeedB = averageSpeedB;
     }
 }
