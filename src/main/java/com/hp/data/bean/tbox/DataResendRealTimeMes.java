@@ -9,7 +9,7 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Long longitude;
     private Integer speed;
     private Integer heading;
-    private Integer fuelOil;
+    private Short fuelOil;
     private Integer avgOilA;
     private Integer avgOilB;
     private Integer serviceIntervall;
@@ -21,6 +21,7 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Short vehicleTemperature;
     private Short vehicleOuterTemperature;
     private Short doorInformation;
+    private byte[] kilometerMileage;
 
     public Short getIsLocation() {
         return isLocation;
@@ -62,12 +63,20 @@ public class DataResendRealTimeMes extends TBoxUpBean{
         this.heading = heading;
     }
 
-    public Integer getFuelOil() {
+    public Short getFuelOil() {
         return fuelOil;
     }
 
-    public void setFuelOil(Integer fuelOil) {
+    public void setFuelOil(Short fuelOil) {
         this.fuelOil = fuelOil;
+    }
+
+    public byte[] getKilometerMileage() {
+        return kilometerMileage;
+    }
+
+    public void setKilometerMileage(byte[] kilometerMileage) {
+        this.kilometerMileage = kilometerMileage;
     }
 
     public Integer getAvgOilA() {

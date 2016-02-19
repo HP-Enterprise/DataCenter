@@ -356,7 +356,7 @@ public class TBoxTest {
         hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-        hr.setFuelOil(99);
+        hr.setFuelOil((short) 99);
         hr.setAvgOilA(123);
         hr.setAvgOilB(134);
         hr.setServiceIntervall(1234);
@@ -368,7 +368,7 @@ public class TBoxTest {
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
         hr.setDoorInformation((short) 15);
-
+        hr.setKilometerMileage(new byte[]{(byte) 100, (byte) 101, (byte) 102});
 
         DataPackage dpw=new DataPackage("8995_34_1");//>>>
         dpw.fillBean(hr);
@@ -528,7 +528,7 @@ public class TBoxTest {
         hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-        hr.setFuelOil(99);
+        hr.setFuelOil((short)99);
         hr.setAvgOilA(123);
         hr.setAvgOilB(134);
         hr.setServiceIntervall(1234);
@@ -540,7 +540,7 @@ public class TBoxTest {
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
         hr.setDoorInformation((short) 15);
-
+        hr.setKilometerMileage(new byte[]{(byte) 100, (byte) 101, (byte) 102});
 
         DataPackage dpw=new DataPackage("8995_35_1");//>>>
         dpw.fillBean(hr);
