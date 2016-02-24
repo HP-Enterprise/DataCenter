@@ -16,13 +16,11 @@ public class DataResendFailureData extends TBoxUpBean{
     private Integer warnMsg_ic;
     private Byte warnMsg_escl;
     private Long warnMsg_bcm;
-    private Integer warnMsg_esc;
     private Byte warnMsg_tpms;
     private Integer warnMsg_dme;
     private Byte warnMsg_tcu;
     private Byte warnMsg_pdc_bsw;
     private Integer warnMsg_sesam;
-    private Byte warnMsg_scu;
     private Byte warnMsg_tbox;
 
     public Short getIsLocation() {
@@ -97,14 +95,6 @@ public class DataResendFailureData extends TBoxUpBean{
         this.warnMsg_bcm = warnMsg_bcm;
     }
 
-    public Integer getWarnMsg_esc() {
-        return warnMsg_esc;
-    }
-
-    public void setWarnMsg_esc(Integer warnMsg_esc) {
-        this.warnMsg_esc = warnMsg_esc;
-    }
-
     public Byte getWarnMsg_tpms() {
         return warnMsg_tpms;
     }
@@ -143,14 +133,6 @@ public class DataResendFailureData extends TBoxUpBean{
 
     public void setWarnMsg_sesam(Integer warnMsg_sesam) {
         this.warnMsg_sesam = warnMsg_sesam;
-    }
-
-    public Byte getWarnMsg_scu() {
-        return warnMsg_scu;
-    }
-
-    public void setWarnMsg_scu(Byte warnMsg_scu) {
-        this.warnMsg_scu = warnMsg_scu;
     }
 
     public Byte getWarnMsg_tbox() {
