@@ -11,7 +11,6 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
     private Long time;
     private Short ambientAirTemperature;
     private Short fuelLevel;
-    private Short tempIntern;
     private Byte sesam_clamp_stat;
     private Byte stat_remote_start;
     private Byte gearLevelPositon;
@@ -60,13 +59,6 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
         this.fuelLevel = fuelLevel;
     }
 
-    public Short getTempIntern() {
-        return tempIntern;
-    }
-
-    public void setTempIntern(Short tempIntern) {
-        this.tempIntern = tempIntern;
-    }
 
     public Byte getSesam_clamp_stat() {
         return sesam_clamp_stat;
