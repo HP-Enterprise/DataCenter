@@ -18,6 +18,7 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Short rightFrontTirePressure;
     private Short rightRearTirePressure;
     private Short windowInformation;
+    private Short vehicleTemperature;
     private Short vehicleOuterTemperature;
     private Short doorInformation;
     private byte[] kilometerMileage;
@@ -144,6 +145,14 @@ public class DataResendRealTimeMes extends TBoxUpBean{
 
     public void setWindowInformation(Short windowInformation) {
         this.windowInformation = windowInformation;
+    }
+
+    public Short getVehicleTemperature() {
+        return vehicleTemperature;
+    }
+
+    public void setVehicleTemperature(Short vehicleTemperature) {
+        this.vehicleTemperature = vehicleTemperature;
     }
 
     public Short getVehicleOuterTemperature() {
