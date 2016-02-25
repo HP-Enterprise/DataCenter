@@ -23,10 +23,10 @@ public class TBoxTest {
     public void tearDown() {}
     @Test
     public void testTBOX_RegisterReq() {
-       String byteString="23 23 00 4C 00 56 0A 3C C4 13 01 33 35 32 32 35 35 30 36 30 31 31 36 32 32 39 01 02 03 00 01 00 01 C4 3C 0A 56 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 01 00 00 00 00 01 60 ";
-       standardTest(byteString,RegisterReq.class);
+        String byteString="23 23 00 4C 00 56 0A 3C C4 13 01 33 35 32 32 35 35 30 36 30 31 31 36 32 32 39 01 02 03 00 01 00 01 C4 3C 0A 56 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 01 00 00 00 00 01 60 ";
+        standardTest(byteString,RegisterReq.class);
 
-       RegisterReq req=new RegisterReq();
+        RegisterReq req=new RegisterReq();
         req.setSendingTime(1444812349l);
         req.setApplicationID((short) 19);
         req.setMessageID((short) 1);
@@ -104,6 +104,7 @@ public class TBoxTest {
         hr.setTime(1443151834l);
         hr.setAmbientAirTemperature((short) 60);
         hr.setFuelLevel((short) 100);
+        hr.setTempIntern((short) 65);
         hr.setSesam_clamp_stat((byte) 170);
         hr.setStat_remote_start(((byte) 170));
         hr.setGearLevelPositon(((byte) 170));
@@ -125,7 +126,6 @@ public class TBoxTest {
         ByteBuffer bbw=conversionTBox.generate(dpw);
         String byteStr=PackageEntityManager.getByteString(bbw);
         System.out.println(byteStr);
-
         ByteBuffer bb=PackageEntityManager.getByteBuffer(byteStr);
         DataPackage dp=conversionTBox.generate(bb);
         RemoteControlPreconditionResp bean=dp.loadBean(RemoteControlPreconditionResp.class);
@@ -320,7 +320,7 @@ public class TBoxTest {
         //心跳测试
         String byteString="23 23 00 20 01 55 D2 0F E7 26 01 00 00 00 00 00 00 00 00 00 00 11 00 00 00 00 00 00 00 00 00 00 00 55 BE E2 58 29 ";
         standardTest(byteString, HeartbeatReq.class);
-        }
+    }
 
 
 
@@ -363,6 +363,7 @@ public class TBoxTest {
         hr.setRightFrontTirePressure((short) 102);
         hr.setRightRearTirePressure((short) 103);
         hr.setWindowInformation((short) 15);//00001111开开关关
+        hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
         hr.setDoorInformation((short) 15);
         hr.setKilometerMileage(new byte[]{(byte) 100, (byte) 101, (byte) 102});
@@ -491,11 +492,13 @@ public class TBoxTest {
         hr.setWarnMsg_ic(53);
         hr.setWarnMsg_escl((byte) 54);
         hr.setWarnMsg_bcm(55l);
+        hr.setWarnMsg_esc(56);
         hr.setWarnMsg_tpms((byte) 57);
         hr.setWarnMsg_dme(58);
         hr.setWarnMsg_tcu((byte) 59);
         hr.setWarnMsg_pdc_bsw((byte) 60);
         hr.setWarnMsg_sesam(61);
+        hr.setWarnMsg_scu((byte) 62);
         hr.setWarnMsg_tbox((byte) 63);
 
         DataPackage dpw=new DataPackage("8995_40_1");//>>>
@@ -537,6 +540,7 @@ public class TBoxTest {
         hr.setRightFrontTirePressure((short) 102);
         hr.setRightRearTirePressure((short) 103);
         hr.setWindowInformation((short) 15);//00001111开开关关
+        hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
         hr.setDoorInformation((short) 15);
         hr.setKilometerMileage(new byte[]{(byte) 100, (byte) 101, (byte) 102});
@@ -623,11 +627,13 @@ public class TBoxTest {
         hr.setWarnMsg_ic(53);
         hr.setWarnMsg_escl((byte) 54);
         hr.setWarnMsg_bcm(55l);
+        hr.setWarnMsg_esc(56);
         hr.setWarnMsg_tpms((byte) 57);
         hr.setWarnMsg_dme(58);
         hr.setWarnMsg_tcu((byte) 59);
         hr.setWarnMsg_pdc_bsw((byte) 60);
         hr.setWarnMsg_sesam(61);
+        hr.setWarnMsg_scu((byte) 62);
         hr.setWarnMsg_tbox((byte) 63);
 
         DataPackage dpw=new DataPackage("8995_41_1");//>>>
