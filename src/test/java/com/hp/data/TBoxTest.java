@@ -368,9 +368,15 @@ public class TBoxTest {
         hr.setDoorInformation((short) 15);
         hr.setKilometerMileage(new byte[]{(byte) 100, (byte) 101, (byte) 102});
         hr.setBonnetAndTrunk((byte) 0);
-        hr.setStatWindow((byte)0);
-        hr.setAverageSpeedA((byte)30);
-        hr.setAverageSpeedB((byte)40);
+        hr.setStatWindow((byte) 0);
+        hr.setAverageSpeedA((byte) 30);
+        hr.setAverageSpeedB((byte) 40);
+        hr.setSesam_clamp_stat((byte) 0);
+        hr.setBcm_light((byte) 0);
+        hr.setTcu_ecu_stat((byte) 0);
+        hr.setBcm_stat_central_Lock((byte)0);
+        hr.setAcm_crash_status((byte)0);
+
 
 
         DataPackage dpw=new DataPackage("8995_34_1");//>>>
@@ -548,6 +554,11 @@ public class TBoxTest {
         hr.setStatWindow((byte)0);
         hr.setAverageSpeedA((byte)30);
         hr.setAverageSpeedB((byte)40);
+        hr.setSesam_clamp_stat((byte) 0);
+        hr.setBcm_light((byte) 0);
+        hr.setTcu_ecu_stat((byte) 0);
+        hr.setBcm_stat_central_Lock((byte)0);
+        hr.setAcm_crash_status((byte)0);
 
 
         DataPackage dpw=new DataPackage("8995_35_1");//>>>

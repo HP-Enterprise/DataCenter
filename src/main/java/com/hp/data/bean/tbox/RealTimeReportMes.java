@@ -26,6 +26,13 @@ public class RealTimeReportMes extends TBoxUpBean{
     private Byte statWindow;
     private Byte averageSpeedA;
     private Byte averageSpeedB;
+    private Byte sesam_clamp_stat;
+    private Byte bcm_light;
+    private Byte tcu_ecu_stat;
+    private Byte bcm_stat_central_Lock;
+    private Byte acm_crash_status;
+
+
 
     public Short getIsLocation() {
         return isLocation;
@@ -201,5 +208,45 @@ public class RealTimeReportMes extends TBoxUpBean{
 
     public void setAverageSpeedB(Byte averageSpeedB) {
         this.averageSpeedB = averageSpeedB;
+    }
+
+    public Byte getSesam_clamp_stat() {
+        return sesam_clamp_stat;
+    }
+
+    public void setSesam_clamp_stat(Byte sesam_clamp_stat) {
+        this.sesam_clamp_stat = sesam_clamp_stat;
+    }
+
+    public Byte getBcm_light() {
+        return bcm_light;
+    }
+
+    public void setBcm_light(Byte bcm_light) {
+        this.bcm_light = bcm_light;
+    }
+
+    public Byte getTcu_ecu_stat() {
+        return tcu_ecu_stat;
+    }
+
+    public void setTcu_ecu_stat(Byte tcu_ecu_stat) {
+        this.tcu_ecu_stat = tcu_ecu_stat;
+    }
+
+    public Byte getBcm_stat_central_Lock() {
+        return bcm_stat_central_Lock;
+    }
+
+    public void setBcm_stat_central_Lock(Byte bcm_stat_central_Lock) {
+        this.bcm_stat_central_Lock = bcm_stat_central_Lock;
+    }
+
+    public Byte getAcm_crash_status() {
+        return acm_crash_status;
+    }
+
+    public void setAcm_crash_status(Byte acm_crash_status) {
+        this.acm_crash_status = acm_crash_status;
     }
 }
