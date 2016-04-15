@@ -374,9 +374,9 @@ public class TBoxTest {
         hr.setSesam_clamp_stat((byte) 0);
         hr.setBcm_light((byte) 0);
         hr.setTcu_ecu_stat((byte) 0);
-        hr.setBcm_stat_central_Lock((byte)0);
-        hr.setAcm_crash_status((byte)0);
-
+        hr.setBcm_stat_central_Lock((byte) 0);
+        hr.setAcm_crash_status((byte) 0);
+        hr.setDrivingRange(2345);
 
 
         DataPackage dpw=new DataPackage("8995_34_1");//>>>
@@ -559,7 +559,7 @@ public class TBoxTest {
         hr.setTcu_ecu_stat((byte) 0);
         hr.setBcm_stat_central_Lock((byte)0);
         hr.setAcm_crash_status((byte)0);
-
+        hr.setDrivingRange(2345);
 
         DataPackage dpw=new DataPackage("8995_35_1");//>>>
         dpw.fillBean(hr);

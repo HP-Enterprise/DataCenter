@@ -31,6 +31,7 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Byte tcu_ecu_stat;
     private Byte bcm_stat_central_Lock;
     private Byte acm_crash_status;
+    private Integer drivingRange;
 
     public Short getIsLocation() {
         return isLocation;
@@ -246,5 +247,13 @@ public class DataResendRealTimeMes extends TBoxUpBean{
 
     public void setAcm_crash_status(Byte acm_crash_status) {
         this.acm_crash_status = acm_crash_status;
+    }
+
+    public Integer getDrivingRange() {
+        return drivingRange;
+    }
+
+    public void setDrivingRange(Integer drivingRange) {
+        this.drivingRange = drivingRange;
     }
 }
