@@ -72,6 +72,12 @@
                 <data:element name="statWindow" type="BYTE"/>
                 <data:element name="averageSpeedA" type="BYTE"/>
                 <data:element name="averageSpeedB" type="BYTE"/>
+                <data:element name="sesam_clamp_stat" type="BYTE"/>
+                <data:element name="bcm_light" type="BYTE"/>
+                <data:element name="tcu_ecu_stat" type="BYTE"/>
+                <data:element name="bcm_stat_central_Lock" type="BYTE"/>
+                <data:element name="acm_crash_status" type="BYTE"/>
+                <data:element name="drivingRange" type="U_INT_16"/><!--行驶里程 -->
             </data:elementGroup>
             <data:elementGroup name="alarmDataStructure">
                 <data:element name="srsWarning" type="BYTE"/>                 <!-- 安全气囊报警 bit0-1 0x0 未触发 0x1触发-->
@@ -319,8 +325,8 @@
                 <data:element name="frequencyHeartbeat" type="U_INT_8"/>  <!--车载终端心跳发送周期，有 效值范围：1～240（表示 1s ～240s），最小计量单元：1s Fix 60S-->
                 <data:element name="timeOutForTerminalSearch" type="U_INT_16"/><!--终端应答超时时间，有效值 范围： 1～600（表示 1s～600s ），最小计量单元：1s，Fix 60S 三次共 180S-->
                 <data:element name="timeOutForServerSearch" type="U_INT_16"/> <!--平台应答超时时间，有效值 范围： 1～600（表示 1s～600s ），最小计量单元：1s，Fix 60S 三次共 180S-->
-                <data:element name="enterpriseBroadcastAddress" type="BYTE" size="6"/> <!--企业平台 IP，IPV4 的前两个 字节为 0 -->
-                <data:element name="enterpriseBroadcastPort" type="U_INT_16"/> <!--企业平台端口 -->
+                <data:element name="enterpriseDomainNameSize" type="U_INT_8"/>     <!--域名长度 -->
+                <data:element name="enterpriseDomainName" type="STRING" size="13"/>     <!--域名 -->
             </data:unit>
 
             <!--远程车辆诊断(T平台向T-Box发送远程诊断请求)-->

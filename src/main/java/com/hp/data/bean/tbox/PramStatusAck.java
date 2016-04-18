@@ -14,8 +14,8 @@ public class PramStatusAck extends TBoxUpBean{
     private Short frequencyHeartbeat;
     private Integer timeOutForTerminalSearch;
     private Integer timeOutForServerSearch;
-    private byte[] enterpriseBroadcastAddress;
-    private Integer enterpriseBroadcastPort;
+    private Short enterpriseDomainNameSize;
+    private String enterpriseDomainName;
 
     public Long getEventID() {
         return eventID;
@@ -97,19 +97,19 @@ public class PramStatusAck extends TBoxUpBean{
         this.timeOutForServerSearch = timeOutForServerSearch;
     }
 
-    public byte[] getEnterpriseBroadcastAddress() {
-        return enterpriseBroadcastAddress;
+    public Short getEnterpriseDomainNameSize() {
+        return enterpriseDomainNameSize;
     }
 
-    public void setEnterpriseBroadcastAddress(byte[] enterpriseBroadcastAddress) {
-        this.enterpriseBroadcastAddress = enterpriseBroadcastAddress;
+    public void setEnterpriseDomainNameSize(Short enterpriseDomainNameSize) {
+        this.enterpriseDomainNameSize = enterpriseDomainNameSize;
     }
 
-    public Integer getEnterpriseBroadcastPort() {
-        return enterpriseBroadcastPort;
+    public String getEnterpriseDomainName() {
+        return enterpriseDomainName;
     }
 
-    public void setEnterpriseBroadcastPort(Integer enterpriseBroadcastPort) {
-        this.enterpriseBroadcastPort = enterpriseBroadcastPort;
+    public void setEnterpriseDomainName(String enterpriseDomainName) {
+        this.enterpriseDomainName = enterpriseDomainName;
     }
 }
