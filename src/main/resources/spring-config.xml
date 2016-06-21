@@ -70,14 +70,15 @@
                 <data:element name="kilometerMileage" type="BYTE" size="3"/><!-- 行驶里程  分辨率 1KM，偏移量0，显示范围： 0KM ~16777214KM 上报数据范围： 0~16777214KM-->
                 <data:element name="bonnetAndTrunk" type="BYTE"/>
                 <data:element name="statWindow" type="BYTE"/>
-                <data:element name="averageSpeedA" type="BYTE"/>
-                <data:element name="averageSpeedB" type="BYTE"/>
+                <data:element name="averageSpeedA" type="U_INT_16"/>
+                <data:element name="averageSpeedB" type="U_INT_16"/>
                 <data:element name="sesam_clamp_stat" type="BYTE"/>
                 <data:element name="bcm_light" type="BYTE"/>
                 <data:element name="tcu_ecu_stat" type="BYTE"/>
                 <data:element name="bcm_stat_central_Lock" type="BYTE"/>
                 <data:element name="acm_crash_status" type="BYTE"/>
                 <data:element name="drivingRange" type="U_INT_16"/><!--行驶里程 -->
+                <data:element name="voltage" type="U_INT_16"/><!--蓄电池电压 -->
             </data:elementGroup>
             <data:elementGroup name="alarmDataStructure">
                 <data:element name="srsWarning" type="BYTE"/>                 <!-- 安全气囊报警 bit0-1 0x0 未触发 0x1触发-->

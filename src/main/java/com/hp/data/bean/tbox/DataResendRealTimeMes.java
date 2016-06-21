@@ -24,14 +24,15 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private byte[] kilometerMileage;
     private Byte bonnetAndTrunk;
     private Byte statWindow;
-    private Byte averageSpeedA;
-    private Byte averageSpeedB;
+    private Integer averageSpeedA;
+    private Integer averageSpeedB;
     private Byte sesam_clamp_stat;
     private Byte bcm_light;
     private Byte tcu_ecu_stat;
     private Byte bcm_stat_central_Lock;
     private Byte acm_crash_status;
     private Integer drivingRange;
+    private Integer voltage;
 
     public Short getIsLocation() {
         return isLocation;
@@ -193,19 +194,19 @@ public class DataResendRealTimeMes extends TBoxUpBean{
         this.statWindow = statWindow;
     }
 
-    public Byte getAverageSpeedA() {
+    public Integer getAverageSpeedA() {
         return averageSpeedA;
     }
 
-    public void setAverageSpeedA(Byte averageSpeedA) {
+    public void setAverageSpeedA(Integer averageSpeedA) {
         this.averageSpeedA = averageSpeedA;
     }
 
-    public Byte getAverageSpeedB() {
+    public Integer getAverageSpeedB() {
         return averageSpeedB;
     }
 
-    public void setAverageSpeedB(Byte averageSpeedB) {
+    public void setAverageSpeedB(Integer averageSpeedB) {
         this.averageSpeedB = averageSpeedB;
     }
 
@@ -255,5 +256,13 @@ public class DataResendRealTimeMes extends TBoxUpBean{
 
     public void setDrivingRange(Integer drivingRange) {
         this.drivingRange = drivingRange;
+    }
+
+    public Integer getVoltage() {
+        return voltage;
+    }
+
+    public void setVoltage(Integer voltage) {
+        this.voltage = voltage;
     }
 }
