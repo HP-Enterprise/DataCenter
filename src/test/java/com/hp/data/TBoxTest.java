@@ -140,7 +140,11 @@ public class TBoxTest {
         hr.setMessageID((short) 3);//>>>
         hr.setEventID((long) 1444812349);
         hr.setRemoteControlType(4);
-        hr.setAcTemperature((short)22);
+        hr.setRemoteFindCar(new byte[]{(byte) 0, (byte) 0, (byte) 0, (byte) 0});
+        hr.setRemoteAc(new byte[]{(byte) 0, (byte) 0, (byte) 0, (byte) 0});
+        hr.setRemoteHeating(new byte[]{(byte)0,(byte)0});
+        hr.setRemoteLock((byte)0);
+        hr.setRemoteStartEngine((byte)0);
 
         DataPackage dpw=new DataPackage("8995_49_3");//>>>
         dpw.fillBean(hr);

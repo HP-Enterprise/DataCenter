@@ -6,7 +6,11 @@ import com.hp.data.core.DataEntity;
 public class RemoteControlCmd extends TBoxDownBean{
     private Long eventID;
     private Integer remoteControlType;
-    private Short acTemperature;
+    private Byte remoteStartEngine;
+    private byte[] remoteFindCar;//size=4
+    private Byte remoteLock;
+    private byte[] remoteAc;//size=4
+    private byte[] remoteHeating;//size=2
 
     public Long getEventID() {
         return eventID;
@@ -24,11 +28,43 @@ public class RemoteControlCmd extends TBoxDownBean{
         this.remoteControlType = remoteControlType;
     }
 
-    public Short getAcTemperature() {
-        return acTemperature;
+    public Byte getRemoteStartEngine() {
+        return remoteStartEngine;
     }
 
-    public void setAcTemperature(Short acTemperature) {
-        this.acTemperature = acTemperature;
+    public void setRemoteStartEngine(Byte remoteStartEngine) {
+        this.remoteStartEngine = remoteStartEngine;
+    }
+
+    public byte[] getRemoteFindCar() {
+        return remoteFindCar;
+    }
+
+    public void setRemoteFindCar(byte[] remoteFindCar) {
+        this.remoteFindCar = remoteFindCar;
+    }
+
+    public Byte getRemoteLock() {
+        return remoteLock;
+    }
+
+    public void setRemoteLock(Byte remoteLock) {
+        this.remoteLock = remoteLock;
+    }
+
+    public byte[] getRemoteAc() {
+        return remoteAc;
+    }
+
+    public void setRemoteAc(byte[] remoteAc) {
+        this.remoteAc = remoteAc;
+    }
+
+    public byte[] getRemoteHeating() {
+        return remoteHeating;
+    }
+
+    public void setRemoteHeating(byte[] remoteHeating) {
+        this.remoteHeating = remoteHeating;
     }
 }

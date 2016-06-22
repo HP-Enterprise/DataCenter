@@ -291,7 +291,11 @@
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>    <!--事件记录 ID 一个事件完成周期 内使用相同的 eventID-->
                 <data:element name="remoteControlType" type="U_INT_16"/><!--0：远程启动发动机  1：远程关闭发动机  2：车门上锁  3：车门解锁  4：空调开启  5：空调关闭  6：座椅加热  7：座椅停止加热  8：远程发动机限制  9：远程发动机限制关闭  10：远程寻车-->
-                <data:element name="acTemperature" type="U_INT_8"/><!--设置空调温度 0~200[0~200] 最小计量单元：1℃ type=4时有效-->
+                <data:element name="remoteStartEngine" type="BYTE"/><!--type=0时有效-->
+                <data:element name="remoteFindCar" type="BYTE" size="4"/><!--type=2时有效-->
+                <data:element name="remoteLock" type="BYTE"/><!--设置空调温度 0~200[0~200] 最小计量单元：1℃ type=4时有效-->
+                <data:element name="remoteAc" type="BYTE" size="4"/><!--type=3时有效-->
+                <data:element name="remoteHeating" type="BYTE" size="2"/><!-- type=4时有效-->
             </data:unit>
             <!--远程控制命令(T-Box向T平台反馈远程控制结果)-->
             <data:unit name="TBOX_RemoteControlAck" key="49_4">
