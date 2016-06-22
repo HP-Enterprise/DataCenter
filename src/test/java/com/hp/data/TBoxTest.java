@@ -140,7 +140,11 @@ public class TBoxTest {
         hr.setMessageID((short) 3);//>>>
         hr.setEventID((long) 1444812349);
         hr.setRemoteControlType(4);
-        hr.setAcTemperature((short)22);
+        hr.setRemoteFindCar(new byte[]{(byte) 0, (byte) 0, (byte) 0, (byte) 0});
+        hr.setRemoteAc(new byte[]{(byte) 0, (byte) 0, (byte) 0, (byte) 0});
+        hr.setRemoteHeating(new byte[]{(byte)0,(byte)0});
+        hr.setRemoteLock((byte)0);
+        hr.setRemoteStartEngine((byte)0);
 
         DataPackage dpw=new DataPackage("8995_49_3");//>>>
         dpw.fillBean(hr);
@@ -369,14 +373,15 @@ public class TBoxTest {
         hr.setKilometerMileage(new byte[]{(byte) 100, (byte) 101, (byte) 102});
         hr.setBonnetAndTrunk((byte) 0);
         hr.setStatWindow((byte) 0);
-        hr.setAverageSpeedA((byte) 30);
-        hr.setAverageSpeedB((byte) 40);
+        hr.setAverageSpeedA(100);
+        hr.setAverageSpeedB(80);
         hr.setSesam_clamp_stat((byte) 0);
         hr.setBcm_light((byte) 0);
         hr.setTcu_ecu_stat((byte) 0);
         hr.setBcm_stat_central_Lock((byte) 0);
         hr.setAcm_crash_status((byte) 0);
         hr.setDrivingRange(2345);
+        hr.setVoltage(15360);
 
 
         DataPackage dpw=new DataPackage("8995_34_1");//>>>
@@ -552,15 +557,15 @@ public class TBoxTest {
         hr.setKilometerMileage(new byte[]{(byte) 100, (byte) 101, (byte) 102});
         hr.setBonnetAndTrunk((byte) 0);
         hr.setStatWindow((byte)0);
-        hr.setAverageSpeedA((byte)30);
-        hr.setAverageSpeedB((byte)40);
+        hr.setAverageSpeedA(100);
+        hr.setAverageSpeedB(80);
         hr.setSesam_clamp_stat((byte) 0);
         hr.setBcm_light((byte) 0);
         hr.setTcu_ecu_stat((byte) 0);
         hr.setBcm_stat_central_Lock((byte)0);
         hr.setAcm_crash_status((byte)0);
         hr.setDrivingRange(2345);
-
+        hr.setVoltage(10000);
         DataPackage dpw=new DataPackage("8995_35_1");//>>>
         dpw.fillBean(hr);
         ByteBuffer bbw=conversionTBox.generate(dpw);
