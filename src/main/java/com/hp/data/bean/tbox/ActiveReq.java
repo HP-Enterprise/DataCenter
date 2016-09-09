@@ -7,6 +7,7 @@ public class ActiveReq extends TBoxUpBean{
     private Long eventID;
     private String serialNumber;
     private String vin;
+    private String iccid;
 
     public Long getEventID() {
         return eventID;
@@ -30,5 +31,13 @@ public class ActiveReq extends TBoxUpBean{
 
     public void setVin(String vin) {
         this.vin = vin;
+    }
+
+    public String getIccid() {
+        return iccid;
+    }
+
+    public void setIccid(String iccid) {
+        this.iccid = iccid;
     }
 }

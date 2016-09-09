@@ -213,10 +213,35 @@ public class TBoxTest {
         PackageEntityManager.printEntity(bean);
     }
 
+    @Test
+    public void testTBOX_BuildActiveReq() {
+        ActiveReq req=new ActiveReq();
+        req.setSendingTime(1444812349l);
+        req.setApplicationID((short) 18);
+        req.setMessageID((short) 1);
+        req.setEventID(1444812349l);
+        req.setVin("12345678919991234");
+        req.setSerialNumber("123456789199");//12位
+        req.setImei("355065053311001");
+        req.setIccid("12345678900987654321");
+        req.setProtocolVersionNumber((short) 0);
+        req.setTripID(12);
+        req.setVehicleID(new byte[]{(byte) 0, (byte) 0});
+        req.setReserved(0);
+
+        DataPackage dp=new DataPackage("8995_18_1");
+        dp.fillBean(req);
+        ByteBuffer bb=conversionTBox.generate(dp);
+        String str=PackageEntityManager.getByteString(bb);
+        System.out.println(str);
+        ActiveReq rr=this.conversionTBox.generate(bb).loadBean(ActiveReq.class);
+        PackageEntityManager.printEntity(rr);
+    }
+
     ////////////////////////
     @Test
     public void testTBOX_ActiveHandle() {
-        String byteString="23 23 00 3D 01 56 04 B7 1E 12 01 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 00 00 00 00 00 00 00 55 BE E2 58 31 32 33 34 35 36 37 38 39 31 39 39 31 32 33 34 35 36 37 38 39 31 39 39 39 31 32 33 34 88 ";
+        String byteString="23 23 00 51 00 56 1E 16 3D 12 01 33 35 35 30 36 35 30 35 33 33 31 31 30 30 31 00 00 00 00 0C 00 00 56 1E 16 3D 31 32 33 34 35 36 37 38 39 31 39 39 31 32 33 34 35 36 37 38 39 31 39 39 39 31 32 33 34 31 32 33 34 35 36 37 38 39 30 30 39 38 37 36 35 34 33 32 31 47";
         standardTest(byteString, ActiveReq.class);
         String byteStr="23 23 00 21 01 56 04 BF DA 12 03 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 00 00 00 00 00 00 00 55 BE E2 58 00 67 ";
         standardTest(byteStr, ActiveResult.class);
