@@ -132,6 +132,7 @@
                 <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
                 <data:element name="serialNumber" type="STRING" size="12"/><!--车载终端编号-->
                 <data:element name="vin" type="STRING" size="17"/>       <!--车辆唯一识别码-->
+                <data:element name="iccid" type="STRING" size="20"/>       <!--车辆唯一识别码-->
             </data:unit>
             <!--激活(T平台向T-BOX发送激活返回信息)-->
             <data:unit name="TBOX_ActiveResp" key="18_2">
