@@ -155,6 +155,9 @@
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>          <!--事件记录ID一个事件完成周期内使相同的eventID-->
                 <data:element name="registerResult" type="U_INT_8"/><!--0注册成功 1注册失败-->
+                <data:element name="totalSize" type="U_INT_32"/>
+                <data:element name="usedSize" type="U_INT_32"/>
+                <data:element name="keyInfo" type="BYTE" size="16"/>
             </data:unit>
 
             <!--远程唤醒(T-BOX向T平台发送唤醒请求)-->
