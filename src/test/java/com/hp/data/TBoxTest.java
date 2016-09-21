@@ -268,7 +268,7 @@ public class TBoxTest {
         hr.setVehicleID(new byte[]{(byte) 0, (byte) 0});
         hr.setTripID(1);
         hr.setReserved(0);
-        hr.setTestTime(1443151834l);
+     /*   hr.setTestTime(1443151834l);
         hr.setSerialNumber("123456123456");
         hr.setServerCommTest((short) 1);
         hr.setSdTest((short) 1);
@@ -280,7 +280,7 @@ public class TBoxTest {
         hr.setCanActionTest((short) 1);
         hr.setFarmTest((short) 1);
 
-        hr.setDiaReportDataSize((short) 8);
+        hr.setDiaReportDataSize((short) 8);*/
         hr.setEventID((long) 1444812349);
 
         DataPackage dpw=new DataPackage("8995_17_1");//>>>

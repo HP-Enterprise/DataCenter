@@ -87,42 +87,30 @@
                 <data:element name="vehicleSpeedLast" type="U_INT_16" size="300"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
             </data:elementGroup>
             <data:elementGroup name="failureDataStructure">
-                    <data:element name="warnMsg_acm" type="BYTE"/>
-                    <data:element name="warnMsg_ic" type="U_INT_16"/>
-                    <data:element name="warnMsg_escl" type="BYTE"/>
-                    <data:element name="warnMsg_bcm" type="U_INT_32"/>
-                    <data:element name="warnMsg_esc" type="U_INT_16"/>
-                    <data:element name="warnMsg_tpms" type="BYTE"/>
-                    <data:element name="warnMsg_dme" type="U_INT_16"/>
-                    <data:element name="warnMsg_tcu" type="BYTE"/>
-                    <data:element name="warnMsg_pdc_bsw" type="BYTE"/>
-                    <data:element name="warnMsg_sesam" type="U_INT_16"/>
-                    <data:element name="warnMsg_scu" type="BYTE"/>
-                    <data:element name="warnMsg_tbox" type="BYTE"/>
-                 </data:elementGroup>
+                <data:element name="warnMsg_acm" type="BYTE"/>
+                <data:element name="warnMsg_ic" type="U_INT_16"/>
+                <data:element name="warnMsg_escl" type="BYTE"/>
+                <data:element name="warnMsg_bcm" type="U_INT_32"/>
+                <data:element name="warnMsg_esc" type="U_INT_16"/>
+                <data:element name="warnMsg_tpms" type="BYTE"/>
+                <data:element name="warnMsg_dme" type="U_INT_16"/>
+                <data:element name="warnMsg_tcu" type="BYTE"/>
+                <data:element name="warnMsg_pdc_bsw" type="BYTE"/>
+                <data:element name="warnMsg_sesam" type="U_INT_16"/>
+                <data:element name="warnMsg_scu" type="BYTE"/>
+                <data:element name="warnMsg_tbox" type="BYTE"/>
+            </data:elementGroup>
             <!--电检(T-Box将向T平台发送电检请求)-->
             <data:unit name="TBOX_DiaRequest" key="17_1">
                 <data:include name="dispatcherUp"/>
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>          <!--事件记录ID一个事件完成周期内使相同的eventID-->
-                <data:element name="diaReportDataSize" type="U_INT_8"/><!--状态数据长度-->
-                <data:element name="serialNumber" type="STRING" size="12"/><!--车载终端编号-->
-                <data:element name="testTime" type="U_INT_32"/>          <!--测试时间： 使用从 1970-01-01 00:00:00 到现在的秒数来表示-->
-                <data:element name="ledTest" type="U_INT_8"/>            <!--LED检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
-                <data:element name="farmTest" type="U_INT_8"/>           <!--FARM检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
-                <data:element name="sdTest" type="U_INT_8"/>             <!--SD检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
-                <data:element name="gpsTest" type="U_INT_8"/>            <!--GPS检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
-                <data:element name="gprsTest" type="U_INT_8"/>           <!--GPRS Signal Strength检测 结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
-                <data:element name="resetBatteryMapArrayTest" type="U_INT_8"/><!--Reset Battery Map Array检 测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试-->
-                <data:element name="canActionTest" type="U_INT_8"/>      <!--CAN Action检测结果 Bit0：成功 Bit1：失败 Bit2 ：未测试 -->
-                <data:element name="serverCommTest" type="U_INT_8"/>     <!--serverCommTest 检测 结果 Bit0：成功 Bit1：失败 Bit2 ：未测试 -->
             </data:unit>
             <!--电检(T平台向T-Box反馈T-Box检测结果)-->
             <data:unit name="TBOX_DiaResp" key="17_2">
                 <data:include name="dispatcherDown"/>
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
-                <data:element name="diaReportResp" type="U_INT_8"/>    <!--0：成功 （TBOX_DiagRequest 中各 检测项均为成功） 1：失败 （TBOX_DiagRequest 中有一项为失败)-->
             </data:unit>
 
             <!--激活(T-BOX向T平台发送激活请求)-->
@@ -199,13 +187,20 @@
                 <data:include name="dispatcherUp"/>
                 <data:include name="gpsPosition"/>
                 <data:include name="realTimeReplacement"/>
-                </data:unit>
-
+            </data:unit>
+            <data:unit name="TBOX_RealTimeReportMesResp" key="34_2">
+                <data:include name="dispatcherDown"/>
+                <data:element name="eventID" type="U_INT_32"/>     <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
+            </data:unit>
             <!--补发实时数据上报-->
             <data:unit name="TBOX_DataResendRealtimeData" key="35_1">
                 <data:include name="dispatcherUp"/>
                 <data:include name="gpsPosition"/>
                 <data:include name="realTimeReplacement"/>
+            </data:unit>
+            <data:unit name="TBOX_DataResendRealtimeDataResp" key="35_2">
+                <data:include name="dispatcherDown"/>
+                <data:element name="eventID" type="U_INT_32"/>     <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
             </data:unit>
 
             <!--报警数据上报-->
@@ -214,12 +209,20 @@
                 <data:include name="gpsPosition"/>
                 <data:include name="alarmDataStructure"/>
             </data:unit>
+            <data:unit name="TBOX_WarningMessageResp" key="36_2">
+                <data:include name="dispatcherDown"/>
+                <data:element name="eventID" type="U_INT_32"/>     <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
+            </data:unit>
 
             <!--补发报警数据上报-->
             <data:unit name="TBOX_DataResendWarningData" key="37_1">
                 <data:include name="dispatcherUp"/>
                 <data:include name="gpsPosition"/>
                 <data:include name="alarmDataStructure"/>
+            </data:unit>
+            <data:unit name="TBOX_DataResendWarningDataResp" key="37_2">
+                <data:include name="dispatcherDown"/>
+                <data:element name="eventID" type="U_INT_32"/>     <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
             </data:unit>
 
             <!--心跳数据上报(T-Box向T平台发送心跳请求)-->
@@ -250,12 +253,19 @@
                 <data:include name="gpsPosition"/>
                 <data:include name="failureDataStructure"/>
             </data:unit>
-
+            <data:unit name="TBOX_FailureMessageResp" key="40_2">
+                <data:include name="dispatcherDown"/>
+                <data:element name="eventID" type="U_INT_32"/>     <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
+            </data:unit>
             <!--补发故障数据上报-->
             <data:unit name="TBOX_DataResendFailureData" key="41_1">
                 <data:include name="dispatcherUp"/>
                 <data:include name="gpsPosition"/>
                 <data:include name="failureDataStructure"/>
+            </data:unit>
+            <data:unit name="TBOX_DataResendFailureDataResp" key="41_2">
+                <data:include name="dispatcherDown"/>
+                <data:element name="eventID" type="U_INT_32"/>     <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
             </data:unit>
 
             <!--远程控制命令(T平台向T-Box发送远程控制预请求)-->
