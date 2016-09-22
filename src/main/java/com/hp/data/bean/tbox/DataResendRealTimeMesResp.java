@@ -3,7 +3,7 @@ package com.hp.data.bean.tbox;
 import com.hp.data.core.DataEntity;
 
 @DataEntity(key = "8995")
-public class DiaRequest extends TBoxUpBean{
+public class DataResendRealTimeMesResp extends TBoxDownBean{
     private Long eventID;
 
     public Long getEventID() {
@@ -13,6 +13,4 @@ public class DiaRequest extends TBoxUpBean{
     public void setEventID(Long eventID) {
         this.eventID = eventID;
     }
-
-
 }

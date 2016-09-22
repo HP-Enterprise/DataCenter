@@ -10,6 +10,7 @@ public class WarningMessage extends TBoxUpBean{
     private Integer speed;
     private Integer heading;
     private Byte srsWarning;
+    private Byte crashWarning;
     private Byte ataWarning;
     private Short safetyBeltCount;
     private Integer[]  vehicleSpeedLast;
@@ -61,6 +62,14 @@ public class WarningMessage extends TBoxUpBean{
 
     public void setSrsWarning(Byte srsWarning) {
         this.srsWarning = srsWarning;
+    }
+
+    public Byte getCrashWarning() {
+        return crashWarning;
+    }
+
+    public void setCrashWarning(Byte crashWarning) {
+        this.crashWarning = crashWarning;
     }
 
     public Byte getAtaWarning() {

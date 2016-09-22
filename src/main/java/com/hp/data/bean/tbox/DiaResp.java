@@ -5,7 +5,6 @@ import com.hp.data.core.DataEntity;
 @DataEntity(key = "8995")
 public class DiaResp extends TBoxDownBean{
     private Long eventID;
-    private Short diaReportResp;
 
     public Long getEventID() {
         return eventID;
@@ -15,11 +14,5 @@ public class DiaResp extends TBoxDownBean{
         this.eventID = eventID;
     }
 
-    public Short getDiaReportResp() {
-        return diaReportResp;
-    }
 
-    public void setDiaReportResp(Short diaReportResp) {
-        this.diaReportResp = diaReportResp;
-    }
 }
