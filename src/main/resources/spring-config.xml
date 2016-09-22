@@ -23,7 +23,8 @@
                 <data:element name="messageID" type="U_INT_8"/>             <!--消息类型编号-->
                 <data:element name="imei" type="STRING" size="15"/>         <!--International Mobile Equipment Identity-->
                 <data:element name="protocolVersionNumber" type="U_INT_8"/> <!--协议版本号-->
-                <data:element name="vehicleID" type="BYTE" size="2"/>            <!--车场编号-->
+                <data:element name="vehicleID" type="U_INT_8"/>            <!--车场编号-->
+                <data:element name="vehicleModel" type="U_INT_8"/>             <!--预留-->
                 <data:element name="tripID" type="U_INT_16"/>                <!--记录电动机启动次数，0~65535 后清零-->
                 <data:element name="reserved" type="U_INT_16"/>             <!--预留-->
             </data:elementGroup>
@@ -82,6 +83,7 @@
             </data:elementGroup>
             <data:elementGroup name="alarmDataStructure">
                 <data:element name="srsWarning" type="BYTE"/>                 <!-- 安全气囊报警 bit0-1 0x0 未触发 0x1触发-->
+                <data:element name="crashWarning" type="BYTE"/>
                 <data:element name="ataWarning" type="BYTE"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
                 <data:element name="safetyBeltCount" type="U_INT_8"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
                 <data:element name="vehicleSpeedLast" type="U_INT_16" size="300"/>                  <!-- 车辆防盗报警 bit0-1 0x0 未触发 0x1触发-->
@@ -178,6 +180,23 @@
                 <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
                 <data:element name="registerResult" type="U_INT_8"/>     <!--0：远程唤醒成功 1：远程唤醒失败-->
             </data:unit>
+
+            <!--T-BOX向T平台发送流量查询请求-->
+            <data:unit name="TBOX_FlowReq" key="21_1">
+                <data:include name="dispatcherUp"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>          <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
+            </data:unit>
+            <!--流量查询返回信息)-->
+            <data:unit name="TBOX_FlowResp" key="21_2">
+                <data:include name="dispatcherDown"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
+                <data:element name="totalSize" type="U_INT_32"/>
+                <data:element name="usedSize" type="U_INT_32"/>
+            </data:unit>
+
+
 
             <!--固定数据上报-->
             <data:unit name="TBOX_RegularReportMes" key="33_1">
@@ -323,6 +342,22 @@
                 <data:element name="eventID" type="U_INT_32"/>   <!--事件记录 ID 一个事件完成周期 内使用相同的 eventID-->
                 <data:element name="remoteControlAck" type="U_INT_8"/><!--0：成功 1：失败 -->
                 <data:element name="remoteControlTime" type="U_INT_8"/><!--执行次数 -->
+            </data:unit>
+
+
+            <!--远程控制设置-->
+            <data:unit name="TBOX_RemoteSettingReq" key="50_1">
+                <data:include name="dispatcherDown"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>          <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
+                <data:element name="remoteFunction" type="U_INT_16"/>
+            </data:unit>
+            <!--流量查询返回信息)-->
+            <data:unit name="TBOX_RemoteSettingResp" key="50_2">
+                <data:include name="dispatcherUp"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
+                <data:element name="response" type="U_INT_8"/>
             </data:unit>
 
 
