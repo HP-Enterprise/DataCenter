@@ -485,6 +485,14 @@
                 <data:element name="responseStatus" type="U_INT_8"/> <!--0:OK  1:CheckSum error  2：长度超过 480 error  3：当前包号码不匹配 （比如此次应该接收第 5 包，来的不是第 5 包） 4:没有接收到首包就接 收到其他包错误  5：在中间包接收时来了 头包-->
                 <data:element name="check" type="U_INT_8"/>  <!--检查-->
             </data:unit>
+
+            <!--解密失败报告（TBOX->平台）-->
+            <data:unit name="TBOX_InvalidReport" key="97_1">
+                <data:include name="dispatcherDown"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
+            </data:unit>
+
         </data:body>
         <data:tail>
             <data:element name="checkSum" type="BYTE"/>                     <!--数据包校验和-->
