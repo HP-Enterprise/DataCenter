@@ -6,6 +6,7 @@ import com.hp.data.core.DataEntity;
  */
 @DataEntity(key = "8995")
 public class DataResendFailureData extends TBoxUpBean{
+    private Long eventID;
     private Short isLocation;
     private Long latitude;
     private Long longitude;
@@ -24,6 +25,14 @@ public class DataResendFailureData extends TBoxUpBean{
     private Integer warnMsg_sesam;
     private Byte warnMsg_scu;
     private Byte warnMsg_tbox;
+
+    public Long getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(Long eventID) {
+        this.eventID = eventID;
+    }
 
     public Short getIsLocation() {
         return isLocation;

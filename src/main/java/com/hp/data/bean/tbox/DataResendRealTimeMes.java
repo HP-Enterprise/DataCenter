@@ -4,6 +4,7 @@ import com.hp.data.core.DataEntity;
 
 @DataEntity(key = "8995")
 public class DataResendRealTimeMes extends TBoxUpBean{
+    private Long eventID;
     private Short isLocation;
     private Long latitude;
     private Long longitude;
@@ -33,6 +34,14 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Byte acm_crash_status;
     private Integer drivingRange;
     private Integer voltage;
+
+    public Long getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(Long eventID) {
+        this.eventID = eventID;
+    }
 
     public Short getIsLocation() {
         return isLocation;

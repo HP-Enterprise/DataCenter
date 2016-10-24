@@ -179,6 +179,9 @@
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
                 <data:element name="registerResult" type="U_INT_8"/>     <!--0：远程唤醒成功 1：远程唤醒失败-->
+                <data:element name="totalSize" type="U_INT_32"/>
+                <data:element name="usedSize" type="U_INT_32"/>
+                <data:element name="keyInfo" type="BYTE" size="16"/>
             </data:unit>
 
             <!--T-BOX向T平台发送流量查询请求-->
@@ -207,6 +210,7 @@
             <!--实时数据上报-->
             <data:unit name="TBOX_RealTimeReportMes" key="34_1">
                 <data:include name="dispatcherUp"/>
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
                 <data:include name="gpsPosition"/>
                 <data:include name="realTimeReplacement"/>
             </data:unit>
@@ -217,6 +221,7 @@
             <!--补发实时数据上报-->
             <data:unit name="TBOX_DataResendRealtimeData" key="35_1">
                 <data:include name="dispatcherUp"/>
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
                 <data:include name="gpsPosition"/>
                 <data:include name="realTimeReplacement"/>
             </data:unit>
@@ -228,6 +233,7 @@
             <!--报警数据上报-->
             <data:unit name="TBOX_WarningMessage" key="36_1">
                 <data:include name="dispatcherUp"/>
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
                 <data:include name="gpsPosition"/>
                 <data:include name="alarmDataStructure"/>
             </data:unit>
@@ -239,6 +245,7 @@
             <!--补发报警数据上报-->
             <data:unit name="TBOX_DataResendWarningData" key="37_1">
                 <data:include name="dispatcherUp"/>
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
                 <data:include name="gpsPosition"/>
                 <data:include name="alarmDataStructure"/>
             </data:unit>
@@ -272,6 +279,7 @@
             <!--故障数据上报-->
             <data:unit name=" TBOX_FailureMessage" key="40_1">
                 <data:include name="dispatcherUp"/>
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
                 <data:include name="gpsPosition"/>
                 <data:include name="failureDataStructure"/>
             </data:unit>
@@ -282,6 +290,7 @@
             <!--补发故障数据上报-->
             <data:unit name="TBOX_DataResendFailureData" key="41_1">
                 <data:include name="dispatcherUp"/>
+                <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
                 <data:include name="gpsPosition"/>
                 <data:include name="failureDataStructure"/>
             </data:unit>

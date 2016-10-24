@@ -461,6 +461,7 @@ public class TBoxTest {
         hr.setVehicleModel((short) 0);
         hr.setTripID(1);
         hr.setReserved(0);
+        hr.setEventID(1443151834l);
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
         hr.setLatitude(7745l);
         hr.setLongitude(29215l);
@@ -563,7 +564,7 @@ public class TBoxTest {
         hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-
+        hr.setEventID(1443151834l);
         hr.setSrsWarning((byte) 1);//01000000 触发
         hr.setCrashWarning((byte) 0);
         hr.setAtaWarning((byte) 1);//01000000 触发
@@ -607,7 +608,7 @@ public class TBoxTest {
         hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-
+        hr.setEventID(1443151834l);
         hr.setWarnMsg_acm((byte) 52);
         hr.setWarnMsg_ic(53);
         hr.setWarnMsg_escl((byte) 54);
@@ -646,6 +647,7 @@ public class TBoxTest {
         hr.setVehicleModel((short) 0);
         hr.setTripID(1);
         hr.setReserved(0);
+        hr.setEventID(1443151834l);
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
         hr.setLatitude(7745l);
         hr.setLongitude(29215l);
@@ -700,6 +702,7 @@ public class TBoxTest {
         hr.setVehicleModel((short) 0);
         hr.setTripID(1);
         hr.setReserved(0);
+        hr.setEventID(1443151834l);
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
         hr.setLatitude(7745l);
         hr.setLongitude(29215l);
@@ -743,7 +746,7 @@ public class TBoxTest {
         hr.setVehicleModel((short) 0);
         hr.setTripID(1);
         hr.setReserved(0);
-
+        hr.setEventID(1443151834l);
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
         hr.setLatitude(7745l);
         hr.setLongitude(29215l);
