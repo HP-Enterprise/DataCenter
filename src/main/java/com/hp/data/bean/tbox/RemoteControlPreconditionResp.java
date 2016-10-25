@@ -19,9 +19,9 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
     private Byte acm_crash_status;
     private byte[] bcm_Stat_Door_Flap;
     private Byte bcm_Stat_Central_Lock;
-    private Byte bcm_Stat_window;
+    private byte[] bcm_Stat_window;
     private Byte epb_status;
-    private Byte stateOfCharge;
+    private byte[] stateOfCharge;
     private Byte sesam_hw_status;
     private Byte tcu_ecu_stat;
     private Byte bcm_Stat_window2;
@@ -124,11 +124,11 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
         this.bcm_Stat_Central_Lock = bcm_Stat_Central_Lock;
     }
 
-    public Byte getBcm_Stat_window() {
+    public byte[] getBcm_Stat_window() {
         return bcm_Stat_window;
     }
 
-    public void setBcm_Stat_window(Byte bcm_Stat_window) {
+    public void setBcm_Stat_window(byte[] bcm_Stat_window) {
         this.bcm_Stat_window = bcm_Stat_window;
     }
 
@@ -140,11 +140,11 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
         this.epb_status = epb_status;
     }
 
-    public Byte getStateOfCharge() {
+    public byte[] getStateOfCharge() {
         return stateOfCharge;
     }
 
-    public void setStateOfCharge(Byte stateOfCharge) {
+    public void setStateOfCharge(byte[] stateOfCharge) {
         this.stateOfCharge = stateOfCharge;
     }
 

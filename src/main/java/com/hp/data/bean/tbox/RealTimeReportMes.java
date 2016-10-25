@@ -19,7 +19,7 @@ public class RealTimeReportMes extends TBoxUpBean{
     private Short leftRearTirePressure;
     private Short rightFrontTirePressure;
     private Short rightRearTirePressure;
-    private Short windowInformation;
+    private Integer windowInformation;
     private Short vehicleTemperature;
     private Short vehicleOuterTemperature;
     private Short doorInformation;
@@ -156,11 +156,11 @@ public class RealTimeReportMes extends TBoxUpBean{
         this.rightRearTirePressure = rightRearTirePressure;
     }
 
-    public Short getWindowInformation() {
+    public Integer getWindowInformation() {
         return windowInformation;
     }
 
-    public void setWindowInformation(Short windowInformation) {
+    public void setWindowInformation(Integer windowInformation) {
         this.windowInformation = windowInformation;
     }
 

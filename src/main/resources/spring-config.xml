@@ -64,7 +64,7 @@
                 <data:element name="leftRearTirePressure" type="U_INT_8"/><!--分辨率2.8 kpa，偏移量0 显示范围： 0kPa ~714 kpa 上报数据范围： 0~255 缺省值： 0x00 -->
                 <data:element name="rightFrontTirePressure" type="U_INT_8"/><!--分辨率2.8 kpa，偏移量0 显示范围： 0kPa ~714 kpa 上报数据范围： 0~255 缺省值： 0x00 -->
                 <data:element name="rightRearTirePressure" type="U_INT_8"/><!--分辨率2.8 kpa，偏移量0 显示范围： 0kPa ~714 kpa 上报数据范围： 0~255 缺省值： 0x00 -->
-                <data:element name="windowInformation" type="U_INT_8"/>   <!--Bit0~1： STAT_WindowFL Bit2~3： STAT_WindowFR	Bit4~5： STAT_WindowRL	Bit6~7： STAT_WindowRR	0x0： Open 0x1： ntermediate0x2： Close 0x3： Signal invalid-->
+                <data:element name="windowInformation" type="U_INT_16"/>   <!--Bit0~1： STAT_WindowFL Bit2~3： STAT_WindowFR	Bit4~5： STAT_WindowRL	Bit6~7： STAT_WindowRR	0x0： Open 0x1： ntermediate0x2： Close 0x3： Signal invalid-->
                 <data:element name="vehicleTemperature" type="U_INT_8"/>  <!--分辨率1 ℃，偏移量40，显示范围：-40℃ ~ 85℃上报数据范围： 0~125 缺省值： 0x32 无效值： 0xFF-->
                 <data:element name="vehicleOuterTemperature" type="U_INT_8"/><!--分辨率1 ℃，偏移量40，显示范围：-40℃ ~ 85℃上报数据范围： 0~125 缺省值： 0x32 无效值： 0xFF-->
                 <data:element name="doorInformation" type="U_INT_8"/>     <!--Bit0~1： STAT_DoorAjarFL Bit2~3：STAT_DoorAjarFR Bit4~5：STAT_DoorAjarRL Bit6~7：STAT_DoorAjarRR 0x0： Close0x1： Open0x2： Reserved0x3： Signal invalid-->
@@ -319,9 +319,9 @@
                 <data:element name="acm_crash_status" type="BYTE"/>
                 <data:element name="bcm_Stat_Door_Flap" type="BYTE" size="2"/>
                 <data:element name="bcm_Stat_Central_Lock" type="BYTE"/>
-                <data:element name="bcm_Stat_window" type="BYTE"/>
+                <data:element name="bcm_Stat_window" type="BYTE" size="2"/>
                 <data:element name="epb_status" type="BYTE"/>
-                <data:element name="stateOfCharge" type="BYTE"/>
+                <data:element name="stateOfCharge" type="BYTE" size="2"/>
                 <data:element name="sesam_hw_status" type="BYTE"/>
                 <data:element name="tcu_ecu_stat" type="BYTE"/>
                 <data:element name="bcm_Stat_window2" type="BYTE"/>

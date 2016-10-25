@@ -114,9 +114,9 @@ public class TBoxTest {
         hr.setAcm_crash_status(((byte) 0));
         hr.setBcm_Stat_Door_Flap(new byte[]{(byte) 0, (byte) 0});
         hr.setBcm_Stat_Central_Lock((byte) 1);
-        hr.setBcm_Stat_window((byte) 255);
+        hr.setBcm_Stat_window(new byte[]{(byte) 0, (byte) 255});
         hr.setEpb_status((byte) 1);
-        hr.setStateOfCharge((byte) 170);
+        hr.setStateOfCharge(new byte[]{(byte) 00, (byte) 170});
         hr.setSesam_hw_status((byte) 170);
         hr.setTcu_ecu_stat((byte) 1);
         hr.setBcm_Stat_window2((byte) 1);
@@ -475,7 +475,7 @@ public class TBoxTest {
         hr.setLeftRearTirePressure((short) 101);
         hr.setRightFrontTirePressure((short) 102);
         hr.setRightRearTirePressure((short) 103);
-        hr.setWindowInformation((short) 15);//00001111开开关关
+        hr.setWindowInformation( 15);//00001111开开关关
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
         hr.setDoorInformation((short) 15);
@@ -661,7 +661,7 @@ public class TBoxTest {
         hr.setLeftRearTirePressure((short) 101);
         hr.setRightFrontTirePressure((short) 102);
         hr.setRightRearTirePressure((short) 103);
-        hr.setWindowInformation((short) 15);//00001111开开关关
+        hr.setWindowInformation(15);//00001111开开关关
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
         hr.setDoorInformation((short) 15);
