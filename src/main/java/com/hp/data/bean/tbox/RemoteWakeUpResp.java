@@ -6,6 +6,9 @@ import com.hp.data.core.DataEntity;
 public class RemoteWakeUpResp extends TBoxDownBean{
     private Long eventID;
     private Short registerResult;
+    private Long totalSize;//总流量
+    private Long usedSize;//已使用流量
+    private byte[] keyInfo;
 
     public Short getRegisterResult() {
         return registerResult;
@@ -18,5 +21,29 @@ public class RemoteWakeUpResp extends TBoxDownBean{
     }
     public void setEventID(Long eventID) {
         this.eventID = eventID;
+    }
+
+    public Long getTotalSize() {
+        return totalSize;
+    }
+
+    public void setTotalSize(Long totalSize) {
+        this.totalSize = totalSize;
+    }
+
+    public Long getUsedSize() {
+        return usedSize;
+    }
+
+    public void setUsedSize(Long usedSize) {
+        this.usedSize = usedSize;
+    }
+
+    public byte[] getKeyInfo() {
+        return keyInfo;
+    }
+
+    public void setKeyInfo(byte[] keyInfo) {
+        this.keyInfo = keyInfo;
     }
 }

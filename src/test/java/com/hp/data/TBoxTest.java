@@ -114,9 +114,9 @@ public class TBoxTest {
         hr.setAcm_crash_status(((byte) 0));
         hr.setBcm_Stat_Door_Flap(new byte[]{(byte) 0, (byte) 0});
         hr.setBcm_Stat_Central_Lock((byte) 1);
-        hr.setBcm_Stat_window((byte) 255);
+        hr.setBcm_Stat_window(new byte[]{(byte) 0, (byte) 255});
         hr.setEpb_status((byte) 1);
-        hr.setStateOfCharge((byte) 170);
+        hr.setStateOfCharge(new byte[]{(byte) 00, (byte) 170});
         hr.setSesam_hw_status((byte) 170);
         hr.setTcu_ecu_stat((byte) 1);
         hr.setBcm_Stat_window2((byte) 1);
@@ -461,6 +461,7 @@ public class TBoxTest {
         hr.setVehicleModel((short) 0);
         hr.setTripID(1);
         hr.setReserved(0);
+        hr.setEventID(1443151834l);
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
         hr.setLatitude(7745l);
         hr.setLongitude(29215l);
@@ -474,7 +475,7 @@ public class TBoxTest {
         hr.setLeftRearTirePressure((short) 101);
         hr.setRightFrontTirePressure((short) 102);
         hr.setRightRearTirePressure((short) 103);
-        hr.setWindowInformation((short) 15);//00001111开开关关
+        hr.setWindowInformation( 15);//00001111开开关关
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
         hr.setDoorInformation((short) 15);
@@ -563,7 +564,7 @@ public class TBoxTest {
         hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-
+        hr.setEventID(1443151834l);
         hr.setSrsWarning((byte) 1);//01000000 触发
         hr.setCrashWarning((byte) 0);
         hr.setAtaWarning((byte) 1);//01000000 触发
@@ -607,7 +608,7 @@ public class TBoxTest {
         hr.setLongitude(29215l);
         hr.setSpeed(1567);
         hr.setHeading(234);
-
+        hr.setEventID(1443151834l);
         hr.setWarnMsg_acm((byte) 52);
         hr.setWarnMsg_ic(53);
         hr.setWarnMsg_escl((byte) 54);
@@ -646,6 +647,7 @@ public class TBoxTest {
         hr.setVehicleModel((short) 0);
         hr.setTripID(1);
         hr.setReserved(0);
+        hr.setEventID(1443151834l);
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
         hr.setLatitude(7745l);
         hr.setLongitude(29215l);
@@ -659,7 +661,7 @@ public class TBoxTest {
         hr.setLeftRearTirePressure((short) 101);
         hr.setRightFrontTirePressure((short) 102);
         hr.setRightRearTirePressure((short) 103);
-        hr.setWindowInformation((short) 15);//00001111开开关关
+        hr.setWindowInformation(15);//00001111开开关关
         hr.setVehicleTemperature((short) 65);
         hr.setVehicleOuterTemperature((short) 67);
         hr.setDoorInformation((short) 15);
@@ -700,6 +702,7 @@ public class TBoxTest {
         hr.setVehicleModel((short) 0);
         hr.setTripID(1);
         hr.setReserved(0);
+        hr.setEventID(1443151834l);
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
         hr.setLatitude(7745l);
         hr.setLongitude(29215l);
@@ -743,7 +746,7 @@ public class TBoxTest {
         hr.setVehicleModel((short) 0);
         hr.setTripID(1);
         hr.setReserved(0);
-
+        hr.setEventID(1443151834l);
         hr.setIsLocation((short) 0);//00000000表示有效北纬东经
         hr.setLatitude(7745l);
         hr.setLongitude(29215l);

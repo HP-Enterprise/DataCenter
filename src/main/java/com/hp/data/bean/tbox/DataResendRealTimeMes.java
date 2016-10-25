@@ -4,6 +4,7 @@ import com.hp.data.core.DataEntity;
 
 @DataEntity(key = "8995")
 public class DataResendRealTimeMes extends TBoxUpBean{
+    private Long eventID;
     private Short isLocation;
     private Long latitude;
     private Long longitude;
@@ -17,7 +18,7 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Short leftRearTirePressure;
     private Short rightFrontTirePressure;
     private Short rightRearTirePressure;
-    private Short windowInformation;
+    private Integer windowInformation;
     private Short vehicleTemperature;
     private Short vehicleOuterTemperature;
     private Short doorInformation;
@@ -33,6 +34,14 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Byte acm_crash_status;
     private Integer drivingRange;
     private Integer voltage;
+
+    public Long getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(Long eventID) {
+        this.eventID = eventID;
+    }
 
     public Short getIsLocation() {
         return isLocation;
@@ -146,11 +155,11 @@ public class DataResendRealTimeMes extends TBoxUpBean{
         this.rightRearTirePressure = rightRearTirePressure;
     }
 
-    public Short getWindowInformation() {
+    public Integer getWindowInformation() {
         return windowInformation;
     }
 
-    public void setWindowInformation(Short windowInformation) {
+    public void setWindowInformation(Integer windowInformation) {
         this.windowInformation = windowInformation;
     }
 

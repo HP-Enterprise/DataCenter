@@ -4,6 +4,8 @@ import com.hp.data.core.DataEntity;
 
 @DataEntity(key = "8995")
 public class WarningMessage extends TBoxUpBean{
+
+    private Long eventID;
     private Short isLocation;
     private Long latitude;
     private Long longitude;
@@ -15,6 +17,13 @@ public class WarningMessage extends TBoxUpBean{
     private Short safetyBeltCount;
     private Integer[]  vehicleSpeedLast;
 
+    public Long getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(Long eventID) {
+        this.eventID = eventID;
+    }
 
     public Short getIsLocation() {
         return isLocation;

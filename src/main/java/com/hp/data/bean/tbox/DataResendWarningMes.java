@@ -6,6 +6,7 @@ import com.hp.data.core.DataEntity;
  */
 @DataEntity(key = "8995")
 public class DataResendWarningMes extends TBoxUpBean{
+    private Long eventID;
     private Short isLocation;
     private Long latitude;
     private Long longitude;
@@ -16,6 +17,14 @@ public class DataResendWarningMes extends TBoxUpBean{
     private Byte ataWarning;
     private Short safetyBeltCount;
     private Integer[]  vehicleSpeedLast;
+
+    public Long getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(Long eventID) {
+        this.eventID = eventID;
+    }
 
     public Short getIsLocation() {
         return isLocation;
