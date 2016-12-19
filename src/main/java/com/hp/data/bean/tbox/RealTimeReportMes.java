@@ -35,6 +35,9 @@ public class RealTimeReportMes extends TBoxUpBean{
     private Byte acm_crash_status;
     private Integer drivingRange;
     private Integer voltage;
+    private Long tripA;
+    private Long tripB;
+    private Integer safeBelt;
 
     public Long getEventID() {
         return eventID;
@@ -274,5 +277,29 @@ public class RealTimeReportMes extends TBoxUpBean{
 
     public void setVoltage(Integer voltage) {
         this.voltage = voltage;
+    }
+
+    public Long getTripA() {
+        return tripA;
+    }
+
+    public void setTripA(Long tripA) {
+        this.tripA = tripA;
+    }
+
+    public Long getTripB() {
+        return tripB;
+    }
+
+    public void setTripB(Long tripB) {
+        this.tripB = tripB;
+    }
+
+    public Integer getSafeBelt() {
+        return safeBelt;
+    }
+
+    public void setSafeBelt(Integer safeBelt) {
+        this.safeBelt = safeBelt;
     }
 }
