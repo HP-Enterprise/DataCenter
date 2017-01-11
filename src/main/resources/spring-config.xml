@@ -80,9 +80,7 @@
                 <data:element name="acm_crash_status" type="BYTE"/>
                 <data:element name="drivingRange" type="U_INT_16"/><!--行驶里程 -->
                 <data:element name="voltage" type="U_INT_16"/><!--蓄电池电压 -->
-                <data:element name="tripA" type="U_INT_32"/><!--小计里程A -->
-                <data:element name="tripB" type="U_INT_32"/><!--小计里程B -->
-                <data:element name="safeBelt" type="U_INT_16"/><!--安全带 -->
+                <data:element name="mt_gear_position" type="BYTE"/><!--手动挡空挡信号 -->
             </data:elementGroup>
             <data:elementGroup name="alarmDataStructure">
                 <data:element name="srsWarning" type="BYTE"/>                 <!-- 安全气囊报警 bit0-1 0x0 未触发 0x1触发-->

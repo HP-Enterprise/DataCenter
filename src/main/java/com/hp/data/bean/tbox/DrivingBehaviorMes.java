@@ -15,6 +15,15 @@ public class DrivingBehaviorMes extends TBoxUpBean{
     private Integer[]  lws;//方向盘转角信息 *40
     private Integer[]  bcvol;//方向盘开关信息 *40
     private Short[]  cruise;//车辆加速减速信息 *40
+    private Integer safeBelt;//安全带信息
+    private Long tripA;//小计里程A
+    private Long tripB;//小计里程B
+    private byte[] kilometerMileage;//行驶里程
+    private Short fuelOil;//剩余油量
+    private Integer avgOilA;//平均油耗A
+    private Integer avgOilB;//平均油耗B
+
+
 
     public Long getEventID() {
         return eventID;
@@ -78,5 +87,61 @@ public class DrivingBehaviorMes extends TBoxUpBean{
 
     public void setCruise(Short[] cruise) {
         this.cruise = cruise;
+    }
+
+    public Integer getSafeBelt() {
+        return safeBelt;
+    }
+
+    public void setSafeBelt(Integer safeBelt) {
+        this.safeBelt = safeBelt;
+    }
+
+    public Long getTripA() {
+        return tripA;
+    }
+
+    public void setTripA(Long tripA) {
+        this.tripA = tripA;
+    }
+
+    public Long getTripB() {
+        return tripB;
+    }
+
+    public void setTripB(Long tripB) {
+        this.tripB = tripB;
+    }
+
+    public byte[] getKilometerMileage() {
+        return kilometerMileage;
+    }
+
+    public void setKilometerMileage(byte[] kilometerMileage) {
+        this.kilometerMileage = kilometerMileage;
+    }
+
+    public Short getFuelOil() {
+        return fuelOil;
+    }
+
+    public void setFuelOil(Short fuelOil) {
+        this.fuelOil = fuelOil;
+    }
+
+    public Integer getAvgOilA() {
+        return avgOilA;
+    }
+
+    public void setAvgOilA(Integer avgOilA) {
+        this.avgOilA = avgOilA;
+    }
+
+    public Integer getAvgOilB() {
+        return avgOilB;
+    }
+
+    public void setAvgOilB(Integer avgOilB) {
+        this.avgOilB = avgOilB;
     }
 }

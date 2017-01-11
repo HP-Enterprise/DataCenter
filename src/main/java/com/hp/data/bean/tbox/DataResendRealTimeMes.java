@@ -34,9 +34,8 @@ public class DataResendRealTimeMes extends TBoxUpBean{
     private Byte acm_crash_status;
     private Integer drivingRange;
     private Integer voltage;
-    private Long tripA;
-    private Long tripB;
-    private Integer safeBelt;
+    private Byte mt_gear_position;
+
 
     public Long getEventID() {
         return eventID;
@@ -278,27 +277,11 @@ public class DataResendRealTimeMes extends TBoxUpBean{
         this.voltage = voltage;
     }
 
-    public Long getTripA() {
-        return tripA;
+    public Byte getMt_gear_position() {
+        return mt_gear_position;
     }
 
-    public void setTripA(Long tripA) {
-        this.tripA = tripA;
-    }
-
-    public Long getTripB() {
-        return tripB;
-    }
-
-    public void setTripB(Long tripB) {
-        this.tripB = tripB;
-    }
-
-    public Integer getSafeBelt() {
-        return safeBelt;
-    }
-
-    public void setSafeBelt(Integer safeBelt) {
-        this.safeBelt = safeBelt;
+    public void setMt_gear_position(Byte mt_gear_position) {
+        this.mt_gear_position = mt_gear_position;
     }
 }
