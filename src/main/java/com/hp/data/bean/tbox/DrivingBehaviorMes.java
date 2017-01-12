@@ -18,7 +18,7 @@ public class DrivingBehaviorMes extends TBoxUpBean{
     private Integer safeBelt;//安全带信息
     private Long tripA;//小计里程A
     private Long tripB;//小计里程B
-    private byte[] kilometerMileage;//行驶里程
+    private Integer kilometerMileage;//行驶里程 24bit
     private Short fuelOil;//剩余油量
     private Integer avgOilA;//平均油耗A
     private Integer avgOilB;//平均油耗B
@@ -113,11 +113,11 @@ public class DrivingBehaviorMes extends TBoxUpBean{
         this.tripB = tripB;
     }
 
-    public byte[] getKilometerMileage() {
+    public Integer getKilometerMileage() {
         return kilometerMileage;
     }
 
-    public void setKilometerMileage(byte[] kilometerMileage) {
+    public void setKilometerMileage(Integer kilometerMileage) {
         this.kilometerMileage = kilometerMileage;
     }
 
