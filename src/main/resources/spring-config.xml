@@ -80,6 +80,7 @@
                 <data:element name="acm_crash_status" type="BYTE"/>
                 <data:element name="drivingRange" type="U_INT_16"/><!--行驶里程 -->
                 <data:element name="voltage" type="U_INT_16"/><!--蓄电池电压 -->
+                <data:element name="mt_gear_position" type="BYTE"/><!--手动挡空挡信号 -->
             </data:elementGroup>
             <data:elementGroup name="alarmDataStructure">
                 <data:element name="srsWarning" type="BYTE"/>                 <!-- 安全气囊报警 bit0-1 0x0 未触发 0x1触发-->
@@ -298,6 +299,13 @@
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>     <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
             </data:unit>
+
+            <!-- 驾驶行为数据ACK-->
+            <data:unit name="TBOX_DrivingBehaviorAck" key="42_2">
+                <data:include name="dispatcherDown"/>
+                <data:element name="eventID" type="U_INT_32"/>     <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
+            </data:unit>
+
 
             <!--远程控制命令(T平台向T-Box发送远程控制预请求)-->
             <data:unit name="TBOX_RemoteControlPreconditionReq" key="49_1">
