@@ -26,7 +26,7 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
     private Byte tcu_ecu_stat;
     private Byte bcm_Stat_window2;
     private Byte sesam_clamp_stat2;
-    private Byte bcm_Stat_Central_Lock2;
+    private Byte bcm_Stat_Central_Lock2;//文档中的字段名称修改为BCM_SWITCH_STATUS
 
     public Long getEventID() {
         return eventID;

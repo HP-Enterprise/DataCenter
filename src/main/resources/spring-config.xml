@@ -115,6 +115,21 @@
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>           <!--事件记录 ID 一个事件完成周期内使用 相同的 eventID-->
             </data:unit>
+            <!--电检(T-Box将向T平台发送注册请求)-->
+            <data:unit name="TBOX_DiagRegisterRequest" key="17_3">
+                <data:include name="dispatcherUp"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>          <!--事件记录ID一个事件完成周期内使相同的eventID-->
+                <data:element name="serialNumber" type="STRING" size="12"/> <!--车载终端编号(为验证 IMEI与 SerialNumber唯一对应-->
+                <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
+            </data:unit>
+            <!--电检(T平台向T-Box反馈T-Box注册结果)-->
+            <data:unit name="TBOX_DiagRegisterResp" key="17_4">
+                <data:include name="dispatcherDown"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>          <!--事件记录ID一个事件完成周期内使相同的eventID-->
+                <data:element name="registerResult" type="U_INT_8"/>    <!--0注册成功 1注册失败-->
+            </data:unit>
 
             <!--激活(T-BOX向T平台发送激活请求)-->
             <data:unit name="TBOX_ActiveReq" key="18_1">
