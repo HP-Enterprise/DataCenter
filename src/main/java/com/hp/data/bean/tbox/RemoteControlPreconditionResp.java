@@ -27,6 +27,8 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
     private Byte bcm_Stat_window2;
     private Byte sesam_clamp_stat2;
     private Byte bcm_Stat_Central_Lock2;//文档中的字段名称修改为BCM_SWITCH_STATUS
+    private Byte ems1_n_vehicleID;
+    private Byte neutralGearSensor;
 
     public Long getEventID() {
         return eventID;
@@ -186,5 +188,21 @@ public class RemoteControlPreconditionResp extends TBoxUpBean{
 
     public void setBcm_Stat_Central_Lock2(Byte bcm_Stat_Central_Lock2) {
         this.bcm_Stat_Central_Lock2 = bcm_Stat_Central_Lock2;
+    }
+
+    public Byte getEms1_n_vehicleID() {
+        return ems1_n_vehicleID;
+    }
+
+    public void setEms1_n_vehicleID(Byte ems1_n_vehicleID) {
+        this.ems1_n_vehicleID = ems1_n_vehicleID;
+    }
+
+    public Byte getNeutralGearSensor() {
+        return neutralGearSensor;
+    }
+
+    public void setNeutralGearSensor(Byte neutralGearSensor) {
+        this.neutralGearSensor = neutralGearSensor;
     }
 }
