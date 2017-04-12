@@ -350,6 +350,8 @@
                 <data:element name="bcm_Stat_window2" type="BYTE"/>
                 <data:element name="sesam_clamp_stat2" type="BYTE"/>
                 <data:element name="bcm_Stat_Central_Lock2" type="BYTE"/>
+                <data:element name="ems1_n_vehicleID" type="BYTE"/>
+                <data:element name="neutralGearSensor" type="BYTE"/>
             </data:unit>
             <!--远程控制命令(T平台向T-Box发送远程控制请求)-->
             <data:unit name="TBOX_RemoteControlCmd" key="49_3">
