@@ -13,6 +13,7 @@ public class DrivingBehaviorMes extends TBoxUpBean{
     private Short[]  brake;//紧急刹车信号 *40
     private Integer[]  speed;//车速信息 *40
     private Integer[]  lws;//方向盘转角信息 *40
+    private Short[]  steeringSpeed;// *40
     private Integer[]  bcvol;//方向盘开关信息 *40
     private Short[]  cruise;//车辆加速减速信息 *40
     private Integer safeBelt;//安全带信息
@@ -143,5 +144,13 @@ public class DrivingBehaviorMes extends TBoxUpBean{
 
     public void setAvgOilB(Integer avgOilB) {
         this.avgOilB = avgOilB;
+    }
+
+    public Short[] getSteeringSpeed() {
+        return steeringSpeed;
+    }
+
+    public void setSteeringSpeed(Short[] steeringSpeed) {
+        this.steeringSpeed = steeringSpeed;
     }
 }
