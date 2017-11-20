@@ -384,7 +384,7 @@
                 <data:include name="dispatcherDown"/>
                 <!--内容信息-->
                 <data:element name="eventID" type="U_INT_32"/>          <!--事件记录 ID 一个事件完成周期内使用相 同的 eventID-->
-                <data:element name="remoteFunction" type="U_INT_16"/>
+                <data:element name="remoteFunction" type="U_INT_8"/>
             </data:unit>
             <!--流量查询返回信息)-->
             <data:unit name="TBOX_RemoteSettingResp" key="50_2">
