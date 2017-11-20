@@ -3,7 +3,7 @@ package com.hp.data.bean.tbox;
 import com.hp.data.core.DataEntity;
 
 @DataEntity(key = "8995")
-public class RemoteSettingResp extends TBoxUpBean{
+public class RemoteSettingResp extends TBoxDownBean{
     private Long eventID;
     private Short response;
 
