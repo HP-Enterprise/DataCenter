@@ -5,7 +5,7 @@ import com.hp.data.core.DataEntity;
 @DataEntity(key = "8995")
 public class RemoteSettingReq extends TBoxUpBean{
     private Long eventID;
-    private Short remoteFunction;
+    private Integer remoteFunction;
     public Long getEventID() {
         return eventID;
     }
@@ -14,11 +14,11 @@ public class RemoteSettingReq extends TBoxUpBean{
         this.eventID = eventID;
     }
 
-    public Short getRemoteFunction() {
+    public Integer getRemoteFunction() {
         return remoteFunction;
     }
 
-    public void setRemoteFunction(Short remoteFunction) {
+    public void setRemoteFunction(Integer remoteFunction) {
         this.remoteFunction = remoteFunction;
     }
 }
