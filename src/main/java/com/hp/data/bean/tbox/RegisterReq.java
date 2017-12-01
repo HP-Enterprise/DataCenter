@@ -10,6 +10,7 @@ public class RegisterReq extends TBoxUpBean{
     private String swVersion;
     private String paramVersion;
     private String dbcVersion;
+    private String fwVersion;
 
     public Long getEventID() {
         return eventID;
@@ -57,5 +58,13 @@ public class RegisterReq extends TBoxUpBean{
 
     public void setDbcVersion(String dbcVersion) {
         this.dbcVersion = dbcVersion;
+    }
+
+    public String getFwVersion() {
+        return fwVersion;
+    }
+
+    public void setFwVersion(String fwVersion) {
+        this.fwVersion = fwVersion;
     }
 }
