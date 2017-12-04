@@ -3,13 +3,14 @@ package com.hp.data.bean.tbox;
 import com.hp.data.core.DataEntity;
 
 @DataEntity(key = "8995")
-public class RegisterReq extends TBoxUpBean{
+public class RegisterF70Req extends TBoxUpBean{
     private Long eventID;
     private String serialNumber;
     private String vin;
     private String swVersion;
     private String paramVersion;
     private String dbcVersion;
+    private String fwVersion;
 
     public Long getEventID() {
         return eventID;
@@ -59,4 +60,11 @@ public class RegisterReq extends TBoxUpBean{
         this.dbcVersion = dbcVersion;
     }
 
+    public String getFwVersion() {
+        return fwVersion;
+    }
+
+    public void setFwVersion(String fwVersion) {
+        this.fwVersion = fwVersion;
+    }
 }

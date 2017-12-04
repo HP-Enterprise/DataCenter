@@ -166,6 +166,17 @@
                 <data:element name="swVersion" type="STRING" size="5"/>     <!--软件版本号-->
                 <data:element name="paramVersion" type="STRING" size="5"/>  <!--参数版本号-->
                 <data:element name="dbcVersion" type="STRING" size="5"/>    <!--DBC版本号-->
+            </data:unit>
+            <!--注册(T-BOX向T平台发送注册请求 针对F70车型)-->
+            <data:unit name="TBOX_RegisterF70Req" key="19_1_F70">
+                <data:include name="dispatcherUp"/>
+                <!--内容信息-->
+                <data:element name="eventID" type="U_INT_32"/>              <!--事件记录ID一个事件完成周期内使相同的eventID-->
+                <data:element name="serialNumber" type="STRING" size="12"/> <!--车载终端编号(为验证 IMEI与 SerialNumber唯一对应-->
+                <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
+                <data:element name="swVersion" type="STRING" size="5"/>     <!--软件版本号-->
+                <data:element name="paramVersion" type="STRING" size="5"/>  <!--参数版本号-->
+                <data:element name="dbcVersion" type="STRING" size="5"/>    <!--DBC版本号-->
                 <data:element name="fwVersion" type="STRING" size="20"/>    <!--固件版本号-->
             </data:unit>
             <!--注册(T平台向T-BOX发送注册返回信息)-->
