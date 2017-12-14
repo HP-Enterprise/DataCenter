@@ -578,13 +578,13 @@
             </data:unit>
 
             <!--T-Box Ftp 远程软件升级-->
-            <data:unit name="TBOX_SoftFtpUpdateCheck" key="54_1">
+            <data:unit name="TBOX_SoftFtpUpdateCheck" key="84_1">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
             </data:unit>
             <!--T-Box Ftp 远程软件升级-->
-            <data:unit name="TBOX_SoftFtpUpdateFileDownLoadRst" key="54_3">
+            <data:unit name="TBOX_SoftFtpUpdateFileDownLoadRst" key="84_3">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
@@ -595,12 +595,12 @@
                 <data:element name="errorCode" type="BYTE"/>          <!--默认0-->
             </data:unit>
             <!--T-Box Ftp 远程软件升级-->
-            <data:unit name="TBOX_SoftFtpUpdateFileDownLoadAck" key="54_4">
+            <data:unit name="TBOX_SoftFtpUpdateFileDownLoadAck" key="84_4">
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
             </data:unit>
             <!--T-Box Ftp 远程软件升级-->
-            <data:unit name="TBOX_SoftFtpUpdateResult" key="54_5">
+            <data:unit name="TBOX_SoftFtpUpdateResult" key="84_5">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
@@ -611,19 +611,19 @@
                 <data:element name="errorCode" type="BYTE"/>          <!--默认0-->
             </data:unit>
             <!--T-Box Ftp 远程软件升级-->
-            <data:unit name="TBOX_SoftFtpUpdateResultAck" key="54_6">
+            <data:unit name="TBOX_SoftFtpUpdateResultAck" key="84_6">
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
             </data:unit>
 
             <!--T-Box Ftp 远程固件升级-->
-            <data:unit name="TBOX_HardFtpUpdateCheck" key="55_1">
+            <data:unit name="TBOX_HardFtpUpdateCheck" key="85_1">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
             </data:unit>
             <!--T-Box Ftp 远程固件升级-->
-            <data:unit name="TBOX_HardFtpUpdateCheckResp" key="55_2">
+            <data:unit name="TBOX_HardFtpUpdateCheckResp" key="85_2">
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="model" type="BYTE"/>  <!--终端类型-->
@@ -637,7 +637,7 @@
                 <data:element name="dialPin" type="STRING" size="20"/>  <!--升级服务器拨号密码-->
             </data:unit>
             <!--T-Box Ftp 远程固件升级-->
-            <data:unit name="TBOX_HardFtpUpdateFileDownLoadRst" key="55_3">
+            <data:unit name="TBOX_HardFtpUpdateFileDownLoadRst" key="85_3">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
@@ -648,12 +648,12 @@
                 <data:element name="errorCode" type="BYTE"/>          <!--默认0-->
             </data:unit>
             <!--T-Box Ftp 远程固件升级-->
-            <data:unit name="TBOX_HardFtpUpdateFileDownLoadAck" key="55_4">
+            <data:unit name="TBOX_HardFtpUpdateFileDownLoadAck" key="85_4">
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
             </data:unit>
             <!--T-Box Ftp 远程固件升级-->
-            <data:unit name="TBOX_HardFtpUpdateResult" key="55_5">
+            <data:unit name="TBOX_HardFtpUpdateResult" key="85_5">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
@@ -664,7 +664,7 @@
                 <data:element name="errorCode" type="BYTE"/>          <!--默认0-->
             </data:unit>
             <!--T-Box Ftp 远程固件升级-->
-            <data:unit name="TBOX_HardFtpUpdateResultAck" key="55_6">
+            <data:unit name="TBOX_HardFtpUpdateResultAck" key="85_6">
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
             </data:unit>
