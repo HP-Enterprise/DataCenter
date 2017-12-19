@@ -9,7 +9,7 @@ public class SoftFtpUpdateResult extends TBoxUpBean{
     private Short updateType;
     private String destVersion;
     private Short updateStep;
-    private Short downloadResult;
+    private Short updateResult;
     private Short errorCode;
 
     public Long getEventID() {
@@ -52,12 +52,12 @@ public class SoftFtpUpdateResult extends TBoxUpBean{
         this.updateStep = updateStep;
     }
 
-    public Short getDownloadResult() {
-        return downloadResult;
+    public Short getUpdateResult() {
+        return updateResult;
     }
 
-    public void setDownloadResult(Short downloadResult) {
-        this.downloadResult = downloadResult;
+    public void setUpdateResult(Short updateResult) {
+        this.updateResult = updateResult;
     }
 
     public Short getErrorCode() {

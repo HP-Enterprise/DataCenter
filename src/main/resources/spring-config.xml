@@ -543,11 +543,11 @@
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
-                <data:element name="updateType" type="BYTE"/>          <!--升级类型 1：下载 2：升级-->
+                <data:element name="updateType" type="U_INT_8"/>          <!--升级类型 1：下载 2：升级-->
                 <data:element name="destVersion" type="STRING" size="20"/>          <!--升级目标版本-->
-                <data:element name="updateStep" type="BYTE"/>          <!--升级步骤 1：下载 2：升级-->
-                <data:element name="downloadResult" type="BYTE"/>          <!--下载结果 1：成功 2：失败-->
-                <data:element name="errorCode" type="BYTE"/>          <!--默认0-->
+                <data:element name="updateStep" type="U_INT_8"/>          <!--升级步骤 1：下载 2：升级-->
+                <data:element name="downloadResult" type="U_INT_8"/>          <!--下载结果 1：成功 2：失败-->
+                <data:element name="errorCode" type="U_INT_8"/>          <!--默认0-->
             </data:unit>
             <!--T-Box Ftp 远程软件升级-->
             <data:unit name="TBOX_SoftFtpUpdateFileDownLoadAck" key="84_4">
@@ -559,11 +559,11 @@
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
-                <data:element name="updateType" type="BYTE"/>          <!--升级类型 1：下载 2：升级-->
+                <data:element name="updateType" type="U_INT_8"/>          <!--升级类型 1：下载 2：升级-->
                 <data:element name="destVersion" type="STRING" size="20"/>          <!--升级目标版本-->
-                <data:element name="updateStep" type="BYTE"/>          <!--升级步骤 1：下载 2：升级-->
-                <data:element name="updateResult" type="BYTE"/>          <!--升级结果 1：成功 2：失败-->
-                <data:element name="errorCode" type="BYTE"/>          <!--默认0-->
+                <data:element name="updateStep" type="U_INT_8"/>          <!--升级步骤 1：下载 2：升级-->
+                <data:element name="updateResult" type="U_INT_8"/>          <!--升级结果 1：成功 2：失败-->
+                <data:element name="errorCode" type="U_INT_8"/>          <!--默认0-->
             </data:unit>
             <!--T-Box Ftp 远程软件升级-->
             <data:unit name="TBOX_SoftFtpUpdateResultAck" key="84_6">
@@ -581,26 +581,26 @@
             <data:unit name="TBOX_HardFtpUpdateCheckResp" key="85_2">
                 <data:include name="dispatcherDown"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
-                <data:element name="model" type="BYTE"/>  <!--终端类型-->
+                <data:element name="model" type="U_INT_8"/>  <!--终端类型-->
                 <data:element name="fwDestVersion" type="STRING" size="20"/>  <!--固件目标版本号-->
                 <data:element name="fileName" type="STRING" size="50"/>  <!--升级包文件名-->
-                <data:element name="isUpdate" type="BYTE"/>  <!--是否需要升级 0：不需要 1：需要-->
+                <data:element name="isUpdate" type="U_INT_8"/>  <!--是否需要升级 0：不需要 1：需要-->
                 <data:element name="fwSrcVersion" type="STRING" size="20"/>  <!--固件原版本号-->
                 <data:element name="ftpIp" type="BYTE" size="4"/>  <!--升级服务器IP地址-->
                 <data:element name="ftpPort" type="U_INT_16"/>  <!--升级服务器端口-->
                 <data:element name="dialUserNumber" type="STRING" size="40"/>  <!--升级服务器拨号用户名-->
-                <data:element name="dialPin" type="STRING" size="20"/>  <!--升级服务器拨号密码-->
+                <data:element name="dialPin" type="STRING" size="40"/>  <!--升级服务器拨号密码-->
             </data:unit>
             <!--T-Box Ftp 远程固件升级-->
             <data:unit name="TBOX_HardFtpUpdateFileDownLoadRst" key="85_3">
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
-                <data:element name="updateType" type="BYTE"/>          <!--升级类型 1：下载 2：升级-->
+                <data:element name="updateType" type="U_INT_8"/>          <!--升级类型 1：下载 2：升级-->
                 <data:element name="destVersion" type="STRING" size="20"/>          <!--升级目标版本-->
-                <data:element name="updateStep" type="BYTE"/>          <!--升级步骤 1：下载 2：升级-->
-                <data:element name="downloadResult" type="BYTE"/>          <!--下载结果 1：成功 2：失败-->
-                <data:element name="errorCode" type="BYTE"/>          <!--默认0-->
+                <data:element name="updateStep" type="U_INT_8"/>          <!--升级步骤 1：下载 2：升级-->
+                <data:element name="downloadResult" type="U_INT_8"/>          <!--下载结果 1：成功 2：失败-->
+                <data:element name="errorCode" type="U_INT_8"/>          <!--默认0-->
             </data:unit>
             <!--T-Box Ftp 远程固件升级-->
             <data:unit name="TBOX_HardFtpUpdateFileDownLoadAck" key="85_4">
@@ -612,11 +612,11 @@
                 <data:include name="dispatcherUp"/>
                 <data:element name="eventID" type="U_INT_32"/>  <!--事件记录 ID 一个事件完成周期内使 用相同的 eventID-->
                 <data:element name="vin" type="STRING" size="17"/>          <!--车辆唯一识别码-->
-                <data:element name="updateType" type="BYTE"/>          <!--升级类型 1：下载 2：升级-->
+                <data:element name="updateType" type="U_INT_8"/>          <!--升级类型 1：下载 2：升级-->
                 <data:element name="destVersion" type="STRING" size="20"/>          <!--升级目标版本-->
-                <data:element name="updateStep" type="BYTE"/>          <!--升级步骤 1：下载 2：升级-->
-                <data:element name="updateResult" type="BYTE"/>          <!--升级结果 1：成功 2：失败-->
-                <data:element name="errorCode" type="BYTE"/>          <!--默认0-->
+                <data:element name="updateStep" type="U_INT_8"/>          <!--升级步骤 1：下载 2：升级-->
+                <data:element name="updateResult" type="U_INT_8"/>          <!--升级结果 1：成功 2：失败-->
+                <data:element name="errorCode" type="U_INT_8"/>          <!--默认0-->
             </data:unit>
             <!--T-Box Ftp 远程固件升级-->
             <data:unit name="TBOX_HardFtpUpdateResultAck" key="85_6">
