@@ -1,6 +1,7 @@
 package com.hp.data.bean.tbox;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.util.ReferenceCountUtil;
 
 public class RealTimeReportMesM82 extends TBoxUpBean{
 
@@ -46,65 +47,72 @@ public class RealTimeReportMesM82 extends TBoxUpBean{
      * @return
      */
     public RealTimeReportMesM82 decode(ByteBuf bb){
-        RealTimeReportMesM82 entity = new RealTimeReportMesM82();
-        entity.setHead(bb.readUnsignedShort());
-        entity.setLength(bb.readUnsignedShort());
-        entity.setTestFlag(bb.readUnsignedByte());
-        entity.setSendingTime(bb.readUnsignedInt());
-        entity.setApplicationID(bb.readUnsignedByte());
-        entity.setMessageID(bb.readUnsignedByte());
-        byte[] imei = getBytesFromByteBuf(bb.readBytes(15));
-        entity.setImei(new String(imei));
-        entity.setProtocolVersionNumber(bb.readUnsignedByte());
-        entity.setVehicleID(bb.readUnsignedByte());
-        entity.setVehicleModel(bb.readUnsignedByte());
-        entity.setTripID(bb.readUnsignedShort());
-        entity.setReserved(bb.readUnsignedShort());
-        entity.setEventID(bb.readUnsignedInt());
-        entity.setIsLocation(bb.readUnsignedByte());
-        entity.setLatitude(bb.readUnsignedInt());
-        entity.setLongitude(bb.readUnsignedInt());
-        entity.setSpeed(bb.readUnsignedShort());
-        entity.setHeading(bb.readUnsignedShort());
-        entity.setFuelOil(bb.readUnsignedByte());
-        entity.setAvgOilA(bb.readUnsignedShort());
-        entity.setAvgOilB(bb.readUnsignedShort());
-        entity.setServiceIntervall(bb.readUnsignedShort());
-        entity.setLeftFrontTirePressure(bb.readUnsignedByte());
-        entity.setLeftRearTirePressure(bb.readUnsignedByte());
-        entity.setRightFrontTirePressure(bb.readUnsignedByte());
-        entity.setRightRearTirePressure(bb.readUnsignedByte());
-        entity.setWindowInformation(bb.readUnsignedShort());
-        entity.setVehicleTemperature(bb.readUnsignedByte());
-        entity.setVehicleOuterTemperature(bb.readUnsignedByte());
-        entity.setDoorInformation(bb.readUnsignedByte());
-        byte[] bytes = new byte[3];
-        Short byte1 = bb.readUnsignedByte();
-        bytes[0] = byte1.byteValue();
-        Short byte2 = bb.readUnsignedByte();
-        bytes[1] = byte2.byteValue();
-        Short byte3 = bb.readUnsignedByte();
-        bytes[2] = byte3.byteValue();
-        entity.setKilometerMileage(bytes);
-        Short bonnetAndTrunk = bb.readUnsignedByte();
-        entity.setBonnetAndTrunk(bonnetAndTrunk.byteValue());
-        Short statWindow = bb.readUnsignedByte();
-        entity.setStatWindow(statWindow.byteValue());
-        entity.setAverageSpeedA(bb.readUnsignedShort());
-        entity.setAverageSpeedB(bb.readUnsignedShort());
-        entity.setSesam_clamp_stat(((Short)bb.readUnsignedByte()).byteValue());
-        entity.setBcm_light(((Short)bb.readUnsignedByte()).byteValue());
-        entity.setTcu_ecu_stat(((Short)bb.readUnsignedByte()).byteValue());
-        entity.setBcm_stat_central_Lock(((Short)bb.readUnsignedByte()).byteValue());
-        entity.setAcm_crash_status(((Short)bb.readUnsignedByte()).byteValue());
-        entity.setDrivingRange(bb.readUnsignedShort());
-        entity.setVoltage(bb.readUnsignedShort());
-        entity.setMt_gear_position(((Short)bb.readUnsignedByte()).byteValue());
-        entity.setEngineState(bb.readUnsignedByte());
-        entity.setDoorLockState(((Short)bb.readUnsignedByte()).byteValue());
-        entity.setBlowState(((Short)bb.readUnsignedByte()).byteValue());
-        entity.setAcState(((Short)bb.readUnsignedByte()).byteValue());
-        entity.setCheckSum(((Short)bb.readUnsignedByte()).byteValue());
+        RealTimeReportMesM82 entity;
+        try {
+            entity = new RealTimeReportMesM82();
+            entity.setHead(bb.readUnsignedShort());
+            entity.setLength(bb.readUnsignedShort());
+            entity.setTestFlag(bb.readUnsignedByte());
+            entity.setSendingTime(bb.readUnsignedInt());
+            entity.setApplicationID(bb.readUnsignedByte());
+            entity.setMessageID(bb.readUnsignedByte());
+            //byte[] imei = getBytesFromByteBuf(bb.readBytes(15));
+            byte[] imei = new byte[15];
+            bb.readBytes(imei);
+            entity.setImei(new String(imei));
+            entity.setProtocolVersionNumber(bb.readUnsignedByte());
+            entity.setVehicleID(bb.readUnsignedByte());
+            entity.setVehicleModel(bb.readUnsignedByte());
+            entity.setTripID(bb.readUnsignedShort());
+            entity.setReserved(bb.readUnsignedShort());
+            entity.setEventID(bb.readUnsignedInt());
+            entity.setIsLocation(bb.readUnsignedByte());
+            entity.setLatitude(bb.readUnsignedInt());
+            entity.setLongitude(bb.readUnsignedInt());
+            entity.setSpeed(bb.readUnsignedShort());
+            entity.setHeading(bb.readUnsignedShort());
+            entity.setFuelOil(bb.readUnsignedByte());
+            entity.setAvgOilA(bb.readUnsignedShort());
+            entity.setAvgOilB(bb.readUnsignedShort());
+            entity.setServiceIntervall(bb.readUnsignedShort());
+            entity.setLeftFrontTirePressure(bb.readUnsignedByte());
+            entity.setLeftRearTirePressure(bb.readUnsignedByte());
+            entity.setRightFrontTirePressure(bb.readUnsignedByte());
+            entity.setRightRearTirePressure(bb.readUnsignedByte());
+            entity.setWindowInformation(bb.readUnsignedShort());
+            entity.setVehicleTemperature(bb.readUnsignedByte());
+            entity.setVehicleOuterTemperature(bb.readUnsignedByte());
+            entity.setDoorInformation(bb.readUnsignedByte());
+            byte[] bytes = new byte[3];
+            Short byte1 = bb.readUnsignedByte();
+            bytes[0] = byte1.byteValue();
+            Short byte2 = bb.readUnsignedByte();
+            bytes[1] = byte2.byteValue();
+            Short byte3 = bb.readUnsignedByte();
+            bytes[2] = byte3.byteValue();
+            entity.setKilometerMileage(bytes);
+            Short bonnetAndTrunk = bb.readUnsignedByte();
+            entity.setBonnetAndTrunk(bonnetAndTrunk.byteValue());
+            Short statWindow = bb.readUnsignedByte();
+            entity.setStatWindow(statWindow.byteValue());
+            entity.setAverageSpeedA(bb.readUnsignedShort());
+            entity.setAverageSpeedB(bb.readUnsignedShort());
+            entity.setSesam_clamp_stat(((Short)bb.readUnsignedByte()).byteValue());
+            entity.setBcm_light(((Short)bb.readUnsignedByte()).byteValue());
+            entity.setTcu_ecu_stat(((Short)bb.readUnsignedByte()).byteValue());
+            entity.setBcm_stat_central_Lock(((Short)bb.readUnsignedByte()).byteValue());
+            entity.setAcm_crash_status(((Short)bb.readUnsignedByte()).byteValue());
+            entity.setDrivingRange(bb.readUnsignedShort());
+            entity.setVoltage(bb.readUnsignedShort());
+            entity.setMt_gear_position(((Short)bb.readUnsignedByte()).byteValue());
+            entity.setEngineState(bb.readUnsignedByte());
+            entity.setDoorLockState(((Short)bb.readUnsignedByte()).byteValue());
+            entity.setBlowState(((Short)bb.readUnsignedByte()).byteValue());
+            entity.setAcState(((Short)bb.readUnsignedByte()).byteValue());
+            entity.setCheckSum(((Short)bb.readUnsignedByte()).byteValue());
+        } finally {
+            ReferenceCountUtil.release(bb);
+        }
 
         return entity;
     }
